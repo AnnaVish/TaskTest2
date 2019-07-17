@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563194534040" stop="1563194541277" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка главных предложений</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563194534041" stop="1563194541277" status="broken">
+            <name>Проверка перехода по главным предложениям</name>
+            <title>Проверка перехода по главным предложениям</title>
+            <description type="text"></description>
+            <failure>
+                <message>StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=75.0.3770.100)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '10.10.15.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\Mark100F\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:22859}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7ac63ff5b1555620bd9e73a0c4ea337a</message>
+                <stack-trace>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=75.0.3770.100)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '10.10.15.42', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\Mark100F\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:22859}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7ac63ff5b1555620bd9e73a0c4ea337a
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:190)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:124)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:355)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:211)
+	at base.TestBase.waitForVisibility(TestBase.java:99)
+	at base.TestBase.waitForVisibility(TestBase.java:94)
+	at base.TestBase.allElementsAreVisible(TestBase.java:76)
+	at pages.CreditsPage.pageIsDisplayed(CreditsPage.java:80)
+	at stepDefinitions.MainPageStepDeffinitions.creditsPageIsDisplayed(MainPageStepDeffinitions.java:40)
+	at ✽.Тогда отображается страница Кредиты(mainOffers.feature:12)
+</stack-trace>
+            </failure>
+            <steps>
+                <step start="1563194535783" stop="1563194539056" status="passed">
+                    <name>Дано пользователь нахоидится на главной странице</name>
+                    <title>Дано пользователь нахоидится на главной странице</title>
+                </step>
+                <step start="1563194539056" stop="1563194539235" status="passed">
+                    <name>Когда пользователь кликает на Кредиты</name>
+                    <title>Когда пользователь кликает на Кредиты</title>
+                </step>
+                <step start="1563194539235" stop="1563194540550" status="broken">
+                    <name>Тогда отображается страница Кредиты</name>
+                    <title>Тогда отображается страница Кредиты</title>
+                </step>
+                <step start="1563194540550" stop="1563194540551" status="canceled">
+                    <name>Когда пользователь кликает на Кредитные карты</name>
+                    <title>Когда пользователь кликает на Кредитные карты</title>
+                </step>
+                <step start="1563194540551" stop="1563194540551" status="canceled">
+                    <name>Тогда отображается страница Кредитные карты</name>
+                    <title>Тогда отображается страница Кредитные карты</title>
+                </step>
+                <step start="1563194540552" stop="1563194540552" status="canceled">
+                    <name>Когда пользователь заполняет кликает на Автокредиты</name>
+                    <title>Когда пользователь заполняет кликает на Автокредиты</title>
+                </step>
+                <step start="1563194540552" stop="1563194540553" status="canceled">
+                    <name>Тогда отображается страница Автокредиты</name>
+                    <title>Тогда отображается страница Автокредиты</title>
+                </step>
+                <step start="1563194540553" stop="1563194540553" status="canceled">
+                    <name>Когда пользователь заполняет кликает на Ипотека</name>
+                    <title>Когда пользователь заполняет кликает на Ипотека</title>
+                </step>
+                <step start="1563194540554" stop="1563194540554" status="canceled">
+                    <name>Тогда отображается страница Ипотека</name>
+                    <title>Тогда отображается страница Ипотека</title>
+                </step>
+                <step start="1563194540554" stop="1563194540555" status="canceled">
+                    <name>Когда пользователь заполняет кликает на Микрозаймы</name>
+                    <title>Когда пользователь заполняет кликает на Микрозаймы</title>
+                </step>
+                <step start="1563194540555" stop="1563194540555" status="canceled">
+                    <name>Тогда отображается страница Микрозаймы</name>
+                    <title>Тогда отображается страница Микрозаймы</title>
+                </step>
+                <step start="1563194540556" stop="1563194540556" status="canceled">
+                    <name>Когда пользователь заполняет кликает на Кредитные отчеты</name>
+                    <title>Когда пользователь заполняет кликает на Кредитные отчеты</title>
+                </step>
+                <step start="1563194540557" stop="1563194540558" status="canceled">
+                    <name>Тогда отображается страница Кредитные отчеты</name>
+                    <title>Тогда отображается страница Кредитные отчеты</title>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="2"/>
+                <label name="story" value="Проверка перехода по главным предложениям"/>
+                <label name="feature" value="Проверка главных предложений"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="19280@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка главных предложений"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

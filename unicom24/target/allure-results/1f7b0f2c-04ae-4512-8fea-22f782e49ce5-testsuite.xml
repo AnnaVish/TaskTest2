@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1562316721859" stop="1562316743989" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка создания каталога</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1562316721907" stop="1562316743958" status="passed">
+            <name>Мастер-пользователь создает каталог</name>
+            <title>Мастер-пользователь создает каталог</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1562316721912" stop="1562316731882" status="passed">
+                    <name>Дано пользователь залогинлся под мастер-пользователем</name>
+                    <title>Дано пользователь залогинлся под мастер-пользователем</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316731883" stop="1562316732059" status="passed">
+                    <name>Когда пользователь кликает на шестеренку</name>
+                    <title>Когда пользователь кликает на шестеренку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316732060" stop="1562316733644" status="passed">
+                    <name>Тогда отображается меню для Мастера</name>
+                    <title>Тогда отображается меню для Мастера</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316733645" stop="1562316733992" status="passed">
+                    <name>И отображается страница "Реестр обращений"</name>
+                    <title>И отображается страница "Реестр обращений"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316733992" stop="1562316734180" status="passed">
+                    <name>Когда пользователь кликает по вкладке "Катлоги"</name>
+                    <title>Когда пользователь кликает по вкладке "Катлоги"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316734180" stop="1562316734483" status="passed">
+                    <name>Тогда отображается страница "Каталоги"</name>
+                    <title>Тогда отображается страница "Каталоги"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316734483" stop="1562316734679" status="passed">
+                    <name>Когда пользователь кликает на кнопку создать</name>
+                    <title>Когда пользователь кликает на кнопку создать</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316734680" stop="1562316734864" status="passed">
+                    <name>Тогда пользователь видит меню создания мастер-каталога</name>
+                    <title>Тогда пользователь видит меню создания мастер-каталога</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316734864" stop="1562316743746" status="passed">
+                    <name>И пользователь создает каталог</name>
+                    <title>И пользователь создает каталог</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1562316743747" stop="1562316743957" status="passed">
+                    <name>И пользователь видит новый каталог</name>
+                    <title>И пользователь видит новый каталог</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="2"/>
+                <label name="story" value="Мастер-пользователь создает каталог"/>
+                <label name="feature" value="Проверка создания каталога"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="3180@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка создания каталога"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

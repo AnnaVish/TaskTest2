@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563362515151" stop="1563362517654" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка поиска банка</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563362515153" stop="1563362517654" status="pending">
+            <name>Вбили название банка - увидели правильный результат</name>
+            <title>Вбили название банка - увидели правильный результат</title>
+            <description type="text"></description>
+            <failure>
+                <message>Unimplemented steps were found</message>
+                <stack-trace>There are no stack trace</stack-trace>
+            </failure>
+            <steps>
+                <step start="1563362516979" stop="1563362516981" status="canceled">
+                    <name>пользователь нахоидится на странице Список банков</name>
+                    <title>пользователь нахоидится на странице Список банков</title>
+                </step>
+                <step start="1563362516984" stop="1563362516985" status="canceled">
+                    <name>Когда пользователь вбивает "Тинькофф" в поле ввода</name>
+                    <title>Когда пользователь вбивает "Тинькофф" в поле ввода</title>
+                </step>
+                <step start="1563362516985" stop="1563362516986" status="canceled">
+                    <name>И пользователь наживает на кнопку поиск</name>
+                    <title>И пользователь наживает на кнопку поиск</title>
+                </step>
+                <step start="1563362516986" stop="1563362516987" status="canceled">
+                    <name>Тогда на странице появляется ссылка на "Тинькофф"</name>
+                    <title>Тогда на странице появляется ссылка на "Тинькофф"</title>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="7"/>
+                <label name="story" value="Вбили название банка - увидели правильный результат"/>
+                <label name="feature" value="Проверка поиска банка"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="19612@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка поиска банка"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

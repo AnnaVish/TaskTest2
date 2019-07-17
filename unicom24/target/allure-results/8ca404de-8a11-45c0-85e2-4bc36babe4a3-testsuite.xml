@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563362507750" stop="1563362515102" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка отображения всех элементов на главной</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563362507751" stop="1563362515101" status="passed">
+            <name>Все элементы есть на главной странице</name>
+            <title>Все элементы есть на главной странице</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1563362509533" stop="1563362512035" status="passed">
+                    <name>Дано пользователь нахоидится на главной странице</name>
+                    <title>Дано пользователь нахоидится на главной странице</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362512036" stop="1563362514393" status="passed">
+                    <name>Тогда все элементы главной страницы видны</name>
+                    <title>Тогда все элементы главной страницы видны</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="4"/>
+                <label name="story" value="Все элементы есть на главной странице"/>
+                <label name="feature" value="Проверка отображения всех элементов на главной"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="19612@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка отображения всех элементов на главной"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563362810326" stop="1563362822692" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка блока Полезные услуги</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563362810328" stop="1563362822691" status="passed">
+            <name>Переходы в блоке Полезные услуги</name>
+            <title>Переходы в блоке Полезные услуги</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1563362811953" stop="1563362814945" status="passed">
+                    <name>Дано пользователь нахоидится на главной странице</name>
+                    <title>Дано пользователь нахоидится на главной странице</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362814945" stop="1563362815108" status="passed">
+                    <name>Когда пользователь кликает получить рейтинг финансового здоровья</name>
+                    <title>Когда пользователь кликает получить рейтинг финансового здоровья</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362815108" stop="1563362817082" status="passed">
+                    <name>Тогда отображается страница авторизации</name>
+                    <title>Тогда отображается страница авторизации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362817082" stop="1563362817919" status="passed">
+                    <name>Когда пользователь кликает получить Кредитный отчет</name>
+                    <title>Когда пользователь кликает получить Кредитный отчет</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362817919" stop="1563362819453" status="passed">
+                    <name>Тогда отображается страница авторизации</name>
+                    <title>Тогда отображается страница авторизации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362819453" stop="1563362820352" status="passed">
+                    <name>Когда пользователь кликает получить FICIO</name>
+                    <title>Когда пользователь кликает получить FICIO</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362820352" stop="1563362821984" status="passed">
+                    <name>Тогда отображается страница авторизации</name>
+                    <title>Тогда отображается страница авторизации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="3"/>
+                <label name="story" value="Переходы в блоке Полезные услуги"/>
+                <label name="feature" value="Проверка блока Полезные услуги"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="17716@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка блока Полезные услуги"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

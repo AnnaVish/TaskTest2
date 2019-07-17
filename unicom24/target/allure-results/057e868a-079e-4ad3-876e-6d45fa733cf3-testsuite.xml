@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1562240208416" stop="1562240223344" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка создания каталога</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1562240208493" stop="1562240223342" status="broken">
+            <name>Мастер-пользователь создает каталог</name>
+            <title>Мастер-пользователь создает каталог</title>
+            <description type="text"></description>
+            <failure>
+                <message>JsonException: java.lang.reflect.InvocationTargetException
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '192.168.1.34', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: driver.version: RemoteWebDriver</message>
+                <stack-trace>org.openqa.selenium.json.JsonException: java.lang.reflect.InvocationTargetException
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '192.168.1.34', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:326)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:148)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$21(JsonOutput.java:161)
+	at java.base/java.util.LinkedHashMap$LinkedValues.forEach(LinkedHashMap.java:608)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$22(JsonOutput.java:161)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:170)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:169)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:248)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:231)
+	at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:120)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:155)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:647)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:613)
+	at org.openqa.selenium.interactions.Actions.perform(Actions.java:569)
+	at base.TestBase.scrollTo(TestBase.java:80)
+	at pages.CatalogPage.chooseCategoty(CatalogPage.java:69)
+	at stepDefinitions.CatalogPageStepDefinitions.createCatalog(CatalogPageStepDefinitions.java:31)
+	at ✽.И пользователь создает каталог(catalog.feature:18)
+	Suppressed: org.openqa.selenium.json.JsonException: Attempting to close incomplete json stream
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '192.168.1.34', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: driver.version: RemoteWebDriver
+		at org.openqa.selenium.json.JsonOutput.close(JsonOutput.java:273)
+		at org.openqa.selenium.json.Json.toJson(Json.java:44)
+		at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:231)
+		at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:120)
+		at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:155)
+		at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+		at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+		at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:647)
+		at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:613)
+		at org.openqa.selenium.interactions.Actions.perform(Actions.java:569)
+		at base.TestBase.scrollTo(TestBase.java:80)
+		at pages.CatalogPage.chooseCategoty(CatalogPage.java:69)
+		at stepDefinitions.CatalogPageStepDefinitions.createCatalog(CatalogPageStepDefinitions.java:31)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+		at cucumber.runtime.Utils$1.call(Utils.java:40)
+		at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+		at cucumber.runtime.Utils.invoke(Utils.java:34)
+		at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+		at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+		at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+		at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+		at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+		at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+		at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+		at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+		at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+		at org.junit.runners.ParentRunner$4.run(ParentRunner.java:330)
+		at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:78)
+		at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:328)
+		at org.junit.runners.ParentRunner.access$100(ParentRunner.java:65)
+		at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:292)
+		at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:305)
+		at org.junit.runners.ParentRunner.run(ParentRunner.java:412)
+		at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+		at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+		at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+		at org.junit.runners.ParentRunner$4.run(ParentRunner.java:330)
+		at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:78)
+		at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:328)
+		at org.junit.runners.ParentRunner.access$100(ParentRunner.java:65)
+		at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:292)
+		at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+		at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:305)
+		at org.junit.runners.ParentRunner.run(ParentRunner.java:412)
+		at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+		at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+		at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+		at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+		at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+		at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.openqa.selenium.json.JsonOutput.convertUsingMethod(JsonOutput.java:322)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$16(JsonOutput.java:148)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$21(JsonOutput.java:161)
+	at java.base/java.util.LinkedHashMap$LinkedValues.forEach(LinkedHashMap.java:608)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$22(JsonOutput.java:161)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.lambda$null$23(JsonOutput.java:170)
+	at com.google.common.collect.SingletonImmutableBiMap.forEach(SingletonImmutableBiMap.java:65)
+	at org.openqa.selenium.json.JsonOutput.lambda$new$24(JsonOutput.java:169)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:257)
+	at org.openqa.selenium.json.JsonOutput.write(JsonOutput.java:248)
+	at org.openqa.selenium.json.Json.toJson(Json.java:42)
+	at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:231)
+	at org.openqa.selenium.remote.codec.AbstractHttpCommandCodec.encode(AbstractHttpCommandCodec.java:120)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:155)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:647)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:613)
+	at org.openqa.selenium.interactions.Actions.perform(Actions.java:569)
+	at base.TestBase.scrollTo(TestBase.java:80)
+	at pages.CatalogPage.chooseCategoty(CatalogPage.java:69)
+	at stepDefinitions.CatalogPageStepDefinitions.createCatalog(CatalogPageStepDefinitions.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:330)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:78)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:328)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:65)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:292)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:305)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:412)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:330)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:78)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:328)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:65)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:292)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:305)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:412)
+	at cucumber.api.junit.Cucumber.run(Cucumber.java:100)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//options[contains(text(), '4.14.3 Лекарственные средства')]"}
+  (Session info: chrome=75.0.3770.100)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '192.168.1.34', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\Mark100F\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:4530}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 142526bcccc9af28f692b77ef59798b2
+*** Element info: {Using=xpath, value=//options[contains(text(), '4.14.3 Лекарственные средства')]}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:190)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:124)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:328)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:446)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:320)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy22.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.interactions.PointerInput$Origin.asArg(PointerInput.java:204)
+	at org.openqa.selenium.interactions.PointerInput$Move.encode(PointerInput.java:155)
+	at org.openqa.selenium.interactions.Sequence.encode(Sequence.java:73)
+	at org.openqa.selenium.interactions.Sequence.toJson(Sequence.java:82)
+	... 68 more
+</stack-trace>
+            </failure>
+            <steps>
+                <step start="1562240208498" stop="1562240219036" status="passed">
+                    <name>Дано пользователь залогинлся под мастер-пользователем</name>
+                    <title>Дано пользователь залогинлся под мастер-пользователем</title>
+                </step>
+                <step start="1562240219036" stop="1562240219290" status="passed">
+                    <name>Когда пользователь кликает на шестеренку</name>
+                    <title>Когда пользователь кликает на шестеренку</title>
+                </step>
+                <step start="1562240219291" stop="1562240221046" status="passed">
+                    <name>Тогда отображается меню для Мастера</name>
+                    <title>Тогда отображается меню для Мастера</title>
+                </step>
+                <step start="1562240221046" stop="1562240221389" status="passed">
+                    <name>И отображается страница "Реестр обращений"</name>
+                    <title>И отображается страница "Реестр обращений"</title>
+                </step>
+                <step start="1562240221390" stop="1562240221588" status="passed">
+                    <name>Когда пользователь кликает по вкладке "Катлоги"</name>
+                    <title>Когда пользователь кликает по вкладке "Катлоги"</title>
+                </step>
+                <step start="1562240221588" stop="1562240221957" status="passed">
+                    <name>Тогда отображается страница "Каталоги"</name>
+                    <title>Тогда отображается страница "Каталоги"</title>
+                </step>
+                <step start="1562240221958" stop="1562240222190" status="passed">
+                    <name>Когда пользователь кликает на кнопку создать</name>
+                    <title>Когда пользователь кликает на кнопку создать</title>
+                </step>
+                <step start="1562240222190" stop="1562240222396" status="passed">
+                    <name>Тогда пользователь видит меню создания мастер-каталога</name>
+                    <title>Тогда пользователь видит меню создания мастер-каталога</title>
+                </step>
+                <step start="1562240222396" stop="1562240223340" status="broken">
+                    <name>И пользователь создает каталог</name>
+                    <title>И пользователь создает каталог</title>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="2"/>
+                <label name="story" value="Мастер-пользователь создает каталог"/>
+                <label name="feature" value="Проверка создания каталога"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="9952@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка создания каталога"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

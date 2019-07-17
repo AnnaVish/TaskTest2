@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563362485215" stop="1563362507703" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка главных предложений</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563362485216" stop="1563362507702" status="passed">
+            <name>Проверка перехода по главным предложениям</name>
+            <title>Проверка перехода по главным предложениям</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1563362487237" stop="1563362490509" status="passed">
+                    <name>Дано пользователь нахоидится на главной странице</name>
+                    <title>Дано пользователь нахоидится на главной странице</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362490510" stop="1563362490623" status="passed">
+                    <name>Когда пользователь кликает на Кредиты</name>
+                    <title>Когда пользователь кликает на Кредиты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362490623" stop="1563362493808" status="passed">
+                    <name>Тогда отображается страница Кредиты</name>
+                    <title>Тогда отображается страница Кредиты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362493808" stop="1563362495035" status="passed">
+                    <name>Когда пользователь кликает на Кредитные карты</name>
+                    <title>Когда пользователь кликает на Кредитные карты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362495036" stop="1563362496340" status="passed">
+                    <name>Тогда отображается страница Кредитные карты</name>
+                    <title>Тогда отображается страница Кредитные карты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362496340" stop="1563362497706" status="passed">
+                    <name>Когда пользователь заполняет кликает на Автокредиты</name>
+                    <title>Когда пользователь заполняет кликает на Автокредиты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362497706" stop="1563362499131" status="passed">
+                    <name>Тогда отображается страница Автокредиты</name>
+                    <title>Тогда отображается страница Автокредиты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362499132" stop="1563362500213" status="passed">
+                    <name>Когда пользователь заполняет кликает на Ипотека</name>
+                    <title>Когда пользователь заполняет кликает на Ипотека</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362500213" stop="1563362501653" status="passed">
+                    <name>Тогда отображается страница Ипотека</name>
+                    <title>Тогда отображается страница Ипотека</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362501653" stop="1563362502700" status="passed">
+                    <name>Когда пользователь заполняет кликает на Микрозаймы</name>
+                    <title>Когда пользователь заполняет кликает на Микрозаймы</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362502701" stop="1563362505153" status="passed">
+                    <name>Тогда отображается страница Микрозаймы</name>
+                    <title>Тогда отображается страница Микрозаймы</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362505154" stop="1563362506054" status="passed">
+                    <name>Когда пользователь заполняет кликает на Кредитные отчеты</name>
+                    <title>Когда пользователь заполняет кликает на Кредитные отчеты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362506055" stop="1563362507030" status="passed">
+                    <name>Тогда отображается страница Кредитные отчеты</name>
+                    <title>Тогда отображается страница Кредитные отчеты</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="2"/>
+                <label name="story" value="Проверка перехода по главным предложениям"/>
+                <label name="feature" value="Проверка главных предложений"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="19612@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка главных предложений"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

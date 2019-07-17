@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1562927994386" stop="1562928024282" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Регистрация в кабинете вебмастера</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1562927994427" stop="1562928024280" status="broken">
+            <name>Проверка заполненности всех необходимых полей</name>
+            <title>Проверка заполненности всех необходимых полей</title>
+            <description type="text"></description>
+            <failure>
+                <message>UnableToSetCookieException: unable to set cookie
+  (Session info: chrome=75.0.3770.100)
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '10.212.134.212', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\Mark100F\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:37219}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61b7a950ca3b37a8bc4ef08a749dac92</message>
+                <stack-trace>org.openqa.selenium.UnableToSetCookieException: unable to set cookie
+  (Session info: chrome=75.0.3770.100)
+Build info: version: '4.0.0-alpha-1', revision: 'd1d3728cae', time: '2019-04-24T13:42:21'
+System info: host: 'LAPTOP-AOR21S0A', ip: '10.212.134.212', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '12.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\Mark100F\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:37219}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61b7a950ca3b37a8bc4ef08a749dac92
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:190)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:124)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:577)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions.addCookie(RemoteWebDriver.java:715)
+	at base.TestBase.setUpCookie(TestBase.java:34)
+	at stepDefinitions.RegisterStepDefinitions.onRegistrationPage(RegisterStepDefinitions.java:15)
+	at ✽.Дано пользователь нахоидится на странице авторизации(catalog.feature:10)
+</stack-trace>
+            </failure>
+            <steps>
+                <step start="1562927997778" stop="1562928023596" status="broken">
+                    <name>Дано пользователь нахоидится на странице авторизации</name>
+                    <title>Дано пользователь нахоидится на странице авторизации</title>
+                </step>
+                <step start="1562928023596" stop="1562928023599" status="canceled">
+                    <name>Когда пользователь заполняет все поля, занятый email и отпарвляет форму</name>
+                    <title>Когда пользователь заполняет все поля, занятый email и отпарвляет форму</title>
+                </step>
+                <step start="1562928023599" stop="1562928023600" status="canceled">
+                    <name>Тогда видна ошибка что адрес занят</name>
+                    <title>Тогда видна ошибка что адрес занят</title>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="1"/>
+                <label name="story" value="Проверка заполненности всех необходимых полей"/>
+                <label name="feature" value="Регистрация в кабинете вебмастера"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="7628@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Регистрация в кабинете вебмастера"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1563362894272" stop="1563362901697" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Проверка отображения всех элементов на странице список банков</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1563362894315" stop="1563362901673" status="passed">
+            <name>Все элементы есть на странице список банков</name>
+            <title>Все элементы есть на странице список банков</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1563362896674" stop="1563362899016" status="passed">
+                    <name>Дано пользователь нахоидится на главной странице</name>
+                    <title>Дано пользователь нахоидится на главной странице</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362899016" stop="1563362899157" status="passed">
+                    <name>Когда пользователь кликает Посмотреть все банки и МФО</name>
+                    <title>Когда пользователь кликает Посмотреть все банки и МФО</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1563362899157" stop="1563362900973" status="passed">
+                    <name>Тогда отображается страница Все банки</name>
+                    <title>Тогда отображается страница Все банки</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="testId" value="6"/>
+                <label name="story" value="Все элементы есть на странице список банков"/>
+                <label name="feature" value="Проверка отображения всех элементов на странице список банков"/>
+                <label name="host" value="LAPTOP-AOR21S0A"/>
+                <label name="thread" value="10828@LAPTOP-AOR21S0A.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Проверка отображения всех элементов на странице список банков"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>
