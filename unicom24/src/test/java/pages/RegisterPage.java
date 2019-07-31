@@ -1,6 +1,6 @@
 package pages;
 
-import base.TestBase;
+import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class RegisterPage extends TestBase {
+public class RegisterPage extends Base {
 
     private String organisationName = "АвтоПартнер";
     private String lastName = "Автопартнер";
@@ -69,7 +69,7 @@ public class RegisterPage extends TestBase {
     }
 
     public static void onRegistrationPage() {
-        TestBase.onRegistrationPage();
+        Base.onRegistrationPage();
     }
 
     public void fillFildsWithTakenEmail() {

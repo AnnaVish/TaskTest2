@@ -1,6 +1,6 @@
 package pages;
 
-import base.TestBase;
+import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class BankList extends TestBase {
+public class BankList extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Список банков')]")
     private WebElement pageTitle;

@@ -1,10 +1,9 @@
 package runners;
 
-import base.TestBase;
+import base.Base;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
-import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -17,6 +16,6 @@ import org.junit.runner.RunWith;
         monochrome = true,
         plugin = "ru.yandex.qatools.allure.cucumberjvm.AllureReporter"
 )
-public class firstTestRunner extends TestBase {
+public class TestFirstRunner extends Base {
 
 }

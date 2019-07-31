@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-public abstract class TestBase {
+public abstract class Base {
 
     /**
      * Default timeout for waiting

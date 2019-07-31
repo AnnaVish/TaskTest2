@@ -1,13 +1,13 @@
 package stepDefinitions;
 
-import base.TestBase;
+import base.Base;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.*;
 
 
-public class MainPageStepDeffinitions extends TestBase {
+public class MainPageStepDeffinitions extends Base {
 
     private final MainPage mainPage = new MainPage();
 

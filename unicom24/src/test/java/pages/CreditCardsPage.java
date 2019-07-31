@@ -1,6 +1,6 @@
 package pages;
 
-import base.TestBase;
+import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class CreditCardsPage extends TestBase {
+public class CreditCardsPage extends Base {
 
     @FindBy(id = "kreditnye-karty_offerid2002059_img")
     private WebElement alfaCreditLogo;

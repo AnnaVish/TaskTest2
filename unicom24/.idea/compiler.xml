@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GP" />
+        <module name="UNICOM24" />
       </profile>
     </annotationProcessing>
   </component>
