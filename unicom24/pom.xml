@@ -19,6 +19,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <allure.version>1.5.2</allure.version>
+        <cucumberjvm.version>1.2.5</cucumberjvm.version>
+        <aspectj.version>1.8.4</aspectj.version>
+        <browser.height>1080</browser.height>
+        <browser.width>1920</browser.width>
+        <includes>**/runners/TestFirstRunner.java</includes>
+
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
