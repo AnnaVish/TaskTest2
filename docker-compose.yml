@@ -1,7 +1,7 @@
 version: '3'
 services:
   autotests:
-    container_name: unicom24_autotests
+    container_name: unicom_autotests
     build: .
     volumes:
       - ./unicom24:/srv/java
