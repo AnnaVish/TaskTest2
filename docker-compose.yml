@@ -1,0 +1,8 @@
+version: '3'
+services:
+  autotests:
+    build: .
+    volumes:
+      - ./unicom24:/srv/java
+    env_file:
+      - .env
