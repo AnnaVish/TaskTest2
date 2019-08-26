@@ -14,7 +14,7 @@ public class Hooks extends Base {
     public void setup() {
         public void onMainPage() {
         System.out.println(PagesUrls.mainPage);
-        }
+        };
         if (SystemUtils.IS_OS_LINUX) {
             System.setProperty("webdriver.chrome.driver", BaseProperties.driverDirLinux );
 
