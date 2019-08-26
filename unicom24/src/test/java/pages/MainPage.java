@@ -76,7 +76,15 @@ public class MainPage extends Base {
                 bannerImage);
     }
 
+    public static String mainPage = baseUrl();
+
+    public static String baseUrl(){
+        String base = System.getenv("TESTING_HOST");
+        return "https://" + base;
+    }
+
     public void onMainPage() {
+        System.out.println(mainPage);
         driver.get("https://develop-39.vuaro.ru");
     }
 
