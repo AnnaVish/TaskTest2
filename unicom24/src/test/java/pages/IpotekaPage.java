@@ -1,6 +1,7 @@
 package pages;
 
 import base.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,26 +11,24 @@ import java.util.List;
 
 public class IpotekaPage extends Base {
 
-    @FindBy(id = "ipoteka_offerid2002259_img")
-    private WebElement  otkritieBankLogo;
+    @FindBy(css = ".offers-list-row .offer-online")
+    private WebElement getCreditBtn;
 
-    @FindBy(id = "ipoteka_offerid2002259_btn")
-    private WebElement  otkritieBankBtn;
-
-    @FindBy(id = "ipoteka_offerid2002278_img")
-    private WebElement  finResurseLogo;
-
-    @FindBy(id = "ipoteka_offerid2002278_btn")
-    private WebElement  finResurseBtn;
+    @FindBy(css = ".form-offers-small .form-one")
+    private WebElement formOffer;
 
     public final List<WebElement> elements;
 
     public IpotekaPage() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(otkritieBankLogo, otkritieBankBtn, finResurseLogo, finResurseBtn);
+        elements = Arrays.asList(getCreditBtn, formOffer);
     }
 
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
+    }
+
+    public Boolean offersOnPageEqual5(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() == 5;
     }
 }

@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Тогда;
+import org.junit.Assert;
 import pages.BankList;
 
 public class AllBanksStepDefinitions {
@@ -16,9 +17,10 @@ public class AllBanksStepDefinitions {
     @Тогда("^отображается страница Все банки$")
     public void allBanksPageAreDisplayed() {
         bankList.bankListPageIsDisplayed();
+        Assert.assertTrue(bankList.banksOnPageEqual5());
     }
 
-    @Тогда("^пользователь вбивает \"([^\"]*)\" в поле ввода$")
+    @Тогда("^пользователь вводит \"([^\"]*)\" в поле ввода$")
     public void fillFieldWithNameOfBank(String nameOfBank) {
         bankList.fillSearchInput(nameOfBank);
     }

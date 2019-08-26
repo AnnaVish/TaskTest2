@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.ru.Тогда;
+import org.junit.Assert;
 import pages.MicroCreditsPage;
 
 public class MicroCreditsPageStepDefinitions {
@@ -10,5 +11,6 @@ public class MicroCreditsPageStepDefinitions {
     @Тогда("^отображается страница Микрозаймы$")
     public void microCreditsIsDisplayed() {
         microCreditsPage.pageIsDisplyed();
+        Assert.assertTrue(microCreditsPage.offersOnPageEqual23());
     }
 }

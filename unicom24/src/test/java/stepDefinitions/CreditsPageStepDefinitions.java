@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.ru.Тогда;
+import org.junit.Assert;
 import pages.CreditsPage;
 
 public class CreditsPageStepDefinitions {
@@ -10,5 +11,6 @@ public class CreditsPageStepDefinitions {
     @Тогда("^отображается страница Кредиты$")
     public void creditsPageIsDisplayed() {
         creditsPage.pageIsDisplayed();
+        Assert.assertTrue(creditsPage.offersOnPageEqual10());
     }
 }
