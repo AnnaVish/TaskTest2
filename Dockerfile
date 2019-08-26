@@ -9,3 +9,5 @@ RUN apt install -qq language-pack-en language-pack-ru -y
 #java and maven for tests
 RUN apt install -qq openjdk-8-jdk-headless maven -y
 USER seluser
+WORKDIR /srv/autotests
+COPY ./ ./
