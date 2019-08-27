@@ -13,4 +13,4 @@ WORKDIR /srv/autotests
 COPY ./ ./
 RUN sudo chown -R seluser:seluser unicom24 && \
     cd unicom24 && \
-    mvn dependency:list
+    mvn install
