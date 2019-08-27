@@ -18,7 +18,7 @@ public class AllBanksStepDefinitions {
         bankList.bankListPageIsDisplayed();
     }
 
-    @Тогда("^пользователь вбивает \"([^\"]*)\" в поле ввода$")
+    @Тогда("^пользователь вводит \"([^\"]*)\" в поле ввода$")
     public void fillFieldWithNameOfBank(String nameOfBank) {
         bankList.fillSearchInput(nameOfBank);
     }
