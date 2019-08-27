@@ -11,3 +11,6 @@ RUN apt install -qq openjdk-8-jdk-headless maven -y
 USER seluser
 WORKDIR /srv/autotests
 COPY ./ ./
+RUN sudo chown -R seluser:seluser unicom24 && \
+    cd unicom24 && \
+    mvn dependency:list
