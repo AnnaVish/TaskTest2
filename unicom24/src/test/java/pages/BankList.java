@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,16 +44,12 @@ public class BankList extends Base {
         allElementsAreVisible(bank);
     }
 
-    public static String mainPage = baseUrl();
-
-    public static String baseUrl(){
-        String base = System.getenv("TESTING_HOST");
-        return "https://" + base;
+    public Boolean banksOnPageEqual5(){
+        return driver.findElements(By.cssSelector(".container .ui-list-bank-item")).size() == 5;
     }
 
     public void onAllBanksPage() {
-        String url = mainPage + "/banki";
-        driver.get(mainPage);
+        driver.get(PagesUrls.bankListPage);
     }
 
     public void fillSearchInput(String nameOfBank) {

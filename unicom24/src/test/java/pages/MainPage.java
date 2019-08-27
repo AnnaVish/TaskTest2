@@ -4,9 +4,13 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pagesUrls.PagesUrls;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class MainPage extends Base {
 
@@ -70,27 +74,18 @@ public class MainPage extends Base {
     public MainPage() {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn, ficioGetBtn,
-                newsBlock);
+                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn, ficioGetBtn);
         bannerArray = Arrays.asList(banner, bannerText1, bannerText2, bannerText3, bannerText4, bannerText5,
                 bannerImage);
     }
 
-    public static String mainPage = baseUrl();
-
-    public static String baseUrl(){
-        String base = System.getenv("TESTING_HOST");
-        return "https://" + base;
-    }
-
     public void onMainPage() {
-        System.out.println(mainPage);
-        driver.get(mainPage);
+        driver.get(PagesUrls.mainPage);
     }
 
     public void mainPageIsDisplayed() {
         allElementsAreVisible(elements);
-        allElementsAreVisible(bannerArray);
+        //allElementsAreVisible(bannerArray);
     }
 
     public void creditClick() {
