@@ -43,8 +43,16 @@ public class BankList extends Base {
         allElementsAreVisible(bank);
     }
 
+    public static String mainPage = baseUrl();
+
+    public static String baseUrl(){
+        String base = System.getenv("TESTING_HOST");
+        return "https://" + base;
+    }
+
     public void onAllBanksPage() {
-        driver.get("https://develop-39.vuaro.ru/banki");
+        String url = mainPage + "/banki";
+        driver.get(mainPage);
     }
 
     public void fillSearchInput(String nameOfBank) {

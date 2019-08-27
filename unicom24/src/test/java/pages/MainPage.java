@@ -85,7 +85,7 @@ public class MainPage extends Base {
 
     public void onMainPage() {
         System.out.println(mainPage);
-        driver.get("https://develop-39.vuaro.ru");
+        driver.get(mainPage);
     }
 
     public void mainPageIsDisplayed() {
