@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
         strict = true,
         snippets = SnippetType.CAMELCASE,
         monochrome = true,
+        format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"},
         plugin = "ru.yandex.qatools.allure.cucumberjvm.AllureReporter"
 )
 public class TestFirstRunner extends Base {
