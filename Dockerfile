@@ -12,4 +12,4 @@ USER seluser
 WORKDIR /srv/autotests
 COPY ./ ./
 RUN sudo chown -R seluser:seluser unicom24 && \
-    mvn compile
+    cd unicom24 && mvn compile
