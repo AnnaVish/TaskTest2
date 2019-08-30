@@ -12,4 +12,4 @@ USER seluser
 WORKDIR /srv/autotests
 COPY ./ ./
 RUN sudo chown -R seluser:seluser unicom24 && \
-    cd unicom24 && mvn compile && ln -s /srv/autotests/unicom24/target/site/cucumber-pretty /srv/autotests/cucumber-reports
+    cd unicom24 && mvn compile && sudo ln -s /srv/autotests/unicom24/target/site/cucumber-pretty /srv/autotests/cucumber-reports
