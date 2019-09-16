@@ -13,9 +13,14 @@ public class FullCreditHistoryPageStepDefinitions extends Base {
         fullCreditHistoryPage.pageIsDisplayed();
     }
 
-    @Тогда("^пользователь нажимает получить отчет$")
+    @Тогда("^пользователь нажимает получить отчет - Полная кредитная история$")
     public void userClickGetReport(){
         fullCreditHistoryPage.getReportClick();
+    }
+
+    @Тогда("^пользователь видит что отчет по полной кредитной истории создался$")
+    public void userSeeCreatedResult(){
+        fullCreditHistoryPage.seeReportResult();
     }
 
 

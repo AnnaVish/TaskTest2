@@ -15,8 +15,12 @@ public class FinancialHealthPageStepDefinitions extends Base {
         financialHealthPage.pageIsDisplayed();
     }
 
+    @Тогда("^пользователь нажимает получить отчет - Рейтинг финансового здоровья$")
+    public void userClickGetReport(){
+        financialHealthPage.getReportClick();
+    }
 
-    @Тогда("^пользователь видит что отчет создался$")
+    @Тогда("^пользователь видит что отчет по финансовому здоровью создался$")
     public void userSeeCreatedResult(){
         financialHealthPage.seeReportResult();
     }

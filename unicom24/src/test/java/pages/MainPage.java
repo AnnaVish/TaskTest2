@@ -130,10 +130,12 @@ public class MainPage extends Base {
     }
 
     public void financialHealthRatingGetBtnClick() {
+        waitForVisibility(financialHealthRatingGetBtn);
         financialHealthRatingGetBtn.click();
     }
 
     public void creditReportsGetBtnClicks() {
+        waitForVisibility(creditReportsGetBtn);
         creditReportsGetBtn.click();
     }
 
