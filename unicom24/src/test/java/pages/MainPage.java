@@ -1,6 +1,8 @@
 package pages;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -68,19 +70,34 @@ public class MainPage extends Base {
     @FindBy(className = "ui-credit-news-wrapper")
     private WebElement newsBlock;
 
+    @FindBy(css = ".header-site-right .ui-btn")
+    private WebElement entranceInAccountBtn;
+
+    @FindBy(xpath = "//div[contains(text(), 'Ваш баланс')]")
+    private WebElement yourBalanceField;
+
+    @FindBy(xpath = "//div[contains(text(), 'Ваш рейтинг')]")
+    private WebElement ratingField;
+
     public final List<WebElement> elements;
     public final List<WebElement> bannerArray;
 
     public MainPage() {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn, ficioGetBtn);
+                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
+                ficioGetBtn);
         bannerArray = Arrays.asList(banner, bannerText1, bannerText2, bannerText3, bannerText4, bannerText5,
                 bannerImage);
     }
 
     public void onMainPage() {
         driver.get(PagesUrls.mainPage);
+        Assert.assertTrue(countOfImageVertical());
+    }
+
+    private Boolean countOfImageVertical(){
+        return driver.findElements(By.cssSelector(".ui-card-offers-wrap a")).size() == 6;
     }
 
     public void mainPageIsDisplayed() {
@@ -126,5 +143,15 @@ public class MainPage extends Base {
 
     public void seeAllBanksClicks() {
         seeAllBanks.click();
+    }
+
+    public void entranceInAccountBtnClick(){
+        waitForVisibility(entranceInAccountBtn);
+        entranceInAccountBtn.click();
+    }
+
+    public void checkBalanceAndRating(){
+        waitForVisibility(ratingField);
+        waitForVisibility(yourBalanceField);
     }
 }

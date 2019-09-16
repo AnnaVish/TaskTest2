@@ -11,4 +11,11 @@ public class AuthPageStepDefinitions {
     public void authPageIsDisplayed() {
         authPage.authPageIsDisplayed();
     }
+
+    @Тогда("^пользователь авторизовывается$")
+    public void userLogIn(){
+        authPage.loginFill();
+        authPage.passwordFill();
+        authPage.entranceBtnClick();
+    }
 }

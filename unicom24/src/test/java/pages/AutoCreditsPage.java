@@ -28,8 +28,8 @@ public class AutoCreditsPage extends Base {
         allElementsAreVisible(elements);
     }
 
-    public Boolean offersOnPageEqual8(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() == 8;
+    public Boolean offersOnPageMore5(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
     }
 
 }

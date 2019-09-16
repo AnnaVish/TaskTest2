@@ -29,6 +29,6 @@ public class IpotekaPage extends Base {
     }
 
     public Boolean offersOnPageEqual5(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() == 5;
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() >= 5;
     }
 }

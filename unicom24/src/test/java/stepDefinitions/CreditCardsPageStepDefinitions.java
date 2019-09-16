@@ -12,6 +12,6 @@ public class CreditCardsPageStepDefinitions {
     @Тогда("^отображается страница Кредитные карты$")
     public void creditCardsPageIsDisplayed() {
         creditCardsPage.pageIsDisplayed();
-        Assert.assertTrue(creditCardsPage.offersOnPageEqual10());
+        Assert.assertTrue(creditCardsPage.offersOnPageMore5());
     }
 }

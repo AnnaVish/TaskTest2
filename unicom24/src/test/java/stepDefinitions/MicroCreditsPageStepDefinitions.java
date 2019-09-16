@@ -11,6 +11,6 @@ public class MicroCreditsPageStepDefinitions {
     @Тогда("^отображается страница Микрозаймы$")
     public void microCreditsIsDisplayed() {
         microCreditsPage.pageIsDisplyed();
-        Assert.assertTrue(microCreditsPage.offersOnPageEqual23());
+        Assert.assertTrue(microCreditsPage.offersOnPageMore10());
     }
 }

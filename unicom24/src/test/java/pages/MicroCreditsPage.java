@@ -28,7 +28,7 @@ public class MicroCreditsPage extends Base {
         allElementsAreVisible(elements);
     }
 
-    public Boolean offersOnPageEqual23(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() == 23;
+    public Boolean offersOnPageMore10(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 10;
     }
 }

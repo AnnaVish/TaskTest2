@@ -10,6 +10,9 @@ import java.util.List;
 
 public class AuthPage extends Base {
 
+    String login = "glushkova.es@unicom24.ru";
+    String password = "usertest1";
+
     @FindBy(className = "ui-authorization-form")
     private WebElement authForm;
 
@@ -47,5 +50,17 @@ public class AuthPage extends Base {
 
     public void authPageIsDisplayed() {
         allElementsAreVisible(elements);
+    }
+
+    public void loginFill(){
+        typeIntoField(login, mailOrTelField);
+    }
+
+    public void passwordFill(){
+        typeIntoField(password, passwordField);
+    }
+
+    public void entranceBtnClick(){
+        entranceBtn.click();
     }
 }

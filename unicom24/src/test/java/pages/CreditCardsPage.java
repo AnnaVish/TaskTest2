@@ -28,7 +28,7 @@ public class CreditCardsPage extends Base {
         allElementsAreVisible(elements);
     }
 
-    public Boolean offersOnPageEqual10(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() == 10;
+    public Boolean offersOnPageMore5(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
     }
 }

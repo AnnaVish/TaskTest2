@@ -11,6 +11,6 @@ public class CreditsPageStepDefinitions {
     @Тогда("^отображается страница Кредиты$")
     public void creditsPageIsDisplayed() {
         creditsPage.pageIsDisplayed();
-        Assert.assertTrue(creditsPage.offersOnPageEqual10());
+        Assert.assertTrue(creditsPage.offersOnPageMore5());
     }
 }

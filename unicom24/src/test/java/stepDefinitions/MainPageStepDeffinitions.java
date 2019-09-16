@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import base.Base;
 import cucumber.api.java.ru.Дано;
+import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.*;
@@ -85,5 +86,15 @@ public class MainPageStepDeffinitions extends Base {
     @Тогда("^пользователь кликает Посмотреть все банки и МФО$")
     public void seeAllBanksClicks(){
         mainPage.seeAllBanksClicks();
+    }
+
+    @И("^пользователь нажимает на кнопку войти$")
+    public void logIn(){
+        mainPage.entranceInAccountBtnClick();
+    }
+
+    @Тогда("^в шапке сайта видно Ваш баланс и Ваш тейтинг$")
+    public void checkBalanceAndRating(){
+        mainPage.checkBalanceAndRating();
     }
 }

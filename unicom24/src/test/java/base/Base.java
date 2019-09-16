@@ -3,6 +3,7 @@ package base;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.Before;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -10,10 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import properties.BaseProperties;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public abstract class Base {
 
@@ -139,5 +137,26 @@ public abstract class Base {
 
     static ExpectedCondition<Boolean> elementIsNotVisible(final WebElement element) {
         return driver -> !element.isDisplayed();
+    }
+
+    public static void openNewTab(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.open();");
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+    }
+
+    public static void switchToTheFirstTab(){
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(0));
+    }
+
+    public static void switchToTheSecondTab(){
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+    }
+
+    public static void refreshPage(){
+        driver.navigate().refresh();
     }
 }
