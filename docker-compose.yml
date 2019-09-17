@@ -6,5 +6,6 @@ services:
     image: ${REGISTRY_ADDRESS}/${COMPOSE_PROJECT_NAME}_autotests_ui:${AUTOTESTS_UI_BRANCH}
     volumes:
       - ./ui-screenshots:/srv/autotests/ui-screenshots
+      - ./target:/srv/autotests/unicom24/target
     env_file:
       - .env_tests
