@@ -13,7 +13,7 @@ import java.util.List;
 
 public class BankList extends Base {
 
-    @FindBy(xpath = "//div[contains(text(), 'Список банков')]")
+    @FindBy(xpath = "//h1[contains(text(), 'Список банков России')]")
     private WebElement pageTitle;
 
     @FindBy(css = ".ui-request-filter input")
