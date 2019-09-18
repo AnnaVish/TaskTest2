@@ -16,6 +16,52 @@ import java.util.Map;
 
 public class MainPage extends Base {
 
+    /*
+    *Хэдэр
+     */
+    @FindBy(css = "a.ui-app-header-logo-wrapper ")
+    private WebElement logoLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")
+    private WebElement privateCustomersLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Малому и среднему бизнесу')]")
+    private WebElement forBusinessLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Сервисы')]")
+    private WebElement servicesLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Прочее')]")
+    private WebElement othersLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Кредиты')]")
+    private WebElement creditsHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Кредитные карты')]")
+    private WebElement creditCardsHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Автокредиты')]")
+    private WebElement autoCreditsHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Ипотека')]")
+    private WebElement ipotekaHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Микрозаймы')]")
+    private WebElement microCreditsHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Рефинансирование')]")
+    private WebElement refinanceHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'Банки')]")
+    private WebElement bankiHeaderLink;
+
+    @FindBy(xpath = "//span[contains(text(), 'МФО')]")
+    private WebElement mfoHeaderLink;
+
+    /*
+    *Хэдэр окончен
+     */
+
     @FindBy(xpath = "//div[contains(text(), 'Кредиты')]")
     private WebElement credits;
 
@@ -37,14 +83,11 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Кредитные отчеты')]")
     private WebElement creditReports;
 
-    @FindBy(css = ".ui-card-services-block.ui-card-services-block-big__padding button")
+    @FindBy(css = ".card-useful-services-rfz .ui-btn ")
     private WebElement financialHealthRatingGetBtn;
 
-    @FindBy(css = ".ui-card-services-block-middle__pay .ui-btn.font__base.btn-middle-with-border")
+    @FindBy(css = ".card-useful-services-fch .ui-btn")
     private WebElement creditReportsGetBtn;
-
-    @FindBy(css = ".ui-card-services-block-middle__pay .ui-btn.font__base.btn-middle-white")
-    private WebElement ficioGetBtn;
 
     @FindBy(className = "ui-credit-with-us-wrapper")
     private WebElement banner;
@@ -80,13 +123,15 @@ public class MainPage extends Base {
     private WebElement ratingField;
 
     public final List<WebElement> elements;
+    public final List<WebElement> header;
     public final List<WebElement> bannerArray;
 
     public MainPage() {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
-                ficioGetBtn);
+                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn);
+        header = Arrays.asList(logoLink, privateCustomersLink, forBusinessLink, othersLink, servicesLink,
+                creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
         bannerArray = Arrays.asList(banner, bannerText1, bannerText2, bannerText3, bannerText4, bannerText5,
                 bannerImage);
     }
@@ -101,10 +146,70 @@ public class MainPage extends Base {
     }
 
     public void mainPageIsDisplayed() {
+        allElementsAreVisible(header);
         allElementsAreVisible(elements);
         //allElementsAreVisible(bannerArray);
     }
 
+    /*
+     *клики в хэдэре
+     */
+    public void logoLinkClick(){
+        logoLink.click();
+    }
+
+    public void privateCustomersLinkClick(){
+        privateCustomersLink.click();
+    }
+
+    public void forBusinessLinkClick(){
+        forBusinessLink.click();
+    }
+
+    public void othersLinkClick(){
+        othersLink.click();
+    }
+
+    public void servicesLinkClick(){
+        servicesLink.click();
+    }
+
+    public void creditsHeaderLinkClick(){
+        creditsHeaderLink.click();
+    }
+
+    public void creditCardsHeaderLinkClick(){
+        creditCardsHeaderLink.click();
+    }
+
+    public void autoCreditsHeaderLinkClick(){
+        autoCreditsHeaderLink.click();
+    }
+
+    public void ipotekaHeaderLinkClick(){
+        ipotekaHeaderLink.click();
+    }
+
+    public void microCreditsHeaderLinkClick(){
+        microCreditsHeaderLink.click();
+    }
+
+    public void refinanceHeaderLinkClick(){
+        refinanceHeaderLink.click();
+    }
+
+    public void bankiAndMfoAreDisplayedInHeader(){
+        waitForVisibility(bankiHeaderLink);
+        waitForVisibility(mfoHeaderLink);
+    }
+    /*
+     *клики в хэдэре окончены
+     */
+
+
+    /*
+    *клики по вертикалям
+     */
     public void creditClick() {
         credits.click();
     }
@@ -129,6 +234,11 @@ public class MainPage extends Base {
         creditReports.click();
     }
 
+    /*
+     *клики по вертикалям окончены
+     */
+
+
     public void financialHealthRatingGetBtnClick() {
         waitForVisibility(financialHealthRatingGetBtn);
         financialHealthRatingGetBtn.click();
@@ -139,9 +249,9 @@ public class MainPage extends Base {
         creditReportsGetBtn.click();
     }
 
-    public void ficioGetBtnClicks() {
-        ficioGetBtn.click();
-    }
+//    public void ficioGetBtnClicks() {
+//        ficioGetBtn.click();
+//    }
 
     public void seeAllBanksClicks() {
         seeAllBanks.click();

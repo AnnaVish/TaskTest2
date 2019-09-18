@@ -27,6 +27,73 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.creditClick();
     }
 
+    /*
+    *Методы хэдэра
+     */
+
+    @Когда("^пользователь нажимает на Логотип$")
+    public void userLogoLinkClick(){
+        mainPage.logoLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Частным клиентам в Хэдэре$")
+    public void userPrivateCustomersLinkClick(){
+        mainPage.privateCustomersLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Малому и среднему бизнесу в Хэдэре$")
+    public void userForBusinessLinkClick(){
+        mainPage.forBusinessLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Сервисы в Хэдэре$")
+    public void userServicesLinkClick(){
+        mainPage.servicesLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Прочее в Хэдэре$")
+    public void userOthersLinkClick(){
+        mainPage.othersLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Кредиты в Хэдэре$")
+    public void userCreditsHeaderLinkClick(){
+        mainPage.creditsHeaderLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Кредитные карты в Хэдэре$")
+    public void userCreditCardsHeaderLinkClick(){
+        mainPage.creditCardsHeaderLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Автокредиты в Хэдэре$")
+    public void userAutoCreditsHeaderLinkClick(){
+        mainPage.autoCreditsHeaderLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Ипотека в Хэдэре$")
+    public void userIpotekaHeaderLinkClick(){
+        mainPage.ipotekaHeaderLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Микрокредиты в Хэдэре$")
+    public void userMicroCreditsHeaderLinkClick(){
+        mainPage.microCreditsHeaderLinkClick();
+    }
+
+    @Когда("^пользователь нажимает Рефинансирование в Хэдэре$")
+    public void userRefinanceHeaderLinkClick(){
+        mainPage.refinanceHeaderLinkClick();
+    }
+
+    @Когда("^в хэдэре видно - банки и МФО$")
+    public void userSeeBankiAndMFOInHeader(){
+        mainPage.bankiAndMfoAreDisplayedInHeader();
+    }
+    /*
+     *Методы хэдэра окончены
+     */
+
 
     @Когда("^пользователь кликает на Кредитные карты$")
     public void creditCardsClicks() {
@@ -77,11 +144,11 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.creditReportsGetBtnClicks();
     }
 
-    @Когда("^пользователь кликает получить FICIO$")
-    public void getFICIO() {
-        mainPage.onMainPage();
-        mainPage.ficioGetBtnClicks();
-    }
+//    @Когда("^пользователь кликает получить FICIO$")
+//    public void getFICIO() {
+//        mainPage.onMainPage();
+//        mainPage.ficioGetBtnClicks();
+//    }
 
     @Тогда("^пользователь кликает Посмотреть все банки и МФО$")
     public void seeAllBanksClicks(){
