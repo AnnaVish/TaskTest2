@@ -125,7 +125,7 @@ public class MainPageStepDeffinitions extends Base {
 
 
 
-    @Когда("^пользователь заполняет кликает на Кредитные отчеты$")
+    @Когда("^пользователь кликает на Кредитные отчеты$")
     public void creditsReportsClicks() {
         mainPage.onMainPage();
         mainPage.creditReportscClicks();
@@ -163,5 +163,15 @@ public class MainPageStepDeffinitions extends Base {
     @Тогда("^в шапке сайта видно Ваш баланс и Ваш тейтинг$")
     public void checkBalanceAndRating(){
         mainPage.checkBalanceAndRating();
+    }
+
+    @Тогда("^пользователь кликает Стать партнером в футере$")
+    public void userClickBecomePartnerInFooter(){
+        mainPage.becomePartnerInFooterClick();
+    }
+
+    @Тогда("^пользователь кликает Стать агентом в футере$")
+    public void userClickBecomeAgentInFooter(){
+        mainPage.becomeAgentInFooterClick();
     }
 }

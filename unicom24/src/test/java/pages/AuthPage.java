@@ -4,11 +4,16 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.commonElementsForAllPages.Footer;
+import pages.commonElementsForAllPages.Header;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AuthPage extends Base {
+
+    Header headerPage = new Header();
+    Footer footerPage = new Footer();
 
     String login = "glushkova.es@unicom24.ru";
     String password = "usertest1";
@@ -41,15 +46,28 @@ public class AuthPage extends Base {
     private WebElement authGosUslugiLink;
 
     private final List<WebElement>elements;
+    public final List<WebElement> header;
+    private final List<WebElement> footer;
 
     public AuthPage() {
         PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, headerPage);
+        PageFactory.initElements(driver, footerPage);
+        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
+                headerPage.othersLink, headerPage.servicesLink,
+                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
+                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         elements = Arrays.asList(authForm, entranceLink, registrationTab, mailOrTelField, passwordField,
                 entranceBtn, registrationLink, forgotPasswordLink, authGosUslugiLink);
+        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
+                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
     }
 
     public void authPageIsDisplayed() {
+        allElementsAreVisible(header);
         allElementsAreVisible(elements);
+        allElementsAreVisible(footer);
     }
 
     public void loginFill(){

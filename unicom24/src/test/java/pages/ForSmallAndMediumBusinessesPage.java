@@ -4,41 +4,19 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.commonElementsForAllPages.Footer;
+import pages.commonElementsForAllPages.Header;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ForSmallAndMediumBusinessesPage extends Base {
 
-    /*
-     *Хэдэр
-     */
-    @FindBy(css = "a.ui-app-header-logo-wrapper ")
-    private WebElement logoLink;
+    Header headerPage = new Header();
+    Footer footerPage = new Footer();
 
-    @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")
-    private WebElement privateCustomersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Малому и среднему бизнесу')]")
-    private WebElement forBusinessLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Сервисы')]")
-    private WebElement servicesLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Прочее')]")
-    private WebElement othersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Банковские гарантии')]")
-    private WebElement bankGuaranteesLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Расчетные счета')]")
-    private WebElement settlementAccountLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Кредиты малому и среднему бизнесу')]")
-    private WebElement businessLoansLink;
-    /*
-     *Хэдэр окончен
-     */
+    @FindBy(css = ".container .ui-description")
+    private WebElement seoTextUnderFooter;
 
     /*
      *Вертикали
@@ -58,6 +36,13 @@ public class ForSmallAndMediumBusinessesPage extends Base {
     /*
      *отчеты
      */
+
+    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-rfz")
+    private WebElement rfz;
+
+    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-fch")
+    private WebElement fullCreditHistory;
+
     @FindBy(css = ".card-useful-services-rfz .ui-btn ")
     private WebElement financialHealthRatingGetBtn;
 
@@ -66,18 +51,29 @@ public class ForSmallAndMediumBusinessesPage extends Base {
     /*
      *отчеты окончены
      */
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
+    private final List<WebElement> footer;
 
     public ForSmallAndMediumBusinessesPage() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(credits, creditCards, autoCredits, financialHealthRatingGetBtn, creditReportsGetBtn);
-        header = Arrays.asList(logoLink, privateCustomersLink, forBusinessLink, othersLink, servicesLink,
-                bankGuaranteesLink, settlementAccountLink, businessLoansLink);
+        PageFactory.initElements(driver, headerPage);
+        PageFactory.initElements(driver, footerPage);
+        elements = Arrays.asList(seoTextUnderFooter, credits, creditCards, autoCredits, financialHealthRatingGetBtn,
+                creditReportsGetBtn, rfz, fullCreditHistory);
+        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
+                headerPage.othersLink, headerPage.servicesLink, headerPage.bankGuaranteesLink,
+                headerPage.settlementAccountLink, headerPage.businessLoansLink);
+        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
+                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
     }
 
-    public void pageIsDisplayed(){
-        allElementsAreVisible(elements);
+    public void pageIsDisplayed() {
         allElementsAreVisible(header);
+        allElementsAreVisible(elements);
+        allElementsAreVisible(footer);
+
     }
 }

@@ -6,61 +6,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.commonElementsForAllPages.Footer;
+import pages.commonElementsForAllPages.Header;
 import pagesUrls.PagesUrls;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class MainPage extends Base {
 
-    /*
-    *Хэдэр
-     */
-    @FindBy(css = "a.ui-app-header-logo-wrapper ")
-    private WebElement logoLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")
-    private WebElement privateCustomersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Малому и среднему бизнесу')]")
-    private WebElement forBusinessLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Сервисы')]")
-    private WebElement servicesLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Прочее')]")
-    private WebElement othersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Кредиты')]")
-    private WebElement creditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Кредитные карты')]")
-    private WebElement creditCardsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Автокредиты')]")
-    private WebElement autoCreditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Ипотека')]")
-    private WebElement ipotekaHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Микрозаймы')]")
-    private WebElement microCreditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Рефинансирование')]")
-    private WebElement refinanceHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Банки')]")
-    private WebElement bankiHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'МФО')]")
-    private WebElement mfoHeaderLink;
-
-    /*
-    *Хэдэр окончен
-     */
+    private Header headerPage = new Header();
+    private Footer footerPage = new Footer();
 
     @FindBy(xpath = "//div[contains(text(), 'Кредиты')]")
     private WebElement credits;
@@ -83,11 +39,24 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Кредитные отчеты')]")
     private WebElement creditReports;
 
+    /*
+    *Отчеты
+     */
     @FindBy(css = ".card-useful-services-rfz .ui-btn ")
     private WebElement financialHealthRatingGetBtn;
 
     @FindBy(css = ".card-useful-services-fch .ui-btn")
     private WebElement creditReportsGetBtn;
+
+    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-rfz")
+    private WebElement rfz;
+
+    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-fch")
+    private WebElement fullCreditHistory;
+
+    /*
+    *Отчеты окончены
+     */
 
     @FindBy(className = "ui-credit-with-us-wrapper")
     private WebElement banner;
@@ -122,18 +91,27 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Ваш рейтинг')]")
     private WebElement ratingField;
 
-    public final List<WebElement> elements;
-    public final List<WebElement> header;
-    public final List<WebElement> bannerArray;
+    private final List<WebElement> elements;
+    private final List<WebElement> header;
+    private final List<WebElement> bannerArray;
+    private final List<WebElement> footer;
 
     public MainPage() {
         PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, headerPage);
+        PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn);
-        header = Arrays.asList(logoLink, privateCustomersLink, forBusinessLink, othersLink, servicesLink,
-                creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
+                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
+                rfz, fullCreditHistory);
         bannerArray = Arrays.asList(banner, bannerText1, bannerText2, bannerText3, bannerText4, bannerText5,
                 bannerImage);
+        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
+                headerPage.othersLink, headerPage.servicesLink,
+                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
+                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
+        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
+                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
     }
 
     public void onMainPage() {
@@ -148,6 +126,7 @@ public class MainPage extends Base {
     public void mainPageIsDisplayed() {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
+        allElementsAreVisible(footer);
         //allElementsAreVisible(bannerArray);
     }
 
@@ -155,52 +134,52 @@ public class MainPage extends Base {
      *клики в хэдэре
      */
     public void logoLinkClick(){
-        logoLink.click();
+        headerPage.logoLink.click();
     }
 
     public void privateCustomersLinkClick(){
-        privateCustomersLink.click();
+        headerPage.privateCustomersLink.click();
     }
 
     public void forBusinessLinkClick(){
-        forBusinessLink.click();
+        headerPage.forBusinessLink.click();
     }
 
     public void othersLinkClick(){
-        othersLink.click();
+        headerPage.othersLink.click();
     }
 
     public void servicesLinkClick(){
-        servicesLink.click();
+        headerPage.servicesLink.click();
     }
 
     public void creditsHeaderLinkClick(){
-        creditsHeaderLink.click();
+        headerPage.creditsHeaderLink.click();
     }
 
     public void creditCardsHeaderLinkClick(){
-        creditCardsHeaderLink.click();
+        headerPage.creditCardsHeaderLink.click();
     }
 
     public void autoCreditsHeaderLinkClick(){
-        autoCreditsHeaderLink.click();
+        headerPage.autoCreditsHeaderLink.click();
     }
 
     public void ipotekaHeaderLinkClick(){
-        ipotekaHeaderLink.click();
+        headerPage.ipotekaHeaderLink.click();
     }
 
     public void microCreditsHeaderLinkClick(){
-        microCreditsHeaderLink.click();
+        headerPage.microCreditsHeaderLink.click();
     }
 
     public void refinanceHeaderLinkClick(){
-        refinanceHeaderLink.click();
+        headerPage.refinanceHeaderLink.click();
     }
 
     public void bankiAndMfoAreDisplayedInHeader(){
-        waitForVisibility(bankiHeaderLink);
-        waitForVisibility(mfoHeaderLink);
+        waitForVisibility(headerPage.bankiHeaderLink);
+        waitForVisibility(headerPage.mfoHeaderLink);
     }
     /*
      *клики в хэдэре окончены
@@ -265,5 +244,13 @@ public class MainPage extends Base {
     public void checkBalanceAndRating(){
         waitForVisibility(ratingField);
         waitForVisibility(yourBalanceField);
+    }
+
+    public void becomePartnerInFooterClick(){
+        footerPage.becomePartnerLink.click();
+    }
+
+    public void becomeAgentInFooterClick(){
+        footerPage.becomeAgentLink.click();
     }
 }

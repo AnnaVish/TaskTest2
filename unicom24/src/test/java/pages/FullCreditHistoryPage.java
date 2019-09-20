@@ -4,57 +4,16 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.commonElementsForAllPages.Footer;
+import pages.commonElementsForAllPages.Header;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class FullCreditHistoryPage extends Base {
 
-    /*
-     *Хэдэр
-     */
-    @FindBy(css = "a.ui-app-header-logo-wrapper ")
-    private WebElement logoLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")
-    private WebElement privateCustomersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Малому и среднему бизнесу')]")
-    private WebElement forBusinessLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Сервисы')]")
-    private WebElement servicesLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Прочее')]")
-    private WebElement othersLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Кредиты')]")
-    private WebElement creditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Кредитные карты')]")
-    private WebElement creditCardsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Автокредиты')]")
-    private WebElement autoCreditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Ипотека')]")
-    private WebElement ipotekaHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Микрозаймы')]")
-    private WebElement microCreditsHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Рефинансирование')]")
-    private WebElement refinanceHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'Банки')]")
-    private WebElement bankiHeaderLink;
-
-    @FindBy(xpath = "//span[contains(text(), 'МФО')]")
-    private WebElement mfoHeaderLink;
-
-    /*
-     *Хэдэр окончен
-     */
+    Header headerPage = new Header();
+    Footer footerPage = new Footer();
 
     @FindBy(css = ".row .ui-credit-report-header__price-round")
     private WebElement prive;
@@ -82,17 +41,28 @@ public class FullCreditHistoryPage extends Base {
 
     public final List<WebElement> elements;
     public final List<WebElement> header;
+    private final List<WebElement> footer;
+
+
 
     public FullCreditHistoryPage() {
         PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, headerPage);
+        PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(getReport, pageTitle, historyTitle, history);
-        header = Arrays.asList(logoLink, privateCustomersLink, forBusinessLink, othersLink, servicesLink,
-                creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
+        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
+                headerPage.othersLink, headerPage.servicesLink,
+                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
+                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
+        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
+                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
     }
 
     public void pageIsDisplayed(){
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
+        allElementsAreVisible(footer);
     }
 
     public void getReportClick(){
