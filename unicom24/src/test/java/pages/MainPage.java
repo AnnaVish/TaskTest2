@@ -253,4 +253,20 @@ public class MainPage extends Base {
     public void becomeAgentInFooterClick(){
         footerPage.becomeAgentLink.click();
     }
+
+    public void cabinetOfWebmasterClick(){
+        footerPage.cabinetOfWebmaster.click();
+    }
+
+    public void cabinetOfBankClick(){
+        footerPage.cabinetOfBank.click();
+    }
+
+    public void cabinetOfBrokerClick(){
+        footerPage.cabinetOfBroker.click();
+    }
+
+    public void oldCabinetOfBrokerClick(){
+        footerPage.oldCabinetOfBroker.click();
+    }
 }

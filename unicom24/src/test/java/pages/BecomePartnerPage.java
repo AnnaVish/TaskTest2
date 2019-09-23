@@ -10,7 +10,7 @@ import pages.commonElementsForAllPages.Header;
 import java.util.Arrays;
 import java.util.List;
 
-public class BecomePartner extends Base {
+public class BecomePartnerPage extends Base {
 
     private Header headerPage = new Header();
     private Footer footerPage = new Footer();
@@ -28,7 +28,7 @@ public class BecomePartner extends Base {
     private WebElement rightSideOfPage;
 
     @FindBy(css = ".for-block.become-partner-for-advertiser .for-footer__button")
-    private WebElement rightSideOfPagePageBtn;
+    private WebElement rightSideOfPageBtn;
 
     @FindBy(xpath = "//div[@class='contacts__wrapper'][./div[contains(text(), 'Служба поддержки:')]]")
     private WebElement supportBlock;
@@ -46,7 +46,7 @@ public class BecomePartner extends Base {
     private final List<WebElement> header;
     private final List<WebElement> footer;
 
-    public BecomePartner() {
+    public BecomePartnerPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
@@ -57,7 +57,7 @@ public class BecomePartner extends Base {
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
                 footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
-        elements = Arrays.asList(bannerPage, leftSideOfPage, leftSidePageBtn, rightSideOfPage, rightSideOfPagePageBtn,
+        elements = Arrays.asList(bannerPage, leftSideOfPage, leftSidePageBtn, rightSideOfPage, rightSideOfPageBtn,
                 supportBlock, aboutText, ourPartnersBlock, supportEmailBlock);
     }
 

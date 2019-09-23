@@ -2,11 +2,11 @@ package stepDefinitions;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
-import pages.BecomePartner;
+import pages.BecomePartnerPage;
 
 public class BecomePartnerStepDefinitions extends Base {
 
-    private final BecomePartner becomePartner = new BecomePartner();
+    private final BecomePartnerPage becomePartner = new BecomePartnerPage();
 
     @Тогда("^отображается страница Стать партнером$")
     public void becomePartnerPageIsDisplayed(){

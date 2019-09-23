@@ -15,8 +15,8 @@ public class AuthPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
 
-    String login = "glushkova.es@unicom24.ru";
-    String password = "usertest1";
+    public static String login = "glushkova.es@unicom24.ru";
+    public static String password = "usertest1";
 
     @FindBy(className = "ui-authorization-form")
     private WebElement authForm;

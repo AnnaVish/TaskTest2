@@ -148,6 +148,7 @@ public class MainPageStepDeffinitions extends Base {
 //    public void getFICIO() {
 //        mainPage.onMainPage();
 //        mainPage.ficioGetBtnClicks();
+
 //    }
 
     @Тогда("^пользователь кликает Посмотреть все банки и МФО$")
@@ -165,6 +166,10 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.checkBalanceAndRating();
     }
 
+    /*
+    *методы футэра
+     */
+
     @Тогда("^пользователь кликает Стать партнером в футере$")
     public void userClickBecomePartnerInFooter(){
         mainPage.becomePartnerInFooterClick();
@@ -174,4 +179,28 @@ public class MainPageStepDeffinitions extends Base {
     public void userClickBecomeAgentInFooter(){
         mainPage.becomeAgentInFooterClick();
     }
+
+    @Тогда("^пользователь кликает Кабинет вебмастера в футере$")
+    public void userClickCabinetOfWebMaster(){
+        mainPage.cabinetOfWebmasterClick();
+    }
+
+    @Тогда("^пользователь кликает Личный кабинет Банков и Рекламодателей в футере$")
+    public void userClickCabinetOfBankClick(){
+        mainPage.cabinetOfBankClick();
+    }
+
+    @Тогда("^пользователь кликает Личный кабинет Брокера и Агента в футере$")
+    public void userClickAuthPageOfBroker(){
+        mainPage.cabinetOfBrokerClick();
+    }
+
+    @Тогда("^пользователь кликает Старый кабинет брокера и агента в футере$")
+    public void userClickOldCabinetOfBroker(){
+        mainPage.oldCabinetOfBrokerClick();
+    }
+
+    /*
+     *методы футэра окончены
+     */
 }
