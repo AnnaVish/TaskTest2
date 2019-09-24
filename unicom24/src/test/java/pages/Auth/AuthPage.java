@@ -1,4 +1,4 @@
-package pages;
+package pages.Auth;
 
 import base.Base;
 import org.openqa.selenium.WebElement;

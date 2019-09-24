@@ -8,7 +8,7 @@ public class Header {
     /*
      *Хэдэр
      */
-    @FindBy(css = "a.ui-app-header-logo-wrapper ")
+    @FindBy(css = "a.ui-app-header-logo-wrapper")
     public WebElement logoLink;
 
     @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")

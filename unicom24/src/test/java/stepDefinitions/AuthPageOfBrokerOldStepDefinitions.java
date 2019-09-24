@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
-import pages.AuthPageOfBrokerOld;
+import pages.Auth.AuthPageOfBrokerOld;
 
 public class AuthPageOfBrokerOldStepDefinitions extends Base {
 

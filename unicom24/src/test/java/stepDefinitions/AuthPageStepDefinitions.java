@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.ru.Тогда;
-import pages.AuthPage;
+import pages.Auth.AuthPage;
 
 public class AuthPageStepDefinitions {
 

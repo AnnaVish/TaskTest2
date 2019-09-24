@@ -1,11 +1,9 @@
-package pages;
+package pages.Auth;
 
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.commonElementsForAllPages.Footer;
-import pages.commonElementsForAllPages.Header;
 
 import java.util.Arrays;
 import java.util.List;
