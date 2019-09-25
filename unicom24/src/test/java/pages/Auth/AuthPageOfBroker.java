@@ -43,4 +43,10 @@ public class AuthPageOfBroker extends Base {
         allElementsAreVisible(elements);
     }
 
+    public void brokerLogIn(){
+        typeIntoField(AuthPage.login, loginInput);
+        typeIntoField(AuthPage.password, passwordField);
+        entranceLink.click();
+    }
+
 }

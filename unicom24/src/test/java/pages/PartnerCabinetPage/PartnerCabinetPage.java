@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PartnerCabinetPage extends Base {
 
-    private final HeaderPartnerCabinetPage headerPartnerCabinetPage = new HeaderPartnerCabinetPage();
+    private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
 
     /*
      * Верхний блок
@@ -85,21 +85,17 @@ public class PartnerCabinetPage extends Base {
     @FindBy(xpath = "//button[contains(text(), 'Привязать')]")
     private WebElement connectLandingTab;
 
-    private final List<WebElement>header;
+    private final List<WebElement>headerPartnerCabinetPage;
     private final List<WebElement>elements;
 
     public PartnerCabinetPage(){
-        PageFactory.initElements(driver, headerPartnerCabinetPage);
+        PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        header = Arrays.asList(headerPartnerCabinetPage.headerContainer, headerPartnerCabinetPage.logo,
-                headerPartnerCabinetPage.logoTitle, headerPartnerCabinetPage.balance, headerPartnerCabinetPage.getMoney,
-                headerPartnerCabinetPage.patentialMoney, headerPartnerCabinetPage.moneyOfAllTime,
-                headerPartnerCabinetPage.getMoneyForAllTime, headerPartnerCabinetPage.logOutBtn,
-                headerPartnerCabinetPage.ringBtn, headerPartnerCabinetPage.statisticLinck,
-                headerPartnerCabinetPage.offersLink, headerPartnerCabinetPage.lendingsLink,
-                headerPartnerCabinetPage.productsLink, headerPartnerCabinetPage.postBacksLick,
-                headerPartnerCabinetPage.helpLink, headerPartnerCabinetPage.settingsLink,
-                headerPartnerCabinetPage.staticticImg, headerPartnerCabinetPage.statisticTitle);
+        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
+                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
+                header.logOutBtn, header.ringBtn, header.statisticLinck, header.offersLink, header.lendingsLink,
+                header.productsLink, header.postBacksLick, header.helpLink, header.settingsLink,
+                header.staticticImg, header.statisticTitle);
         elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
                 allOffersLink, offer, recomendLandings, allLandingsLink, landing, connectLanding, landingDescriptionTab,
@@ -107,7 +103,7 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPartnerCabinetPage);
         allElementsAreVisible(elements);
     }
 }
