@@ -13,4 +13,8 @@ public class PagesUrls {
     public static String bankList(){
         return mainPage + "/banki";
     }
+
+    public static String becomePartnerPage() {
+        return mainPage + "/become-partner";
+    }
 }

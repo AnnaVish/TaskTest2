@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,9 +62,18 @@ public class BecomePartnerPage extends Base {
                 supportBlock, aboutText, ourPartnersBlock, supportEmailBlock);
     }
 
+    public void onBecomePartnerPage(){
+        driver.get(PagesUrls.becomePartnerPage());
+    }
+
     public void pageIsDisplayed(){
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+    }
+
+    public void getMoneyNowClick(){
+        leftSidePageBtn.click();
+        switchToTheSecondTab();
     }
 }
