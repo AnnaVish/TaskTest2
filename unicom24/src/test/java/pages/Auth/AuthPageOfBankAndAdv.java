@@ -49,4 +49,10 @@ public class AuthPageOfBankAndAdv extends Base {
         allElementsAreVisible(elements);
     }
 
+    public void advAuth(){
+        typeIntoField(AuthPage.login, loginField);
+        typeIntoField(AuthPage.password, passwordField);
+        entranceLink.click();
+    }
+
 }

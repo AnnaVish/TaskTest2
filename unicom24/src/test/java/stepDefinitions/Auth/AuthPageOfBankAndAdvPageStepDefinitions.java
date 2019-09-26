@@ -12,4 +12,9 @@ public class AuthPageOfBankAndAdvPageStepDefinitions extends Base {
     public void AuthPageOfBankAndAdvPageIsDisplayed(){
         authPageOfBankAndAdv.pageIsDisplayed();
     }
+
+    @Тогда("рекламодатель авторизовывается")
+    public void advAuth(){
+        authPageOfBankAndAdv.advAuth();
+    }
 }

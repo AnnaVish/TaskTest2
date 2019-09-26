@@ -76,4 +76,9 @@ public class BecomePartnerPage extends Base {
         leftSidePageBtn.click();
         switchToTheSecondTab();
     }
+
+    public void clickApplications(){
+        rightSideOfPageBtn.click();
+        switchToTheSecondTab();
+    }
 }
