@@ -8,8 +8,13 @@ public class AuthPageOfBrokerOldStepDefinitions extends Base {
 
     private final AuthPageOfBrokerOld authPageOfBrokerOld = new AuthPageOfBrokerOld();
 
-    @Тогда("^страница авторизации Старый кабинет брокера и агента отображается$")
+    @Тогда("^отображается страница авторизации Старый кабинет брокера и агента$")
     public void oldCabinetOfBrokerAuthPageIsDisplayed(){
         authPageOfBrokerOld.pageIsDisplayed();
+    }
+
+    @Тогда("^брокер авторизовывается в старом кабинете$")
+    public void brokerLogInInOldCabinet(){
+        authPageOfBrokerOld.logIn();
     }
 }

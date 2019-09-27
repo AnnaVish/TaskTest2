@@ -48,4 +48,10 @@ public class AuthPageOfBrokerOld extends Base {
     public void pageIsDisplayed(){
         allElementsAreVisible(elements);
     }
+
+    public void logIn(){
+        typeIntoField(AuthPage.login, loginField);
+        typeIntoField(AuthPage.password, passwordField);
+        entranceLink.click();
+    }
 }

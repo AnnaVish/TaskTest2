@@ -39,7 +39,7 @@ public class ServicesPage extends Base {
                 getFullCreditHistoryBtn, getFinancialHealthRatingBtn);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink, headerPage.fullCreditHistoryHeaderLink,
-                headerPage.finanicialHealthHeaderLink, headerPage.ficioHeaderLink);
+                headerPage.finanicialHealthHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
                 footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
