@@ -6,24 +6,40 @@ import cucumber.api.java.Before;
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import properties.BaseProperties;
 
+import java.io.File;
 import java.util.HashMap;
 
 public class Hooks extends Base {
 
+    private BaseProperties baseProperties = new BaseProperties();
+
+    public static void deleteAllFilesFolder(String path) {
+        for (File myFile : new File(path).listFiles())
+            if (myFile.isFile()) myFile.delete();
+    }
+
     @Before
     public void setup() {
+        baseProperties.createDriverDir();
+        HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
         if (SystemUtils.IS_OS_LINUX) {
             System.setProperty("webdriver.chrome.driver", BaseProperties.driverDirLinux );
+            chromePrefs.put("download.default_directory", baseProperties.createDriverDir());
+            deleteAllFilesFolder(baseProperties.createDriverDir());
 
         } else {
             System.setProperty("webdriver.chrome.driver", BaseProperties.driverDir);
+            chromePrefs.put("download.default_directory", baseProperties.createDriverDir());
+            deleteAllFilesFolder(baseProperties.createDriverDir());
         }
-        HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("plugins.always_open_pdf_externally", true);
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
 
         ChromeOptions chromeOptions = new ChromeOptions();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         chromeOptions.setExperimentalOption("prefs", chromePrefs);
         //chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-dev-shm-usage");

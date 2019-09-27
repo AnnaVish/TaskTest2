@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import properties.BaseProperties;
 
+import java.io.File;
 import java.util.*;
 
 public abstract class Base {
@@ -158,5 +159,27 @@ public abstract class Base {
 
     public static void refreshPage(){
         driver.navigate().refresh();
+    }
+
+    public static long folderSize(File directory) {
+        long length = 0;
+        for (File file : directory.listFiles()) {
+            if (file.isFile())
+                length += file.length();
+            else
+                length += folderSize(file);
+        }
+        return length;
+    }
+
+    public static String getFileExtension(File directory) {
+        File[] fileList = directory.listFiles();
+        String fileName = fileList[0].getName();
+        // если в имени файла есть точка и она не является первым символом в названии файла
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            // то вырезаем все знаки после последней точки в названии файла, то есть ХХХХХ.txt -> txt
+            return fileName.substring(fileName.lastIndexOf(".")+1);
+            // в противном случае возвращаем заглушку, то есть расширение не найдено
+        else return "";
     }
 }

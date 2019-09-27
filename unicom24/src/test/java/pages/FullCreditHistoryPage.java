@@ -77,5 +77,10 @@ public class FullCreditHistoryPage extends Base {
 
     public void downloadReport(){
         downLoadReportBtn.click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

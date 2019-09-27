@@ -73,6 +73,11 @@ public class FinancialHealthPage extends Base {
 
     public void downloadReport() {
         downLoadReportBtn.click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
