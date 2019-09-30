@@ -32,7 +32,7 @@ public class FullCreditHistoryPageStepDefinitions extends Base {
     @Тогда("^пользователь скачивает отчет Полная кредитная история$")
     public void userDownloadReport(){
         fullCreditHistoryPage.downloadReport();
-        Assert.assertTrue(folderSize(new File(baseProperties.createDriverDir())) > 300000);
-        Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDriverDir())));
+        Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 300000);
+        Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
     }
 }

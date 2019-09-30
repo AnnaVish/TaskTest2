@@ -23,17 +23,19 @@ public class Hooks extends Base {
 
     @Before
     public void setup() {
-        baseProperties.createDriverDir();
+        baseProperties.createDownloadDirURL();
         HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
         if (SystemUtils.IS_OS_LINUX) {
             System.setProperty("webdriver.chrome.driver", BaseProperties.driverDirLinux );
-            chromePrefs.put("download.default_directory", baseProperties.createDriverDir());
-            deleteAllFilesFolder(baseProperties.createDriverDir());
+            BaseProperties.createDownloadDir();
+            chromePrefs.put("download.default_directory", baseProperties.createDownloadDirURL());
+            deleteAllFilesFolder(baseProperties.createDownloadDirURL());
 
         } else {
             System.setProperty("webdriver.chrome.driver", BaseProperties.driverDir);
-            chromePrefs.put("download.default_directory", baseProperties.createDriverDir());
-            deleteAllFilesFolder(baseProperties.createDriverDir());
+            BaseProperties.createDownloadDir();
+            chromePrefs.put("download.default_directory", baseProperties.createDownloadDirURL());
+            deleteAllFilesFolder(baseProperties.createDownloadDirURL());
         }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

@@ -3,8 +3,6 @@ package stepDefinitions;
 import base.Base;
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.FinancialHealthPage;
 import properties.BaseProperties;
 
@@ -33,7 +31,7 @@ public class FinancialHealthPageStepDefinitions extends Base {
     @Тогда("^пользователь скачивает отчет финансового здоровья$")
     public void userDownloadReport(){
         financialHealthPage.downloadReport();
-        Assert.assertTrue(folderSize(new File(baseProperties.createDriverDir())) > 150000);
-        Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDriverDir())));
+        Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 150000);
+        Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
     }
 }
