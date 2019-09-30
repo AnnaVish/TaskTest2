@@ -1,4 +1,4 @@
-package pages;
+package pages.verticals.creditCards;
 
 import base.Base;
 import org.openqa.selenium.By;

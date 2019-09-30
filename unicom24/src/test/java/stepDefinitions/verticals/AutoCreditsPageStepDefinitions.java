@@ -1,8 +1,8 @@
-package stepDefinitions;
+package stepDefinitions.verticals;
 
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.AutoCreditsPage;
+import pages.verticals.AutoCreditsPage;
 
 public class AutoCreditsPageStepDefinitions {
 

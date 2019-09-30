@@ -1,8 +1,8 @@
-package stepDefinitions;
+package stepDefinitions.verticals.credits;
 
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.CreditsPage;
+import pages.verticals.credits.CreditsPage;
 
 public class CreditsPageStepDefinitions {
 
@@ -12,5 +12,10 @@ public class CreditsPageStepDefinitions {
     public void creditsPageIsDisplayed() {
         creditsPage.pageIsDisplayed();
         Assert.assertTrue(creditsPage.offersOnPageMore5());
+    }
+
+    @Тогда("^пользователь кликает на название банка$")
+    public void userClickTitleOfBankClick(){
+        creditsPage.titleOfBankClick();
     }
 }

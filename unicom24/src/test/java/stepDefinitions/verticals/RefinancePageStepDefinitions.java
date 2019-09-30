@@ -1,9 +1,9 @@
-package stepDefinitions;
+package stepDefinitions.verticals;
 
 import base.Base;
 import cucumber.api.java.uk.Дано;
 import org.junit.Assert;
-import pages.RefinancePage;
+import pages.verticals.RefinancePage;
 
 public class RefinancePageStepDefinitions extends Base {
 

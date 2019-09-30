@@ -1,4 +1,4 @@
-package pages;
+package pages.verticals.credits;
 
 import base.Base;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import pages.commonElementsForAllPages.Header;
 import java.util.Arrays;
 import java.util.List;
 
-public class IpotekaPage extends Base {
+public class CreditsPage extends Base {
 
     Header headerPage = new Header();
     Footer footerPage = new Footer();
@@ -22,17 +22,18 @@ public class IpotekaPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
+    @FindBy(css = ".block-content-title a")
+    private WebElement titleOfBank;
 
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
 
-
-    public IpotekaPage() {
+    public CreditsPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(getCreditBtn, formOffer);
+        elements = Arrays.asList(getCreditBtn, formOffer, titleOfBank);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -48,7 +49,11 @@ public class IpotekaPage extends Base {
         allElementsAreVisible(footer);
     }
 
-    public Boolean offersOnPageEqual5(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() >= 5;
+    public Boolean offersOnPageMore5(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
+    }
+
+    public void titleOfBankClick(){
+        titleOfBank.click();
     }
 }

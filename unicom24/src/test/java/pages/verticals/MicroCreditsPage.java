@@ -1,4 +1,4 @@
-package pages;
+package pages.verticals;
 
 import base.Base;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import pages.commonElementsForAllPages.Header;
 import java.util.Arrays;
 import java.util.List;
 
-public class RefinancePage extends Base {
+public class MicroCreditsPage extends Base {
 
     Header headerPage = new Header();
     Footer footerPage = new Footer();
@@ -22,12 +22,12 @@ public class RefinancePage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-    public final List<WebElement> header;
     public final List<WebElement> elements;
+    public final List<WebElement> header;
     private final List<WebElement> footer;
 
 
-    public RefinancePage() {
+    public MicroCreditsPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
@@ -41,13 +41,13 @@ public class RefinancePage extends Base {
                 footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
     }
 
-    public void pageIsDisplayed(){
+    public void pageIsDisplyed() {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
     }
 
-    public Boolean offersOnPageMoreOrEqual2(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() >= 2;
+    public Boolean offersOnPageMore10(){
+        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 10;
     }
 }

@@ -1,8 +1,8 @@
-package stepDefinitions;
+package stepDefinitions.verticals.creditCardsStepDefinitions;
 
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.CreditCardsPage;
+import pages.verticals.creditCards.CreditCardsPage;
 
 public class CreditCardsPageStepDefinitions {
 

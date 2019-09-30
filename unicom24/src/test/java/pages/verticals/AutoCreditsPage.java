@@ -1,4 +1,4 @@
-package pages;
+package pages.verticals;
 
 import base.Base;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import pages.commonElementsForAllPages.Header;
 import java.util.Arrays;
 import java.util.List;
 
-public class CreditsPage extends Base {
+public class AutoCreditsPage extends Base {
 
     Header headerPage = new Header();
     Footer footerPage = new Footer();
@@ -26,7 +26,8 @@ public class CreditsPage extends Base {
     public final List<WebElement> header;
     private final List<WebElement> footer;
 
-    public CreditsPage() {
+
+    public AutoCreditsPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
@@ -49,4 +50,5 @@ public class CreditsPage extends Base {
     public Boolean offersOnPageMore5(){
         return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
     }
+
 }
