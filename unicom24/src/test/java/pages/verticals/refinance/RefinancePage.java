@@ -1,4 +1,4 @@
-package pages.verticals;
+package pages.verticals.refinance;
 
 import base.Base;
 import org.openqa.selenium.By;
