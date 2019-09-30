@@ -1,8 +1,8 @@
-package stepDefinitions.verticals;
+package stepDefinitions.verticals.microCredits;
 
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.verticals.MicroCreditsPage;
+import pages.verticals.microCredits.MicroCreditsPage;
 
 public class MicroCreditsPageStepDefinitions {
 

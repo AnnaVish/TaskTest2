@@ -117,7 +117,7 @@ public class MainPageStepDeffinitions extends Base {
     }
 
 
-    @Когда("^пользователь заполняет кликает на Микрозаймы$")
+    @Когда("^пользователь кликает на Микрозаймы$")
     public void microCreditsClick() {
         mainPage.onMainPage();
         mainPage.microCreditsClicks();
