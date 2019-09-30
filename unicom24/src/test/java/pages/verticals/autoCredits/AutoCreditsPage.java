@@ -1,4 +1,4 @@
-package pages.verticals;
+package pages.verticals.autoCredits;
 
 import base.Base;
 import org.openqa.selenium.By;

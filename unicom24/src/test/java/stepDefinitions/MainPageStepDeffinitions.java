@@ -102,7 +102,7 @@ public class MainPageStepDeffinitions extends Base {
     }
 
 
-    @Когда("^пользователь заполняет кликает на Автокредиты$")
+    @Когда("^пользователь кликает на Автокредиты$")
     public void autoCreditsClicks() {
         mainPage.onMainPage();
         mainPage.autoCreditsClicks();
