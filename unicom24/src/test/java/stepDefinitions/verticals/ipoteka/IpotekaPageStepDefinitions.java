@@ -1,8 +1,8 @@
-package stepDefinitions.verticals;
+package stepDefinitions.verticals.ipoteka;
 
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.verticals.IpotekaPage;
+import pages.verticals.ipoteka.IpotekaPage;
 
 public class IpotekaPageStepDefinitions {
 

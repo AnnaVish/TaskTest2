@@ -110,7 +110,7 @@ public class MainPageStepDeffinitions extends Base {
 
 
 
-    @Когда("^пользователь заполняет кликает на Ипотека$")
+    @Когда("^пользователь кликает на Ипотека$")
     public void ipotekaClicks() {
         mainPage.onMainPage();
         mainPage.ipotekaClicks();
