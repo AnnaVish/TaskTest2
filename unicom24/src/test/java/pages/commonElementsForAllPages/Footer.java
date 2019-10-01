@@ -39,6 +39,30 @@ public class Footer {
 
     @FindBy(xpath = "//div[./a]/a[contains(text(), 'Старый кабинет брокера и агента')]")
     public WebElement oldCabinetOfBroker;
+
+    @FindBy(xpath = "//div[contains(text(), '© Юником24, ')]")
+    public WebElement copyright;
+
+    @FindBy(xpath = "//div[contains(text(), 'Все права защищены.')]")
+    public WebElement copyrightText;
+
+    @FindBy(xpath = "//li/a[@href=\"/become-partner\" and contains(text(), 'Стать партнером')]")
+    public WebElement becomePartnerDown;
+
+    @FindBy(xpath = "//li/a[@href=\"/agent\" and contains(text(), 'Стать агентом')]")
+    public WebElement becomeAgentDown;
+
+    @FindBy(xpath = "//li/a[@href=\"/media_files/politika_opd/\" and contains(text(), 'Политика в области персональных данных')]")
+    public WebElement personalData;
+
+    @FindBy(xpath = "//li/a[@href=\"/karta-sajta\" and contains(text(), 'Карта сайта')]")
+    public WebElement map;
+
+    @FindBy(xpath = "//div[1]/a[@href=\"mailto:support@unicom24.ru\" and contains(text(), 'support@unicom24.ru')]")
+    public WebElement mail;
+
+    @FindBy(xpath = "//div[./div[1]/a[@href=\"mailto:support@unicom24.ru\" and contains(text(), 'support@unicom24.ru')]]/div/div[contains(text(), '109240, г. Москва, Котельническая наб., д.17')]")
+    public WebElement adress;
     /*
      *Футэр окончен
      */
