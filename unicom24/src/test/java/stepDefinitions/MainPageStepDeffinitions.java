@@ -200,6 +200,15 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.oldCabinetOfBrokerClick();
     }
 
+    @Тогда("пользователь делает скролл в футэру")
+    public void userScrollToFooter(){
+        mainPage.scrollToFooter();
+    }
+
+    @Тогда("хэдэр уменьшается")
+    public void headerBecomeSmall(){
+        mainPage.headerBecomeSmall();
+    }
     /*
      *методы футэра окончены
      */

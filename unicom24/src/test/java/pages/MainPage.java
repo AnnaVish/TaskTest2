@@ -271,4 +271,20 @@ public class MainPage extends Base {
     public void oldCabinetOfBrokerClick(){
         footerPage.oldCabinetOfBroker.click();
     }
+
+    public void scrollToFooter(){
+        scrollTo(footerPage.map);
+    }
+
+    public void headerBecomeSmall(){
+        waitForInvisibility(headerPage.privateCustomersLink);
+        waitForInvisibility(headerPage.forBusinessLink);
+        waitForInvisibility(headerPage.othersLink);
+        waitForVisibility(headerPage.creditsHeaderLink);
+        waitForVisibility(headerPage.creditCardsHeaderLink);
+        waitForVisibility(headerPage.autoCreditsHeaderLink);
+        waitForVisibility(headerPage.ipotekaHeaderLink);
+        waitForVisibility(headerPage.microCreditsHeaderLink);
+        waitForVisibility(headerPage.refinanceHeaderLink);
+    }
 }
