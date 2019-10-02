@@ -4,6 +4,7 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +38,10 @@ public class AuthPageOfWebMaster extends Base {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(form, loginField, passwordField, entranceLink, registerPageLink, forgottenPasswordLink,
                 registrationPageOfWebmasterLink);
+    }
+
+    public void onAuthPage(){
+        driver.get(PagesUrls.webMasterAuth());
     }
 
     public void pageIsDisplayed(){

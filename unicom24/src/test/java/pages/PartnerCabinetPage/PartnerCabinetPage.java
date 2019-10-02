@@ -106,4 +106,8 @@ public class PartnerCabinetPage extends Base {
         allElementsAreVisible(headerPartnerCabinetPage);
         allElementsAreVisible(elements);
     }
+
+    public void postBackClick(){
+        header.postBacksLick.click();
+    }
 }

@@ -17,4 +17,8 @@ public class PagesUrls {
     public static String becomePartnerPage() {
         return mainPage + "/become-partner";
     }
+
+    public static String webMasterAuth() {
+        return mainPage + "/partners/dashboard/login";
+    }
 }
