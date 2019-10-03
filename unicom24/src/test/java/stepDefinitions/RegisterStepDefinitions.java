@@ -11,7 +11,6 @@ public class RegisterStepDefinitions {
 
     @Given("^пользователь нахоидится на странице авторизации$")
     public void onRegistrationPage() {
-        RegisterPage.onRegistrationPage();
         //RegisterPage.setUpCookie();
         registerPage.registerPageIsDisplayed();
     }

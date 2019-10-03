@@ -89,10 +89,6 @@ public class RegisterPage extends Base {
         allElementsAreVisible(footer);
     }
 
-    public static void onRegistrationPage() {
-        Base.onRegistrationPage();
-    }
-
     public void fillFildsWithTakenEmail() {
         typeIntoField(organisationName, companyNameField);
         typeIntoField(lastName, lastNameField);

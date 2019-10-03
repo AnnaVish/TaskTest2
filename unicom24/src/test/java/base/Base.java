@@ -24,23 +24,6 @@ public abstract class Base {
     protected static WebDriver driver;
     public JavascriptExecutor js = (JavascriptExecutor) driver;
 
-//    private static final Cookie COOKIE = new Cookie("ANID", "AHWqTUlyIThXzCDuQ8RXntFTNhBAXHx", "/recaptcha/api2/userverify?k=6LfCN1wUAAAAAGPYWdX2S6Bf3o7OOSAzATpX8X0U");
-//    private static final Cookie COOKIE1 = new Cookie("1P_JAR", "2019-7-2-7", "/recaptcha/api2/userverify?k=6LfCN1wUAAAAAGPYWdX2S6Bf3o7OOSAzATpX8X0U");
-//    private static final Cookie COOKIE2 = new Cookie("NID", "187=ZDoh9yR77mbLfd80Rq89aqbSu3aF1pv-8dKmo9dm1zIrhLYAvDXm35DP9aMnrQD-1si0QXXiVKDfum8QXQCJgtuil2ES6SHQNnBbVlVphxiCoPIAO1cZlqqTTmpWoDbVvu2kp4A8sczlZMVtC9BboDk_4ggdYTusil7F8NRsp1M", "/recaptcha/api2/userverify?k=6LfCN1wUAAAAAGPYWdX2S6Bf3o7OOSAzATpX8X0U");
-
-
-//    public static void setUpCookie(){
-//        driver.manage().addCookie(COOKIE1);
-//        driver.manage().addCookie(COOKIE);
-//        driver.manage().addCookie(COOKIE2);
-//        //Collection<Cookie> testCookie = driver.manage().getCookies();
-//        System.out.println(testCookie);
-//    }
-
-    protected static void onRegistrationPage() {
-        driver.get("https://develop-37.vuaro.ru/partners/dashboard/registration");
-    }
-
     private static boolean isElementPresented(WebElement element) {
         try {
             element.getTagName();

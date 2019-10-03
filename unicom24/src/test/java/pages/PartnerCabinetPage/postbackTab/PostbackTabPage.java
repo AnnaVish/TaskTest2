@@ -105,6 +105,9 @@ public class PostbackTabPage extends Base {
     @FindBy(css = "textarea.ui-landings-ticket-connection-ui-textarea-target")
     private WebElement mainTextArea;
 
+    @FindBy(xpath = "//button[contains(text(), 'Протестировать')]")
+    private WebElement checkBtn;
+
     @FindBy(css = ".ui-landings-ticket-connection-ui-input-icon")
     private WebElement copyBtn;
 
@@ -143,15 +146,18 @@ public class PostbackTabPage extends Base {
         typeIntoField(clickId, clickIdNameOfParametrInput);
         typeIntoField(clickIdValue, clickIdValueOfParametrInput);
         typeIntoField(baseUrl, baseUrlInput);
-        scrollTo(copyBtn);
-        copyBtn.click();
-        String myText = null;
+        checkBtn.click();
         try {
-            myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
-        } catch (UnsupportedFlavorException | IOException e) {
+            Thread.sleep(2500);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.get(myText);
+        WebElement element = driver.findElement(By.xpath("//div[contains(text(), ' 200')]"));
+        WebElement element1 = driver.findElement(By.xpath("//div/b[contains(text(), 'Код ответа сервера:')]"));
+        WebElement element2 = driver.findElement(By.xpath("//div[contains(text(), 'Тестовый постбек отправлен')]"));
+        waitForVisibility(element);
+        waitForVisibility(element1);
+        waitForVisibility(element2);
     }
 
     public void checkIsPostbackDone(){
