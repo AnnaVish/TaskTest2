@@ -212,4 +212,9 @@ public class MainPageStepDeffinitions extends Base {
     /*
      *методы футэра окончены
      */
+
+    @Тогда("^пользователь обновляет страницу$")
+    public void userRefreshPage(){
+        Base.refreshPage();
+    }
 }
