@@ -2,7 +2,9 @@ package pages.PartnerCabinetPage.postbackTab;
 
 import base.Base;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
@@ -103,7 +105,7 @@ public class PostbackTabPage extends Base {
     @FindBy(css = "textarea.ui-landings-ticket-connection-ui-textarea-target")
     private WebElement mainTextArea;
 
-    @FindBy(css = ".ui-report-table-tooltip-display img")
+    @FindBy(css = ".ui-landings-ticket-connection-ui-input-icon")
     private WebElement copyBtn;
 
     private final List<WebElement> headerPartnerCabinetPage;
@@ -131,7 +133,7 @@ public class PostbackTabPage extends Base {
 
 
 
-    public void fillFields() throws IOException, UnsupportedFlavorException {
+    public void fillFields() {
         String baseUrl = requestBinPage.getRequestBinUrl();
         switchToTheFirstTab();
         typeIntoField(offerId, offerIdNameOfParametrInput);
@@ -141,8 +143,14 @@ public class PostbackTabPage extends Base {
         typeIntoField(clickId, clickIdNameOfParametrInput);
         typeIntoField(clickIdValue, clickIdValueOfParametrInput);
         typeIntoField(baseUrl, baseUrlInput);
+        scrollTo(copyBtn);
         copyBtn.click();
-        String myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+        String myText = null;
+        try {
+            myText = (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+        } catch (UnsupportedFlavorException | IOException e) {
+            e.printStackTrace();
+        }
         driver.get(myText);
     }
 

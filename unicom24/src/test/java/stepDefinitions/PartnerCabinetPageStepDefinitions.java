@@ -31,11 +31,7 @@ public class PartnerCabinetPageStepDefinitions extends Base {
 
     @То("^вебмастер подготавливает параметры для постбека$")
     public void prepareParameters(){
-        try {
             postbackTabPage.fillFields();
-        } catch (IOException | UnsupportedFlavorException e) {
-            e.printStackTrace();
-        }
     }
 
     @То("на странице постбека отображаются данные из параметров")
