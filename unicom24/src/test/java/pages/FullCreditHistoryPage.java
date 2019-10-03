@@ -30,7 +30,7 @@ public class FullCreditHistoryPage extends Base {
     @FindBy(css = ".ui-credit-report-history-credit .ui-form-requests-history-credit_report__data-wrapper")
     private WebElement history;
 
-    @FindBy(css = ".ui-report-exquifax-content .ui-report-exquifax-content-block")
+    @FindBy(css = ".ui-report-default-content-block .ui-main-loader__container ")
     private WebElement reportImg;
 
     @FindBy(css = "a .ui-btn.font__base.yellow")
