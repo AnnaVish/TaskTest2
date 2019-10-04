@@ -1,6 +1,8 @@
 package pages.verticals.microCredits;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -47,6 +49,12 @@ public class MicroCreditsDetailedPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Микрозаймы')]")
+    private WebElement privateClientsMFOBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -56,8 +64,8 @@ public class MicroCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
-                countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
+        elements = Arrays.asList(privateClientsMFOBread, privateClientsBread, commonElements.bankBlock,
+                commonElements.headerOfBank, commonElements.rating, countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
@@ -77,5 +85,6 @@ public class MicroCreditsDetailedPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(header);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }

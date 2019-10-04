@@ -1,6 +1,8 @@
 package pages.verticals.credits;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -47,6 +49,12 @@ public class CreditsDetailsPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+    private WebElement privateClientsCreditsBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -61,7 +69,8 @@ public class CreditsDetailsPage extends Base {
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved);
+                commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
+                privateClientsCreditsBread);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -77,5 +86,6 @@ public class CreditsDetailsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(header);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }

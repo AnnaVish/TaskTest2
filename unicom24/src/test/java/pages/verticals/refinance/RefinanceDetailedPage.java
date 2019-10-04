@@ -1,7 +1,10 @@
 package pages.verticals.refinance;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
@@ -16,6 +19,12 @@ public class RefinanceDetailedPage extends Base {
     Footer footerPage = new Footer();
     CommonElements commonElements = new CommonElements();
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
+    private WebElement privateClientsRefinanceBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -25,7 +34,8 @@ public class RefinanceDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
+        elements = Arrays.asList(privateClientsBread, privateClientsRefinanceBread, commonElements.bankBlock,
+                commonElements.headerOfBank, commonElements.rating,
                 commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
@@ -44,5 +54,6 @@ public class RefinanceDetailedPage extends Base {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }

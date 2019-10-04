@@ -1,6 +1,7 @@
 package pages.verticals.microCredits;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,12 @@ public class MicroCreditsPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Микрозаймы')]")
+    private WebElement privateClientsMFOBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -31,7 +38,7 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(getCreditBtn, formOffer);
+        elements = Arrays.asList(privateClientsMFOBread, privateClientsBread, getCreditBtn, formOffer);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -45,6 +52,7 @@ public class MicroCreditsPage extends Base {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 
     public Boolean offersOnPageMore10(){

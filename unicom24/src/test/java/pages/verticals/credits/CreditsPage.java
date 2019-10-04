@@ -1,6 +1,7 @@
 package pages.verticals.credits;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,12 @@ public class CreditsPage extends Base {
     @FindBy(css = ".block-content-title a")
     private WebElement titleOfBank;
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+    private WebElement privateClientsCreditsBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -33,7 +40,7 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(getCreditBtn, formOffer, titleOfBank);
+        elements = Arrays.asList(getCreditBtn, formOffer, titleOfBank, privateClientsBread, privateClientsCreditsBread);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -49,6 +56,7 @@ public class CreditsPage extends Base {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 
     public Boolean offersOnPageMore5(){

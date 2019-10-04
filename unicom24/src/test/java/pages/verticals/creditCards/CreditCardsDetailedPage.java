@@ -1,6 +1,8 @@
 package pages.verticals.creditCards;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -38,6 +40,12 @@ public class CreditCardsDetailedPage extends Base {
     @FindBy(xpath = "//button/span[contains(text(), 'Получить карту')]")
     private WebElement getCard;
 
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
+    private WebElement privateClientsCreditsCardBread;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -51,7 +59,8 @@ public class CreditCardsDetailedPage extends Base {
                 cardBet, creditLimit, freePeriod, price, cashBack, getCard, commonElements.offersTab,
                 commonElements.conditionsTab, commonElements.documentsTab,
                 commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved);
+                commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
+                privateClientsCreditsCardBread);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -67,5 +76,6 @@ public class CreditCardsDetailedPage extends Base {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }
