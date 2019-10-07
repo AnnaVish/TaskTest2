@@ -140,6 +140,10 @@ public abstract class Base {
         driver.switchTo().window(tabs.get(1));
     }
 
+    public void closeTab(){
+        driver.close();
+    }
+
     public static void refreshPage(){
         driver.navigate().refresh();
     }

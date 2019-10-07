@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +33,9 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
     private WebElement privateClientsCreditsBread;
 
+    @FindBy(xpath = "//div[@class='clear_wrapper']/i[contains(text(), 'close')]")
+    private WebElement closeModalBtn;
+
     public final List<WebElement> elements;
     public final List<WebElement> header;
     private final List<WebElement> footer;
@@ -52,6 +56,10 @@ public class CreditsPage extends Base {
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }
 
+    public void onCreditsPage(){
+        driver.get(PagesUrls.privateCreditsPageUrl());
+    }
+
     public void pageIsDisplayed() {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
@@ -65,5 +73,23 @@ public class CreditsPage extends Base {
 
     public void titleOfBankClick(){
         titleOfBank.click();
+    }
+
+    public Boolean checkRedirects(){
+        List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online"));
+        for (WebElement element : elements) {
+            if (isElementVisible(closeModalBtn)) {
+                closeModalBtn.click();
+            } else {
+                waitForVisibility(element);
+                element.click();
+                switchToTheSecondTab();
+                if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
+                    return false;
+                closeTab();
+                switchToTheFirstTab();
+            }
+        }
+        return true;
     }
 }

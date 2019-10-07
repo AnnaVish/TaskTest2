@@ -9,6 +9,11 @@ public class RefinancePageStepDefinitions extends Base {
 
     private final RefinancePage refinancePage = new RefinancePage();
 
+    @cucumber.api.java.ru.Дано("^пользователь находится на странице Рефинансирование$")
+    public void onCreditsPage(){
+        refinancePage.oneRefinancePage();
+    }
+
     @Дано("^отображается страница Рефинансирование$")
     public void refinancePageIsDisplayed(){
         refinancePage.pageIsDisplayed();
