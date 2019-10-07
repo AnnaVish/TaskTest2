@@ -76,6 +76,7 @@ public class CreditsPage extends Base {
     }
 
     public Boolean checkRedirects(){
+        js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
         List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online"));
         for (WebElement element : elements) {
             if (isElementVisible(closeModalBtn)) {
