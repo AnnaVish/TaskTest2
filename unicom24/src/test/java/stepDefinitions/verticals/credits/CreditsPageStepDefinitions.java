@@ -1,11 +1,12 @@
 package stepDefinitions.verticals.credits;
 
+import base.Base;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
 import pages.verticals.credits.CreditsPage;
 
-public class CreditsPageStepDefinitions {
+public class CreditsPageStepDefinitions extends Base {
 
     private final CreditsPage creditsPage = new CreditsPage();
 
@@ -27,6 +28,7 @@ public class CreditsPageStepDefinitions {
 
     @Тогда("^пользователь проверяет что переходы работают$")
     public void userTestRedirects(){
-        Assert.assertTrue(creditsPage.checkRedirects());
+        Assert.assertTrue(driver.getCurrentUrl(), creditsPage.checkRedirects());
+        //Assert.assertTrue(creditsPage.checkRedirects());
     }
 }

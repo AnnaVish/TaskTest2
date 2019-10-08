@@ -85,6 +85,7 @@ public class CreditsPage extends Base {
                 waitForVisibility(element);
                 element.click();
                 switchToTheSecondTab();
+                waitForPageLoaded(driver.getCurrentUrl());
                 if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
                     return false;
                 closeTab();
