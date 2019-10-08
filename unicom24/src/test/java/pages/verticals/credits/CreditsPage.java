@@ -85,10 +85,14 @@ public class CreditsPage extends Base {
                 waitForVisibility(element);
                 element.click();
                 switchToTheSecondTab();
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                for (int i=0; i<4; i++){
+                    if (driver.getCurrentUrl().contains(PagesUrls.mainPage)){
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
                 if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
                     return false;
