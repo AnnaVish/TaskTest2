@@ -29,6 +29,5 @@ public class CreditsPageStepDefinitions extends Base {
     @Тогда("^пользователь проверяет что переходы работают$")
     public void userTestRedirects(){
         Assert.assertTrue(driver.getCurrentUrl(), creditsPage.checkRedirects());
-        //Assert.assertTrue(creditsPage.checkRedirects());
     }
 }
