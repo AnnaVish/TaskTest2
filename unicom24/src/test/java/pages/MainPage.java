@@ -118,7 +118,6 @@ public class MainPage extends Base {
 
     public void onMainPage() {
         driver.get(PagesUrls.mainPage);
-        Assert.assertTrue(countOfImageVertical());
     }
 
     private Boolean countOfImageVertical(){
@@ -129,6 +128,7 @@ public class MainPage extends Base {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
         allElementsAreVisible(footer);
+        Assert.assertTrue(countOfImageVertical());
         //allElementsAreVisible(bannerArray);
     }
 
