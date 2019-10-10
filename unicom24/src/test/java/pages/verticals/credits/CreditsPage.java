@@ -1,11 +1,14 @@
 package pages.verticals.credits;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.Adminka.AdminkaRedirects;
+import pages.Adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.verticals.common.CommonElementsForAllVerticals;
@@ -19,6 +22,9 @@ public class CreditsPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
+    AdminkaRedirects adminkaRedirects = new AdminkaRedirects();
+    TestContext testContext = new TestContext();
+    AdmAuth admAuth = new AdmAuth();
 
     @FindBy(css = ".offers-list-row .offer-online")
     private WebElement getCreditBtn;
@@ -45,6 +51,7 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
+        PageFactory.initElements(driver, adminkaRedirects);
         elements = Arrays.asList(getCreditBtn, formOffer, privateClientsBread, privateClientsCreditsBread,
                 common.logo, common.rating, common.title, common.ratePerYear, common.payPerMonth, common.time,
                 common.neededRating, common.license);
@@ -59,8 +66,9 @@ public class CreditsPage extends Base {
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }
 
-    public void onCreditsPage(){
+    public void onCreditsPage() {
         driver.get(PagesUrls.privateCreditsPageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateCreditsPageUrl();
     }
 
     public void pageIsDisplayed() {
@@ -70,26 +78,27 @@ public class CreditsPage extends Base {
         Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 
-    public Boolean offersOnPageMore5(){
+    public Boolean offersOnPageMore5() {
         return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
     }
 
-    public void titleOfBankClick(){
+    public void titleOfBankClick() {
         common.title.click();
     }
 
-    public Boolean checkRedirects(){
+    public Boolean checkRedirects() {
         js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
-        List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online"));
+        List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online button"));
         for (WebElement element : elements) {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
             } else {
                 waitForVisibility(element);
+                getIdOfOffer(element);
                 element.click();
                 switchToTheSecondTab();
-                for (int i=0; i<4; i++){
-                    if (driver.getCurrentUrl().contains(PagesUrls.mainPage)){
+                for (int i = 0; i < 4; i++) {
+                    if (driver.getCurrentUrl().contains(PagesUrls.mainPage)) {
                         try {
                             Thread.sleep(3000);
                         } catch (InterruptedException e) {
@@ -99,10 +108,22 @@ public class CreditsPage extends Base {
                 }
                 if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
                     return false;
+                adminkaRedirects.onAdminkaRedirectsPage();
+                if (admAuth.isPageDisplayed()) {
+                    admAuth.pageIsDisplayed();
+                    admAuth.logIn();
+                }
+                adminkaRedirects.pageIsDisplayed();
+                adminkaRedirects.checkVerticalsRedirect();
                 closeTab();
                 switchToTheFirstTab();
             }
         }
         return true;
+    }
+
+    private void getIdOfOffer(WebElement element) {
+        adminkaRedirects.offerId = element.getAttribute("id");
+        adminkaRedirects.offerId = adminkaRedirects.offerId.replaceAll("[^0-9]", "");
     }
 }

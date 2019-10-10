@@ -1,5 +1,6 @@
 package pages.verticals.ipoteka;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -59,6 +60,7 @@ public class IpotekaPage extends Base {
 
     public void onIpotekaPage(){
         driver.get(PagesUrls.privateIpotekaPageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateIpotekaPageUrl();
     }
 
     public void pageIsDisplayed() {

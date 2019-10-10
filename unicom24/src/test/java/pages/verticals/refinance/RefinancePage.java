@@ -1,5 +1,6 @@
 package pages.verticals.refinance;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -58,6 +59,7 @@ public class RefinancePage extends Base {
 
     public void oneRefinancePage(){
         driver.get(PagesUrls.privateRefinancePageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateRefinancePageUrl();
     }
 
     public void pageIsDisplayed(){

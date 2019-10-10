@@ -1,5 +1,6 @@
 package pages.verticals.microCredits;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -56,6 +57,7 @@ public class MicroCreditsPage extends Base {
 
     public void onMicroCreditsPage(){
         driver.get(PagesUrls.privateMicroCreditsPageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateMicroCreditsPageUrl();
     }
 
     public void pageIsDisplyed() {

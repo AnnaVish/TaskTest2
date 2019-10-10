@@ -1,5 +1,6 @@
 package pages.verticals.creditCards;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -59,6 +60,7 @@ public class CreditCardsPage extends Base {
 
     public void onCreditCardsPage(){
         driver.get(PagesUrls.privateCreditsCardPageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateCreditsCardPageUrl();
     }
 
     public void pageIsDisplayed() {
