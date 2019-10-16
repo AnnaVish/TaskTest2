@@ -97,7 +97,7 @@ public class CreditsPage extends Base {
                 getIdOfOffer(element);
                 element.click();
                 switchToTheSecondTab();
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 10; i++) {
                     if (driver.getCurrentUrl().contains(PagesUrls.mainPage)) {
                         try {
                             Thread.sleep(3000);

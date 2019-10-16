@@ -1,5 +1,8 @@
 package pagesUrls;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PagesUrls {
 
     public static String mainPage = baseUrl();
@@ -50,4 +53,25 @@ public class PagesUrls {
         return mainPage + "/_ad_min_24/mfi/redirect/?q=";
     }
 
+    public static String smsServerLink() {
+        String base = System.getenv("TESTING_HOST");
+        if (base.equals("pre-prod.vuaro.ru")) {
+            return "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue";
+        } else {
+            return "http://" + base + ":13003/channel/dev_channel/queue";
+        }
+    }
+
+    public static Map<String, String> smsServerLink2() {
+        String base = System.getenv("TESTING_HOST");
+        Map<String, String> smsServer = new HashMap<String, String>();
+        if (base.equals("pre-prod.vuaro.ru")) {
+            smsServer.put("smsServer1", "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue");
+            smsServer.put("smsServer2", "http://pre-prod-02.vuaro.ru:13003/channel/dev_channel/queue");
+            return smsServer;
+        } else {
+            smsServer.put("smsServer1", "http://" + base + ":13003/channel/dev_channel/queue");
+            return smsServer;
+        }
+    }
 }

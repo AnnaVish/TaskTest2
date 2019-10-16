@@ -4,6 +4,11 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class CommonElementsForAllVerticals extends Base {
 
     @FindBy(css = "div.block-logo-top-img")
@@ -52,6 +57,30 @@ public class CommonElementsForAllVerticals extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Ставка в день')]")
     public WebElement payPerDay;
+
+    /*
+     *Персональный займ
+     */
+    @FindBy(css = ".container .form-one")
+    public WebElement personalOfferContainer;
+
+    @FindBy(css = "img[src=\"/_nuxt/img/201cb8d.png\"]")
+    public WebElement giftPic;
+
+    @FindBy(css = ".form-one .ui-input-new input")
+    public WebElement personalOfferField;
+
+    @FindBy(xpath = "//button[./span[contains(text(), 'Подобрать персональный займ')]]")
+    public WebElement makeOfferBtn;
+
+    @FindBy(xpath = "//div[contains(text(), 'Нажимая кнопку «Подобрать персональный займ»,  ')]")
+    public WebElement ifYouText;
+
+    @FindBy(xpath = "//a[@href=\"/media_files/agreement_registration/\" and contains(text(), 'вы соглашаетесь с условиями обработки данных')]")
+    public WebElement agreeLink;
+    /*
+     *Персональный займ окончен
+     */
 
 
 }

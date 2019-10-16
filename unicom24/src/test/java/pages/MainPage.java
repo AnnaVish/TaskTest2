@@ -258,18 +258,22 @@ public class MainPage extends Base {
 
     public void cabinetOfWebmasterClick(){
         footerPage.cabinetOfWebmaster.click();
+        switchToTheSecondTab();
     }
 
     public void cabinetOfBankClick(){
         footerPage.cabinetOfBank.click();
+        switchToTheSecondTab();
     }
 
     public void cabinetOfBrokerClick(){
         footerPage.cabinetOfBroker.click();
+        switchToTheSecondTab();
     }
 
     public void oldCabinetOfBrokerClick(){
         footerPage.oldCabinetOfBroker.click();
+        switchToTheSecondTab();
     }
 
     public void scrollToFooter(){

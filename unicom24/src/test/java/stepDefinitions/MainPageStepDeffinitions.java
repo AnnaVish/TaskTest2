@@ -17,6 +17,12 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.onMainPage();
     }
 
+    @Тогда("^пользователь закрывает вкладку$")
+    public void userCloseTab() {
+        driver.close();
+        switchToTheFirstTab();
+    }
+
     @Тогда("^все элементы главной страницы видны$")
     public void mainPageIsDisplayed() {
         mainPage.mainPageIsDisplayed();
