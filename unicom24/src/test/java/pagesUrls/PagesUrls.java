@@ -10,7 +10,7 @@ public class PagesUrls {
 
     public static String baseUrl(){
         String base = System.getenv("TESTING_HOST");
-        return "https://" + base;
+        return "https://" + base + "/";
     }
 
     public static String bankList(){

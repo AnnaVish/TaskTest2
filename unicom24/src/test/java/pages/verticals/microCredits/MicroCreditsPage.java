@@ -202,30 +202,11 @@ public class MicroCreditsPage extends Base {
         switchToTheSecondTab();
         refreshPage();
         tryGetNewCodeFromFirstServer();
-//        String smsCode = TestContext.smsText;
-//        smsCode = smsCode.replaceAll("[^0-9]", "");
-//        smsCode = smsCode.substring(0, smsCode.length()-2);
         switchToTheFirstTab();
         for (int i = 0; i < 10; i++)
             actions.sendKeys(codeField, Keys.BACK_SPACE).perform();
         typeIntoField(TestContext.smsCode, codeField);
         confirmBtn.click();
-    }
-
-    private Boolean getNewCodeValue() {
-        tryGetNewCodeFromFirstServer();
-        //tryGetNewCode();
-//        if (compareTexts(tryGetNewCode(), TestContext.smsText)) {
-//            for (int i=0; i<10; i++) {
-//                if (!compareTexts(tryGetNewCode(), TestContext.smsText)) {
-//                    tryGetNewCode();
-//                } else {
-//                    break;
-//                }
-//            }
-//            TestContext.smsText = tryGetNewCode();
-//        }
-        return false;
     }
 
     private void tryGetNewCodeFromFirstServer() {
@@ -257,34 +238,6 @@ public class MicroCreditsPage extends Base {
         }
     }
 
-    private String tryGetNewCode() {
-        refreshPage();
-        waitForPageLoaded(TestContext.smsServerValueUrl);
-        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-        try {
-            WebElement element = driver.findElement(By.xpath(xPath));
-            waitForVisibility(element);
-            return element.getText();
-        } catch (Exception e) {
-            if (TestContext.smsServerValueUrl.equals(PagesUrls.smsServerLink2().get("smsServer1"))) {
-                driver.get(PagesUrls.smsServerLink2().get("smsServer2"));
-            } else {
-                driver.get(PagesUrls.smsServerLink2().get("smsServer1"));
-            }
-            WebElement element = driver.findElement(By.xpath(xPath));
-            waitForVisibility(element);
-            return element.getText();
-        }
-
-    }
-
-    private Boolean compareTexts(String text, String text1) {
-        return !text.equals(text1);
-    }
-
-    public void incorrectCodeError() {
-
-    }
 
     public void sendFormWithCorrectNumber() {
         typeIntoField(UserData.correctPhoneNumber, common.personalOfferField);

@@ -1,5 +1,7 @@
 package TestContext;
 
+import org.openqa.selenium.WebElement;
+
 public class TestContext {
 
     public static String checkRedirectUrl;
@@ -7,4 +9,5 @@ public class TestContext {
     public static String smsText;
     public static String smsCode;
     public static String smsServerValueUrl;
+    public static WebElement btn;
 }
