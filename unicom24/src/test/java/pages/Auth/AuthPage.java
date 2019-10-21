@@ -171,7 +171,7 @@ public class AuthPage extends Base {
             typeIntoField(TestContext.smsCode, passwordFromSmsField);
             TestContext.btn.click();
             WebDriverWait wait = new WebDriverWait(driver, 20);
-            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage));
+            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
         } catch (Exception e) {
             switchToTheSecondTab();
             getCodeFromOtherLink();
@@ -180,7 +180,7 @@ public class AuthPage extends Base {
             typeIntoField(TestContext.smsCode, passwordFromSmsField);
             TestContext.btn.click();
             WebDriverWait wait = new WebDriverWait(driver, 20);
-            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage));
+            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
         }
     }
 
