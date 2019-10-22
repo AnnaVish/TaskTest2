@@ -8,6 +8,9 @@ public class UserData {
     public static String unRegisteredUserPhone = "9111111114";
     public static String correctPhoneNumber = generatePhoneNumber();
     public static String phoneForChangePassword = "9960180967";
+    public static String incorrectMail = "Test@tt";
+    public static String unregisteredEmail = "Test@tt.mm";
+    public static String correctEmail = "a.s.san.17.8.939@yandex.ru";
 
     private static int generateRandomInt() {
         double randomPhone = (int) (Math.random() * ((999999999 - 900000000) + 1) + 900000000);

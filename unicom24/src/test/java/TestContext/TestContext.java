@@ -10,4 +10,5 @@ public class TestContext {
     public static String smsCode;
     public static String smsServerValueUrl;
     public static WebElement btn;
+    public static String emailServerLink;
 }

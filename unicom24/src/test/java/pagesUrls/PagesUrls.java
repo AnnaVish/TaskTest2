@@ -74,4 +74,17 @@ public class PagesUrls {
             return smsServer;
         }
     }
+
+    public static Map<String, String> emailServerLink() {
+        String base = System.getenv("TESTING_HOST");
+        Map<String, String> smsServer = new HashMap<String, String>();
+        if (base.equals("pre-prod.vuaro.ru")) {
+            smsServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");
+            smsServer.put("emailServer2", "http://pre-prod-02.vuaro.ru:1080/");
+            return smsServer;
+        } else {
+            smsServer.put("smsServer1", "http://" + base + ":13003/channel/dev_channel/queue");
+            return smsServer;
+        }
+    }
 }

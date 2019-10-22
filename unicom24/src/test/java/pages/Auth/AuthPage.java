@@ -146,6 +146,12 @@ public class AuthPage extends Base {
         return isElementVisible(element);
     }
 
+    public Boolean messageAboutEmailIsDisplayed(String errorMessage) {
+        String xPath = String.format("//div[contains(text(), '%s')]", errorMessage);
+        WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".input_container .ui-input-label-block"), By.xpath(xPath)));
+        return isElementVisible(element);
+    }
+
     public Boolean hintIsDislayed(String hitn) {
         String xPath = String.format("//div[contains(text(), '%s')]", hitn);
         WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector("div .ui-authorization-form-counter-block"), By.xpath(xPath)));
@@ -224,5 +230,13 @@ public class AuthPage extends Base {
         smsCode = smsCode.replaceAll("[^0-9]", "");
         smsCode = smsCode.substring(0, smsCode.length() - 2);
         TestContext.smsCode = smsCode;
+    }
+
+    public void changePasswordFromFirstServerOrSecondServer() {
+        openNewTab();
+        switchToTheSecondTab();
+        driver.get(PagesUrls.emailServerLink().get("emailServer1"));
+        waitForPageLoaded(PagesUrls.smsServerLink2().get("emailServer1"));
+        TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("emailServer1");
     }
 }
