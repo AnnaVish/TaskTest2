@@ -7,7 +7,7 @@ public class UserData {
     public static String incorrectPhoneNumber = "1111111111";
     public static String unRegisteredUserPhone = "9111111114";
     public static String correctPhoneNumber = generatePhoneNumber();
-    public static String phoneForChangePassword = "9200437169";
+    public static String phoneForChangePassword = "9960180967";
 
     private static int generateRandomInt() {
         double randomPhone = (int) (Math.random() * ((999999999 - 900000000) + 1) + 900000000);

@@ -173,14 +173,26 @@ public class AuthPage extends Base {
             WebDriverWait wait = new WebDriverWait(driver, 20);
             wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
         } catch (Exception e) {
-            switchToTheSecondTab();
-            getCodeFromOtherLink();
-            switchToTheFirstTab();
-            waitForVisibility(passwordFromSmsField);
-            typeIntoField(TestContext.smsCode, passwordFromSmsField);
-            TestContext.btn.click();
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+            try {
+                switchToTheSecondTab();
+                refreshPage();
+                getCodeFromFirstLink();
+                switchToTheFirstTab();
+                waitForVisibility(passwordFromSmsField);
+                typeIntoField(TestContext.smsCode, passwordFromSmsField);
+                TestContext.btn.click();
+                WebDriverWait wait = new WebDriverWait(driver, 20);
+                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+            } catch (Exception ex) {
+                switchToTheSecondTab();
+                getCodeFromOtherLink();
+                switchToTheFirstTab();
+                waitForVisibility(passwordFromSmsField);
+                typeIntoField(TestContext.smsCode, passwordFromSmsField);
+                TestContext.btn.click();
+                WebDriverWait wait = new WebDriverWait(driver, 20);
+                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+            }
         }
     }
 
