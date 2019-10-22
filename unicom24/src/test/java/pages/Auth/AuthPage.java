@@ -163,6 +163,7 @@ public class AuthPage extends Base {
         openNewTab();
         switchToTheSecondTab();
         driver.get(PagesUrls.smsServerLink2().get("smsServer1"));
+        waitForPageLoaded(PagesUrls.smsServerLink2().get("smsServer1"));
         TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("smsServer1");
         try {
             getCodeFromFirstLink();
@@ -211,8 +212,10 @@ public class AuthPage extends Base {
         WebElement element;
         if (TestContext.smsServerValueUrl.equals(PagesUrls.smsServerLink2().get("smsServer1"))) {
             driver.get(PagesUrls.smsServerLink2().get("smsServer2"));
+            waitForPageLoaded(PagesUrls.smsServerLink2().get("smsServer2"));
         } else {
             driver.get(PagesUrls.smsServerLink2().get("smsServer1"));
+            waitForPageLoaded(PagesUrls.smsServerLink2().get("smsServer1"));
         }
         String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет:')]", UserData.getFormatNumberPhoneForChangePassword());
         element = driver.findElement(By.xpath(xPath));
