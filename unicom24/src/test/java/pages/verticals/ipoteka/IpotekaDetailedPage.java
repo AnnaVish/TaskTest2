@@ -22,22 +22,22 @@ public class IpotekaDetailedPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Лицезния ЦБ')]")
     private WebElement licenseOfCB;
 
-    @FindBy(xpath = "//span[contains(text(), 'Стоимость недвижимости')]")
+    @FindBy(xpath = "//div[contains(text(), 'Стоимость недвижимости')]")
     private WebElement priceOfRealty;
 
-    @FindBy(xpath = "//div[./div[./span[contains(text(), 'Стоимость недвижимости')]]]/div[2]/input")
+    @FindBy(xpath = "//label[./div[contains(text(), 'Стоимость недвижимости')]]/div/input")
     private WebElement priceOfRealtyInput;
 
-    @FindBy(xpath = "//span[contains(text(), 'Первоначальный взнос')]")
+    @FindBy(xpath = "//div[contains(text(), 'Первоначальный взнос')]")
     private WebElement firstDonation;
 
-    @FindBy(xpath = "//div[./div[./span[contains(text(), 'Первоначальный взнос')]]]/div[2]/input")
+    @FindBy(xpath = "//label[./div[contains(text(), 'Первоначальный взнос')]]/div/input")
     private WebElement firstDonationInput;
 
-    @FindBy(xpath = "//span[contains(text(), 'Срок ипотеки')]")
+    @FindBy(xpath = "//div[contains(text(), 'Срок ипотеки')]")
     private WebElement durationOfIpoteka;
 
-    @FindBy(xpath = "//div[./div[./span[contains(text(), 'Срок ипотеки')]]]/div[2]/input")
+    @FindBy(xpath = "//label[./div[contains(text(), 'Срок ипотеки')]]/div/input")
     private WebElement durationOfIpotekaInput;
 
     @FindBy(xpath = "//div[@class='font__base-small_grey' and contains(text(), 'Ставка')]")
@@ -86,7 +86,7 @@ public class IpotekaDetailedPage extends Base {
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }

@@ -78,7 +78,7 @@ public class RegisterPage extends Base {
                 chooseMessangerBtn, partnerPhoneField, emailField, passwordField, password2Field);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }

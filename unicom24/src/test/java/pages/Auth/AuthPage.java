@@ -95,7 +95,7 @@ public class AuthPage extends Base {
                 entranceBtn, registrationLink, forgotPasswordLink, authGosUslugiLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }
@@ -238,5 +238,10 @@ public class AuthPage extends Base {
         driver.get(PagesUrls.emailServerLink().get("emailServer1"));
         waitForPageLoaded(PagesUrls.smsServerLink2().get("emailServer1"));
         TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("emailServer1");
+    }
+
+    public void regClick() {
+        waitForVisibility(registrationTab);
+        registrationTab.click();
     }
 }

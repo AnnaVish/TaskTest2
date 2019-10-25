@@ -107,7 +107,7 @@ public class MicroCreditsPage extends Base {
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker);
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster);
         personalOffer = Arrays.asList(common.personalOfferContainer, common.giftPic, common.personalOfferField,
                 common.makeOfferBtn, common.ifYouText, common.agreeLink);
     }

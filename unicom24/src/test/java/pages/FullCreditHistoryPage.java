@@ -18,7 +18,7 @@ public class FullCreditHistoryPage extends Base {
     @FindBy(css = ".row .ui-credit-report-header__price-round")
     private WebElement prive;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Получить отчет')]]")
+    @FindBy(xpath = "//button[./span[contains(text(), 'Скачать бланк')]]")
     private WebElement getReport;
 
     @FindBy(xpath = "//h1[contains(text(), 'Полная кредитная история')]")
@@ -56,7 +56,7 @@ public class FullCreditHistoryPage extends Base {
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }

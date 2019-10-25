@@ -28,4 +28,8 @@ public class UserData {
     public static String getFormatNumberPhoneForChangePassword() {
         return "7" + phoneForChangePassword;
     }
+
+    public static String getPhoneForRegistration() {
+        return "7" + phoneForChangePassword;
+    }
 }

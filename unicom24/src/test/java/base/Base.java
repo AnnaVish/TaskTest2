@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pagesUrls.PagesUrls;
 import properties.BaseProperties;
 
 import java.io.File;
@@ -168,5 +169,15 @@ public abstract class Base {
             return fileName.substring(fileName.lastIndexOf(".")+1);
             // в противном случае возвращаем заглушку, то есть расширение не найдено
         else return "";
+    }
+
+    public void waitForUrlContains(String url) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.urlContains(url));
+    }
+
+    public void waitForUrlEquals(String url) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.urlToBe(url));
     }
 }

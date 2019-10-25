@@ -91,6 +91,9 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Ваш рейтинг')]")
     private WebElement ratingField;
 
+    @FindBy(xpath = "//div[contains(text(), 'Рейтинг бесплатно')]")
+    private WebElement ratingFreeLink;
+
     private final List<WebElement> elements;
     private final List<WebElement> header;
     private final List<WebElement> bannerArray;
@@ -111,7 +114,7 @@ public class MainPage extends Base {
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }
@@ -244,7 +247,11 @@ public class MainPage extends Base {
     }
 
     public void checkBalanceAndRating(){
-        waitForVisibility(ratingField);
+        try {
+            waitForVisibility(ratingField);
+        } catch (Exception E) {
+            waitForVisibility(ratingFreeLink);
+        }
         waitForVisibility(yourBalanceField);
     }
 

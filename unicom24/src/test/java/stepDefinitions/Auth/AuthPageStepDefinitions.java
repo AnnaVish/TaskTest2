@@ -90,4 +90,9 @@ public class AuthPageStepDefinitions {
     public void typePasswordAndClickBtn(String btn) {
         authPage.typeCodeFromFirstServerOrSecondServer(btn);
     }
+
+    @Тогда("^пользователь нажимает на Регистрация$")
+    public void userClickRegistration() {
+        authPage.regClick();
+    }
 }

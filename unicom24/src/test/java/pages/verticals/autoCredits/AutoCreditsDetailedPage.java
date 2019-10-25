@@ -23,16 +23,16 @@ public class AutoCreditsDetailedPage extends Base {
     @FindBy(xpath = "//span[contains(text(), 'Расчет кредита')]")
     private WebElement countCreditTitle;
 
-    @FindBy(xpath = "//span[contains(text(), 'Какая сумма вам нужна')]")
+    @FindBy(xpath = "//div[contains(text(), 'Какая сумма вам нужна')]")
     private WebElement howMuchMoneyYouNeed;
 
-    @FindBy(xpath = "//div[./div[./span[contains(text(), 'Какая сумма вам нужна')]]]/div[2]/input")
+    @FindBy(xpath = "//label[./div[contains(text(), 'Какая сумма вам нужна')]]/div/input")
     private WebElement howMuchYouNeedInput;
 
-    @FindBy(xpath = "//span[contains(text(), 'На какой срок')]")
+    @FindBy(xpath = "//div[contains(text(), 'На какой срок')]")
     private WebElement howMuchTimeYouNeed;
 
-    @FindBy(xpath = "//div[./div[./span[contains(text(), 'На какой срок')]]]/div[2]/input")
+    @FindBy(xpath = "//label[./div[contains(text(), 'На какой срок')]]/div/input")
     private WebElement howMuchTimeInput;
 
     @FindBy(xpath = "//div[@class='rate']/div[contains(text(), 'Ставка')]")
@@ -75,7 +75,7 @@ public class AutoCreditsDetailedPage extends Base {
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster, footerPage.oldCabinetOfBroker,
+                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
                 footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
     }
