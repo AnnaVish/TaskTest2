@@ -36,7 +36,6 @@ public abstract class Base {
     }
 
     /**
-     *
      * @param element is element to check
      * @return true i element is visible, otherwise false
      */
@@ -91,7 +90,8 @@ public abstract class Base {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
         try {
             wait.until(elementIsNotVisible(element));
-        } catch (NoSuchElementException | StaleElementReferenceException e){}
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+        }
     }
 
     protected static WebElement waitToBeClickable(By selector) {
@@ -124,28 +124,28 @@ public abstract class Base {
         return driver -> !element.isDisplayed();
     }
 
-    public static void openNewTab(){
+    public static void openNewTab() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open();");
-        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
 
-    public static void switchToTheFirstTab(){
-        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    public static void switchToTheFirstTab() {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
     }
 
-    public static void switchToTheSecondTab(){
-        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+    public static void switchToTheSecondTab() {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
 
-    public void closeTab(){
+    public void closeTab() {
         driver.close();
     }
 
-    public static void refreshPage(){
+    public static void refreshPage() {
         driver.navigate().refresh();
     }
 
@@ -164,9 +164,9 @@ public abstract class Base {
         File[] fileList = directory.listFiles();
         String fileName = fileList[0].getName();
         // если в имени файла есть точка и она не является первым символом в названии файла
-        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
             // то вырезаем все знаки после последней точки в названии файла, то есть ХХХХХ.txt -> txt
-            return fileName.substring(fileName.lastIndexOf(".")+1);
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
             // в противном случае возвращаем заглушку, то есть расширение не найдено
         else return "";
     }
@@ -179,5 +179,21 @@ public abstract class Base {
     public void waitForUrlEquals(String url) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
         wait.until(ExpectedConditions.urlToBe(url));
+    }
+
+    public void waitForAjaxElementIsVisible(WebElement element) {
+        try {
+            waitForVisibility(element);
+        } catch (NoSuchElementException e) {
+
+        }
+    }
+
+    public WebElement waitForAjaxElementIsVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        WebElement element = driver.findElement(locator);
+        waitForVisibility(element);
+        return element;
     }
 }

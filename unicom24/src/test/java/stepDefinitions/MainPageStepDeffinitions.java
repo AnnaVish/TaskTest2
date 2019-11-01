@@ -223,4 +223,14 @@ public class MainPageStepDeffinitions extends Base {
     public void userRefreshPage(){
         Base.refreshPage();
     }
+
+    @Тогда("^отображается панель активации$")
+    public void activationPanelIsDisplayed() {
+        mainPage.activatePanelIsDisplayed();
+    }
+
+    @Тогда("^пользователь нажимает Активировать кабинет$")
+    public void activateBtnClick() {
+        mainPage.activateBtnClick();
+    }
 }

@@ -11,6 +11,10 @@ public class UserData {
     public static String incorrectMail = "Test@tt";
     public static String unregisteredEmail = "Test@tt.mm";
     public static String correctEmail = "a.s.san.17.8.939@yandex.ru";
+    public static String names = "Test";
+    public static String dateOfPasport = "01112014";
+    public static String birthDay = "12121990";
+    public static String city = "Верхний Уфалей";
 
     private static int generateRandomInt() {
         double randomPhone = (int) (Math.random() * ((999999999 - 900000000) + 1) + 900000000);

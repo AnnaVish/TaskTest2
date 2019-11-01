@@ -67,7 +67,8 @@ public class RegistrationPage extends Base {
     }
 
     public void typePhone() {
-        typeIntoField(UserData.correctPhoneNumber, telField);
+        TestContext.correctPhone = UserData.correctPhoneNumber;
+        typeIntoField(TestContext.correctPhone, telField);
     }
 
     public void getPasswordClick() {

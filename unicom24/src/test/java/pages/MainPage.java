@@ -94,9 +94,24 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Рейтинг бесплатно')]")
     private WebElement ratingFreeLink;
 
+    /*
+     *Панель активации
+     */
+    @FindBy(css = "section.activate-panel")
+    private WebElement activatePanelContainer;
+
+    @FindBy(xpath = "//div[contains(text(), 'Чтобы пользоваться всеми функциями сервиса, активируйте личный кабинет')]")
+    private WebElement activateText;
+
+    @FindBy(xpath = "//button[./span[contains(text(), 'Активировать кабинет')]]")
+    private WebElement activateBtn;
+    /*
+     *Панель активации окончена
+     */
+
     private final List<WebElement> elements;
     private final List<WebElement> header;
-    private final List<WebElement> bannerArray;
+    private List<WebElement> activatePanel;
     private final List<WebElement> footer;
 
     public MainPage() {
@@ -106,8 +121,6 @@ public class MainPage extends Base {
         elements = Arrays.asList(credits, creditCards, autoCredits,
                 ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
                 rfz, fullCreditHistory);
-        bannerArray = Arrays.asList(banner, bannerText1, bannerText2, bannerText3, bannerText4, bannerText5,
-                bannerImage);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
@@ -297,5 +310,14 @@ public class MainPage extends Base {
         waitForVisibility(headerPage.ipotekaHeaderLink);
         waitForVisibility(headerPage.microCreditsHeaderLink);
         waitForVisibility(headerPage.refinanceHeaderLink);
+    }
+
+    public void activatePanelIsDisplayed() {
+        activatePanel = Arrays.asList(activatePanelContainer, activateText, activateBtn);
+        allElementsAreVisible(activatePanel);
+    }
+
+    public void activateBtnClick() {
+        activateBtn.click();
     }
 }
