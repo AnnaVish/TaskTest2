@@ -15,7 +15,7 @@ public class FinancialHealthPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Скачать бланк')]]")
+    @FindBy(xpath = "//button[./span[contains(text(), 'Получить отчет')]]")
     private WebElement getReport;
 
     @FindBy(xpath = "//h1[contains(text(), 'Рейтинг финансового здоровья')]")

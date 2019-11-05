@@ -18,7 +18,7 @@ public class FullCreditHistoryPage extends Base {
     @FindBy(css = ".row .ui-credit-report-header__price-round")
     private WebElement prive;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Скачать бланк')]]")
+    @FindBy(xpath = "//button[./span[contains(text(), 'Получить отчет')]]")
     private WebElement getReport;
 
     @FindBy(xpath = "//h1[contains(text(), 'Полная кредитная история')]")
