@@ -129,7 +129,7 @@ public class MainPage extends Base {
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
                 footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress, footerPage.aboutCompany);
     }
 
     public void onMainPage() {
@@ -274,6 +274,10 @@ public class MainPage extends Base {
 
     public void becomeAgentInFooterClick(){
         footerPage.becomeAgentLink.click();
+    }
+
+    public void aboutCompanyFooterClick() {
+        footerPage.aboutCompany.click();
     }
 
     public void cabinetOfWebmasterClick(){

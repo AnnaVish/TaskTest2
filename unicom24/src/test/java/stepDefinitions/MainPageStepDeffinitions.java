@@ -206,6 +206,11 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.oldCabinetOfBrokerClick();
     }
 
+    @Тогда("^пользователь кликает О компании в футере$")
+    public void userClickAboutCompanyInFooter() {
+        mainPage.aboutCompanyFooterClick();
+    }
+
     @Тогда("пользователь делает скролл в футэру")
     public void userScrollToFooter(){
         mainPage.scrollToFooter();

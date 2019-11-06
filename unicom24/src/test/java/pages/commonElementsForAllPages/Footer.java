@@ -63,6 +63,9 @@ public class Footer {
 
     @FindBy(xpath = "//div[./div[1]/a[@href=\"mailto:support@unicom24.ru\" and contains(text(), 'support@unicom24.ru')]]/div/div[contains(text(), '109240, г. Москва, Котельническая наб., д.17')]")
     public WebElement adress;
+
+    @FindBy(xpath = "//a[@href=\"/about-company\" and contains(text(), 'О компании')]")
+    public WebElement aboutCompany;
     /*
      *Футэр окончен
      */
