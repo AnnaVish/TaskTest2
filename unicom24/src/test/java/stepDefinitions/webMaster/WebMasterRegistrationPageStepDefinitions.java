@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.webMaster;
 
 import cucumber.api.java.ru.Тогда;
 import pages.WebMasterRegistrationPage;

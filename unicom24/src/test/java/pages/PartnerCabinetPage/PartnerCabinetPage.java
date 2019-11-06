@@ -110,4 +110,9 @@ public class PartnerCabinetPage extends Base {
     public void postBackClick(){
         header.postBacksLick.click();
     }
+
+    public void settingsClick() {
+        waitForVisibility(header.settingsLink);
+        header.settingsLink.click();
+    }
 }

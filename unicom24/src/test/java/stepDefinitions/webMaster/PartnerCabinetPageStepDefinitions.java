@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.webMaster;
 
 import base.Base;
 import cucumber.api.java.ru.То;
@@ -37,5 +37,10 @@ public class PartnerCabinetPageStepDefinitions extends Base {
     @То("на странице постбека отображаются данные из параметров")
     public void checkPostBackData(){
         postbackTabPage.checkIsPostbackDone();
+    }
+
+    @Тогда("^вебмастер кликает на вкладку Настройки$")
+    public void webMasterSettingsClick() {
+        partnerCabinetPage.settingsClick();
     }
 }
