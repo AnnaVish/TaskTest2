@@ -1,14 +1,14 @@
 package stepDefinitions.webMaster;
 
 import cucumber.api.java.ru.Тогда;
-import pages.PartnerCabinetPage.settingsTab.SettingsTab;
+import pages.PartnerCabinetPage.Tabs.SettingsTabPage;
 
 public class SettingsTabStepDefinitions {
 
-    private final SettingsTab settingsTab = new SettingsTab();
+    private final SettingsTabPage settingsTabPage = new SettingsTabPage();
 
     @Тогда("^отображается страница настройки$")
     public void settingsTabPageIsDisplayed() {
-        settingsTab.pageIsDisplayed();
+        settingsTabPage.pageIsDisplayed();
     }
 }

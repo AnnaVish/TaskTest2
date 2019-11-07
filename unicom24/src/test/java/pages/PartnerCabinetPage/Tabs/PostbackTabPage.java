@@ -1,4 +1,4 @@
-package pages.PartnerCabinetPage.postbackTab;
+package pages.PartnerCabinetPage.Tabs;
 
 import base.Base;
 import org.openqa.selenium.By;

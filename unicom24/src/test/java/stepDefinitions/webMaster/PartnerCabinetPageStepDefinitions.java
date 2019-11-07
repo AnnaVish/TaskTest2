@@ -4,10 +4,7 @@ import base.Base;
 import cucumber.api.java.ru.То;
 import cucumber.api.java.ru.Тогда;
 import pages.PartnerCabinetPage.PartnerCabinetPage;
-import pages.PartnerCabinetPage.postbackTab.PostbackTabPage;
-
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
+import pages.PartnerCabinetPage.Tabs.PostbackTabPage;
 
 public class PartnerCabinetPageStepDefinitions extends Base {
 
