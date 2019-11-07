@@ -47,19 +47,19 @@ public class HeaderPartnerCabinetPage extends Base {
      */
 
     @FindBy(xpath = "//a[@href=\"/partners/office/statistics/\"][contains(text(), 'Статистика')]")
-    public WebElement statisticLinck;
+    public WebElement statisticLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Офферы')]")
     public WebElement offersLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/landings\"][contains(text(), 'Лендинги')]")
-    public WebElement lendingsLink;
+    public WebElement landingsLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/cross-reports\"][contains(text(), 'Продукты')]")
     public WebElement productsLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/postback\"][contains(text(), 'Постбек')]")
-    public WebElement postBacksLick;
+    public WebElement postBacksLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/help/\"][contains(text(), 'Справка')]")
     public WebElement helpLink;

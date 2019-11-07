@@ -2,18 +2,12 @@ package pages.PartnerCabinetPage.Tabs;
 
 import base.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
 import pages.PartnerCabinetPage.RequestBinPage;
 
-import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -119,8 +113,8 @@ public class PostbackTabPage extends Base {
         PageFactory.initElements(driver, this);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
                 header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLinck, header.offersLink, header.lendingsLink,
-                header.productsLink, header.postBacksLick, header.helpLink, header.settingsLink,
+                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
+                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
                 header.staticticImg, header.statisticTitle);
         elements = Arrays.asList(postBackTitle, postbackTable, createPostBackBtn, uiPostBackForm, nameOfPostbackInput,
                 typePostBtn, typeGetBtn, inProgressCheck, approvedCheck, deniedCheck, extraditionCheck, issueCheck,

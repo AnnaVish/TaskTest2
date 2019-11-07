@@ -93,8 +93,8 @@ public class PartnerCabinetPage extends Base {
         PageFactory.initElements(driver, this);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
                 header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLinck, header.offersLink, header.lendingsLink,
-                header.productsLink, header.postBacksLick, header.helpLink, header.settingsLink,
+                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
+                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
                 header.staticticImg, header.statisticTitle);
         elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
@@ -108,7 +108,27 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void postBackClick(){
-        header.postBacksLick.click();
+        header.postBacksLink.click();
+    }
+
+    public void referenceClick() {
+        header.helpLink.click();
+    }
+
+    public void productsClick() {
+        header.productsLink.click();
+    }
+
+    public void landingsClick() {
+        header.landingsLink.click();
+    }
+
+    public void offersClick() {
+        header.offersLink.click();
+    }
+
+    public void statisticClick() {
+        header.statisticLink.click();
     }
 
     public void settingsClick() {

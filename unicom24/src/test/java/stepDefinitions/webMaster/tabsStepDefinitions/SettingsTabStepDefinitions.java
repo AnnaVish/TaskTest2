@@ -1,4 +1,4 @@
-package stepDefinitions.webMaster;
+package stepDefinitions.webMaster.tabsStepDefinitions;
 
 import cucumber.api.java.ru.Тогда;
 import pages.PartnerCabinetPage.Tabs.SettingsTabPage;
