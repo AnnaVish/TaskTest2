@@ -81,4 +81,9 @@ public class BrokerCabinetPage extends Base {
         int countOfOffers = driver.findElements(By.cssSelector(".ui-card-hot_offers-contect__offer")).size();
         Assert.assertEquals(4, countOfOffers);
     }
+
+    public void catalogOffersLinkClick() {
+        waitForVisibility(header.catalogOffersLink);
+        header.catalogOffersLink.click();
+    }
 }

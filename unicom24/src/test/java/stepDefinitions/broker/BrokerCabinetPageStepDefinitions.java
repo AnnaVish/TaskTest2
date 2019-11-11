@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitions.broker;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
@@ -11,5 +11,10 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     @Тогда("^отображается Личный кабинет Брокера$")
     public void cabinetOfBrokerIsDisplayed(){
         brokerCabinetPage.pageIsDisplayed();
+    }
+
+    @Тогда("^брокер нажимает на каталог офферов$")
+    public void brokerClickCatalogOfOffers() {
+        brokerCabinetPage.catalogOffersLinkClick();
     }
 }

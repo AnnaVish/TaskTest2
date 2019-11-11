@@ -25,6 +25,10 @@ public class PagesUrls {
         return mainPage + "/partners/dashboard/login";
     }
 
+    public static String brokerAuth() {
+        return mainPage + "/b2b_office/auth/login";
+    }
+
     public static String privateCreditsPageUrl(){
         return mainPage + "/private/kredity?";
     }

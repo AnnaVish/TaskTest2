@@ -291,6 +291,7 @@ public class MainPage extends Base {
     }
 
     public void cabinetOfBrokerClick(){
+        waitForVisibility(footerPage.cabinetOfBroker);
         footerPage.cabinetOfBroker.click();
         switchToTheSecondTab();
     }
