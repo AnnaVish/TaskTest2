@@ -13,6 +13,9 @@ public class AdvPage extends Base {
 
     private final HeaderAdvPage header = new HeaderAdvPage();
 
+    @FindBy(xpath = "//a[contains(text(), 'Отчеты')]")
+    private WebElement reportsTab;
+
     @FindBy(xpath = "//div[contains(text(), 'Заявки')]")
     private WebElement applicationsTitle;
 
@@ -76,5 +79,9 @@ public class AdvPage extends Base {
     public void pageIsDisplayed(){
         allElementsAreVisible(headerAdvPage);
         allElementsAreVisible(elements);
+    }
+
+    public void reportsTabClick() {
+        reportsTab.click();
     }
 }
