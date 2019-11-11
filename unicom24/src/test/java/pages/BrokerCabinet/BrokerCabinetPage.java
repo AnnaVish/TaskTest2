@@ -86,4 +86,9 @@ public class BrokerCabinetPage extends Base {
         waitForVisibility(header.catalogOffersLink);
         header.catalogOffersLink.click();
     }
+
+    public void myClientsClick() {
+        waitForVisibility(header.myClientsLink);
+        header.myClientsLink.click();
+    }
 }

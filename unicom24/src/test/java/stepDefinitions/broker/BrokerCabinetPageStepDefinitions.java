@@ -13,8 +13,13 @@ public class BrokerCabinetPageStepDefinitions extends Base {
         brokerCabinetPage.pageIsDisplayed();
     }
 
-    @Тогда("^брокер нажимает на каталог офферов$")
+    @Тогда("^брокер кликает на каталог офферов$")
     public void brokerClickCatalogOfOffers() {
         brokerCabinetPage.catalogOffersLinkClick();
+    }
+
+    @Тогда("^брокер кликает на Мои клиенты$")
+    public void brokerClickMyClients() {
+        brokerCabinetPage.myClientsClick();
     }
 }
