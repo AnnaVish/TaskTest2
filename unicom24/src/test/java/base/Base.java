@@ -184,7 +184,15 @@ public abstract class Base {
     public void waitForAjaxElementIsVisible(WebElement element) {
         try {
             waitForVisibility(element);
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+
+        }
+    }
+
+    public void waitForAllAjaxElementIsVisible(List<WebElement> elements) {
+        try {
+            allElementsAreVisible(elements);
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
 
         }
     }
@@ -195,5 +203,10 @@ public abstract class Base {
         WebElement element = driver.findElement(locator);
         waitForVisibility(element);
         return element;
+    }
+
+    public void mouseOver(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
     }
 }

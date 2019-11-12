@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import pages.BrokerCabinet.footer.FooterBrokerCabinetPage;
 import pages.BrokerCabinet.header.HeaderBrokerCabinetPage;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -72,6 +71,9 @@ public class BrokerCabinetPage extends Base {
                 footer.middleSideOfFooterTitle, footer.scoringTelephoneNumberLink, footer.scoringSocialMediaLink,
                 footer.rightSideOfFooterTitle, footer.checkAutoLink, footer.supportTitle, footer.supportLink,
                 footer.footerIcons, footer.copyRight, footer.doneBy, footer.dataProtectedBy);
+        header.getSubMenuElements();
+        header.getFinRatingSubMenu();
+        header.getAutoLink();
     }
 
     public void pageIsDisplayed(){
@@ -91,4 +93,37 @@ public class BrokerCabinetPage extends Base {
         waitForVisibility(header.myClientsLink);
         header.myClientsLink.click();
     }
+
+    public void mouseOverAllServicesLink() {
+        mouseOver(header.allServicesLink);
+    }
+
+    public void allServicesMenuIsDisplayed() {
+        waitForAllAjaxElementIsVisible(header.getSubMenuElements());
+    }
+
+    public void mouseOverFinancialRating() {
+        mouseOver(header.finRatingOfClientLink);
+    }
+
+    public void finRatingSubMenuIsDisplayed() {
+        waitForAllAjaxElementIsVisible(header.getFinRatingSubMenu());
+    }
+
+    public void mouseOverAuto() {
+        mouseOver(header.autoLink);
+    }
+
+    public void autoSubMenuIsDisplayed() {
+        waitForAjaxElementIsVisible(header.getAutoLink());
+    }
+
+    public void mouseOverScoring() {
+        mouseOver(header.scoringLink);
+    }
+
+    public void scoringMenuIsDisplayed() {
+        waitForAllAjaxElementIsVisible(header.getScoringSubMenu());
+    }
+
 }
