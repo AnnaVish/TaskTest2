@@ -89,35 +89,40 @@ public class CreditsPage extends Base {
     public Boolean checkRedirects() {
         js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
         List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online button"));
-        for (WebElement element : elements) {
+        for (int i = 0; i < elements.size(); i++) {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
+            }
+            waitForVisibility(elements.get(i));
+            if (i == 0) {
+                System.out.println(driver.findElement(By.xpath("(//div[@class='offer-online']/button/../../../../div[2]/div/a)")).getText());
             } else {
-                waitForVisibility(element);
-                getIdOfOffer(element);
-                element.click();
-                switchToTheSecondTab();
-                for (int i = 0; i < 10; i++) {
-                    if (driver.getCurrentUrl().contains(PagesUrls.mainPage)) {
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                int k = i + 1;
+                System.out.println(driver.findElement(By.xpath("(//div[@class='offer-online']/button/../../../../div[2]/div/a)[" + k + "]")).getText());
+            }
+            getIdOfOffer(elements.get(i));
+            elements.get(i).click();
+            switchToTheSecondTab();
+            for (int j = 0; j < 10; j++) {
+                if (driver.getCurrentUrl().contains(PagesUrls.mainPage)) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
-                if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
-                    return false;
-                adminkaRedirects.onAdminkaRedirectsPage();
-                if (admAuth.isPageDisplayed()) {
-                    admAuth.pageIsDisplayed();
-                    admAuth.logIn();
-                }
-                adminkaRedirects.pageIsDisplayed();
-                adminkaRedirects.checkVerticalsRedirect();
-                closeTab();
-                switchToTheFirstTab();
             }
+            if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
+                return false;
+            adminkaRedirects.onAdminkaRedirectsPage();
+            if (admAuth.isPageDisplayed()) {
+                admAuth.pageIsDisplayed();
+                admAuth.logIn();
+            }
+            adminkaRedirects.pageIsDisplayed();
+            adminkaRedirects.checkVerticalsRedirect();
+            closeTab();
+            switchToTheFirstTab();
         }
         return true;
     }
