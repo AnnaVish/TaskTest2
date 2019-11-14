@@ -68,4 +68,14 @@ public class CatalogOffersTabPage extends Base {
         int countOfOffers = driver.findElements(By.cssSelector(".wrapper.application-item")).size();
         Assert.assertTrue(countOfOffers > 10);
     }
+
+    public void searchOffer(String nameOfBank) {
+        waitForVisibility(searchField);
+        typeIntoField(nameOfBank, searchField);
+    }
+
+    public void isSearchResultIsDisplayed(String nameOfBank) {
+        String xPath = String.format("//div[contains(@class, 'application-item')]/div/div[2]/div[contains(text(), '%s')]", nameOfBank);
+        waitForAjaxElementIsVisible(By.xpath(xPath));
+    }
 }
