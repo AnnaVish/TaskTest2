@@ -21,4 +21,14 @@ public class CatalogOffersTabPageStepDefinitions {
     public void offerIsDisplayed(String nameOfBank) {
         catalogOffersTabPage.isSearchResultIsDisplayed(nameOfBank);
     }
+
+    @Тогда("^брокер кликает на фильтр \"([^\"]*)\"$")
+    public void brokerChooseFilter(String nameOfFilter) {
+        catalogOffersTabPage.filterClick(nameOfFilter);
+    }
+
+    @Тогда("отображаются только офферы \"([^\"]*)\"$")
+    public void onlyOffersByStringIsDisplayed(String nameOfOffer) {
+        catalogOffersTabPage.checkFiltersWork(nameOfOffer);
+    }
 }

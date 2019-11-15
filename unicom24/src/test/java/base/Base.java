@@ -83,7 +83,7 @@ public abstract class Base {
 
     protected static void waitForVisibility(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     protected static void waitForInvisibility(WebElement element) {

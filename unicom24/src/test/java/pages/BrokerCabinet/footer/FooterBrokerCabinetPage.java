@@ -4,6 +4,9 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FooterBrokerCabinetPage extends Base {
 
     @FindBy(css = ".ui-footer")
@@ -59,5 +62,13 @@ public class FooterBrokerCabinetPage extends Base {
 
     @FindBy(xpath = "//span[contains(text(), 'Ваши данные надежно защищены THAWTE')]")
     public WebElement dataProtectedBy;
+
+    public List<WebElement> getFooter() {
+        return Arrays.asList(footerContainer, footerTitle, rfzLink,
+                creditRatingLink, creditReportLink, bigCreditRatingLink, ficioLink,
+                middleSideOfFooterTitle, scoringTelephoneNumberLink, scoringSocialMediaLink,
+                rightSideOfFooterTitle, checkAutoLink, supportTitle, supportLink,
+                footerIcons, copyRight, doneBy, dataProtectedBy);
+    }
 
 }

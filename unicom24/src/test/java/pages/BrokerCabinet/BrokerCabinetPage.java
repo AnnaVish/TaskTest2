@@ -53,33 +53,25 @@ public class BrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[@class='grey-block']/div/div/div/div/img[@src=\"/static/dist/b2b_office/img/part5.9534336.png\"]")
     private WebElement blueLogo;
 
-    private final List<WebElement>headerBrokerCabinetPage;
     private final List<WebElement>elements;
-    private final List<WebElement>footerBrokerCabinetPage;
 
     public BrokerCabinetPage(){
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        headerBrokerCabinetPage = Arrays.asList(header.logo, header.logoTitle, header.currentMoney, header.giveMoneyBtn,
-                header.dropMenu, header.catalogOffersLink, header.myClientsLink, header.allServicesLink,
-                header.finRatingOfClientLink, header.autoLink, header.scoringLink);
+        header.getHeader();
         elements = Arrays.asList(mainBlock, rightBlock, understandBtn, closeBtn, rfzTitle, getRfz, hotOffersTitle,
                 ingriaTPLogo, russianUnionLogo, arbLogo, russianBusiness, blueLogo);
-        footerBrokerCabinetPage = Arrays.asList(footer.footerContainer, footer.footerTitle, footer.rfzLink,
-                footer.creditRatingLink, footer.creditReportLink, footer.bigCreditRatingLink, footer.ficioLink,
-                footer.middleSideOfFooterTitle, footer.scoringTelephoneNumberLink, footer.scoringSocialMediaLink,
-                footer.rightSideOfFooterTitle, footer.checkAutoLink, footer.supportTitle, footer.supportLink,
-                footer.footerIcons, footer.copyRight, footer.doneBy, footer.dataProtectedBy);
+        footer.getFooter();
         header.getSubMenuElements();
         header.getFinRatingSubMenu();
         header.getAutoLink();
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(headerBrokerCabinetPage);
+        allElementsAreVisible(header.getHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footerBrokerCabinetPage);
+        allElementsAreVisible(footer.getFooter());
         int countOfOffers = driver.findElements(By.cssSelector(".ui-card-hot_offers-contect__offer")).size();
         Assert.assertEquals(4, countOfOffers);
     }

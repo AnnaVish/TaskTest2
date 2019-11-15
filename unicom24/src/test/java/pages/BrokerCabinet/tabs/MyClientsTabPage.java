@@ -56,30 +56,22 @@ public class MyClientsTabPage extends Base {
     @FindBy(xpath = "//span[contains(text(), 'Статус')]")
     private WebElement statusTitle;
 
-    private final List<WebElement> headerBrokerCabinetPage;
     private final List<WebElement> elements;
-    private final List<WebElement> footerBrokerCabinetPage;
 
     public MyClientsTabPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        headerBrokerCabinetPage = Arrays.asList(header.logo, header.logoTitle, header.currentMoney, header.giveMoneyBtn,
-                header.dropMenu, header.catalogOffersLink, header.myClientsLink, header.allServicesLink,
-                header.finRatingOfClientLink, header.autoLink, header.scoringLink);
+        header.getHeader();
         elements = Arrays.asList(searchField, yesterdayBtn, lastWeekBtn, monthBtn, halfYear, dates, dateOne, dateTwo,
                 idApplicationTitle, dateAndTimeTitle, fioTitle, offerTitle, statusTitle);
-        footerBrokerCabinetPage = Arrays.asList(footer.footerContainer, footer.footerTitle, footer.rfzLink,
-                footer.creditRatingLink, footer.creditReportLink, footer.bigCreditRatingLink, footer.ficioLink,
-                footer.middleSideOfFooterTitle, footer.scoringTelephoneNumberLink, footer.scoringSocialMediaLink,
-                footer.rightSideOfFooterTitle, footer.checkAutoLink, footer.supportTitle, footer.supportLink,
-                footer.footerIcons, footer.copyRight, footer.doneBy, footer.dataProtectedBy);
+        footer.getFooter();
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(headerBrokerCabinetPage);
+        allElementsAreVisible(header.getHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footerBrokerCabinetPage);
+        allElementsAreVisible(footer.getFooter());
         int countOfOffers = driver.findElements(By.cssSelector(".wrapper.application-item")).size();
         Assert.assertTrue(countOfOffers > 10);
     }

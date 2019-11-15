@@ -42,6 +42,12 @@ public class HeaderBrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[@class='ui-menu']/div[contains(text(), 'Скоринг')]")
     public WebElement scoringLink;
 
+    public List<WebElement> getHeader() {
+        return Arrays.asList(logo, logoTitle, currentMoney, giveMoneyBtn,
+                dropMenu, catalogOffersLink, myClientsLink, allServicesLink,
+                finRatingOfClientLink, autoLink, scoringLink);
+    }
+
     /*
      * Все услуги меню
      */
