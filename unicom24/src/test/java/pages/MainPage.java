@@ -269,6 +269,8 @@ public class MainPage extends Base {
     }
 
     public void becomePartnerInFooterClick(){
+        waitForVisibility(footerPage.becomePartnerLink);
+        waitToBeClickable(footerPage.becomePartnerLink);
         footerPage.becomePartnerLink.click();
     }
 

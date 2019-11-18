@@ -73,6 +73,6 @@ public class MyClientsTabPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(footer.getFooter());
         int countOfOffers = driver.findElements(By.cssSelector(".wrapper.application-item")).size();
-        Assert.assertTrue(countOfOffers > 10);
+        Assert.assertTrue(countOfOffers > 3);
     }
 }

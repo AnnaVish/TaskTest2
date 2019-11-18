@@ -1,9 +1,12 @@
 package pages.commonElementsForAllPages;
 
+import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Header {
+public class Header extends Base {
 
     /*
      *Хэдэр
@@ -82,4 +85,12 @@ public class Header {
     /*
      *Хэдэр страницы малому и среднему бизнесу
      */
+
+    /*
+     * Метод проверки отсутсвия ХК в вертикалях
+     */
+    public static void breadcrumbsAreNotAppear() {
+        Assert.assertEquals(0, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+
+    }
 }

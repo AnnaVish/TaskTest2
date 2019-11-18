@@ -33,18 +33,17 @@ public class CreditsPage extends Base {
     private WebElement formOffer;
 
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
-
-    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
-    private WebElement privateClientsCreditsBread;
+//    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+//    private WebElement privateClientsBread;
+//
+//    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+//    private WebElement privateClientsCreditsBread;
 
     @FindBy(xpath = "//div[@class='clear_wrapper']/i[contains(text(), 'close')]")
     private WebElement closeModalBtn;
 
     public final List<WebElement> elements;
     public final List<WebElement> header;
-    private final List<WebElement> footer;
 
     public CreditsPage() {
         PageFactory.initElements(driver, this);
@@ -52,18 +51,14 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         PageFactory.initElements(driver, adminkaRedirects);
-        elements = Arrays.asList(getCreditBtn, formOffer, privateClientsBread, privateClientsCreditsBread,
-                common.logo, common.rating, common.title, common.ratePerYear, common.payPerMonth, common.time,
+        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
+                common.payPerMonth, common.time,
                 common.neededRating, common.license);
         header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
                 headerPage.othersLink, headerPage.servicesLink,
                 headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
                 headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        footerPage.getFooter();
     }
 
     public void onCreditsPage() {
@@ -74,8 +69,8 @@ public class CreditsPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(header);
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
-        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+        allElementsAreVisible(footerPage.getFooter());
+        Header.breadcrumbsAreNotAppear();
     }
 
     public Boolean offersOnPageMore5() {
@@ -83,6 +78,7 @@ public class CreditsPage extends Base {
     }
 
     public void titleOfBankClick() {
+        scrollTo(common.title);
         common.title.click();
     }
 

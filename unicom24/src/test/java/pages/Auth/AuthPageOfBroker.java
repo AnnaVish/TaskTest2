@@ -51,6 +51,8 @@ public class AuthPageOfBroker extends Base {
     public void brokerLogIn(){
         waitForVisibility(loginInput);
         waitForVisibility(passwordField);
+        waitToBeClickable(loginInput);
+        waitToBeClickable(passwordField);
         typeIntoField(AuthPage.login, loginInput);
         typeIntoField(AuthPage.password, passwordField);
         entranceLink.click();

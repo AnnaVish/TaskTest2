@@ -3,6 +3,7 @@ package pages.commonElementsForAllPages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Footer {
@@ -69,5 +70,13 @@ public class Footer {
     /*
      *Футэр окончен
      */
+
+    public List<WebElement> getFooter() {
+        return Arrays.asList(footerContainer, footerLeftSide, appleAndGoogle,
+                footerSeoText, becomePartnerLink, becomeAgentLink, cabinetOfBroker,
+                cabinetOfBank, cabinetOfWebmaster,
+                copyright, copyrightText, becomeAgentDown, becomePartnerDown,
+                personalData, mail, map, adress, aboutCompany);
+    }
 
 }
