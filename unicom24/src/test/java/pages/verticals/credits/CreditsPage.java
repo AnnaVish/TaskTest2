@@ -85,6 +85,7 @@ public class CreditsPage extends Base {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
             }
+            scrollTo(elements.get(i));
             waitForVisibility(elements.get(i));
             if (i == 0) {
                 System.out.println(driver.findElement(By.xpath("(//div[@class='offer-online']/button/../../../../div[2]/div/a)")).getText());
