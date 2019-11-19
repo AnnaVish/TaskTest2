@@ -80,6 +80,7 @@ public class CatalogOffersTabPage extends Base {
         String xpath = String.format("//div[./div[contains(text(), 'Тип продукта')]]/div/div[contains(text(), '%s')]", nameOfBtn);
         waitForVisibility(By.xpath(xpath));
         waitForAjaxElementIsVisible(By.xpath(xpath)).click();
+        waitToBeClickable(By.xpath(xpath));
     }
 
     public void checkFiltersWork(String nameOfFilter) {

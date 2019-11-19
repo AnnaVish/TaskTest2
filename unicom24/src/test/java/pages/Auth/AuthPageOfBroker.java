@@ -1,6 +1,7 @@
 package pages.Auth;
 
 import base.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -42,6 +43,7 @@ public class AuthPageOfBroker extends Base {
 
     public void onPage() {
         driver.get(PagesUrls.brokerAuth());
+        waitForPageLoaded(PagesUrls.brokerAuth());
     }
 
     public void pageIsDisplayed(){
@@ -51,9 +53,13 @@ public class AuthPageOfBroker extends Base {
     public void brokerLogIn(){
         waitForVisibility(loginInput);
         waitForVisibility(passwordField);
+        loginInput.click();
+        waitForAjaxElementIsVisible(By.cssSelector(".focused"));
         waitToBeClickable(loginInput);
-        waitToBeClickable(passwordField);
         typeIntoField(AuthPage.login, loginInput);
+        passwordField.click();
+        waitForAjaxElementIsVisible(By.cssSelector(".focused"));
+        waitToBeClickable(passwordField);
         typeIntoField(AuthPage.password, passwordField);
         entranceLink.click();
     }
