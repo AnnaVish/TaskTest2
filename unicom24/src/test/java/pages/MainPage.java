@@ -275,6 +275,8 @@ public class MainPage extends Base {
     }
 
     public void becomeAgentInFooterClick(){
+        scrollTo(footerPage.becomeAgentLink);
+        waitToBeClickable(footerPage.becomeAgentLink);
         footerPage.becomeAgentLink.click();
     }
 
