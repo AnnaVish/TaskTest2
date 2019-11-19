@@ -59,6 +59,9 @@ public class CatalogOffersTabPage extends Base {
         allElementsAreVisible(header.getHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footer.getFooter());
+    }
+
+    public void countOffers() {
         int countOfOffers = driver.findElements(By.cssSelector(".wrapper.application-item")).size();
         Assert.assertTrue(countOfOffers > 10);
     }

@@ -12,6 +12,11 @@ public class CatalogOffersTabPageStepDefinitions {
         catalogOffersTabPage.pageIsDisplayed();
     }
 
+    @Тогда("^отображаются офферы$")
+    public void offersAreDisplayed() {
+        catalogOffersTabPage.countOffers();
+    }
+
     @Тогда("^брокер вводит \"([^\"]*)\" в поле ввода поиска$")
     public void brokerFillFieldWithNameOfBank(String nameOfBank) {
         catalogOffersTabPage.searchOffer(nameOfBank);
