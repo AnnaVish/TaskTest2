@@ -1,4 +1,4 @@
-package pages;
+package pages.banki;
 
 import base.Base;
 import org.openqa.selenium.By;
@@ -37,31 +37,26 @@ public class BankList extends Base {
     })
     private List<WebElement>bank;
 
+    @FindBy(css = ".ui-list-bank-item__content-name a")
+    private WebElement nameOfBank;
+
     public final List<WebElement>elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
 
     public BankList() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(pageTitle, seacrchField, searchBtn);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void bankListPageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(bank);
-        allElementsAreVisible(footer);
+        waitForVisibility(nameOfBank);
+        allElementsAreVisible(footerPage.getFooter());
     }
 
     public Boolean banksOnPageEqual5(){
@@ -84,5 +79,10 @@ public class BankList extends Base {
         String xPath = String.format("//a[contains(text(), '%s')]", nameOfBank);
         WebElement link = driver.findElement(By.xpath(xPath));
         return isElementVisible(link);
+    }
+
+    public void clickNameOfBank() {
+        waitToBeClickable(nameOfBank);
+        nameOfBank.click();
     }
 }

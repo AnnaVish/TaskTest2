@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Header extends Base {
 
     /*
@@ -49,6 +52,11 @@ public class Header extends Base {
 
     @FindBy(xpath = "//span[contains(text(), 'МФО')]")
     public WebElement mfoHeaderLink;
+
+    public List<WebElement> getMainHeader() {
+        return Arrays.asList(logoLink, privateCustomersLink, forBusinessLink, othersLink, servicesLink,
+                creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
+    }
 
     /*
      *Хэдэр окончен

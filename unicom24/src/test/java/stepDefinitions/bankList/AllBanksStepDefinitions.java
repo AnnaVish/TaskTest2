@@ -1,9 +1,9 @@
-package stepDefinitions;
+package stepDefinitions.bankList;
 
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
-import pages.BankList;
+import pages.banki.BankList;
 
 public class AllBanksStepDefinitions {
 
@@ -33,6 +33,11 @@ public class AllBanksStepDefinitions {
     @Тогда("^на странице появляется ссылка на \"([^\"]*)\"$")
     public void seeBankLink(String bankNameLink) {
         bankList.seeBankNameLink(bankNameLink);
+    }
+
+    @Тогда("^пользователь кликает на название банка на странице все банки$")
+    public void userClickNameOfBank() {
+        bankList.clickNameOfBank();
     }
 
 }
