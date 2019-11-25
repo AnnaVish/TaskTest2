@@ -65,8 +65,6 @@ public class IpotekaDetailedPage extends Base {
     private WebElement privateClientsIpotekaBread;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
 
     public IpotekaDetailedPage(){
         PageFactory.initElements(driver, this);
@@ -80,21 +78,14 @@ public class IpotekaDetailedPage extends Base {
                 moreThanNeed, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){
         allElementsAreVisible(elements);
-        allElementsAreVisible(header);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(headerPage.getMainHeader());
+        allElementsAreVisible(footerPage.getFooter());
         Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }

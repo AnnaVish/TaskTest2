@@ -52,8 +52,7 @@ public class AboutCompany extends Base {
     private WebElement ymap;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
+
 
     public AboutCompany() {
         PageFactory.initElements(driver, this);
@@ -61,20 +60,13 @@ public class AboutCompany extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(aboutImg, ipotekaLink, autoCreditLink, microCreditsLink, bankGarantiesLink,
                 sattlementAccountLink, creditsForBusiness, aboutYellow, press, aboutVideo, aboutContacts, ymap);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
     }
 }

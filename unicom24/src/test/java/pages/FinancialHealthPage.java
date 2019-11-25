@@ -37,8 +37,6 @@ public class FinancialHealthPage extends Base {
     private WebElement newReportCreate;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
 
 
     public FinancialHealthPage() {
@@ -46,21 +44,14 @@ public class FinancialHealthPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(getReport, pageTitle, historyTitle, history);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
     }
 
     public void getReportClick() {

@@ -35,7 +35,6 @@ public class CreditCardsPage extends Base {
 //    private WebElement privateClientsCreditsCardBread;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
 
     public CreditCardsPage() {
         PageFactory.initElements(driver, this);
@@ -44,10 +43,7 @@ public class CreditCardsPage extends Base {
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
                 common.license, common.creditLimit, common.cost);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
+        headerPage.getMainHeader();
         footerPage.getFooter();
     }
 
@@ -57,7 +53,7 @@ public class CreditCardsPage extends Base {
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.breadcrumbsAreNotAppear();

@@ -89,7 +89,6 @@ public class MicroCreditsPage extends Base {
      */
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
     private final List<WebElement> personalOffer;
 
 
@@ -100,10 +99,7 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.payPerDay,
                 common.time, common.neededRating, common.license);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
+        headerPage.getMainHeader();
         footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, common.giftPic, common.personalOfferField,
                 common.makeOfferBtn, common.ifYouText, common.agreeLink);
@@ -115,7 +111,7 @@ public class MicroCreditsPage extends Base {
     }
 
     public void pageIsDisplyed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);

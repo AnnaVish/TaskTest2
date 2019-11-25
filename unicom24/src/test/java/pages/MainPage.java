@@ -110,9 +110,7 @@ public class MainPage extends Base {
      */
 
     private final List<WebElement> elements;
-    private final List<WebElement> header;
     private List<WebElement> activatePanel;
-    private final List<WebElement> footer;
 
     public MainPage() {
         PageFactory.initElements(driver, this);
@@ -121,15 +119,8 @@ public class MainPage extends Base {
         elements = Arrays.asList(credits, creditCards, autoCredits,
                 ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
                 rfz, fullCreditHistory);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress, footerPage.aboutCompany);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void onMainPage() {
@@ -141,9 +132,9 @@ public class MainPage extends Base {
     }
 
     public void mainPageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
         Assert.assertTrue(countOfImageVertical());
         //allElementsAreVisible(bannerArray);
     }
@@ -196,8 +187,7 @@ public class MainPage extends Base {
     }
 
     public void bankiAndMfoAreDisplayedInHeader(){
-        waitForVisibility(headerPage.bankiHeaderLink);
-        waitForVisibility(headerPage.mfoHeaderLink);
+        allElementsAreVisible(headerPage.othersHeaderLinks());
     }
     /*
      *клики в хэдэре окончены

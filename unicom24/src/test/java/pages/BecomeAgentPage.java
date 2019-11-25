@@ -56,31 +56,22 @@ public class BecomeAgentPage extends Base {
     private WebElement supportEmailBlock;
 
     private final List<WebElement> elements;
-    private final List<WebElement> header;
-    private final List<WebElement> footer;
 
     public BecomeAgentPage(){
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, this);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
         elements = Arrays.asList(bacomeAgentBanner, bacomeAgentBannerBtn, otherAgentProfit, news,
                 financialHealthRatingGetBtn, creditReportsGetBtn, rfz, fullCreditHistory, supportBlock, aboutText,
                 supportEmailBlock);
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
     }
 
 

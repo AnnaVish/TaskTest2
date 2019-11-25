@@ -28,8 +28,6 @@ public class ServicesPage extends Base {
     private WebElement getFinancialHealthRatingBtn;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
 
     public ServicesPage(){
         PageFactory.initElements(driver, this);
@@ -37,19 +35,13 @@ public class ServicesPage extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(creditHistoryTitle, financialHealthRatingTitle,
                 getFullCreditHistoryBtn, getFinancialHealthRatingBtn);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink, headerPage.fullCreditHistoryHeaderLink,
-                headerPage.finanicialHealthHeaderLink);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+        headerPage.getMainHeader();
+        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
     }
 }

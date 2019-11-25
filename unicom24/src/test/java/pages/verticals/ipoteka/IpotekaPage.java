@@ -35,7 +35,6 @@ public class IpotekaPage extends Base {
     private WebElement privateClientsIpotekaBread;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
 
 
     public IpotekaPage() {
@@ -45,10 +44,7 @@ public class IpotekaPage extends Base {
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
                 common.neededRating, common.license, common.overpayment);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
+        headerPage.getMainHeader();
         footerPage.getFooter();
     }
 
@@ -58,7 +54,7 @@ public class IpotekaPage extends Base {
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.breadcrumbsAreNotAppear();
