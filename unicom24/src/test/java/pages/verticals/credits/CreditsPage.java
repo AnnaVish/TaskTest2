@@ -2,7 +2,6 @@ package pages.verticals.credits;
 
 import TestContext.TestContext;
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,11 +32,11 @@ public class CreditsPage extends Base {
     private WebElement formOffer;
 
 
-//    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-//    private WebElement privateClientsBread;
-//
-//    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
-//    private WebElement privateClientsCreditsBread;
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+    private WebElement privateClientsCreditsBread;
 
     @FindBy(xpath = "//div[@class='clear_wrapper']/i[contains(text(), 'close')]")
     private WebElement closeModalBtn;
@@ -51,8 +50,7 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, common);
         PageFactory.initElements(driver, adminkaRedirects);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time,
-                common.neededRating, common.license);
+                common.payPerMonth, common.time, common.neededRating, common.license, privateClientsBread, privateClientsCreditsBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -66,7 +64,7 @@ public class CreditsPage extends Base {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.breadcrumbsAreNotAppear();
+        Header.checkBreadCrumbs(3);
     }
 
     public Boolean offersOnPageMore5() {

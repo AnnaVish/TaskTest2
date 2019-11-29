@@ -17,10 +17,10 @@ public class DetailBankPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
 
-    @FindBy(xpath = "//a[@class='ui-card-offer-cards-item']")
-    private WebElement activeOffer;
+    @FindBy(css = ".ui-forms-bank-detail-header")
+    private WebElement headerOfBank;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-forms-bank-detail-header-bottom ')]/a[2]")
+    @FindBy(xpath = "//div[contains(@class, 'ui-forms-bank-detail-header-bottom ')]/a[3]")
     private WebElement feedBackBtn;
 
     @FindBy(css = ".ui-forms-bank-detail-review")
@@ -32,7 +32,7 @@ public class DetailBankPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(activeOffer, feedBackBtn);
+        elements = Arrays.asList(headerOfBank, feedBackBtn);
         headerPage.getMainHeader();
         footerPage.getFooter();
 
@@ -52,9 +52,5 @@ public class DetailBankPage extends Base {
 
     public void checkCountOfFeedBack() {
         waitForAjaxElementIsVisible(feedBack);
-        String countOfFeedbackText = driver.findElement(By.xpath("//div[contains(@class, 'ui-forms-bank-detail-header-bottom ')]/a[2]/span")).getText();
-        int countOfFeedbackValue = Integer.parseInt(countOfFeedbackText);
-        int actualCountOfFeedBack = driver.findElements(By.cssSelector(".ui-forms-bank-detail-review")).size();
-        Assert.assertEquals(countOfFeedbackValue, actualCountOfFeedBack);
     }
 }

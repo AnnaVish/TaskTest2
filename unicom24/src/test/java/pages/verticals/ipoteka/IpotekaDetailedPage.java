@@ -1,8 +1,6 @@
 package pages.verticals.ipoteka;
 
 import base.Base;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -86,6 +84,6 @@ public class IpotekaDetailedPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+        Header.checkBreadCrumbs(3);
     }
 }

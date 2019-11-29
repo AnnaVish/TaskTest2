@@ -51,7 +51,7 @@ public class BankList extends Base {
         footerPage.getFooter();
     }
 
-    public void bankListPageIsDisplayed() {
+    public void pageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(bank);

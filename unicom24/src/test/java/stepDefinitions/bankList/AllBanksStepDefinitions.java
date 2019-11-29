@@ -16,7 +16,7 @@ public class AllBanksStepDefinitions {
 
     @Тогда("^отображается страница Все банки$")
     public void allBanksPageAreDisplayed() {
-        bankList.bankListPageIsDisplayed();
+        bankList.pageIsDisplayed();
         Assert.assertTrue(bankList.banksOnPageEqual5());
     }
 

@@ -122,8 +122,11 @@ public class Header extends Base {
     /*
      * Метод проверки отсутсвия ХК в вертикалях
      */
-    public static void breadcrumbsAreNotAppear() {
-        Assert.assertEquals(0, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+//    public static void breadcrumbsAreNotAppear() {
+//        Assert.assertEquals(0, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+//    }
 
+    public static void checkBreadCrumbs(int countOfBreadCrumbs) {
+        Assert.assertEquals(countOfBreadCrumbs, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
     }
 }

@@ -1,8 +1,6 @@
 package pages.verticals.microCredits;
 
 import base.Base;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,12 +50,15 @@ public class MicroCreditsDetailedPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
     private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Микрозаймы')]")
+//    @FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
+//    private WebElement privateClientsMFOBread;
+
+    @FindBy(xpath = "//a[contains(text(), 'Займы онлайн')]")
     private WebElement privateClientsMFOBread;
 
     public final List<WebElement> elements;
 
-    public MicroCreditsDetailedPage(){
+    public MicroCreditsDetailedPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
@@ -72,10 +73,10 @@ public class MicroCreditsDetailedPage extends Base {
         footerPage.getFooter();
     }
 
-    public void pageIsDisplayed(){
+    public void pageIsDisplayed() {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+        Header.checkBreadCrumbs(4);
     }
 }
