@@ -1,8 +1,6 @@
 package pages.verticals.credits;
 
 import base.Base;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -57,7 +55,7 @@ public class CreditsDetailsPage extends Base {
 
     public final List<WebElement> elements;
 
-    public CreditsDetailsPage(){
+    public CreditsDetailsPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
@@ -73,10 +71,10 @@ public class CreditsDetailsPage extends Base {
         footerPage.getFooter();
     }
 
-    public void pageIsDisplayed(){
+    public void pageIsDisplayed() {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Assert.assertEquals(3, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+        Header.checkBreadCrumbs(3);
     }
 }

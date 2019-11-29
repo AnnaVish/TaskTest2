@@ -2,7 +2,6 @@ package pages.verticals.microCredits;
 
 import TestContext.TestContext;
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -31,11 +30,11 @@ public class MicroCreditsPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-//    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-//    private WebElement privateClientsBread;
-//
-//    @FindBy(xpath = "//li/span[contains(text(), 'Микрозаймы')]")
-//    private WebElement privateClientsMFOBread;
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
+    private WebElement privateClientsMFOBread;
 
     /*
      * форма с отправленным смс
@@ -98,7 +97,7 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.payPerDay,
-                common.time, common.neededRating, common.license);
+                common.time, common.neededRating, common.license, privateClientsBread, privateClientsMFOBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, common.giftPic, common.personalOfferField,
@@ -116,7 +115,7 @@ public class MicroCreditsPage extends Base {
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
-        Header.breadcrumbsAreNotAppear();
+        Header.checkBreadCrumbs(3);
     }
 
     public Boolean offersOnPageMore10(){

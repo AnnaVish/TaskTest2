@@ -2,7 +2,6 @@ package pages.verticals.creditCards;
 
 import TestContext.TestContext;
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,11 +27,11 @@ public class CreditCardsPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-//    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-//    private WebElement privateClientsBread;
-//
-//    @FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
-//    private WebElement privateClientsCreditsCardBread;
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
+    private WebElement privateClientsCreditsCardBread;
 
     public final List<WebElement> elements;
 
@@ -42,7 +41,7 @@ public class CreditCardsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.license, common.creditLimit, common.cost);
+                common.license, common.creditLimit, common.cost, privateClientsBread, privateClientsCreditsCardBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -56,7 +55,7 @@ public class CreditCardsPage extends Base {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.breadcrumbsAreNotAppear();
+        Header.checkBreadCrumbs(3);
     }
 
     public Boolean offersOnPageMore5(){

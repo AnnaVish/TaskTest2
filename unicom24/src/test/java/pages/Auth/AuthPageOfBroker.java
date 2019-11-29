@@ -60,8 +60,10 @@ public class AuthPageOfBroker extends Base {
          * пришлось обходить это циклом, что пока значение в поле не будет правильным, пиши заново
          */
         while (!loginInput.getAttribute("value").equals(AuthPage.login)) {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 25; i++) {
+                loginInput.sendKeys(Keys.CONTROL + "a");
                 loginInput.sendKeys(Keys.BACK_SPACE);
+            }
             typeIntoField(AuthPage.login, loginInput);
         }
         while (!passwordField.getAttribute("value").equals(AuthPage.password)) {

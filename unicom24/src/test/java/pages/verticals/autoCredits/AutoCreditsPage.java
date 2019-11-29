@@ -1,7 +1,6 @@
 package pages.verticals.autoCredits;
 
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,11 +26,11 @@ public class AutoCreditsPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-//    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-//    private WebElement privateClientsBread;
-//
-//    @FindBy(xpath = "//li/span[contains(text(), 'Автокредиты')]")
-//    private WebElement privateClientsAutoBread;
+    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    private WebElement privateClientsBread;
+
+    @FindBy(xpath = "//li/span[contains(text(), 'Автокредиты')]")
+    private WebElement privateClientsAutoBread;
 
     public final List<WebElement> elements;
 
@@ -41,7 +40,8 @@ public class AutoCreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time, common.neededRating, common.license);
+                common.payPerMonth, common.time, common.neededRating, common.license, privateClientsBread,
+                privateClientsAutoBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -54,7 +54,7 @@ public class AutoCreditsPage extends Base {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.breadcrumbsAreNotAppear();
+        Header.checkBreadCrumbs(3);
     }
 
     public Boolean offersOnPageMore5(){

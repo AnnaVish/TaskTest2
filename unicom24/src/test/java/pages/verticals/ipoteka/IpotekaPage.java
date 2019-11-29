@@ -2,7 +2,6 @@ package pages.verticals.ipoteka;
 
 import TestContext.TestContext;
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,7 +42,7 @@ public class IpotekaPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.neededRating, common.license, common.overpayment);
+                common.neededRating, common.license, common.overpayment, privateClientsBread, privateClientsIpotekaBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -57,7 +56,7 @@ public class IpotekaPage extends Base {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.breadcrumbsAreNotAppear();
+        Header.checkBreadCrumbs(3);
     }
 
     public Boolean offersOnPageEqual5(){
