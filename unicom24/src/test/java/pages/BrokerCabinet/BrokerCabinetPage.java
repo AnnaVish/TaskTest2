@@ -87,6 +87,7 @@ public class BrokerCabinetPage extends Base {
     }
 
     public void mouseOverAllServicesLink() {
+        waitForVisibility(header.allServicesLink);
         mouseOver(header.allServicesLink);
     }
 
@@ -116,6 +117,16 @@ public class BrokerCabinetPage extends Base {
 
     public void scoringMenuIsDisplayed() {
         waitForAllAjaxElementIsVisible(header.getScoringSubMenu());
+    }
+
+    public void rfzSubMenuClick() {
+        waitForVisibility(header.rfzSubMenu);
+        header.rfzSubMenu.click();
+    }
+
+    public void myCustomersMouseOver() {
+        waitForVisibility(header.myClientsLink);
+        mouseOver(header.myClientsLink);
     }
 
 }

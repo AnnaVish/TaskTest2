@@ -54,8 +54,8 @@ public class HeaderBrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Рейтинг финансового здоровья')]")
     public WebElement rfzSubMenu;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Кредитный отчет Unicom24')]")
-    public WebElement creditReportUnicom24SubMenu;
+//    @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Кредитный отчет Unicom24')]")
+//    public WebElement creditReportUnicom24SubMenu;
 
     @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Кредитный рейтинг')]")
     public WebElement creditRatingSubMenu;
@@ -63,8 +63,8 @@ public class HeaderBrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Кредитный отчет')]")
     public WebElement creditReportSubMenu;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Расширенный кредитный рейтинг')]")
-    public WebElement wideCreditRatingSubMenu;
+//    @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'Расширенный кредитный рейтинг')]")
+//    public WebElement wideCreditRatingSubMenu;
 
     @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text') and contains(text(), 'FICO')]")
     public WebElement ficoSubMenu;
@@ -79,8 +79,8 @@ public class HeaderBrokerCabinetPage extends Base {
     public WebElement scoringSocialMediaSubMenu;
 
     public List<WebElement> getSubMenuElements() {
-        return Arrays.asList(rfzSubMenu, creditReportUnicom24SubMenu, creditRatingSubMenu,
-                creditReportSubMenu, wideCreditRatingSubMenu, ficoSubMenu, checkAutoSubMenu, scoringPhoneNumberSubMenu,
+        return Arrays.asList(rfzSubMenu, creditRatingSubMenu,
+                creditReportSubMenu, ficoSubMenu, checkAutoSubMenu, scoringPhoneNumberSubMenu,
                 scoringSocialMediaSubMenu);
     }
     /*
@@ -91,8 +91,8 @@ public class HeaderBrokerCabinetPage extends Base {
      *Финансовый рейтинг меню
      */
     public List<WebElement> getFinRatingSubMenu() {
-        return Arrays.asList(rfzSubMenu, creditReportUnicom24SubMenu, creditRatingSubMenu,
-                creditReportSubMenu, wideCreditRatingSubMenu, ficoSubMenu);
+        return Arrays.asList(rfzSubMenu, creditRatingSubMenu,
+                creditReportSubMenu, ficoSubMenu);
     }
     /*
      *Финансовый рейтинг меню окончено

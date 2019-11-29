@@ -1,6 +1,7 @@
 package stepDefinitions.broker;
 
 import base.Base;
+import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.BrokerCabinet.BrokerCabinetPage;
 
@@ -61,5 +62,10 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     @Тогда("^отображается меню Скоринг$")
     public void scoringSubMenuIsDisplayed() {
         brokerCabinetPage.scoringMenuIsDisplayed();
+    }
+
+    @Когда("^брокер кликает на Рейтинг финансового здоровья$")
+    public void brokerClicksRFZLink() {
+        brokerCabinetPage.rfzSubMenuClick();
     }
 }

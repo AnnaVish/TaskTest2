@@ -24,8 +24,8 @@ public class FooterBrokerCabinetPage extends Base {
     @FindBy(xpath = "//li/a[@href=\"/b2b_office/credit-report\" and contains(text(), 'Кредитный отчет')]")
     public WebElement creditReportLink;
 
-    @FindBy(xpath = "//li/a[@href=\"/b2b_office/advanced-credit-rating\" and contains(text(), 'Расширенный кредитный рейтинг')]")
-    public WebElement bigCreditRatingLink;
+//    @FindBy(xpath = "//li/a[@href=\"/b2b_office/advanced-credit-rating\" and contains(text(), 'Расширенный кредитный рейтинг')]")
+//    public WebElement bigCreditRatingLink;
 
     @FindBy(xpath = "//li/a[@href=\"/b2b_office/fico\" and contains(text(), 'FICO')]")
     public WebElement ficioLink;
@@ -65,7 +65,7 @@ public class FooterBrokerCabinetPage extends Base {
 
     public List<WebElement> getFooter() {
         return Arrays.asList(footerContainer, footerTitle, rfzLink,
-                creditRatingLink, creditReportLink, bigCreditRatingLink, ficioLink,
+                creditRatingLink, creditReportLink, ficioLink,
                 middleSideOfFooterTitle, scoringTelephoneNumberLink, scoringSocialMediaLink,
                 rightSideOfFooterTitle, checkAutoLink, supportTitle, supportLink,
                 footerIcons, copyRight, doneBy, dataProtectedBy);
