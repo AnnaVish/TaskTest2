@@ -4,10 +4,13 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class HeaderPartnerCabinetPage extends Base {
 
     /*
-    *Верхний хэдэр
+     *Верхний хэдэр
      */
     @FindBy(css = ".ui-app-header__dash")
     public WebElement headerContainer;
@@ -39,11 +42,11 @@ public class HeaderPartnerCabinetPage extends Base {
     @FindBy(xpath = "//div[./img[@src=\"/static/dist/partners/office/img/icons/alert-b1f1245cd7.svg\"]]")
     public WebElement ringBtn;
     /*
-    *Верхний хэдэр окончен
+     *Верхний хэдэр окончен
      */
 
     /*
-    *Нижний хэдэр
+     *Нижний хэдэр
      */
 
     @FindBy(xpath = "//a[@href=\"/partners/office/statistics/total\"][contains(text(), 'Отчеты')]")
@@ -75,4 +78,12 @@ public class HeaderPartnerCabinetPage extends Base {
     /*
      *Нижний хэдэр окончен
      */
+
+    public List<WebElement> getHeaderPartnerCabinetPage() {
+        return Arrays.asList(headerContainer, logo, logoTitle, balance,
+                getMoney, patentialMoney, moneyOfAllTime, getMoneyForAllTime,
+                logOutBtn, ringBtn, statisticLink, offersLink, landingsLink,
+                productsLink, postBacksLink, helpLink, settingsLink,
+                staticticImg, statisticTitle);
+    }
 }

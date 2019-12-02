@@ -57,12 +57,17 @@ public class PartnerCabinetPageStepDefinitions extends Base {
     }
 
     @То("на странице постбека отображаются данные из параметров")
-    public void checkPostBackData(){
+    public void checkPostBackData() {
         postbackTabPage.checkIsPostbackDone();
     }
 
     @Тогда("^вебмастер кликает на вкладку Настройки$")
     public void webMasterSettingsClick() {
         partnerCabinetPage.settingsClick();
+    }
+
+    @Тогда("^вебмастер разлогинивается$")
+    public void webMasterLogOut() {
+        partnerCabinetPage.logOutBtnClick();
     }
 }

@@ -85,17 +85,11 @@ public class PartnerCabinetPage extends Base {
     @FindBy(xpath = "//button[contains(text(), 'Привязать')]")
     private WebElement connectLandingTab;
 
-    private final List<WebElement>headerPartnerCabinetPage;
     private final List<WebElement>elements;
 
     public PartnerCabinetPage(){
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
         elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
                 allOffersLink, offer, recomendLandings, allLandingsLink, landing, connectLanding, landingDescriptionTab,
@@ -103,7 +97,7 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(headerPartnerCabinetPage);
+        allElementsAreVisible(header.getHeaderPartnerCabinetPage());
         allElementsAreVisible(elements);
     }
 
@@ -129,6 +123,11 @@ public class PartnerCabinetPage extends Base {
 
     public void statisticClick() {
         header.statisticLink.click();
+    }
+
+    public void logOutBtnClick() {
+        waitForVisibility(header.logOutBtn);
+        header.logOutBtn.click();
     }
 
     public void settingsClick() {
