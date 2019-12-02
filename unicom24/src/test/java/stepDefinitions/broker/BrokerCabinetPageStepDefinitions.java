@@ -83,4 +83,10 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     public void addMoneyPanelIsNotDisplayed() {
         brokerCabinetPage.giveMoneyPanelIsNotDisplayed();
     }
+
+    @Тогда("^брокер разлогинивается$")
+    public void brokerLogOut() {
+        brokerCabinetPage.dropMenuClick();
+        brokerCabinetPage.logOutClick();
+    }
 }

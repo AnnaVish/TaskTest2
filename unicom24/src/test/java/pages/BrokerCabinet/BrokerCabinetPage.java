@@ -137,4 +137,14 @@ public class BrokerCabinetPage extends Base {
         waitForInvisibilityOfAllElements(header.giveMoneyPanel());
     }
 
+    public void dropMenuClick() {
+        waitForVisibility(header.dropMenu);
+        header.dropMenu.click();
+    }
+
+    public void logOutClick() {
+        waitForVisibility(header.logoutBtn);
+        header.logoutBtn.click();
+    }
+
 }
