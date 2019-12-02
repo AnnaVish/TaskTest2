@@ -89,4 +89,10 @@ public class BrokerCabinetPageStepDefinitions extends Base {
         brokerCabinetPage.dropMenuClick();
         brokerCabinetPage.logOutClick();
     }
+
+    @Тогда("^брокер заходит в профиль$")
+    public void brokerGoToProfile() {
+        brokerCabinetPage.dropMenuClick();
+        brokerCabinetPage.profileClick();
+    }
 }

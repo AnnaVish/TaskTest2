@@ -147,4 +147,9 @@ public class BrokerCabinetPage extends Base {
         header.logoutBtn.click();
     }
 
+    public void profileClick() {
+        waitForVisibility(header.profileLink);
+        header.profileLink.click();
+    }
+
 }

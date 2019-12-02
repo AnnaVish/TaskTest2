@@ -42,14 +42,20 @@ public class HeaderBrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[@class='ui-menu']/div[contains(text(), 'Скоринг')]")
     public WebElement scoringLink;
 
-    @FindBy(xpath = "//span[contains(text(), 'Выход')]")
-    public WebElement logoutBtn;
-
     public List<WebElement> getHeader() {
         return Arrays.asList(logo, logoTitle, currentMoney, giveMoneyBtn,
                 dropMenu, catalogOffersLink, myClientsLink, allServicesLink,
                 finRatingOfClientLink, autoLink, scoringLink);
     }
+
+    /*
+     * Раскрывающееся меню справа вверху
+     */
+    @FindBy(xpath = "//span[contains(text(), 'Выход')]")
+    public WebElement logoutBtn;
+
+    @FindBy(xpath = "//a[@href=\"/b2b_office/user/profile\" and contains(text(), 'Профиль')]")
+    public WebElement profileLink;
 
     /*
      * Панель пополнить счет
