@@ -94,6 +94,16 @@ public abstract class Base {
         }
     }
 
+    protected static void waitForInvisibilityOfAllElements(List<WebElement> elements) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        try {
+            for (WebElement element : elements) {
+                wait.until(elementIsNotVisible(element));
+            }
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+        }
+    }
+
     protected static WebElement waitToBeClickable(By selector) {
         return new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.elementToBeClickable(selector));

@@ -18,19 +18,19 @@ public class HeaderPartnerCabinetPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Кабинет Вебмастеров')]")
     public WebElement logoTitle;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\"]/div[contains(text(), 'Текущий баланс')]")
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Текущий баланс')]")
     public WebElement balance;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\"]/div[contains(text(), 'Вывести деньги')]")
+    @FindBy(xpath = "//div[contains(text(), 'Вывести деньги')]")
     public WebElement getMoney;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\"]/div[contains(text(), 'Возможный максимальный доход')]")
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Возможный максимальный доход')]")
     public WebElement patentialMoney;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\"]/div[contains(text(), 'Заработано за все время')]")
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Заработано за все время')]")
     public WebElement moneyOfAllTime;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\"]/div[contains(text(), 'Выведено за все время')]")
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Выведено за все время')]")
     public WebElement getMoneyForAllTime;
 
     @FindBy(xpath = "//div[contains(@class,'ui-app-header__dash-item')]/div[contains(text(), 'Выход')]")
@@ -46,7 +46,7 @@ public class HeaderPartnerCabinetPage extends Base {
     *Нижний хэдэр
      */
 
-    @FindBy(xpath = "//a[@href=\"/partners/office/statistics/\"][contains(text(), 'Статистика')]")
+    @FindBy(xpath = "//a[@href=\"/partners/office/statistics/total\"][contains(text(), 'Отчеты')]")
     public WebElement statisticLink;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Офферы')]")

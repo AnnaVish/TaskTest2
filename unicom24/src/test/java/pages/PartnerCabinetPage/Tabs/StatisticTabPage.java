@@ -13,17 +13,17 @@ public class StatisticTabPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
 
-    @FindBy(xpath = "//div[contains(text(), 'Отчеты')]")
-    private WebElement reportsTitle;
+//    @FindBy(xpath = "//div[contains(text(), 'Отчеты')]")
+//    private WebElement reportsTitle;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/\" and contains(text(), 'Кошелек')]")
-    private WebElement walletBtn;
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\" and contains(text(), 'Трафик')]")
+    private WebElement traficBtn;
 
     @FindBy(xpath = "//div[@href=\"/partners/office/statistics/landings/forms\" and contains(text(), 'Лендинги и API')]")
     private WebElement landingsAndApiBtn;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/referrals/total\" and contains(text(), 'Реферальные ссылки')]")
-    private WebElement refBtn;
+    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/wallet/total\" and contains(text(), 'Изменения баланса')]")
+    private WebElement changeBalanceBtn;
 
     @FindBy(xpath = "//div[@href=\"/partners/office/statistics/products/rfz\" and contains(text(), 'Продукты')]")
     private WebElement productsBtn;
@@ -40,7 +40,7 @@ public class StatisticTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Очистить')]")
     private WebElement clearBtn;
 
-    @FindBy(css = ".ui-report-table-self")
+    @FindBy(css = ".ui-report-total")
     private WebElement statisticTable;
 
     private final List<WebElement> elements;
@@ -49,8 +49,8 @@ public class StatisticTabPage extends Base {
     public StatisticTabPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, header);
-        elements = Arrays.asList(reportsTitle, walletBtn, landingsAndApiBtn, refBtn, productsBtn, dynamicLandingBtn,
-                navigation, showBtn, clearBtn, statisticTable);
+        elements = Arrays.asList(traficBtn, landingsAndApiBtn, changeBalanceBtn, productsBtn, dynamicLandingBtn,
+                navigation, showBtn, statisticTable);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
                 header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
                 header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,

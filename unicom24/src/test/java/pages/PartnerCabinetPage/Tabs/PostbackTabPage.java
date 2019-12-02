@@ -2,6 +2,7 @@ package pages.PartnerCabinetPage.Tabs;
 
 import base.Base;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +18,7 @@ public class PostbackTabPage extends Base {
     private final RequestBinPage requestBinPage = new RequestBinPage();
 
     /*
-    * Тестовые данные
+     * Тестовые данные
      */
     private String offerId = "OfferIdTest";
     private String offerName = "OfferNameTest";
@@ -35,6 +36,9 @@ public class PostbackTabPage extends Base {
 
     @FindBy(css = ".ui-postback-table-self")
     private WebElement postbackTable;
+
+    @FindBy(xpath = "//div[contains(text(), 'У вас пока нет ни одной записи')]")
+    private WebElement youDontHavePostbackTitle;
 
     @FindBy(xpath = "//div[contains(text(), 'Создать')]")
     private WebElement createPostBackBtn;
@@ -106,9 +110,9 @@ public class PostbackTabPage extends Base {
     private WebElement copyBtn;
 
     private final List<WebElement> headerPartnerCabinetPage;
-    private final List<WebElement>elements;
+    private final List<WebElement> elements;
 
-    public PostbackTabPage(){
+    public PostbackTabPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
@@ -116,18 +120,22 @@ public class PostbackTabPage extends Base {
                 header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
                 header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
                 header.staticticImg, header.statisticTitle);
-        elements = Arrays.asList(postBackTitle, postbackTable, createPostBackBtn, uiPostBackForm, nameOfPostbackInput,
+        elements = Arrays.asList(postBackTitle, createPostBackBtn, uiPostBackForm, nameOfPostbackInput,
                 typePostBtn, typeGetBtn, inProgressCheck, approvedCheck, deniedCheck, extraditionCheck, issueCheck,
                 approvalCheck, secondExtradition, transitionCheck, baseUrlInput, offerIdNameOfParametrInput,
                 offerIdValueOfParametrInput, offerNameNameOfParametrInput, offerNameValueOfParametrInput,
                 clickIdNameOfParametrInput, clickIdValueOfParametrInput, mainTextArea, copyBtn);
     }
 
-    public void pageIsDisplayed(){
+    public void pageIsDisplayed() {
         allElementsAreVisible(headerPartnerCabinetPage);
         allElementsAreVisible(elements);
+        try {
+            waitForVisibility(postbackTable);
+        } catch (TimeoutException e) {
+            waitForVisibility(youDontHavePostbackTitle);
+        }
     }
-
 
 
     public void fillFields() {
@@ -154,7 +162,7 @@ public class PostbackTabPage extends Base {
         waitForVisibility(element2);
     }
 
-    public void checkIsPostbackDone(){
+    public void checkIsPostbackDone() {
         switchToTheSecondTab();
         refreshPage();
         String xpathClickID = String.format("//p[./strong[contains(text(), '%s')]][contains(text(), '%s')]", this.clickId, this.clickIdValue);

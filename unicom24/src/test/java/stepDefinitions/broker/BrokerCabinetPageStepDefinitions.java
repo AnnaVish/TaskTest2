@@ -68,4 +68,19 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     public void brokerClicksRFZLink() {
         brokerCabinetPage.rfzSubMenuClick();
     }
+
+    @Тогда("^брокер нажимает на кнопку Пополнить счет$")
+    public void brokerGiveMoneyClick() {
+        brokerCabinetPage.giveMoneyBtnClick();
+    }
+
+    @Тогда("^отображается панель Пополнить счет$")
+    public void addMoneyPanelIsDisplayed() {
+        brokerCabinetPage.giveMoneyPanelIsDisplayed();
+    }
+
+    @Тогда("^панель Пополнить счет не отображается$")
+    public void addMoneyPanelIsNotDisplayed() {
+        brokerCabinetPage.giveMoneyPanelIsNotDisplayed();
+    }
 }
