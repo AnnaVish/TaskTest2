@@ -1,6 +1,7 @@
 package pages.BrokerCabinet.profile;
 
 import base.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -66,5 +67,12 @@ public class ProfilePage extends Base {
         allElementsAreVisible(header.getHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footer.getFooter());
+    }
+
+    public void clickTab(String tab) {
+        String xPath = String.format("//a[contains(text(), '%s')]", tab);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        element.click();
     }
 }
