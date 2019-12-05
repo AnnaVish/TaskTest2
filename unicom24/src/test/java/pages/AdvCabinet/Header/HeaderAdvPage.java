@@ -22,4 +22,18 @@ public class HeaderAdvPage {
 
     @FindBy(xpath = "//a[@href=\"/advertiser_office/requests\" and contains(text(), 'Заявки')]")
     public WebElement applicationsTab;
+
+    // Раскрывающийся список при нажатии на фио пользователя
+    @FindBy(xpath = "//a[@href=\"/advertiser_office/user/profile\" and contains(text(), 'Профиль')]")
+    public WebElement dropMenuUserProfile;
+
+    @FindBy(xpath = "//a[@href=\"/advertiser_office/user/profile\" and contains(text(), 'Счет')]")
+    public WebElement dropMenuScore;
+
+    @FindBy(xpath = "//a[@href=\"/advertiser_office/user/profile\" and contains(text(), 'Настройки')]")
+    public WebElement dropMenuSettings;
+
+    @FindBy(xpath = "//span[contains(text(), 'Выход')]")
+    public WebElement dropMenuLogOut;
+
 }
