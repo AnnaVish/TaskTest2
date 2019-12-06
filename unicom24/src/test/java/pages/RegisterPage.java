@@ -80,7 +80,7 @@ public class RegisterPage extends Base {
                 footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
                 footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
                 footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.map, footerPage.adress);
+                footerPage.personalData, footerPage.mail, footerPage.siteMap, footerPage.adress);
     }
 
     public void registerPageIsDisplayed() {

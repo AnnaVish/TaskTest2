@@ -57,7 +57,7 @@ public class Footer {
     public WebElement personalData;
 
     @FindBy(xpath = "//li/a[@href=\"/karta-sajta\" and contains(text(), 'Карта сайта')]")
-    public WebElement map;
+    public WebElement siteMap;
 
     @FindBy(xpath = "//div[1]/a[@href=\"mailto:support@unicom24.ru\" and contains(text(), 'support@unicom24.ru')]")
     public WebElement mail;
@@ -76,7 +76,7 @@ public class Footer {
                 footerSeoText, becomePartnerLink, becomeAgentLink, cabinetOfBroker,
                 cabinetOfBank, cabinetOfWebmaster,
                 copyright, copyrightText, becomeAgentDown, becomePartnerDown,
-                personalData, mail, map, adress, aboutCompany);
+                personalData, mail, siteMap, adress, aboutCompany);
     }
 
 }

@@ -296,7 +296,7 @@ public class MainPage extends Base {
     }
 
     public void scrollToFooter(){
-        scrollTo(footerPage.map);
+        scrollTo(footerPage.siteMap);
     }
 
     public void headerBecomeSmall(){
@@ -318,5 +318,10 @@ public class MainPage extends Base {
 
     public void activateBtnClick() {
         activateBtn.click();
+    }
+
+    public void siteMapClick() {
+        waitForVisibility(footerPage.siteMap);
+        footerPage.siteMap.click();
     }
 }
