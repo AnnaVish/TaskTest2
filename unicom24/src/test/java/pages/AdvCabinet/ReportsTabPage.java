@@ -29,18 +29,15 @@ public class ReportsTabPage extends Base {
     private WebElement fmsGetReportBtn;
 
     private final List<WebElement> elements;
-    private final List<WebElement> headerAdvPage;
 
     public ReportsTabPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(reportsTitle, expertizeGetReportBtn, fsspGetReportBtn, okbGetReportBtn, fmsGetReportBtn);
-        headerAdvPage = Arrays.asList(header.logo, header.logoTitle, header.currentMoney, header.giveMoneyBtn,
-                header.dropMenu, header.applicationsTab);
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(headerAdvPage);
+        allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
     }
 }

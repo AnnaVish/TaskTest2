@@ -3,25 +3,29 @@ package pages.AdvCabinet.Header;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class HeaderAdvPage {
 
-    @FindBy(xpath = "//img[@src=\"/static/dist/advertiser_office/img/logo.f7de1b6.png\"]")
+    @FindBy(xpath = "//img[@src=\"/advertiser_office/_nuxt/img/f7de1b6.png\"]")
     public WebElement logo;
 
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/\"]/div[contains(text(), 'Кабинет Банков и Рекламодателей')]")
-    public WebElement logoTitle;
+    @FindBy(xpath = "//div[contains(text(), 'Кабинет банков и рекламодателей')]")
+    private WebElement logoTitle;
 
     @FindBy(xpath = "//div[contains(text(), 'Текущий баланс')]")
-    public WebElement currentMoney;
+    private WebElement currentMoney;
 
-    @FindBy(xpath = "//div[@class='ui-app-header-block']/button/span[contains(text(), 'Пополнить счет')]")
+    @FindBy(xpath = "//button[contains(text(), 'Пополнить счет')]")
     public WebElement giveMoneyBtn;
 
-    @FindBy(css = ".ui-dropdown-menu__head-name")
+    @FindBy(css = "div.ds-impersonalization-inner")
+    private WebElement peopleIcon;
+
+    @FindBy(css = "div.ds-header-user")
     public WebElement dropMenu;
 
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests\" and contains(text(), 'Заявки')]")
-    public WebElement applicationsTab;
 
     // Раскрывающийся список при нажатии на фио пользователя
     @FindBy(xpath = "//a[@href=\"/advertiser_office/user/profile\" and contains(text(), 'Профиль')]")
@@ -35,5 +39,9 @@ public class HeaderAdvPage {
 
     @FindBy(xpath = "//span[contains(text(), 'Выход')]")
     public WebElement dropMenuLogOut;
+
+    public List<WebElement> getAdvHeader() {
+        return Arrays.asList(logo, logoTitle, currentMoney, giveMoneyBtn, peopleIcon, dropMenu);
+    }
 
 }

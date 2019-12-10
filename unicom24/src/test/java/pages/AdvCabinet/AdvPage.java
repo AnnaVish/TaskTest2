@@ -1,8 +1,10 @@
 package pages.AdvCabinet;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 
@@ -16,7 +18,7 @@ public class AdvPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'Отчеты')]")
     private WebElement reportsTab;
 
-    @FindBy(xpath = "//div[contains(text(), 'Заявки')]")
+    @FindBy(xpath = "//div[@class='default-layout-view']//a[contains(text(), 'Заявки')]")
     private WebElement applicationsTitle;
 
     @FindBy(xpath = "//div[contains(text(), 'Все предложения')]")
@@ -28,57 +30,30 @@ public class AdvPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Тип кредита')]")
     private WebElement typeOfCredit;
 
-    @FindBy(css = "input.input__field_no-label ")
+    @FindBy(id = "searchById")
     private WebElement searchField;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Поиск')]]")
+    @FindBy(xpath = "//button[contains(text(), 'Поиск')]")
     private WebElement searchBtn;
 
-    /*
-    *Табы
-     */
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests\"]/a[contains(text(), 'Все заявки')]")
-    private WebElement allApplicationsTab;
+    @FindBys({
+            @FindBy(xpath = "//div[contains(@class, 'requests-view-navigation ')]//a")
+    })
+    private List<WebElement> tabs;
 
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/new\"]/a[contains(text(), 'Новые')]")
-    private WebElement newTab;
+    private final List<WebElement> elements;
 
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/received\"]/a[contains(text(), 'Принятые')]")
-    private WebElement takenTab;
-
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/approved\"]/a[contains(text(), 'Одобрено')]")
-    private WebElement approvedTab;
-
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/loaned\"]/a[contains(text(), 'Выдано')]")
-    private WebElement givenTab;
-
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/declined\"]/a[contains(text(), 'Отказано')]")
-    private WebElement deniedTab;
-
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/rejected\"]/a[contains(text(), 'Отклоненные')]")
-    private WebElement refusedTab;
-
-    @FindBy(xpath = "//a[@href=\"/advertiser_office/requests/not_relevant\"]/a[contains(text(), 'Неактуальные')]")
-    private WebElement notActualTab;
-    /*
-     *Табы окнчены
-     */
-
-    private final List<WebElement>headerAdvPage;
-    private final List<WebElement>elements;
-
-    public AdvPage(){
+    public AdvPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        headerAdvPage = Arrays.asList(header.logo, header.logoTitle, header.currentMoney, header.giveMoneyBtn,
-                header.dropMenu, header.applicationsTab);
-        elements = Arrays.asList(applicationsTitle, offersOptions, periodOptions, typeOfCredit, searchField, searchBtn,
-                allApplicationsTab, newTab, takenTab, approvedTab, givenTab, deniedTab, refusedTab, notActualTab);
+        elements = Arrays.asList(applicationsTitle, offersOptions, periodOptions, typeOfCredit, searchField, searchBtn);
     }
 
-    public void pageIsDisplayed(){
-        allElementsAreVisible(headerAdvPage);
+    public void pageIsDisplayed() {
+        allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
+        allElementsAreVisible(tabs);
+        Assert.assertEquals(tabs.size(), 8);
     }
 
     public void reportsTabClick() {

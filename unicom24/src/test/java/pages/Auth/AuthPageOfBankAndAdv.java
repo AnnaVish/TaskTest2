@@ -10,39 +10,29 @@ import java.util.List;
 
 public class AuthPageOfBankAndAdv extends Base {
 
-    @FindBy(css = ".ui-authorization-form.ui-authorization-form-flex")
+    @FindBy(css = "div.auth-layout-form")
     private WebElement authForm;
 
-    @FindBy(name = "emanresu_htua")
+    @FindBy(id = "email")
     private WebElement loginField;
 
-    @FindBy(name = "drowssap_htua")
+    @FindBy(id = "password")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Войти')]]")
+    @FindBy(xpath = "//button[contains(text(), 'Войти')]")
     private WebElement entranceLink;
 
-    @FindBy(css = ".ui-checkbox-overlay")
-    private WebElement remeberMeCheckBox;
-
-    @FindBy(xpath = "//span[contains(text(), 'Запомнить меня')]")
+    @FindBy(xpath = "//label[contains(text(), 'Запомнить меня')]")
     private WebElement rememberMeTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'Забыли пароль')]")
+    @FindBy(xpath = "//a[contains(text(), 'Забыли пароль')]")
     private WebElement forgottenPasswordLink;
-
-    @FindBy(xpath = "//div[contains(text(), 'Авторизация через портал Госуслуг')]")
-    private WebElement autESIA;
-
-    @FindBy(css = ".ui-authorization-form-social")
-    private WebElement socialBlock;
 
     private final List<WebElement> elements;
 
     public AuthPageOfBankAndAdv(){
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(authForm, passwordField, entranceLink, remeberMeCheckBox, rememberMeTitle,
-                forgottenPasswordLink, autESIA, socialBlock);
+        elements = Arrays.asList(authForm, passwordField, entranceLink, rememberMeTitle, forgottenPasswordLink);
     }
 
     public void pageIsDisplayed(){
