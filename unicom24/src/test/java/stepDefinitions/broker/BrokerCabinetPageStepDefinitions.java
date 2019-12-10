@@ -69,6 +69,33 @@ public class BrokerCabinetPageStepDefinitions extends Base {
         brokerCabinetPage.rfzSubMenuClick();
     }
 
+    @Тогда("^брокер нажимает на кнопку Пополнить счет$")
+    public void brokerGiveMoneyClick() {
+        brokerCabinetPage.giveMoneyBtnClick();
+    }
+
+    @Тогда("^отображается панель Пополнить счет$")
+    public void addMoneyPanelIsDisplayed() {
+        brokerCabinetPage.giveMoneyPanelIsDisplayed();
+    }
+
+    @Тогда("^панель Пополнить счет не отображается$")
+    public void addMoneyPanelIsNotDisplayed() {
+        brokerCabinetPage.giveMoneyPanelIsNotDisplayed();
+    }
+
+    @Тогда("^брокер разлогинивается$")
+    public void brokerLogOut() {
+        brokerCabinetPage.dropMenuClick();
+        brokerCabinetPage.logOutClick();
+    }
+
+    @Тогда("^брокер заходит в профиль$")
+    public void brokerGoToProfile() {
+        brokerCabinetPage.dropMenuClick();
+        brokerCabinetPage.profileClick();
+    }
+
     @Когда("^брокер кликает на Кредитный рейтинг$")
     public void brokerClicksCreditRating() {
         brokerCabinetPage.creditRatingSubMenuClick();

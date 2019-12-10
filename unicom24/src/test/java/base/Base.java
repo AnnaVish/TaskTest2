@@ -12,8 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pagesUrls.PagesUrls;
 import properties.BaseProperties;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.*;
+import java.util.List;
 
 public abstract class Base {
 
@@ -94,6 +97,16 @@ public abstract class Base {
         }
     }
 
+    protected static void waitForInvisibilityOfAllElements(List<WebElement> elements) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        try {
+            for (WebElement element : elements) {
+                wait.until(elementIsNotVisible(element));
+            }
+        } catch (NoSuchElementException | StaleElementReferenceException e) {
+        }
+    }
+
     protected static WebElement waitToBeClickable(By selector) {
         return new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.elementToBeClickable(selector));
@@ -139,6 +152,12 @@ public abstract class Base {
     public static void switchToTheSecondTab() {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
+    }
+
+    public void openLinkInTheNewTab(WebElement element) {
+        String keyOpenNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
+        element.sendKeys(keyOpenNewTab);
+        switchToTheSecondTab();
     }
 
     public void closeTab() {
@@ -208,5 +227,17 @@ public abstract class Base {
     public void mouseOver(WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
+    }
+
+    public void chromeBrowserBackBtn() {
+        try {
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_ALT);
+            robot.keyPress(KeyEvent.VK_LEFT);
+            robot.keyRelease(KeyEvent.VK_LEFT);
+            robot.keyRelease(KeyEvent.VK_ALT);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
     }
 }

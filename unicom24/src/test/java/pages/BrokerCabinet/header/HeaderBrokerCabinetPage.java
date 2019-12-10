@@ -18,7 +18,7 @@ public class HeaderBrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Текущий баланс')]")
     public WebElement currentMoney;
 
-    @FindBy(xpath = "//div[@class='ui-app-header-block']/button/span[contains(text(), 'Пополнить счет')]")
+    @FindBy(xpath = "//div[@class='ui-app-header-block']/button[./span[contains(text(), 'Пополнить счет')]]")
     public WebElement giveMoneyBtn;
 
     @FindBy(css = ".ui-dropdown-menu__head-name")
@@ -47,6 +47,44 @@ public class HeaderBrokerCabinetPage extends Base {
                 dropMenu, catalogOffersLink, myClientsLink, allServicesLink,
                 finRatingOfClientLink, autoLink, scoringLink);
     }
+
+    /*
+     * Раскрывающееся меню справа вверху
+     */
+    @FindBy(xpath = "//span[contains(text(), 'Выход')]")
+    public WebElement logoutBtn;
+
+    @FindBy(xpath = "//a[@href=\"/b2b_office/user/profile\" and contains(text(), 'Профиль')]")
+    public WebElement profileLink;
+
+    /*
+     * Панель пополнить счет
+     */
+    @FindBy(xpath = "//div[contains(text(), 'Пополнение счета')]")
+    public WebElement giveMoneyTitle;
+
+    @FindBy(xpath = "//div[./div[contains(text(), 'Глушкова Елизавета Электроновна')]]/a[contains(text(), 'Договор оферты')]")
+    public WebElement contractBtn;
+
+    @FindBy(xpath = "//div[./div[contains(text(), 'Способ пополнения:')]]/label[./div[contains(text(), 'Оплата через Robokassa')]]")
+    public WebElement robokassaPaymentInput;
+
+    @FindBy(xpath = "//div[./div[contains(text(), 'Способ пополнения:')]]/label[./div[contains(text(), 'Оплата через PayTure')]]")
+    public WebElement payTurePaymentInput;
+
+    @FindBy(name = "sum")
+    public WebElement sumInput;
+
+    @FindBy(xpath = "//button[not(contains(@class, 'btn-middle-with-border'))]/span[contains(text(), 'Пополнить счет')]")
+    public WebElement giveMoneyPanelBtn;
+
+    public List<WebElement> giveMoneyPanel() {
+        return Arrays.asList(giveMoneyTitle, contractBtn, robokassaPaymentInput,
+                payTurePaymentInput, sumInput, giveMoneyPanelBtn);
+    }
+    /*
+     * Панель пополнить счет окончена
+     */
 
     /*
      * Все услуги меню

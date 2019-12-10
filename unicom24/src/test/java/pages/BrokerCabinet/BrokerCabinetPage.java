@@ -59,13 +59,8 @@ public class BrokerCabinetPage extends Base {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        header.getHeader();
         elements = Arrays.asList(mainBlock, rightBlock, understandBtn, closeBtn, rfzTitle, getRfz, hotOffersTitle,
                 ingriaTPLogo, russianUnionLogo, arbLogo, russianBusiness, blueLogo);
-        footer.getFooter();
-        header.getSubMenuElements();
-        header.getFinRatingSubMenu();
-        header.getAutoLink();
     }
 
     public void pageIsDisplayed(){
@@ -157,6 +152,34 @@ public class BrokerCabinetPage extends Base {
     public void myCustomersMouseOver() {
         waitForVisibility(header.myClientsLink);
         mouseOver(header.myClientsLink);
+    }
+
+    public void giveMoneyBtnClick() {
+        waitForVisibility(header.giveMoneyBtn);
+        header.giveMoneyBtn.click();
+    }
+
+    public void giveMoneyPanelIsDisplayed() {
+        allElementsAreVisible(header.giveMoneyPanel());
+    }
+
+    public void giveMoneyPanelIsNotDisplayed() {
+        waitForInvisibilityOfAllElements(header.giveMoneyPanel());
+    }
+
+    public void dropMenuClick() {
+        waitForVisibility(header.dropMenu);
+        header.dropMenu.click();
+    }
+
+    public void logOutClick() {
+        waitForVisibility(header.logoutBtn);
+        header.logoutBtn.click();
+    }
+
+    public void profileClick() {
+        waitForVisibility(header.profileLink);
+        header.profileLink.click();
     }
 
 }

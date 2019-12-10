@@ -31,8 +31,8 @@ public class ProductsTabPage extends Base {
     @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Рейтинг финансового здоровья')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/financial-health\" and contains(text(), 'Получить отчет')]")
     private WebElement rfzGetReportBtn;
 
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Расширенный кредитный рейтинг')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/advanced-credit-rating\" and contains(text(), 'Получить отчет')]")
-    private WebElement wideCreditRatingGetReportBtn;
+//    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Расширенный кредитный рейтинг')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/advanced-credit-rating\" and contains(text(), 'Получить отчет')]")
+//    private WebElement wideCreditRatingGetReportBtn;
 
     @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Кредитный отчет')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/credit-report\" and contains(text(), 'Получить отчет')]")
     private WebElement creditReportGetBtn;
@@ -52,8 +52,8 @@ public class ProductsTabPage extends Base {
     @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Скоринг по социальным сетям')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/social-scoring\" and contains(text(), 'Получить отчет')]")
     private WebElement socialMediaScoringGetReportBtn;
 
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Кредитный отчет Unicom24')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/credit-report-u24\" and contains(text(), 'Получить отчет')]")
-    private WebElement creditReportUnicom24GetReportBtn;
+//    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Кредитный отчет Unicom24')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/credit-report-u24\" and contains(text(), 'Получить отчет')]")
+//    private WebElement creditReportUnicom24GetReportBtn;
 
     private final List<WebElement> elements;
     private final List<WebElement> headerPartnerCabinetPage;
@@ -62,9 +62,8 @@ public class ProductsTabPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, header);
         elements = Arrays.asList(productsTitle, expertizeGetReportBtn, okbGetReportBtn, fsspGetReportBtn,
-                fmsGetReportBtn, rfzGetReportBtn, wideCreditRatingGetReportBtn, creditReportGetBtn, creditRatingGetBtn,
-                ficoGetReportBtn, checkAutoGetReportBtn, scorePhoneNumberGetReportBtn, socialMediaScoringGetReportBtn,
-                creditReportUnicom24GetReportBtn);
+                fmsGetReportBtn, rfzGetReportBtn, creditReportGetBtn, creditRatingGetBtn,
+                ficoGetReportBtn, checkAutoGetReportBtn, scorePhoneNumberGetReportBtn, socialMediaScoringGetReportBtn);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
                 header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
                 header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,

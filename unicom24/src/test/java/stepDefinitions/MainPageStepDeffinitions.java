@@ -202,7 +202,7 @@ public class MainPageStepDeffinitions extends Base {
     }
 
     @Тогда("^пользователь кликает Старый кабинет брокера и агента в футере$")
-    public void userClickOldCabinetOfBroker(){
+    public void userClickOldCabinetOfBroker() {
         mainPage.oldCabinetOfBrokerClick();
     }
 
@@ -211,13 +211,18 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.aboutCompanyFooterClick();
     }
 
+    @Тогда("^пользователь кликает Карта сайта в футере$")
+    public void userClickSiteMapInFooter() {
+        mainPage.siteMapClick();
+    }
+
     @Тогда("пользователь делает скролл в футэру")
-    public void userScrollToFooter(){
+    public void userScrollToFooter() {
         mainPage.scrollToFooter();
     }
 
     @Тогда("хэдэр уменьшается")
-    public void headerBecomeSmall(){
+    public void headerBecomeSmall() {
         mainPage.headerBecomeSmall();
     }
     /*

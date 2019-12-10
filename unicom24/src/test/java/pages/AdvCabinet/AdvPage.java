@@ -84,4 +84,15 @@ public class AdvPage extends Base {
     public void reportsTabClick() {
         reportsTab.click();
     }
+
+    public void dropMenuClick() {
+        waitForVisibility(header.dropMenu);
+        header.dropMenu.click();
+    }
+
+    public void dropMenuLogOutClick() {
+        waitForVisibility(header.dropMenuLogOut);
+        header.dropMenuLogOut.click();
+    }
+
 }

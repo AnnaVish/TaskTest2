@@ -2,6 +2,7 @@ package stepDefinitions.advPage;
 
 import base.Base;
 import cucumber.api.java.ru.Дано;
+import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.AdvCabinet.AdvPage;
 
@@ -18,4 +19,11 @@ public class AdvPageStepDefinitions extends Base {
     public void bankirReportsClick() {
         advPage.reportsTabClick();
     }
+
+    @Когда("^пользователь разлогинивается$")
+    public void userDropMenuClick(){
+        advPage.dropMenuClick();
+        advPage.dropMenuLogOutClick();
+    }
+
 }
