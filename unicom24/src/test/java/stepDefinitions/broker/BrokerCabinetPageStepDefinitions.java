@@ -68,4 +68,36 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     public void brokerClicksRFZLink() {
         brokerCabinetPage.rfzSubMenuClick();
     }
+
+    @Когда("^брокер кликает на Кредитный рейтинг$")
+    public void brokerClicksCreditRating() {
+        brokerCabinetPage.creditRatingSubMenuClick();
+
+    }
+
+    @Когда("^брокер кликает на Кредитный отчет$")
+    public void brokerClicksCreditReport() {
+        brokerCabinetPage.creditReportSubMenuClick();
+    }
+
+    @Когда("^брокер кликает на отчет FICO$")
+    public void brokerClicksFicoReport() {
+        brokerCabinetPage.ficoReportSubmenuClick();
+    }
+
+    @Когда("^брокер кликает на Проверка автомобиля$")
+    public void brokerClicksVehicleVerification() {
+        brokerCabinetPage.vehicleVerificationSubmenuClick();
+    }
+
+    @Когда("^брокер кликает на Скоринг по номеру телефона$")
+    public void brokerClicksPhoneNumberScoring() {
+        brokerCabinetPage.phoneNumberScoringSubmenuClick();
+    }
+
+    @Когда("^брокер кликает на Скоринг по соц.сетям$")
+    public void  brokerClicksSocialNetworksScoring() {
+        brokerCabinetPage.socialNetworksScoringSubmenuClick();
+    }
+
 }

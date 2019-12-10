@@ -124,6 +124,36 @@ public class BrokerCabinetPage extends Base {
         header.rfzSubMenu.click();
     }
 
+    public void  creditRatingSubMenuClick() {
+        waitForVisibility(header.creditRatingSubMenu);
+        header.creditRatingSubMenu.click();
+    }
+
+    public void creditReportSubMenuClick() {
+        waitForVisibility(header.creditReportSubMenu);
+        header.creditReportSubMenu.click();
+    }
+
+    public void ficoReportSubmenuClick() {
+        waitForVisibility(header.ficoSubMenu);
+        header.ficoSubMenu.click();
+    }
+
+    public void vehicleVerificationSubmenuClick() {
+        waitForVisibility(header.checkAutoSubMenu);
+        header.checkAutoSubMenu.click();
+    }
+
+    public void phoneNumberScoringSubmenuClick() {
+        waitForVisibility(header.scoringPhoneNumberSubMenu);
+        header.scoringPhoneNumberSubMenu.click();
+    }
+
+    public void socialNetworksScoringSubmenuClick() {
+        waitForVisibility(header.scoringSocialMediaSubMenu);
+        header.scoringSocialMediaSubMenu.click();
+    }
+
     public void myCustomersMouseOver() {
         waitForVisibility(header.myClientsLink);
         mouseOver(header.myClientsLink);
