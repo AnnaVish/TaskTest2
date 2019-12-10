@@ -37,7 +37,7 @@ public class HeaderAdvPage {
     @FindBy(xpath = "//a[@href=\"/advertiser_office/user/profile\" and contains(text(), 'Настройки')]")
     public WebElement dropMenuSettings;
 
-    @FindBy(xpath = "//span[contains(text(), 'Выход')]")
+    @FindBy(xpath = "//div[contains(text(), 'Выход')]")
     public WebElement dropMenuLogOut;
 
     public List<WebElement> getAdvHeader() {

@@ -1,8 +1,11 @@
 package pages.AdvCabinet;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 
@@ -16,28 +19,32 @@ public class ReportsTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Отчеты')]")
     private WebElement reportsTitle;
 
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Экспертиза')]]]]/div[2]/div[contains(text(), 'Получить отчет')]")
-    private WebElement expertizeGetReportBtn;
+    @FindBy(css = "div.reports-view-list")
+    private WebElement offersList;
 
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'ФССП')]]]]/div[2]/div[contains(text(), 'Получить отчет')]")
-    private WebElement fsspGetReportBtn;
-
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'ОКБ')]]]]/div[2]/div[contains(text(), 'Получить отчет')]")
-    private WebElement okbGetReportBtn;
-
-    @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'ФМС')]]]]/div[2]/div[contains(text(), 'Получить отчет')]")
-    private WebElement fmsGetReportBtn;
+    @FindBys({
+            @FindBy(css = "div.ds-report-list-item-wrapper")
+    })
+    private List<WebElement> offers;
 
     private final List<WebElement> elements;
 
     public ReportsTabPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(reportsTitle, expertizeGetReportBtn, fsspGetReportBtn, okbGetReportBtn, fmsGetReportBtn);
+        elements = Arrays.asList(reportsTitle, offersList);
     }
 
     public void pageIsDisplayed() {
         allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
+        Assert.assertEquals(offers.size(), 4);
+    }
+
+    public void clickOfferBtn(String nameOfOffer) {
+        String xPath = String.format("//div[./div[./div[./div[./a[contains(text(), '%s')]]]]]//button", nameOfOffer);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        element.click();
     }
 }
