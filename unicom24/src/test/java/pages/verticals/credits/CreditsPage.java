@@ -41,6 +41,9 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//div[@class='clear_wrapper']/i[contains(text(), 'close')]")
     private WebElement closeModalBtn;
 
+    @FindBy(xpath = "//div/form/button['.colum__close-button--enpop']")
+    private WebElement closeFooterModalBtn;
+
     public final List<WebElement> elements;
 
     public CreditsPage() {
@@ -82,6 +85,9 @@ public class CreditsPage extends Base {
         for (int i = 0; i < elements.size(); i++) {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
+            }
+            if (isElementVisible(closeFooterModalBtn)) {
+                closeFooterModalBtn.click();
             }
             scrollTo(elements.get(i));
             waitForVisibility(elements.get(i));

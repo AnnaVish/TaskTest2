@@ -1,5 +1,6 @@
 package pages.verticals.autoCredits;
 
+import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -48,6 +49,7 @@ public class AutoCreditsPage extends Base {
 
     public void onAutoCreditsPage(){
         driver.get(PagesUrls.privateAutoCreditsPageUrl());
+        TestContext.checkRedirectUrl = PagesUrls.privateAutoCreditsPageUrl();
     }
 
     public void pageIsDisplayed() {
