@@ -16,6 +16,9 @@ public class ComparePage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
 
+    @FindBy(xpath = "//h1[contains(text(), 'Сравнение предложений')]")
+    private WebElement pageTitle;
+
     @FindBy(xpath = "//div[@class='offers-compare-filters-extend-show-list-item-text' and contains(text(), 'Только различающиеся характеристики')]")
     private WebElement onlyDifferentCharacteristics;
 
@@ -31,7 +34,7 @@ public class ComparePage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(onlyDifferentCharacteristics, allCharacteristics, noofferstext);
+        elements = Arrays.asList(pageTitle, onlyDifferentCharacteristics, allCharacteristics, noofferstext);
     }
 
     public void pageIsDisplayed(){
