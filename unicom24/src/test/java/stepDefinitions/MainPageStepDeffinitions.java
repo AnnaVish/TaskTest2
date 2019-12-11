@@ -243,4 +243,9 @@ public class MainPageStepDeffinitions extends Base {
     public void activateBtnClick() {
         mainPage.activateBtnClick();
     }
+
+    @Когда("^пользователь кликает Сравнение$")
+    public void comparePageClick() {
+        mainPage.comparePageClick();
+    }
 }
