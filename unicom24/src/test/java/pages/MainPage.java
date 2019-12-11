@@ -18,6 +18,9 @@ public class MainPage extends Base {
     private Header headerPage = new Header();
     private Footer footerPage = new Footer();
 
+    @FindBy(xpath = "//div[@class='offers-compare-block']/div[contains(text(), 'Сравнение')]")
+    public WebElement compareBtn;
+
     @FindBy(xpath = "//div[contains(text(), 'Кредиты')]")
     private WebElement credits;
 
@@ -324,4 +327,6 @@ public class MainPage extends Base {
         waitForVisibility(footerPage.siteMap);
         footerPage.siteMap.click();
     }
+
+    public void comparePageClick() { compareBtn.click(); }
 }
