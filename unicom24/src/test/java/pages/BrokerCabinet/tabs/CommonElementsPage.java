@@ -105,14 +105,22 @@ public class CommonElementsPage extends Base {
     @FindBy (xpath = "//button[./span[contains(text(), 'Поиск')]]")
     public WebElement searchButton;
 
-    @FindBy (xpath = "//span[contains(text(), 'Поиск')]")
+    @FindBy(xpath = "//span[contains(text(), 'Поиск')]")
     public WebElement searchButtonTitle;
 
     public List<WebElement> commonElements() {
-        return Arrays.asList(price, downloadReport, formTitle, lastNameInput, nameInput, patronymicNameInput,
-                patronymicNameInput, dataInput, passportNumberInput, passportDataOfIssueInput, authorizedAgentAnswer, userAnswer,
+        return Arrays.asList(price, downloadReport, formTitle, lastNameInput, nameInput, patronymicNameInput, dataInput,
+                passportNumberInput, passportDataOfIssueInput, authorizedAgentAnswer, userAnswer,
                 importantNote, downloadForm, paymentTitle, userWalletDot, userWalletTitle, robokassaDot, robokassaTitle,
                 paytureDot, paytureTitle, getReportButton, requestHistory, requestHistoryTitle, periodTab, searchInput,
                 searchButton, searchButtonTitle, emailInput, phoneNumberInput);
+    }
+
+    public List<WebElement> rfzPageBody() {
+        return Arrays.asList(price, downloadReport, formTitle, lastNameInput, nameInput, patronymicNameInput, dataInput,
+                passportNumberInput, passportDataOfIssueInput, authorizedAgentAnswer, userAnswer,
+                importantNote, downloadForm, paymentTitle, userWalletDot, userWalletTitle, robokassaDot, robokassaTitle,
+                paytureDot, paytureTitle, getReportButton, requestHistory, requestHistoryTitle, periodTab, searchInput,
+                searchButton, searchButtonTitle);
     }
 }

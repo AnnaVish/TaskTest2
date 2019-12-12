@@ -49,12 +49,16 @@ public class PagesUrls {
         return mainPage + "/private/mikrozajmy?";
     }
 
-    public static String privateRefinancePageUrl(){
+    public static String privateRefinancePageUrl() {
         return mainPage + "/private/refinance?";
     }
 
     public static String adminRedirectsPage() {
         return mainPage + "/_ad_min_24/mfi/redirect/?q=";
+    }
+
+    public static String brokerRFZPageUrl() {
+        return mainPage + "/b2b_office/financial-health";
     }
 
     public static String smsServerLink() {
