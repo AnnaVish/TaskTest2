@@ -9,6 +9,11 @@ public class BrokerCabinetPageStepDefinitions extends Base {
 
     private final BrokerCabinetPage brokerCabinetPage = new BrokerCabinetPage();
 
+    @Тогда("^брокер находится в Кабинете брокера$")
+    public void onBrokerCabinetPage() {
+        brokerCabinetPage.onPage();
+    }
+
     @Тогда("^отображается Личный кабинет Брокера$")
     public void cabinetOfBrokerIsDisplayed() {
         brokerCabinetPage.pageIsDisplayed();

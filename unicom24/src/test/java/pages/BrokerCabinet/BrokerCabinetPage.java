@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.BrokerCabinet.footer.FooterBrokerCabinetPage;
 import pages.BrokerCabinet.header.HeaderBrokerCabinetPage;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,11 +30,11 @@ public class BrokerCabinetPage extends Base {
     @FindBy(css = ".ui-absent-block-close")
     private WebElement closeBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Рейтинг финансового здоровья')]")
-    private WebElement rfzTitle;
-
-    @FindBy(xpath = "//button[./span[contains(text(), 'Получить')]]")
-    private WebElement getRfz;
+//    @FindBy(xpath = "//div[contains(text(), 'Рейтинг финансового здоровья')]")
+//    private WebElement rfzTitle;
+//
+//    @FindBy(xpath = "//button[./span[contains(text(), 'Получить')]]")
+//    private WebElement getRfz;
 
     @FindBy(xpath = "//div[@class='yellow-block']/div/div/div[contains(text(), 'Горячие офферы')]")
     private WebElement hotOffersTitle;
@@ -53,14 +54,18 @@ public class BrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[@class='grey-block']/div/div/div/div/img[@src=\"/static/dist/b2b_office/img/part5.9534336.png\"]")
     private WebElement blueLogo;
 
-    private final List<WebElement>elements;
+    private final List<WebElement> elements;
 
-    public BrokerCabinetPage(){
+    public BrokerCabinetPage() {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        elements = Arrays.asList(mainBlock, rightBlock, understandBtn, closeBtn, rfzTitle, getRfz, hotOffersTitle,
+        elements = Arrays.asList(mainBlock, rightBlock, understandBtn, closeBtn, hotOffersTitle,
                 ingriaTPLogo, russianUnionLogo, arbLogo, russianBusiness, blueLogo);
+    }
+
+    public void onPage() {
+        driver.get(PagesUrls.brokerCabinetUrl());
     }
 
     public void pageIsDisplayed() {

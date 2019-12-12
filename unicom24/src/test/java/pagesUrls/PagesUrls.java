@@ -8,12 +8,16 @@ public class PagesUrls {
     public static String mainPage = baseUrl();
     public static String bankListPage = bankList();
 
-    public static String baseUrl(){
+    public static String baseUrl() {
         String base = System.getenv("TESTING_HOST");
         return "https://" + base;
     }
 
-    public static String bankList(){
+    public static String authPageUrl() {
+        return mainPage + "/login";
+    }
+
+    public static String bankList() {
         return mainPage + "/banki";
     }
 
@@ -29,15 +33,19 @@ public class PagesUrls {
         return mainPage + "/b2b_office/auth/login";
     }
 
-    public static String privateCreditsPageUrl(){
+    public static String brokerCabinetUrl() {
+        return mainPage + "/b2b_office/";
+    }
+
+    public static String privateCreditsPageUrl() {
         return mainPage + "/private/kredity?";
     }
 
-    public static String privateCreditsCardPageUrl(){
+    public static String privateCreditsCardPageUrl() {
         return mainPage + "/private/kreditnye-karty?";
     }
 
-    public static String privateAutoCreditsPageUrl(){
+    public static String privateAutoCreditsPageUrl() {
         return mainPage + "/private/avtokredity?";
     }
 

@@ -11,8 +11,7 @@ public class RegisterStepDefinitions {
 
     @Given("^пользователь нахоидится на странице авторизации$")
     public void onRegistrationPage() {
-        //RegisterPage.setUpCookie();
-        registerPage.registerPageIsDisplayed();
+        registerPage.onAuthPage();
     }
 
     @Когда("^пользователь заполняет все поля, занятый email и отпарвляет форму$")
