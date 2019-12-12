@@ -12,7 +12,7 @@ import pages.BrokerCabinet.BrokerPhoneNumberScoring;
 
     @Тогда("^отображается страница Скоринг по номеру телефона$")
     public void phoneNumberPageIsDisplayed() {
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerPhoneNumberScoring.pageIsDisplayed();
     }
 }

@@ -12,7 +12,7 @@ public class BrokerCreditReportPageStepDefinitions extends Base {
 
     @Тогда("^отображается страница Кредитный отчет$")
     public void creditReportPageIsDisplayed() {
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerCreditReportPage.pageIsDisplayed();
     }
 

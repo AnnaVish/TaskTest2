@@ -12,7 +12,7 @@ public class BrokerFICOReportPageStepDefinitions extends Base {
 
     @Тогда("^отображается страница отчет FICO$")
     public void setBrokerFICOReportPageIsDisplayed() {
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerFICOReportPage.pageIsDisplayed();
     }
 }

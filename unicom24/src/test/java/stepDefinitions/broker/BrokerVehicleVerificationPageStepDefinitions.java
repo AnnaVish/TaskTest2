@@ -12,7 +12,7 @@ public class BrokerVehicleVerificationPageStepDefinitions extends Base {
 
     @Тогда("^отображается страница Проверка автомобиля$")
     public void vehicleVerificationPageIsDisplayed(){
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerVehicleVerificationPage.pageIsDisplayed();
     }
 }

@@ -12,7 +12,7 @@ public class BrokerSocialNetworksScoringPageStepDefinitions extends Base {
 
     @Тогда("^отображается меню Скоринг по соц.сетям$")
     public void socialNetworksScoringPageIsDisplayed() {
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerSocialNetworksScoringPage.pageIsDisplayed();
     }
 }

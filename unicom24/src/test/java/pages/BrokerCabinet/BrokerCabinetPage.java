@@ -63,7 +63,7 @@ public class BrokerCabinetPage extends Base {
                 ingriaTPLogo, russianUnionLogo, arbLogo, russianBusiness, blueLogo);
     }
 
-    public void pageIsDisplayed(){
+    public void pageIsDisplayed() {
         allElementsAreVisible(header.getHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footer.getFooter());
@@ -71,87 +71,54 @@ public class BrokerCabinetPage extends Base {
         Assert.assertEquals(4, countOfOffers);
     }
 
-    public void catalogOffersLinkClick() {
-        waitForVisibility(header.catalogOffersLink);
-        header.catalogOffersLink.click();
+    public void tabMenuHeaderClick(String nameOfTab) {
+        String xPath = String.format("//div[@class='ui-menu']/div[contains(text(), '%s')]", nameOfTab);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        element.click();
     }
 
-    public void myClientsClick() {
-        waitForVisibility(header.myClientsLink);
-        header.myClientsLink.click();
+    public void tabMenuHeaderMouseOver(String nameOfTab) {
+        String xPath = String.format("//div[@class='ui-menu']/div[contains(text(), '%s')]", nameOfTab);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        mouseOver(element);
     }
 
-    public void mouseOverAllServicesLink() {
-        waitForVisibility(header.allServicesLink);
-        mouseOver(header.allServicesLink);
-    }
 
     public void allServicesMenuIsDisplayed() {
         waitForAllAjaxElementIsVisible(header.getSubMenuElements());
-    }
-
-    public void mouseOverFinancialRating() {
-        mouseOver(header.finRatingOfClientLink);
+        Assert.assertEquals(7, header.getSubMenuElements().size());
     }
 
     public void finRatingSubMenuIsDisplayed() {
-        waitForAllAjaxElementIsVisible(header.getFinRatingSubMenu());
-    }
+        waitForAllAjaxElementIsVisible(header.getSubMenuElements());
+        Assert.assertEquals(4, header.getSubMenuElements().size());
 
-    public void mouseOverAuto() {
-        mouseOver(header.autoLink);
     }
 
     public void autoSubMenuIsDisplayed() {
-        waitForAjaxElementIsVisible(header.getAutoLink());
-    }
-
-    public void mouseOverScoring() {
-        mouseOver(header.scoringLink);
+        waitForAllAjaxElementIsVisible(header.getSubMenuElements());
+        Assert.assertEquals(1, header.getSubMenuElements().size());
     }
 
     public void scoringMenuIsDisplayed() {
-        waitForAllAjaxElementIsVisible(header.getScoringSubMenu());
+        waitForAllAjaxElementIsVisible(header.getSubMenuElements());
+        Assert.assertEquals(2, header.getSubMenuElements().size());
     }
 
-    public void rfzSubMenuClick() {
-        waitForVisibility(header.rfzSubMenu);
-        header.rfzSubMenu.click();
+    public void submenuItemClick(String subMenuElement) {
+        for (WebElement element : header.getSubMenuElements()) {
+            waitForVisibility(element);
+            if (element.getText().equals(subMenuElement)) {
+                element.click();
+            }
+        }
     }
 
-    public void  creditRatingSubMenuClick() {
-        waitForVisibility(header.creditRatingSubMenu);
-        header.creditRatingSubMenu.click();
-    }
-
-    public void creditReportSubMenuClick() {
-        waitForVisibility(header.creditReportSubMenu);
-        header.creditReportSubMenu.click();
-    }
-
-    public void ficoReportSubmenuClick() {
-        waitForVisibility(header.ficoSubMenu);
-        header.ficoSubMenu.click();
-    }
-
-    public void vehicleVerificationSubmenuClick() {
-        waitForVisibility(header.checkAutoSubMenu);
-        header.checkAutoSubMenu.click();
-    }
-
-    public void phoneNumberScoringSubmenuClick() {
-        waitForVisibility(header.scoringPhoneNumberSubMenu);
-        header.scoringPhoneNumberSubMenu.click();
-    }
-
-    public void socialNetworksScoringSubmenuClick() {
-        waitForVisibility(header.scoringSocialMediaSubMenu);
-        header.scoringSocialMediaSubMenu.click();
-    }
-
-    public void myCustomersMouseOver() {
-        waitForVisibility(header.myClientsLink);
-        mouseOver(header.myClientsLink);
+    public void logoMouseOver() {
+        waitForVisibility(header.logo);
+        mouseOver(header.logo);
     }
 
     public void giveMoneyBtnClick() {

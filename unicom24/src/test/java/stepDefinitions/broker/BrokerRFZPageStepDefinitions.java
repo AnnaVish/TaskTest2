@@ -1,7 +1,6 @@
 package stepDefinitions.broker;
 
 import base.Base;
-import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.BrokerCabinet.BrokerCabinetPage;
 import pages.BrokerCabinet.BrokerRFZPage;
@@ -13,7 +12,7 @@ public class BrokerRFZPageStepDefinitions extends Base {
 
     @Тогда("^отображается страница Рейтинг финансового здоровья в кабинете брокера$")
     public void rfzPageIsDisplayed() {
-        brokerCabinetPage.myCustomersMouseOver();
+        brokerCabinetPage.logoMouseOver();
         brokerRFZPage.pageIsDisplayed();
     }
 }
