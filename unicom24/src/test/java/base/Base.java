@@ -63,7 +63,7 @@ public abstract class Base {
     }
 
     protected void typeIntoField(String value, WebElement input) {
-        input.clear();
+        clearField(input);
         input.sendKeys(value);
     }
 
@@ -239,5 +239,10 @@ public abstract class Base {
         } catch (AWTException e) {
             e.printStackTrace();
         }
+    }
+
+    public void clearField(WebElement element) {
+        element.sendKeys(Keys.CONTROL + "a");
+        element.sendKeys(Keys.BACK_SPACE);
     }
 }

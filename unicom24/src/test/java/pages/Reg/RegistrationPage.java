@@ -97,8 +97,7 @@ public class RegistrationPage extends Base {
 
     public void typeCorrectCode() {
         try {
-            for (int i = 0; i < 6; i++)
-                actions.sendKeys(passwordField, Keys.BACK_SPACE).perform();
+            clearField(passwordField);
             typeIntoField(TestContext.passrordFromSms, passwordField);
             entranceBtnClick();
             waitForUrlContains(PagesUrls.baseUrl() + "/");
@@ -108,8 +107,7 @@ public class RegistrationPage extends Base {
             getPasswordFromServer(PagesUrls.smsServerLink2().get(TestContext.smsServerValueUrl));
             driver.close();
             switchToTheFirstTab();
-            for (int i = 0; i < 6; i++)
-                actions.sendKeys(passwordField, Keys.BACK_SPACE).perform();
+            clearField(passwordField);
             typeIntoField(TestContext.passrordFromSms, passwordField);
             entranceBtnClick();
             waitForUrlContains(PagesUrls.baseUrl() + "/");

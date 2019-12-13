@@ -186,8 +186,7 @@ public class MicroCreditsPage extends Base {
     }
 
     public void typePreviousCode() {
-        for (int i = 0; i < 6; i++)
-            actions.sendKeys(codeField, Keys.BACK_SPACE).perform();
+        clearField(codeField);
         typeIntoField(TestContext.smsCode, codeField);
     }
 
@@ -196,8 +195,7 @@ public class MicroCreditsPage extends Base {
         refreshPage();
         tryGetNewCodeFromFirstServer();
         switchToTheFirstTab();
-        for (int i = 0; i < 10; i++)
-            actions.sendKeys(codeField, Keys.BACK_SPACE).perform();
+        clearField(codeField);
         typeIntoField(TestContext.smsCode, codeField);
         confirmBtn.click();
     }

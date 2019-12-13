@@ -120,8 +120,7 @@ public class AuthPage extends Base {
     }
 
     public void typePhoneOfUnregisteredUser(String emailOrPhone) {
-        for (int i = 0; i < 10; i++)
-            actions.sendKeys(emailOrPhoneField, Keys.BACK_SPACE).perform();
+        clearField(emailOrPhoneField);
         typeIntoField(emailOrPhone, emailOrPhoneField);
         try {
             Thread.sleep(2000);
