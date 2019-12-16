@@ -41,7 +41,7 @@ public class AutoCreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time, common.neededRating, common.license, privateClientsBread,
+                common.payPerMonth, common.time, common.neededPaying, common.license, privateClientsBread,
                 privateClientsAutoBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
