@@ -97,7 +97,7 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.payPerDay,
-                common.time, common.neededRating, common.license, privateClientsBread, privateClientsMFOBread);
+                common.time, common.neededPaying, common.license, privateClientsBread, privateClientsMFOBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, common.giftPic, common.personalOfferField,

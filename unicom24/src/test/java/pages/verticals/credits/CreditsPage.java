@@ -11,6 +11,7 @@ import pages.Adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.verticals.common.CommonElementsForAllVerticals;
+import org.junit.Assert;
 import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
@@ -22,11 +23,10 @@ public class CreditsPage extends Base {
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
     AdminkaRedirects adminkaRedirects = new AdminkaRedirects();
-    TestContext testContext = new TestContext();
     AdmAuth admAuth = new AdmAuth();
 
-    @FindBy(css = ".offers-list-row .offer-online")
-    private WebElement getCreditBtn;
+    @FindBy(xpath = "//div[@class='offers-list-new']")
+    private WebElement getCreditList;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
@@ -52,8 +52,8 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         PageFactory.initElements(driver, adminkaRedirects);
-        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time, common.neededRating, common.license, privateClientsBread, privateClientsCreditsBread);
+        elements = Arrays.asList(getCreditList, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
+                common.payPerMonth, common.time, common.neededPaying, common.license, privateClientsBread, privateClientsCreditsBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -68,10 +68,11 @@ public class CreditsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
+        Assert.assertEquals(common.countOffersOnPage.size(), common.btnBankCreditAddToCompare.size());
     }
 
     public Boolean offersOnPageMore5() {
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
+        return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 5;
     }
 
     public void titleOfBankClick() {
@@ -127,5 +128,13 @@ public class CreditsPage extends Base {
     private void getIdOfOffer(WebElement element) {
         adminkaRedirects.offerId = element.getAttribute("id");
         adminkaRedirects.offerId = adminkaRedirects.offerId.replaceAll("[^0-9]", "");
+    }
+
+    public void banksForAddToCompareCreditsClick(String numberOfBanksForAddToCompare) {
+        int CountBanks = Integer.parseInt(numberOfBanksForAddToCompare);
+        if (CountBanks > common.countOffersOnPage.size()) {
+            CountBanks = common.countOffersOnPage.size();}
+        for (int i = 0; i < CountBanks; i++)
+            common.btnBankCreditAddToCompare.get(i).click();
     }
 }

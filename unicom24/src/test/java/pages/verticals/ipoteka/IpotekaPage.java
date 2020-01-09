@@ -42,7 +42,7 @@ public class IpotekaPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.neededRating, common.license, common.overpayment, privateClientsBread, privateClientsIpotekaBread);
+                common.neededPaying, common.license, common.overpayment, privateClientsBread, privateClientsIpotekaBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

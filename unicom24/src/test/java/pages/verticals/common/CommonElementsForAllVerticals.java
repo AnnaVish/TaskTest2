@@ -3,6 +3,7 @@ package pages.verticals.common;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,13 +12,33 @@ import java.util.Map;
 
 public class CommonElementsForAllVerticals extends Base {
 
-    @FindBy(css = "div.block-logo-top-img")
+    /*
+    * Тута будут массивы
+     */
+    @FindBys({
+            @FindBy(xpath = "//div[@class='button__wrapper']//span[contains(text(), 'Добавить в сравнение')]")
+    })
+    public List<WebElement> btnBankCreditAddToCompare;
+
+    @FindBys({
+            @FindBy(xpath = "//div[@class='offer-item-new wrapper']")
+    })
+    public List<WebElement> countOffersOnPage;
+
+    @FindBys({
+            @FindBy(xpath = "//div[@class='offers-compare-table-offer-header-controls-remove']")
+    })
+    public List<WebElement> btnBankCreditRemoveFromCompare;
+    /*
+    *Тута уже не будут массивы
+     */
+    @FindBy(xpath = "//a[@class='ui-app-header-logo-wrapper nuxt-link-active']")
     public WebElement logo;
 
-    @FindBy(css = "div.block-logo-rating")
+    @FindBy(xpath = "//div[@class='rating']")
     public WebElement rating;
 
-    @FindBy(css = ".block-content-title a")
+    @FindBy(xpath = "//a[@class='font__color-blue nuxt-link-active']")
     public WebElement title;
 
     @FindBy(xpath = "//div[contains(text(), 'Ставка в год')]")
@@ -29,10 +50,10 @@ public class CommonElementsForAllVerticals extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Время рассмотрения')]")
     public WebElement time;
 
-    @FindBy(xpath = "//div[contains(text(), 'Требуемый рейтинг')]")
-    public WebElement neededRating;
+    @FindBy(xpath = "//div[contains(text(), 'Платеж в месяц')]")
+    public WebElement neededPaying;
 
-    @FindBy(xpath = "//div[contains(text(), 'Лицензия ЦБ')]")
+    @FindBy(xpath = "//div[@class='license hide-xxs']")
     public WebElement license;
     /*
     * Кредиты окончены
