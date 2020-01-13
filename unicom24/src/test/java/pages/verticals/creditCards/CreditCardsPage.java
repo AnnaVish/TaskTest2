@@ -21,8 +21,8 @@ public class CreditCardsPage extends Base {
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
 
 
-    @FindBy(css = ".offers-list-row .offer-online")
-    private WebElement getCreditBtn;
+    //@FindBy(css = ".offers-list-row .offer-online") - отсутствует на странице на период 10.01.2020
+    //private WebElement getCreditBtn;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
@@ -33,6 +33,9 @@ public class CreditCardsPage extends Base {
     @FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
     private WebElement privateClientsCreditsCardBread;
 
+    @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
+    private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
+
     public final List<WebElement> elements;
 
     public CreditCardsPage() {
@@ -40,8 +43,16 @@ public class CreditCardsPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.license, common.creditLimit, common.cost, privateClientsBread, privateClientsCreditsCardBread);
+        elements = Arrays.asList(//getCreditBtn, - отсутствует на странице на период 10.01.2020
+                formOffer, common.logo,
+                //common.rating,
+                common.title,
+                //common.ratePerYear,
+                //common.license,
+                //common.creditLimit,
+                //common.cost,
+                btnResetToDefault,
+                privateClientsBread, privateClientsCreditsCardBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

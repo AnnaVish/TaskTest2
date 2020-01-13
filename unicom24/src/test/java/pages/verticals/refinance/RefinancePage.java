@@ -20,8 +20,8 @@ public class RefinancePage extends Base {
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
 
-    @FindBy(css = ".offers-list-row .offer-online")
-    private WebElement getCreditBtn;
+    //@FindBy(css = ".offers-list-row .offer-online") - отсутствует нак странице на период 10.01.2020
+    //private WebElement getCreditBtn;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
@@ -32,6 +32,9 @@ public class RefinancePage extends Base {
     @FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
     private WebElement privateClientsRefinanceBread;
 
+    @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
+    private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
+
     public final List<WebElement> elements;
 
     public RefinancePage() {
@@ -39,8 +42,15 @@ public class RefinancePage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time, common.neededPaying, common.license);
+        elements = Arrays.asList(//getCreditBtn,
+                formOffer, common.logo,
+                //common.rating,
+                common.title,
+                //common.ratePerYear,
+                //common.payPerMonth, common.time
+                //common.neededPaying, common.license
+                btnResetToDefault,
+                privateClientsBread, privateClientsRefinanceBread); // добавил хлебные крошки, а то не было
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

@@ -3,10 +3,12 @@ package stepDefinitions.Auth;
 import base.Base;
 import cucumber.api.java.ru.Тогда;
 import pages.Auth.AuthPageOfBroker;
+import pages.Auth.AuthOffersPage;
 
 public class AuthPageOfBrokerStepDefinitions extends Base {
 
     private final AuthPageOfBroker authPageOfBroker = new AuthPageOfBroker();
+    private final AuthOffersPage authOffersPage = new AuthOffersPage();
 
     @Тогда("^пользователь нахоидится на странице авторизации Брокера$")
     public void onBrokerAuthPage() {
@@ -16,6 +18,11 @@ public class AuthPageOfBrokerStepDefinitions extends Base {
     @Тогда("^отображается страница авторизации Личный кабинет Брокера и Агента$")
     public void authPageOfBrokerIsDisplayed(){
         authPageOfBroker.pageIsDisplayed();
+    }
+
+    @Тогда("^отображается страница поиска офферов со входом$")
+    public void authPageOfficeOffers(){
+        authOffersPage.pageIsDisplayed();
     }
 
     @Тогда("^брокер авторизовывается$")

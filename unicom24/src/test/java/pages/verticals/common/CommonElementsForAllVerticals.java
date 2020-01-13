@@ -85,20 +85,20 @@ public class CommonElementsForAllVerticals extends Base {
     @FindBy(css = ".container .form-one")
     public WebElement personalOfferContainer;
 
-    @FindBy(css = "img[src=\"/_nuxt/img/201cb8d.png\"]")
-    public WebElement giftPic;
+    //@FindBy(css = "img[src=\"/_nuxt/img/201cb8d.png\"]") - Отсутствует на период 10.01.2020
+    //public WebElement giftPic;
 
     @FindBy(css = ".form-one .ui-input-new input")
     public WebElement personalOfferField;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Подобрать персональный займ')]]")
+    @FindBy(xpath = "//button[./span[contains(text(), 'Подобрать персональный займ')]]") //- отсутствует на странице на период 10.01.2020, не закоментил, так как задействован еще в каком-то методе
     public WebElement makeOfferBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Нажимая кнопку «Подобрать персональный займ»,  ')]")
-    public WebElement ifYouText;
+    //@FindBy(xpath = "//div[contains(text(), 'Нажимая кнопку «Подобрать персональный займ»,  ')]") - тоже самое
+    //public WebElement ifYouText;
 
-    @FindBy(xpath = "//a[@href=\"/media_files/agreement_registration/\" and contains(text(), 'вы соглашаетесь с условиями обработки данных')]")
-    public WebElement agreeLink;
+    //@FindBy(xpath = "//a[@href=\"/media_files/agreement_registration/\" and contains(text(), 'вы соглашаетесь с условиями обработки данных')]") - тоже самое
+    //public WebElement agreeLink;
     /*
      *Персональный займ окончен
      */

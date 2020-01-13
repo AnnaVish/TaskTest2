@@ -303,8 +303,8 @@ public class MainPage extends Base {
     }
 
     public void headerBecomeSmall(){
-        waitForInvisibility(headerPage.privateCustomersLink);
-        waitForInvisibility(headerPage.forBusinessLink);
+        //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается
+        //waitForInvisibility(headerPage.forBusinessLink); //- на период 10.01.2020 хедер теперь не так уменьшается
         waitForInvisibility(headerPage.othersLink);
         waitForVisibility(headerPage.creditsHeaderLink);
         waitForVisibility(headerPage.creditCardsHeaderLink);

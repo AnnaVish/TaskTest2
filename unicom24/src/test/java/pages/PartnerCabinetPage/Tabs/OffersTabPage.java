@@ -82,6 +82,6 @@ public class OffersTabPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPartnerCabinetPage);
-        Assert.assertTrue(driver.findElements(By.cssSelector(".ui-offers-card-row-inner")).size() > 5);
+        Assert.assertTrue(driver.findElements(By.cssSelector(".ui-offers-card-row-inner")).size() > 0);
     }
 }

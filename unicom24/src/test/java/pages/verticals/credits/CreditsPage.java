@@ -44,6 +44,9 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//div/form/button['.colum__close-button--enpop']")
     private WebElement closeFooterModalBtn;
 
+    @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
+    private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
+
     public final List<WebElement> elements;
 
     public CreditsPage() {
@@ -52,8 +55,15 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         PageFactory.initElements(driver, adminkaRedirects);
-        elements = Arrays.asList(getCreditList, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.payPerMonth, common.time, common.neededPaying, common.license, privateClientsBread, privateClientsCreditsBread);
+        elements = Arrays.asList(getCreditList, formOffer, common.logo, //common.rating, - отсутствует на странице
+                common.title,
+                //common.ratePerYear, - тоже отсутствует на странице вообще
+                //common.payPerMonth,  - тоже отсутствует на странице вообще
+                //common.time,  - тоже отсутствует на странице вообще
+                //common.neededPaying, - тоже отсутствует на странице вообще
+                //common.license, - тоже отсутствует
+                btnResetToDefault,
+                privateClientsBread, privateClientsCreditsBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

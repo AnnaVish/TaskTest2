@@ -40,7 +40,7 @@ public class ServicesPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(headerPage.getMainHeader());
+        allElementsAreVisible(headerPage.servicesHeaderLinks());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
     }

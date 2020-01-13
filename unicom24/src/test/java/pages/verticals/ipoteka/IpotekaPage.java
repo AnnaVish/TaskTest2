@@ -21,8 +21,8 @@ public class IpotekaPage extends Base {
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
 
 
-    @FindBy(css = ".offers-list-row .offer-online")
-    private WebElement getCreditBtn;
+    //@FindBy(css = ".offers-list-row .offer-online") - 10.01.2020 элемента нет на странице
+    //private WebElement getCreditBtn;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
@@ -33,6 +33,9 @@ public class IpotekaPage extends Base {
     @FindBy(xpath = "//li/span[contains(text(), 'Ипотека')]")
     private WebElement privateClientsIpotekaBread;
 
+    @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
+    private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
+
     public final List<WebElement> elements;
 
 
@@ -41,8 +44,15 @@ public class IpotekaPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.ratePerYear,
-                common.neededPaying, common.license, common.overpayment, privateClientsBread, privateClientsIpotekaBread);
+        elements = Arrays.asList(//getCreditBtn,
+                formOffer, common.logo,
+                //common.rating,
+                common.title,
+                //common.ratePerYear,
+                //common.neededPaying, common.license,
+                //common.overpayment,
+                privateClientsBread, privateClientsIpotekaBread,
+                btnResetToDefault);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

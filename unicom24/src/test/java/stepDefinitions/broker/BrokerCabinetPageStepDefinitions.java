@@ -80,4 +80,75 @@ public class BrokerCabinetPageStepDefinitions extends Base {
     public void brokerClickSubmenuElement(String nameOfItem) {
         brokerCabinetPage.submenuItemClick(nameOfItem);
     }
+
+    // код от 09.01.2020
+    @Когда("^брокер нажимает таб Отчеты$")
+    public void brokerClickStatisticsTotalTab(){
+        brokerCabinetPage.brokerStatisticsTotalTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Офферы$")
+    public void brokerClickOffersTab() {
+        brokerCabinetPage.brokerOffersTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Лендинги$")
+    public void brokerClickLandingsTab() {
+        brokerCabinetPage.brokerLandingsTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Продукты$")
+    public void brokerClickCrossReportsTab() {
+        brokerCabinetPage.brokerCrossReportsTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Постбек$")
+    public void brokerClickPostbackTab() {
+        brokerCabinetPage.brokerPostbackTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Справка$")
+    public void brokerClickHelpDocsTab() {
+        brokerCabinetPage.brokerHelpDocumentsTabClick();
+    }
+
+    @Когда("^брокер нажимает таб Настройки$")
+    public void brokerClickSettingsTab() {
+        brokerCabinetPage.brokerSettingsTabClick();
+    }
+
+    @Тогда("^отображается брокерская страница Отчеты$")
+    public void brokerStatisticsTotalTabIsDisplayed(){
+        brokerCabinetPage.brokerStatisticsTotalTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Офферы$")
+    public void brokerOffersTabIsDisplayed(){
+        brokerCabinetPage.brokerOffersTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Лендинги$")
+    public void brokerLandingsTabIsDisplayed(){
+        brokerCabinetPage.brokerLandingsTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Продукты$")
+    public void brokerCrossReportsTabIsDisplayed(){
+        brokerCabinetPage.brokerCrossReportsTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Постбек$")
+    public void brokerPostbackTabIsDisplayed(){
+        brokerCabinetPage.brokerPostbackTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Справка$")
+    public void brokerHelpDocsTabIsDisplayed(){
+        brokerCabinetPage.brokerHelpDocsTabIsDisplayed();
+    }
+
+    @Тогда("^отображается брокерская страница Настройки$")
+    public void brokerSettingsTabIsDisplayed(){
+        brokerCabinetPage.brokerSettingsTabIsDisplayed();
+    }
 }

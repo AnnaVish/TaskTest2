@@ -54,6 +54,28 @@ public class BrokerCabinetPage extends Base {
     @FindBy(xpath = "//div[@class='grey-block']/div/div/div/div/img[@src=\"/static/dist/b2b_office/img/part5.9534336.png\"]")
     private WebElement blueLogo;
 
+    /// Табы на странице брокера 09.01.2020
+    @FindBy(xpath = "//a[@href='/partners/office/statistics/total']")
+    private WebElement statisticsTotalTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/offers']")
+    private WebElement offersTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/landings']")
+    private  WebElement landingsTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/cross-reports']")
+    private WebElement crossReportsTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/postback']")
+    private WebElement postbackTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/help']")
+    private WebElement helpDocumentsTab;
+
+    @FindBy(xpath = "//a[@href='/partners/office/settings']")
+    private WebElement settingsTab;
+
     private final List<WebElement> elements;
 
     public BrokerCabinetPage() {
@@ -154,4 +176,60 @@ public class BrokerCabinetPage extends Base {
         header.profileLink.click();
     }
 
+    //Код от 09.01.2020
+    public void brokerStatisticsTotalTabClick(){
+        statisticsTotalTab.click();
+    }
+
+    public void brokerOffersTabClick(){
+        offersTab.click();
+    }
+
+    public void brokerLandingsTabClick(){
+        landingsTab.click();
+    }
+
+    public void brokerCrossReportsTabClick(){
+        crossReportsTab.click();
+    }
+
+    public void brokerPostbackTabClick(){
+        postbackTab.click();
+    }
+
+    public void brokerHelpDocumentsTabClick(){
+        helpDocumentsTab.click();
+    }
+
+    public void brokerSettingsTabClick(){
+        settingsTab.click();
+    }
+
+    public void brokerStatisticsTotalTabIsDisplayed(){
+        //
+    }
+
+    public void brokerOffersTabIsDisplayed(){
+        //
+    }
+
+    public void brokerLandingsTabIsDisplayed(){
+        //
+    }
+
+    public void brokerCrossReportsTabIsDisplayed(){
+        //
+    }
+
+    public void brokerPostbackTabIsDisplayed(){
+        //
+    }
+
+    public void brokerHelpDocsTabIsDisplayed(){
+        //
+    }
+
+    public void brokerSettingsTabIsDisplayed(){
+        //
+    }
 }

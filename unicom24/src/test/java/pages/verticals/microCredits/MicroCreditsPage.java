@@ -24,8 +24,8 @@ public class MicroCreditsPage extends Base {
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
 
-    @FindBy(css = ".offers-list-row .offer-online")
-    private WebElement getCreditBtn;
+    //@FindBy(css = ".offers-list-row .offer-online") - отсутствует на странице на период 10.01.2020
+    //private WebElement getCreditBtn;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
@@ -96,12 +96,19 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(getCreditBtn, formOffer, common.logo, common.rating, common.title, common.payPerDay,
-                common.time, common.neededPaying, common.license, privateClientsBread, privateClientsMFOBread);
+        elements = Arrays.asList(//getCreditBtn,
+                formOffer, common.logo,
+                //common.rating,
+                common.title,
+                //common.payPerDay,
+                //common.time, common.neededPaying, common.license,
+                privateClientsBread, privateClientsMFOBread);
         headerPage.getMainHeader();
         footerPage.getFooter();
-        personalOffer = Arrays.asList(common.personalOfferContainer, common.giftPic, common.personalOfferField,
-                common.makeOfferBtn, common.ifYouText, common.agreeLink);
+        personalOffer = Arrays.asList(common.personalOfferContainer, //common.giftPic,
+                common.personalOfferField
+                //common.makeOfferBtn,common.ifYouText, common.agreeLink
+                );
     }
 
     public void onMicroCreditsPage(){

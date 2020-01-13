@@ -17,6 +17,6 @@ public class AutoCreditsPageStepDefinitions {
     @Тогда("^отображается страница Автокредиты$")
     public void autoCreditsPageIsDispyaed() {
         autoCreditsPage.pageIsDisplayed();
-        Assert.assertTrue(autoCreditsPage.offersOnPageMore5());
+        //Assert.assertTrue(autoCreditsPage.offersOnPageMore5()); - такого больше нет на странице
     }
 }

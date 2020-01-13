@@ -53,8 +53,8 @@ public class Header extends Base {
     @FindBy(xpath = "//span[contains(text(), 'МФО')]")
     public WebElement mfoHeaderLink;
 
-    @FindBy(xpath = "//span[contains(text(), 'Блог')]")
-    public WebElement blogHeaderLink;
+    //@FindBy(xpath = "//span[contains(text(), 'Блог')]") - на 10.01.2020 уже нет на странице
+    //public WebElement blogHeaderLink;
 
     public List<WebElement> getMainHeader() {
         return Arrays.asList(logoLink, privateCustomersLink, othersLink, servicesLink,
@@ -69,7 +69,8 @@ public class Header extends Base {
      *Хэдэр вкладки прочее
      */
     public List<WebElement> othersHeaderLinks() {
-        return Arrays.asList(bankiHeaderLink, mfoHeaderLink, blogHeaderLink);
+        return Arrays.asList(bankiHeaderLink, mfoHeaderLink //blogHeaderLink - нет на странице на 10.01.2020
+                );
     }
     /*
      *Хэдэр вкладки прочее окончен
@@ -78,7 +79,7 @@ public class Header extends Base {
     /*
      *Хэдэр вкладки Сервисы
      */
-    public List<WebElement> srvicesHeaderLinks() {
+    public List<WebElement> servicesHeaderLinks() {
         return Arrays.asList(logoLink, privateCustomersLink, othersLink, servicesLink, fullCreditHistoryHeaderLink,
                 finanicialHealthHeaderLink);
     }
