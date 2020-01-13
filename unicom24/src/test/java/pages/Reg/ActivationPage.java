@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocator;
+import pages.Auth.AuthPage;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
@@ -92,7 +93,11 @@ public class ActivationPage extends Base {
     }
 
     public void typeEmail() {
-        typeIntoField(UserData.correctEmail, emailField);
+        // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+        while (!emailField.getAttribute("value").equals(UserData.correctEmail)) {
+            clearField(emailField);
+            typeIntoField(UserData.correctEmail, emailField);
+        }
     }
 
     public void activateBtnClick() {

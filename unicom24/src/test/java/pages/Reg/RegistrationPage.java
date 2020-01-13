@@ -48,6 +48,7 @@ public class RegistrationPage extends Base {
     @FindBy(xpath = "//div[@class='ui-authorization-ui-button-container']/button[./span[contains(text(), 'Войти')]]")
     private WebElement entranceBtn;
 
+
     private final List<WebElement> elements;
 
     public RegistrationPage() {
@@ -91,14 +92,29 @@ public class RegistrationPage extends Base {
         switchToTheFirstTab();
         int incorrectPasswordValue = Integer.parseInt(TestContext.passrordFromSms) + 1;
         String inccorectPassword = Integer.toString(incorrectPasswordValue);
-        typeIntoField(inccorectPassword, passwordField);
+        // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+        while (!passwordField.getAttribute("value").equals(inccorectPassword)) {
+            clearField(passwordField);
+            typeIntoField(inccorectPassword, passwordField);
+        }
+        //typeIntoField(inccorectPassword, passwordField); иногда теряет 1 символ
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         entranceBtnClick();
     }
 
     public void typeCorrectCode() {
         try {
             clearField(passwordField);
-            typeIntoField(TestContext.passrordFromSms, passwordField);
+            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!passwordField.getAttribute("value").equals(TestContext.passrordFromSms)) {
+                clearField(passwordField);
+                typeIntoField(TestContext.passrordFromSms, passwordField);
+            }
             entranceBtnClick();
             waitForUrlContains(PagesUrls.baseUrl() + "/");
         } catch (Exception e) {
@@ -108,7 +124,13 @@ public class RegistrationPage extends Base {
             driver.close();
             switchToTheFirstTab();
             clearField(passwordField);
-            typeIntoField(TestContext.passrordFromSms, passwordField);
+            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!passwordField.getAttribute("value").equals(TestContext.passrordFromSms)) {
+                clearField(passwordField);
+                typeIntoField(TestContext.passrordFromSms, passwordField);
+            }
+
             entranceBtnClick();
             waitForUrlContains(PagesUrls.baseUrl() + "/");
         }

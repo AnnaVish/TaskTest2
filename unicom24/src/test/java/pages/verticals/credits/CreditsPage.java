@@ -24,6 +24,7 @@ public class CreditsPage extends Base {
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
     AdminkaRedirects adminkaRedirects = new AdminkaRedirects();
     AdmAuth admAuth = new AdmAuth();
+    //CreditsPage creditsPage = new CreditsPage();
 
     @FindBy(xpath = "//div[@class='offers-list-new']")
     private WebElement getCreditList;
@@ -46,6 +47,9 @@ public class CreditsPage extends Base {
 
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
+
+    @FindBy(xpath = "//div[@class='title']")
+    private WebElement bankName;
 
     public final List<WebElement> elements;
 
@@ -86,8 +90,9 @@ public class CreditsPage extends Base {
     }
 
     public void titleOfBankClick() {
-        scrollTo(common.title);
-        common.title.click();
+        //scrollTo(common.title); // старый код, который не туда кликает
+        //common.title.click();
+        bankName.click(); // новый код который кликает в первый банк на странице
     }
 
     public Boolean checkRedirects() {
