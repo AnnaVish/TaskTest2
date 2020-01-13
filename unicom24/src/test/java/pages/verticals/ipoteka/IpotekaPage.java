@@ -85,12 +85,9 @@ public class IpotekaPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
+        allElementsAreVisible(elementsH2);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
-    }
-
-    public void h2TextAreDisplayed(){
-        allElementsAreVisible(elementsH2);
     }
 
     public Boolean offersOnPageEqual5(){

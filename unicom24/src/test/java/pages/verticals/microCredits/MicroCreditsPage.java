@@ -141,14 +141,11 @@ public class MicroCreditsPage extends Base {
     public void pageIsDisplyed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
+        allElementsAreVisible(elementsH2);
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
-    }
-
-    public void h2TextAreDisplayed(){
-        allElementsAreVisible(elementsH2);
     }
 
     public Boolean offersOnPageMore10(){

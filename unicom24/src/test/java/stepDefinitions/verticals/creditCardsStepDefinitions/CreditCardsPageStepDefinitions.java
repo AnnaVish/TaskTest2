@@ -18,7 +18,6 @@ public class CreditCardsPageStepDefinitions {
     @Тогда("^отображается страница Кредитные карты$")
     public void creditCardsPageIsDisplayed() {
         creditCardsPage.pageIsDisplayed();
-        creditCardsPage.h2TextAreDisplayed();
         //Assert.assertTrue(creditCardsPage.offersOnPageMore5());
     }
 }
