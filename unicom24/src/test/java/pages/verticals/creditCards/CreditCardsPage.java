@@ -36,7 +36,25 @@ public class CreditCardsPage extends Base {
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
 
+    // h2 элементы начало
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Кредитные карты банков России')]")
+    private WebElement h2Seo1;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия кредитных карт')]")
+    private WebElement h2Seo2;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Особенности кредитных карт')]")
+    private WebElement h2Seo3;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Плюсы и минусы кредитных карт')]")
+    private WebElement h2Seo4;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить кредитную карту онлайн?')]")
+    private WebElement h2Seo5;
+    // h2 элементы конец
+
     public final List<WebElement> elements;
+    public final List<WebElement> elementsH2;
 
     public CreditCardsPage() {
         PageFactory.initElements(driver, this);
@@ -53,6 +71,7 @@ public class CreditCardsPage extends Base {
                 //common.cost,
                 btnResetToDefault,
                 privateClientsBread, privateClientsCreditsCardBread);
+        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -67,6 +86,10 @@ public class CreditCardsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
+    }
+
+    public void h2TextAreDisplayed(){
+        allElementsAreVisible(elementsH2);
     }
 
     public Boolean offersOnPageMore5(){

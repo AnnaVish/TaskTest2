@@ -36,7 +36,25 @@ public class AutoCreditsPage extends Base {
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
 
+    // h2 элементы начало
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Автокредит: преимущества оформления кредита на автомобиль')]")
+    private WebElement h2Seo1;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2/strong[contains(text(), 'Основные виды автокредита')]")
+    private WebElement h2Seo2;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2/strong[contains(text(), 'Основные требования при оформлении автокредитов')]")
+    private WebElement h2Seo3;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2/strong[contains(text(), 'Популярные условия автокредита')]")
+    private WebElement h2Seo4;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2/strong[contains(text(), 'Как получить автокредит?')]")
+    private WebElement h2Seo5;
+    // h2 элементы конец
+
     public final List<WebElement> elements;
+    public final List<WebElement> h2Elements;
 
     public AutoCreditsPage() {
         PageFactory.initElements(driver, this);
@@ -52,6 +70,7 @@ public class AutoCreditsPage extends Base {
                 btnResetToDefault,
                 privateClientsBread,
                 privateClientsAutoBread);
+        h2Elements = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -66,6 +85,10 @@ public class AutoCreditsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
+    }
+
+    public void h2TextAreDisplayed(){
+        allElementsAreVisible(h2Elements);
     }
 
     public Boolean offersOnPageMore5(){

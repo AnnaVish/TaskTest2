@@ -77,6 +77,6 @@ public class MicroCreditsDetailedPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(4);
+        Header.checkBreadCrumbs(3); // была цифра 4 почему-то, хотя там 3 элемента, а не 4
     }
 }

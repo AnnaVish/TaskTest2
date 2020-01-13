@@ -14,6 +14,7 @@ public class CreditsPageStepDefinitions extends Base {
     @Тогда("^отображается страница Кредиты$")
     public void creditsPageIsDisplayed() {
         creditsPage.pageIsDisplayed();
+        creditsPage.h2TextAreDisplayed();
         //Assert.assertTrue(creditsPage.offersOnPageMore5());
     }
 

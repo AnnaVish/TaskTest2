@@ -87,8 +87,29 @@ public class MicroCreditsPage extends Base {
      * форма с подтвержденным кодом из смс окончена
      */
 
+    // h2 элементы начало
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Особенности займов на карту')]")
+    private WebElement h2Seo1;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Плюсы и минусы микрозаймов')]")
+    private WebElement h2Seo2;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения займов на карту')]")
+    private WebElement h2Seo3;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить микрозайм на карту онлайн?')]")
+    private WebElement h2Seo4;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Список документов для оформления займа онлайн на карту')]")
+    private WebElement h2Seo5;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Способы погашения займа')]")
+    private WebElement h2Seo6;
+    // h2 элементы конец
+
     public final List<WebElement> elements;
     private final List<WebElement> personalOffer;
+    public final List<WebElement> elementsH2;
 
 
     public MicroCreditsPage() {
@@ -103,6 +124,7 @@ public class MicroCreditsPage extends Base {
                 //common.payPerDay,
                 //common.time, common.neededPaying, common.license,
                 privateClientsBread, privateClientsMFOBread);
+        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
         headerPage.getMainHeader();
         footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, //common.giftPic,
@@ -123,6 +145,10 @@ public class MicroCreditsPage extends Base {
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
+    }
+
+    public void h2TextAreDisplayed(){
+        allElementsAreVisible(elementsH2);
     }
 
     public Boolean offersOnPageMore10(){

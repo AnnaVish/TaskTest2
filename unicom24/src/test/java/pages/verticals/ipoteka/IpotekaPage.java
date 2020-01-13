@@ -2,6 +2,7 @@ package pages.verticals.ipoteka;
 
 import TestContext.TestContext;
 import base.Base;
+import cucumber.api.java.bs.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,7 +37,25 @@ public class IpotekaPage extends Base {
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
 
+    // h2 элементы начало
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Ипотека и ее преимущества')]")
+    private WebElement h2Seo1;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения ипотеки')]")
+    private WebElement h2Seo2;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить ипотеку на квартиру?')]")
+    private WebElement h2Seo3;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Какие документы нужны при покупке квартиры в ипотеку?')]")
+    private WebElement h2Seo4;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'В каком банке лучше взять ипотеку в 2019 году?')]")
+    private WebElement h2Seo5;
+    // h2 элементы конец
+
     public final List<WebElement> elements;
+    public final List<WebElement> elementsH2;
 
 
     public IpotekaPage() {
@@ -53,6 +72,7 @@ public class IpotekaPage extends Base {
                 //common.overpayment,
                 privateClientsBread, privateClientsIpotekaBread,
                 btnResetToDefault);
+        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -67,6 +87,10 @@ public class IpotekaPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3);
+    }
+
+    public void h2TextAreDisplayed(){
+        allElementsAreVisible(elementsH2);
     }
 
     public Boolean offersOnPageEqual5(){

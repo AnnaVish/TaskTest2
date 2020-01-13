@@ -17,6 +17,7 @@ public class IpotekaPageStepDefinitions {
     @Тогда("^отображается страница Ипотека$")
     public void ipotekaPageIsDisplyaed() {
         ipotekaPage.pageIsDisplayed();
+        ipotekaPage.h2TextAreDisplayed();
         //Assert.assertTrue(ipotekaPage.offersOnPageEqual5());
     }
 }
