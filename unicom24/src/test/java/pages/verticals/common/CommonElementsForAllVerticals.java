@@ -103,5 +103,21 @@ public class CommonElementsForAllVerticals extends Base {
      *Персональный займ окончен
      */
 
+    /*
+    Элементы отвечающий за локакацию пользователя начало
+     */
+    @FindBy(xpath = "//span[@class='filters-city-selected-info__name']") // Вызывает меню на смену города
+    public WebElement spanForSelectLocationCity;
 
+    @FindBys(
+    @FindBy(xpath = "//div[@class='filters-city-content-list-item']/span") // список локаций-городов
+    )
+    public WebElement spanLocationCity;
+    /*
+    Элементы отвечающие за локацию пользователя конец
+     */
+
+    public List<WebElement> getElementsForChangeCity() {
+        return Arrays.asList(spanForSelectLocationCity, spanLocationCity);
+    }
 }
