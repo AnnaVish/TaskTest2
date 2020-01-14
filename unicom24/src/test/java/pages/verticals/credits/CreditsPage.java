@@ -111,8 +111,8 @@ public class CreditsPage extends Base {
         Assert.assertEquals(common.countOffersOnPage.size(), common.btnBankCreditAddToCompare.size());
     }
 
-    public Boolean offersOnPageMore5() {
-        return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 5;
+    public Boolean offersOnPageMore0() {
+        return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
     }
 
     public void titleOfBankClick() {
