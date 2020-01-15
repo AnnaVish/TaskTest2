@@ -148,8 +148,8 @@ public class MicroCreditsPage extends Base {
         Header.checkBreadCrumbs(3);
     }
 
-    public Boolean offersOnPageMore10(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 10;
+    public Boolean offersOnPageMore0(){
+        return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
     }
 
     public void sendForm() {

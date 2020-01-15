@@ -89,7 +89,7 @@ public class CreditCardsPage extends Base {
         Header.checkBreadCrumbs(3);
     }
 
-    public Boolean offersOnPageMore5(){
-        return driver.findElements(By.cssSelector(".offers-list-row .offer-item__wrapper")).size() > 5;
+    public Boolean offersOnPageMore0(){
+        return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
     }
 }
