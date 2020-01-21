@@ -6,11 +6,13 @@ import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.*;
+import pages.verticals.common.CommonMethodsForAllVerticals;
 
 
 public class MainPageStepDeffinitions extends Base {
 
     private final MainPage mainPage = new MainPage();
+    private final CommonMethodsForAllVerticals commonMethodsForAllVerticals = new CommonMethodsForAllVerticals();
 
     @Дано("^пользователь нахоидится на главной странице$")
     public void onMainPage() {
@@ -248,4 +250,7 @@ public class MainPageStepDeffinitions extends Base {
     public void comparePageClick() {
         mainPage.comparePageClick();
     }
+
+    @И("^пользователь заходит в свой профиль$")
+    public void userGoToMyProfile(){commonMethodsForAllVerticals.userEnterToProFilePage();}
 }

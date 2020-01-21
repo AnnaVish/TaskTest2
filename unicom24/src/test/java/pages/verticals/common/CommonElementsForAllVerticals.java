@@ -103,6 +103,14 @@ public class CommonElementsForAllVerticals extends Base {
      *Персональный займ окончен
      */
 
+    // Там где имя пользователя начало
+    @FindBy(xpath = "//div[@class='font__base-small ui-dropdown-rating-label font__base font__color-blue']")
+    public WebElement nameForDropProfileMenuBTN;
+
+    @FindBy(xpath = "//div[@class='ui-dropdown-rating-menu-item']/a[contains(text(), 'Профиль')]")
+    public WebElement enterProfileBTN;
+    // Там где имя пользователя конец
+
     /*
     Элементы отвечающий за локакацию пользователя начало
      */

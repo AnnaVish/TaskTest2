@@ -7,7 +7,7 @@ public class ProfilePageStepDefinitions {
 
     private final ProfilePage profilePage = new ProfilePage();
 
-    @Тогда("^отображается профиль$")
+    @Тогда("^отображается профиль Брокера$")
     public void profilePageIsDisplayed() {
         //profilePage.pageIsDisplayed();
     }
