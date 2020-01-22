@@ -1,6 +1,8 @@
 package pages.PartnerCabinetPage.Tabs;
 
 import base.Base;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,6 +17,9 @@ public class ProductsTabPage extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Продукты')]")
     private WebElement productsTitle;
+
+    @FindBy(xpath = "//div[@class='ng-scope']")
+    private WebElement productsBoard;
 
     @FindBy(xpath = "//div[./div[./div[./div[contains(text(), 'Экспертиза')]]]]/div[2]/div[@href=\"/partners/office/cross-reports/expertise\" and contains(text(), 'Получить отчет')]")
     private WebElement expertizeGetReportBtn;
@@ -61,9 +66,9 @@ public class ProductsTabPage extends Base {
     public ProductsTabPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, header);
-        elements = Arrays.asList(productsTitle, expertizeGetReportBtn, okbGetReportBtn, fsspGetReportBtn,
+        elements = Arrays.asList(productsTitle, productsBoard/*expertizeGetReportBtn, okbGetReportBtn, fsspGetReportBtn,
                 fmsGetReportBtn, rfzGetReportBtn, creditReportGetBtn, creditRatingGetBtn,
-                ficoGetReportBtn, checkAutoGetReportBtn, scorePhoneNumberGetReportBtn, socialMediaScoringGetReportBtn);
+                ficoGetReportBtn, checkAutoGetReportBtn, scorePhoneNumberGetReportBtn, socialMediaScoringGetReportBtn */);
         headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
                 header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
                 header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
@@ -74,5 +79,9 @@ public class ProductsTabPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPartnerCabinetPage);
+        int countButtonsGiveReport = driver.findElements(By.cssSelector(".reports-target-action-button")).size();
+        Assert.assertTrue(countButtonsGiveReport>2);
+        int countBoardsProducts = driver.findElements(By.cssSelector(".reports-target")).size();
+        Assert.assertTrue(countBoardsProducts>2);
     }
 }
