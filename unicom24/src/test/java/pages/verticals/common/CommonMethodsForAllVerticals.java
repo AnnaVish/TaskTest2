@@ -23,4 +23,11 @@ public class CommonMethodsForAllVerticals extends Base{
         commonElementsAll.spanLocationCity.findElement(By.xpath(xPathWay)).click();
         //
     }
+
+    public void userEnterToProFilePage(){
+        waitForVisibility(commonElementsAll.nameForDropProfileMenuBTN);
+        commonElementsAll.nameForDropProfileMenuBTN.click();
+        waitForVisibility(commonElementsAll.enterProfileBTN);
+        commonElementsAll.enterProfileBTN.click();
+    }
 }
