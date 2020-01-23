@@ -22,8 +22,8 @@ public class FullCreditsHistoryNewPage extends Base {
 
     @FindBy(css = ".ui-credit-report-history-credit .ui-form-requests-history-credit_report__data-wrapper")
     private WebElement history;
+
     @FindBy(xpath = "//button[@class='btn-middle-with-border ui-btn font__base yellow']")
-    //@FindBy(xpath = "//div[@class='consent-buttons']//span[contains(text(),'Скачать бланк')]")
     private WebElement downloadBlankBtn;
 
 
@@ -39,9 +39,9 @@ public class FullCreditsHistoryNewPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        //allElementsAreVisible(headerPage.getMainHeader());
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        //allElementsAreVisible(footerPage.getFooter());
+        allElementsAreVisible(footerPage.getFooter());
     }
 
     public void DownloadBlankBtnClick(){

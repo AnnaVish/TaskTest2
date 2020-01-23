@@ -31,7 +31,7 @@ public class FinancialHealthPageStepDefinitions extends Base {
     @Тогда("^пользователь скачивает отчет финансового здоровья$")
     public void userDownloadReport(){
         financialHealthPage.downloadReport();
-        Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 150000);
+        Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 100000);
         Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
     }
 }
