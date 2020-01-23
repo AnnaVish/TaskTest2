@@ -1,11 +1,13 @@
 package pages;
 
+import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +38,14 @@ public class FinancialHealthPage extends Base {
     @FindBy(xpath = "//span[contains(text(), 'Новый запрос')]")
     private WebElement newReportCreate;
 
+    @FindBy(xpath = "//button[@class='about-rating-block__button ui-btn font__base yellow']")
+    private WebElement getMyRating;
+
+    @FindBy(css = ".report-photo__img")
+    private WebElement ratingImg;
+
     public final List<WebElement> elements;
+    public final List<WebElement> elementsWithoutAuth;
 
 
     public FinancialHealthPage() {
@@ -44,6 +53,7 @@ public class FinancialHealthPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(getReport, pageTitle, historyTitle, history);
+        elementsWithoutAuth = Arrays.asList(getMyRating, pageTitle, ratingImg);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -72,5 +82,21 @@ public class FinancialHealthPage extends Base {
             e.printStackTrace();
         }
     }
+
+    public void onFinancialHealthRatingPage(){
+        driver.get(PagesUrls.financialHealthRatingPage());
+        TestContext.checkRedirectUrl = PagesUrls.financialHealthRatingPage();
+    }
+
+    public void getMyRatingClick(){
+        getMyRating.click();
+    }
+
+    public void pageIsDisplayedWithoutAuth(){
+        allElementsAreVisible(headerPage.getMainHeader());
+        allElementsAreVisible(elementsWithoutAuth);
+        allElementsAreVisible(footerPage.getFooter());
+    }
+
 
 }

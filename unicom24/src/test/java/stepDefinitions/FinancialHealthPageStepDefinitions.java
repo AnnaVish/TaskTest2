@@ -2,6 +2,8 @@ package stepDefinitions;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
+import cucumber.api.java.ru.Дано;
+import cucumber.api.java.ru.Когда;
 import org.junit.Assert;
 import pages.FinancialHealthPage;
 import properties.BaseProperties;
@@ -33,5 +35,20 @@ public class FinancialHealthPageStepDefinitions extends Base {
         financialHealthPage.downloadReport();
         Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 150000);
         Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
+    }
+
+    @Дано("^пользователь находится на странице Рейтинг финансового здоровья$")
+    public void userOnFinancialHealthRatingPage(){
+        financialHealthPage.onFinancialHealthRatingPage();
+    }
+
+    @Когда("^пользователь кликает на кнопку Узнать мой рейтинг$")
+    public void userGetRatingBTNClick(){
+        financialHealthPage.getMyRatingClick();
+    }
+
+    @Когда("^пользователь находится на странице Рейтинг финансового здоровья без авторизации$")
+    public void userWithoutAuthOnFinancialHealthRatingPage(){
+        financialHealthPage.pageIsDisplayedWithoutAuth();
     }
 }
