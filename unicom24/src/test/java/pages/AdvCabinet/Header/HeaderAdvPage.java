@@ -20,8 +20,8 @@ public class HeaderAdvPage {
     @FindBy(xpath = "//button[contains(text(), 'Пополнить счет')]")
     public WebElement giveMoneyBtn;
 
-    @FindBy(css = "div.ds-impersonalization-inner")
-    private WebElement peopleIcon;
+    //@FindBy(css = "div.ds-impersonalization-inner")
+    //private WebElement peopleIcon;
 
     @FindBy(css = "div.ds-header-user")
     public WebElement dropMenu;
@@ -41,7 +41,7 @@ public class HeaderAdvPage {
     public WebElement dropMenuLogOut;
 
     public List<WebElement> getAdvHeader() {
-        return Arrays.asList(logo, logoTitle, currentMoney, giveMoneyBtn, peopleIcon, dropMenu);
+        return Arrays.asList(logo, logoTitle, currentMoney, giveMoneyBtn, dropMenu);
     }
 
 }
