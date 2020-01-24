@@ -69,6 +69,8 @@ public class PagesUrls {
         return mainPage + "/b2b_office/financial-health";
     }
 
+    public static String financialHealthRatingPage() {return mainPage + "/services/rejting-finansovogo-zdorovya"; }
+
     public static String smsServerLink() {
         String base = System.getenv("TESTING_HOST");
         if (base.equals("pre-prod.vuaro.ru")) {
