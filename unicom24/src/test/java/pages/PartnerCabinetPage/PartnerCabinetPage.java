@@ -134,4 +134,9 @@ public class PartnerCabinetPage extends Base {
         waitForVisibility(header.settingsLink);
         header.settingsLink.click();
     }
+
+    public void giveMoneyModalClick(){
+        waitForVisibility(header.getMoney);
+        header.getMoney.click();
+    }
 }
