@@ -33,6 +33,8 @@ public class PagesUrls {
         return mainPage + "/b2b_office/auth/login";
     }
 
+    public static String bankirAuth(){ return mainPage + "/advertiser_office/auth"; }
+
     public static String brokerCabinetUrl() {
         return mainPage + "/b2b_office/";
     }

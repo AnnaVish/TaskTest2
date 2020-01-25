@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -69,5 +70,14 @@ public class AdvPage extends Base {
         waitForVisibility(header.dropMenuLogOut);
         header.dropMenuLogOut.click();
     }
+
+    public void giveMoneyBtnClick(){
+        waitForVisibility(header.giveMoneyBtn);
+        header.giveMoneyBtn.click();
+    }
+
+    public void onCabinetOfBanksAndAdvPage(){
+    driver.get(PagesUrls.bankirAuth());}
+
 
 }
