@@ -24,7 +24,7 @@ public class HeaderPartnerCabinetPage extends Base {
     @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Текущий баланс')]")
     public WebElement balance;
 
-    @FindBy(xpath = "//div[contains(text(), 'Вывести деньги')]")
+    @FindBy(xpath = "//div[@class='ui-app-header__dash-item ui-app-header__dash-item-w-border ui-app-header__dash-item_hide-s']/div[contains(text(), 'Вывести деньги')]")
     public WebElement getMoney;
 
     @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Возможный максимальный доход')]")
