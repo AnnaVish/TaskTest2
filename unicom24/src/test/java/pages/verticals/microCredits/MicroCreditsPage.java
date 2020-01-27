@@ -88,22 +88,22 @@ public class MicroCreditsPage extends Base {
      */
 
     // h2 элементы начало
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Особенности займов на карту')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Особенности займов на карту')]")
     private WebElement h2Seo1;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Плюсы и минусы микрозаймов')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Плюсы и минусы микрозаймов')]")
     private WebElement h2Seo2;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения займов на карту')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Условия получения займов на карту')]")
     private WebElement h2Seo3;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить микрозайм на карту онлайн?')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Как оформить микрозайм на карту онлайн?')]")
     private WebElement h2Seo4;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Список документов для оформления займа онлайн на карту')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Список документов для оформления займа онлайн на карту')]")
     private WebElement h2Seo5;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Способы погашения займа')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Способы погашения займа')]")
     private WebElement h2Seo6;
     // h2 элементы конец
 
