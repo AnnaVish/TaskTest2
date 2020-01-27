@@ -66,8 +66,7 @@ public class MicroCreditsDetailedPage extends Base {
         elements = Arrays.asList(privateClientsMFOBread, privateClientsBread, commonElements.bankBlock,
                 commonElements.headerOfBank, commonElements.rating, countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
-                schedualOfPayment, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
-                commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
+                schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
         headerPage.getMainHeader();
         footerPage.getFooter();
