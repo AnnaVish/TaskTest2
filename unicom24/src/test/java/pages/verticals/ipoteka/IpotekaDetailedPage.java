@@ -73,8 +73,7 @@ public class IpotekaDetailedPage extends Base {
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
                 priceOfRealty, licenseOfCB, priceOfRealtyInput, firstDonation, firstDonationInput, durationOfIpoteka,
                 durationOfIpotekaInput, percent, paymentPerMonth, commonSum, getIpotekaBtn, schedualOfPayment,
-                moreThanNeed, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
-                commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
+                moreThanNeed, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
         headerPage.getMainHeader();
         footerPage.getFooter();
