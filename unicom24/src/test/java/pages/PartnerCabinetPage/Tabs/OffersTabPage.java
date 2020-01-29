@@ -15,9 +15,14 @@ public class OffersTabPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
 
-    String nameOfTypeProduct = "//div[./div[contains(text(), 'Тип продукта')]]/div/div";
-    String nameOfTargetAction = "//div[./div[contains(text(), 'Целевое действие')]]/div/div";
-    String nameOfTypeOffer= "//div[./div[contains(text(), 'Тип оффера')]]/div/div[@class='ng-binding']";
+    String nameOfTypeProductTitle = "//div[./div[contains(text(), 'Тип продукта')]]";
+    String nameOfTargetActionTitle = "//div[./div[contains(text(), 'Целевое действие')]]";
+    String nameOfTypeOfferTitle= "//div[./div[contains(text(), 'Тип оффера')]]";
+    String anyButton = "//div[@class='ng-scope ui-offers-header-filters-button']";
+
+    String nameOfTypeOffer= "//div[./div[contains(text(), 'Тип оффера')]]//div[@class='ng-binding']";
+    String nameOfTypeOfferForCheck= "//div[@class='ui-offers-card-row-absolute-type-label ng-scope']";
+    String nameOfTypeOfferForCheckActive= "//div[@class='ng-scope ui-offers-header-filters-button active']";
 
     @FindBy(xpath = "//div[contains(text(), 'Офферы')]")
     private WebElement offersTitle;
@@ -56,23 +61,74 @@ public class OffersTabPage extends Base {
     }
 
     public void checkCountFilters(){
-        Assert.assertEquals(7, driver.findElements(By.xpath(nameOfTypeProduct)).size()); // 7 если будет 7 фильтров, на момент написания кода их 5
-        Assert.assertEquals(4, driver.findElements(By.xpath(nameOfTargetAction)).size());
+        Assert.assertEquals(5, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // 7 если будет 7 фильтров, на момент написания кода их 5
+        Assert.assertEquals(4, driver.findElements(By.xpath(nameOfTargetActionTitle+anyButton)).size());
         Assert.assertEquals(2, driver.findElements(By.xpath(nameOfTypeOffer)).size());
     }
 
     public void filterOfTypeClick(String nameFilter){
-        String nameOfFilter = String.format(nameOfTypeProduct+"[contains(text(), %s)]", nameFilter);
+        String nameOfFilter = String.format(nameOfTypeProductTitle+"//div[contains(text(), '%s')]", nameFilter);
         driver.findElement(By.xpath(nameOfFilter)).click();
     }
 
     public void filterOfTargetActionClick(String nameFilter){
-        String nameOfFilter = String.format(nameOfTargetAction+"[contains(text(), %s)]", nameFilter);
+        String nameOfFilter = String.format(nameOfTargetActionTitle+"//div[contains(text(), '%s')]", nameFilter);
         driver.findElement(By.xpath(nameOfFilter)).click();
     }
 
     public void filterOfOfferClick(String nameFilter){
-        String nameOfFilter = String.format(nameOfTypeOffer+"//div[contains(text(), %s)]", nameFilter);
+        String nameOfFilter = String.format(nameOfTypeOfferTitle+"//div[contains(text(), '%s')]", nameFilter);
         driver.findElement(By.xpath(nameOfFilter)).click();
+    }
+
+    public void checkFilterOfOffersType(String nameFilter){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String correctFilterName;// для манипуляций в коде
+        String nameFilterForDisable; // для понимания какой фильтр отключать
+        if (nameFilter.equals("Реферальные ссылки")){
+            correctFilterName = "REF";
+            nameFilterForDisable = "API";}
+        else{
+            correctFilterName = "API";
+            nameFilterForDisable = "REF";
+        }
+
+        String nameOfFilter = String.format(nameOfTypeOfferForCheckActive+"/div[contains(text(), '%s')]", nameFilterForDisable); //запоминаем xpath нажатой кнопки
+        int countOfOffersWithThisType = driver.findElements(By.xpath(nameOfFilter)).size(); // вносим в переменную наличие нажатой кнопки
+
+        if (correctFilterName.equals("API") && countOfOffersWithThisType>0) { // если тестер писал API
+            correctFilterName = "Реферальные ссылки"; // корректируем название
+            nameOfFilter = String.format(nameOfTypeOfferForCheckActive+"/div[contains(text(), '%s')]", correctFilterName); //ищем путь
+            driver.findElement(By.xpath(nameOfFilter)).click();
+        }                                                     //ng-scope ui-offers-header-filters-button active
+        if (nameFilter.equals("Реферальные ссылки") && countOfOffersWithThisType>0) {
+            correctFilterName = "API";
+            nameOfFilter = String.format(nameOfTypeOfferForCheckActive+"/div[contains(text(), '%s')]", correctFilterName); //ищем путь
+            driver.findElement(By.xpath(nameOfFilter)).click();
+        }
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        correctFilterName = nameFilter;
+        if (nameFilter.equals("Реферальные ссылки")) correctFilterName = "REF";
+
+        nameOfFilter = String.format(nameOfTypeOfferForCheck+"/div[contains(text(), '%s')]", correctFilterName);
+        countOfOffersWithThisType = driver.findElements(By.xpath(nameOfFilter)).size();
+        if (nameFilter.equals("API")){
+                // код1
+                Assert.assertTrue(countOfOffersWithThisType > 3);}
+        if (nameFilter.equals("REF")){
+                // код2
+                Assert.assertTrue(countOfOffersWithThisType > 4);}
+
     }
 }

@@ -63,10 +63,12 @@ public class CreditsDetailsPage extends Base {
         elements = Arrays.asList(commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
                 countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
-                schedualOfPayment, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
-                commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
+                schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
-                privateClientsCreditsBread);
+                privateClientsCreditsBread
+                //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
+                //commonElements.commentsTab, commonElements.aboutOrgTab,
+        );
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

@@ -32,9 +32,11 @@ public class RefinanceDetailedPage extends Base {
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList(privateClientsBread, privateClientsRefinanceBread, commonElements.bankBlock,
                 commonElements.headerOfBank, commonElements.rating,
-                commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
-                commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved);
+                commonElements.bet, commonElements.sum,
+                commonElements.time, commonElements.age, commonElements.beforeApproved
+                //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
+                //commonElements.commentsTab, commonElements.aboutOrgTab,
+        );
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

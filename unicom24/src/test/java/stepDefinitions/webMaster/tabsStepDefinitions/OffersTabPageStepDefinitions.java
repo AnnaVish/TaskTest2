@@ -14,18 +14,23 @@ public class OffersTabPageStepDefinitions {
         offersTabPage.checkCountFilters();
     }
 
-    @Когда("^пользователь кликает по фильтру типа товара \"([^\"]*)\"$")
+    @Когда("^вебмастер кликает по фильтру типа товара \"([^\"]*)\"$")
     public void offersTabPageFiltersOfTypeClick(String nameFilter){
         offersTabPage.filterOfTypeClick(nameFilter);
     }
 
-    @Когда("^пользователь кликает по фильтру целевое действие \"([^\"]*)\"$")
+    @Когда("^вебмастер кликает по фильтру целевое действие \"([^\"]*)\"$")
     public void offersTabPageFiltersOfTargetActionClick(String nameFilter){
         offersTabPage.filterOfTargetActionClick(nameFilter);
     }
 
-    @Когда("^пользователь кликает по фильтру тип оффера \"([^\"]*)\"$")
+    @Когда("^вебмастер кликает по фильтру тип оффера \"([^\"]*)\"$")
     public void offersTabPageFiltersOfOfferClick(String nameFilter){
         offersTabPage.filterOfOfferClick(nameFilter);
+    }
+
+    @Тогда("^отображается страница Офферы с активным фильтром по типу оффера \"([^\"]*)\"$")
+    public void checkFiltersOfOffersType (String nameFilter){
+        offersTabPage.checkFilterOfOffersType(nameFilter);
     }
 }

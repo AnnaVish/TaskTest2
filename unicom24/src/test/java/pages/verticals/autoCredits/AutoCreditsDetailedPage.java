@@ -64,9 +64,11 @@ public class AutoCreditsDetailedPage extends Base {
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
                 countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
-                schedualOfPayment, commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
-                commonElements.commentsTab, commonElements.aboutOrgTab, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved);
+                schedualOfPayment, commonElements.bet, commonElements.sum,
+                commonElements.time, commonElements.age, commonElements.beforeApproved
+                //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
+                //commonElements.commentsTab, commonElements.aboutOrgTab,
+        );
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
