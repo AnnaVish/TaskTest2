@@ -21,7 +21,12 @@ public class CommonMethodsForAllVerticals extends Base{
         waitForVisibility(commonElementsAll.spanLocationCity);
         String xPathWay = String.format("//span[contains(text(), '%s')]",  selectCity);
         commonElementsAll.spanLocationCity.findElement(By.xpath(xPathWay)).click();
-        //
+        // Заплатка на ожидание обновления страницы и изменения оферов
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void userEnterToProFilePage(){

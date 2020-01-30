@@ -122,8 +122,8 @@ public class CreditsPage extends Base {
     }
 
     public Boolean checkRedirects() {
-        js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
-        List<WebElement> elements = driver.findElements(By.cssSelector(".offers-list-row .offer-online button"));
+        //js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
+        List<WebElement> elements = driver.findElements(By.cssSelector("div.offers-element.element__base"));
         for (int i = 0; i < elements.size(); i++) {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
@@ -134,10 +134,10 @@ public class CreditsPage extends Base {
             scrollTo(elements.get(i));
             waitForVisibility(elements.get(i));
             if (i == 0) {
-                System.out.println(driver.findElement(By.xpath("(//div[@class='offer-online']/button/../../../../div[2]/div/a)")).getText());
+                System.out.println(driver.findElement(By.xpath("(//div[@class='title']/span)")).getText());
             } else {
                 int k = i + 1;
-                System.out.println(driver.findElement(By.xpath("(//div[@class='offer-online']/button/../../../../div[2]/div/a)[" + k + "]")).getText());
+                System.out.println(driver.findElement(By.xpath("(//div[@class='title']/span)[" + k + "]")).getText());
             }
             getIdOfOffer(elements.get(i));
             elements.get(i).click();
