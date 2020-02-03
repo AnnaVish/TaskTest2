@@ -38,19 +38,19 @@ public class IpotekaPage extends Base {
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
 
     // h2 элементы начало
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Ипотека и ее преимущества')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Ипотека и ее преимущества')]")
     private WebElement h2Seo1;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения ипотеки')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Условия получения ипотеки')]")
     private WebElement h2Seo2;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить ипотеку на квартиру?')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Как оформить ипотеку на квартиру?')]")
     private WebElement h2Seo3;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Какие документы нужны при покупке квартиры в ипотеку?')]")
+    @FindBy(xpath = "//h2[contains(text(), 'Какие документы нужны при покупке квартиры в ипотеку?')]")
     private WebElement h2Seo4;
 
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'В каком банке лучше взять ипотеку в 2019 году?')]")
+    @FindBy(xpath = "//h2[contains(text(), 'В каком банке лучше взять ипотеку в 2019 году?')]")
     private WebElement h2Seo5;
     // h2 элементы конец
 
