@@ -128,6 +128,6 @@ public class Header extends Base {
 //    }
 
     public static void checkBreadCrumbs(int countOfBreadCrumbs) {
-        Assert.assertEquals(countOfBreadCrumbs, driver.findElements(By.cssSelector("ul.ui-breadcrumbs-list  li")).size());
+        Assert.assertEquals(countOfBreadCrumbs, driver.findElements(By.xpath("//ul[contains(@class, 'ui-breadcrumbs-list')]/li[not(contains(@class, 'ui-breadcrumbs-item-img'))][./*[contains(text(), '')]]")).size());
     }
 }

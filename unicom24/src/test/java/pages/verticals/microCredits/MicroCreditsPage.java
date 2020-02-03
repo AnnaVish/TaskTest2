@@ -145,7 +145,7 @@ public class MicroCreditsPage extends Base {
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
     }
 
     public Boolean offersOnPageMore0(){

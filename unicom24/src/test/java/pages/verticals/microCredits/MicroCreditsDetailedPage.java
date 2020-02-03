@@ -23,14 +23,8 @@ public class MicroCreditsDetailedPage extends Base {
     @FindBy(xpath = "//span[contains(text(), 'Расчет кредита')]")
     private WebElement countCreditTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'Какая сумма вам нужна')]")
-    private WebElement howMuchMoneyYouNeed;
-
     @FindBy(xpath = "//label[./div[contains(text(), 'Какая сумма вам нужна')]]/div/input")
     private WebElement howMuchYouNeedInput;
-
-    @FindBy(xpath = "//div[contains(text(), 'На какой срок')]")
-    private WebElement howMuchTimeYouNeed;
 
     @FindBy(xpath = "//label[./div[contains(text(), 'На какой срок')]]/div/input")
     private WebElement howMuchTimeInput;
@@ -47,14 +41,6 @@ public class MicroCreditsDetailedPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
-
-//    @FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
-//    private WebElement privateClientsMFOBread;
-
-    @FindBy(xpath = "//a[contains(text(), 'Займы онлайн')]")
-    private WebElement privateClientsMFOBread;
 
     public final List<WebElement> elements;
 
@@ -63,9 +49,9 @@ public class MicroCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(privateClientsMFOBread, privateClientsBread, commonElements.bankBlock,
-                commonElements.headerOfBank, commonElements.rating, countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
-                howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
+        elements = Arrays.asList(commonElements.bankBlock,
+                commonElements.headerOfBank, commonElements.rating, countCreditTitle, licenseOfCB,
+                howMuchYouNeedInput, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
         headerPage.getMainHeader();
