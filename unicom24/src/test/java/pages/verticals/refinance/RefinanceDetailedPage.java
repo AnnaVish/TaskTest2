@@ -41,6 +41,6 @@ public class RefinanceDetailedPage extends Base {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
     }
 }

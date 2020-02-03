@@ -74,6 +74,6 @@ public class CreditsDetailsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
     }
 }
