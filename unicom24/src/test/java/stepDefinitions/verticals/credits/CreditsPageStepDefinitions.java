@@ -29,7 +29,7 @@ public class CreditsPageStepDefinitions extends Base {
         creditsPage.onCreditsPage();
     }
 
-    @Тогда("^пользователь проверяет что переходы работают и есть в админке$")
+    @Тогда("^пользователь проверяет что переходы работают$")
     public void userTestRedirects(){
         Assert.assertTrue(driver.getCurrentUrl(), creditsPage.checkRedirects());
     }

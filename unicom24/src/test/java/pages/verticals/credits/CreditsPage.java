@@ -123,7 +123,7 @@ public class CreditsPage extends Base {
 
     public Boolean checkRedirects() {
         //js.executeScript("let ifr = document.getElementById('launcher'); ifr.remove();");
-        List<WebElement> elements = driver.findElements(By.cssSelector("div.offers-element.element__base"));
+        List<WebElement> elements = driver.findElements(By.xpath("//button[./span[contains(text(), 'Онлайн заявка')]]"));
         for (int i = 0; i < elements.size(); i++) {
             if (isElementVisible(closeModalBtn)) {
                 closeModalBtn.click();
@@ -153,6 +153,7 @@ public class CreditsPage extends Base {
             }
             if (driver.getCurrentUrl().contains(PagesUrls.mainPage))
                 return false;
+            /*
             adminkaRedirects.onAdminkaRedirectsPage();
             if (admAuth.isPageDisplayed()) {
                 admAuth.pageIsDisplayed();
@@ -160,6 +161,7 @@ public class CreditsPage extends Base {
             }
             adminkaRedirects.pageIsDisplayed();
             adminkaRedirects.checkVerticalsRedirect();
+            */
             closeTab();
             switchToTheFirstTab();
         }
