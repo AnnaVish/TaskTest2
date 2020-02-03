@@ -1,7 +1,7 @@
 # language: ru
 Функционал: Проверка что все переходы в header корректно работают
 
-  @test
+  @test4
   @TestCaseId("41")
   @Severity(Critical)
   Сценарий: Прокликать все ссылки в Header
