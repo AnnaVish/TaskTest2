@@ -86,7 +86,7 @@ public class CreditCardsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(elementsH2);
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
     }
 
     public Boolean offersOnPageMore0(){

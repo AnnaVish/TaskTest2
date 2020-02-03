@@ -107,7 +107,7 @@ public class CreditsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(elementsH2);
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
         Assert.assertEquals(common.countOffersOnPage.size(), common.btnBankCreditAddToCompare.size());
     }
 

@@ -85,7 +85,7 @@ public class AutoCreditsPage extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(h2Elements);
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3);
+        Header.checkBreadCrumbs(2);
     }
 
     public Boolean offersOnPageMore0(){
