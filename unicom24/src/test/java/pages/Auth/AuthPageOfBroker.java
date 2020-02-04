@@ -1,46 +1,43 @@
 package pages.Auth;
 
 import base.Base;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pagesUrls.PagesUrls;
 
-import java.security.Key;
 import java.util.Arrays;
 import java.util.List;
 
 public class AuthPageOfBroker extends Base {
 
-    @FindBy(css = ".auth-container")
-    private WebElement authForm;
+    @FindBy(css = ".login-partners-inner")
+    private WebElement form;
 
-    @FindBy(xpath = "//a[contains(text(), 'Регистрация')]")
-    private WebElement registerTab;
+    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='email']")
+    private WebElement loginField;
 
-    @FindBy(name = "username")
-    private WebElement loginInput;
-
-    @FindBy(name = "password")
+    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='password']")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Войти')]]")
+    @FindBy(xpath = "//button[contains(text(), 'Войти')]")
     private WebElement entranceLink;
 
-    @FindBy(xpath = "//a[contains(text(), 'Забыли пароль')]")
+    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Зарегистрироваться')]")
+    private WebElement registerPageLink;
+
+    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Забыли пароль')]")
     private WebElement forgottenPasswordLink;
 
-    @FindBy(xpath = "//a[contains(text(), 'Зарегистрироваться')]")
-    private WebElement registerLink;
+    @FindBy(xpath = "//div[@class='login-partners-inner']/div/div[contains(text(), 'Регистрация')]")
+    private WebElement registrationPageOfLink;
 
     private final List<WebElement> elements;
 
     public AuthPageOfBroker() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(authForm, registerTab, loginInput, passwordField, entranceLink, forgottenPasswordLink,
-                registerLink);
+        elements = Arrays.asList(form, registrationPageOfLink, loginField, passwordField, entranceLink, forgottenPasswordLink,
+                registrationPageOfLink);
     }
 
     public void onPage() {
@@ -53,15 +50,15 @@ public class AuthPageOfBroker extends Base {
     }
 
     public void brokerLogIn() {
-        waitForVisibility(loginInput);
+        waitForVisibility(loginField);
         waitForVisibility(passwordField);
         /*
          *Здесь происходит неведомая хрень - селениум путает буквы при вооде, строго на этой странице на сайте
          * пришлось обходить это циклом, что пока значение в поле не будет правильным, пиши заново
          */
-        while (!loginInput.getAttribute("value").equals(AuthPage.login)) {
-            clearField(loginInput);
-            typeIntoField(AuthPage.login, loginInput);
+        while (!loginField.getAttribute("value").equals(AuthPage.login)) {
+            clearField(loginField);
+            typeIntoField(AuthPage.login, loginField);
         }
         while (!passwordField.getAttribute("value").equals(AuthPage.password)) {
             clearField(passwordField);
