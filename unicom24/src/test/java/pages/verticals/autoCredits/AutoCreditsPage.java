@@ -76,7 +76,6 @@ public class AutoCreditsPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(h2Elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
     }
