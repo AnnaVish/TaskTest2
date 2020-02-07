@@ -53,7 +53,7 @@ public class ReportsTabPage extends Base {
         int countReportOrders = reportOrders.size();
         for (int i = 0; i < countReportOrders; i++) {
             String nameOfReport = reportOrdersTitleText.get(i).getText();
-            ordersCheck(nameOfReport);
+            ordersClick(nameOfReport);
             reports.pageIsDisplayed();
             reports.reportPageCheck(nameOfReport);
             advPage.reportsTabClick();
@@ -61,7 +61,7 @@ public class ReportsTabPage extends Base {
         }
     }
 
-    public void ordersCheck(String nameOfReport){
+    public void ordersClick(String nameOfReport){
         String xPath = String.format("//a[contains(text(), '%s')]/../../../..//button", nameOfReport);
         WebElement element = driver.findElement(By.xpath(xPath));
         waitForVisibility(element);
