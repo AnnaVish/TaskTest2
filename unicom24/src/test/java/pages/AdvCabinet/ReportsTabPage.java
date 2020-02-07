@@ -46,8 +46,7 @@ public class ReportsTabPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
-        int countReportOrders = reportOrders.size();
-        Assert.assertEquals(reportOrders.size(), countReportOrders);
+        Assert.assertEquals(reportOrdersTitleText.size(), 4);
     }
 
     public void reportsCheck() {
