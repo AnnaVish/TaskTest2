@@ -61,7 +61,7 @@ public class OffersTabPage extends Base {
     }
 
     public void checkCountFilters(){
-        Assert.assertEquals(5, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // 7 если будет 7 фильтров, на момент написания кода их 5
+        Assert.assertEquals(7, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // 7 если будет 7 фильтров, на момент написания кода их 5
         Assert.assertEquals(4, driver.findElements(By.xpath(nameOfTargetActionTitle+anyButton)).size());
         Assert.assertEquals(2, driver.findElements(By.xpath(nameOfTypeOffer)).size());
     }
@@ -88,6 +88,9 @@ public class OffersTabPage extends Base {
             e.printStackTrace();
         }
 
+        String notSelectedFilterName;
+        String notSelectedNameOfFilter;
+
         String correctFilterName;// для манипуляций в коде
         String nameFilterForDisable; // для понимания какой фильтр отключать
         if (nameFilter.equals("Реферальные ссылки")){
@@ -105,7 +108,7 @@ public class OffersTabPage extends Base {
             correctFilterName = "Реферальные ссылки"; // корректируем название
             nameOfFilter = String.format(nameOfTypeOfferForCheckActive+"/div[contains(text(), '%s')]", correctFilterName); //ищем путь
             driver.findElement(By.xpath(nameOfFilter)).click();
-        }                                                     //ng-scope ui-offers-header-filters-button active
+        }
         if (nameFilter.equals("Реферальные ссылки") && countOfOffersWithThisType>0) {
             correctFilterName = "API";
             nameOfFilter = String.format(nameOfTypeOfferForCheckActive+"/div[contains(text(), '%s')]", correctFilterName); //ищем путь
@@ -118,17 +121,27 @@ public class OffersTabPage extends Base {
             e.printStackTrace();
         }
 
-        correctFilterName = nameFilter;
-        if (nameFilter.equals("Реферальные ссылки")) correctFilterName = "REF";
+        if (nameFilter.equals("Реферальные ссылки")) {
+            correctFilterName = "REF";
+            notSelectedFilterName = "API";}
+        else {correctFilterName = "API";
+            notSelectedFilterName = "REF";}
+
 
         nameOfFilter = String.format(nameOfTypeOfferForCheck+"/div[contains(text(), '%s')]", correctFilterName);
+        notSelectedNameOfFilter = String.format(nameOfTypeOfferForCheck+"/div[contains(text(), '%s')]", notSelectedFilterName);
         countOfOffersWithThisType = driver.findElements(By.xpath(nameOfFilter)).size();
+         int countOfOffersWithoutThisType = driver.findElements(By.xpath(notSelectedNameOfFilter)).size();
         if (nameFilter.equals("API")){
                 // код1
-                Assert.assertTrue(countOfOffersWithThisType > 3);}
+                Assert.assertTrue(countOfOffersWithThisType > 3);
+                Assert.assertTrue(countOfOffersWithoutThisType < 1);
+        }
         if (nameFilter.equals("REF")){
                 // код2
-                Assert.assertTrue(countOfOffersWithThisType > 4);}
+                Assert.assertTrue(countOfOffersWithThisType > 4);
+                Assert.assertTrue(countOfOffersWithoutThisType < 2); //Потому что 1 будет всегда хоть ты тресни
+        }
 
     }
 }
