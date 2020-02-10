@@ -13,11 +13,14 @@ import java.util.List;
 
 public class WebMasterMicrocreditPage extends Base {
 
-    private String rangeToForm = "//div[@class='range-with-label-range']";
-    private String textToForm = "//div[@class='range-with-label-range__range vue-slider vue-slider-ltr']";
-    private String valueFieldToForm = "//div[@class='ui-input-new-unit']";
-    private String argumentsOfFastCredits = "//div[@class='block-list-item advantages-list-item']";
-    private String waysOfFastCredits = "//div[@class='block-list-item ways-list-item']";
+    @FindBy (css =  ".range-with-label-label")
+    private List<WebElement> rangeToForm;
+    @FindBy (css = ".ui-input-new-unit")
+    private List<WebElement> valueFieldToForm;
+    @FindBy (css = ".advantages-list-item")
+    private List<WebElement> argumentsOfFastCredits;
+    @FindBy (css= ".ways-list-item")
+    private List<WebElement> waysOfFastCredits;
 
     @FindBy(xpath = "//span[contains(text(),'Подберем займ на любые цели')]")
     private WebElement titleTextSpan;
@@ -52,16 +55,10 @@ public class WebMasterMicrocreditPage extends Base {
 
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
-        int countOfElements = driver.findElements(By.xpath(rangeToForm)).size();
-        Assert.assertEquals(2, countOfElements); // два ползунка на странице
-        countOfElements = driver.findElements(By.xpath(textToForm)).size();
-        Assert.assertEquals(2, countOfElements); // два текста у ползунков
-        countOfElements = driver.findElements(By.xpath(valueFieldToForm)).size();
-        Assert.assertEquals(2, countOfElements); //два поля где цифры отображаютс у ползунков
-        countOfElements = driver.findElements(By.xpath(argumentsOfFastCredits)).size();
-        Assert.assertEquals(3, countOfElements); // 3 аргумента
-        countOfElements = driver.findElements(By.xpath(waysOfFastCredits)).size();
-        Assert.assertEquals(5, countOfElements); // 5 путей получения
+        Assert.assertEquals(2, rangeToForm.size()); // два ползунка на странице
+        Assert.assertEquals(2, valueFieldToForm.size()); // два поля с цифрами на странице
+        Assert.assertEquals(3, argumentsOfFastCredits.size()); // три аргумента на странице
+        Assert.assertEquals(5, waysOfFastCredits.size()); // пять способом получения на странице
     }
 
     public void onWebMasterMicrocreditPage() {
