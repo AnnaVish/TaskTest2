@@ -65,7 +65,10 @@ public class CreditsDetailsPage extends Base {
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
-                privateClientsCreditsBread);
+                privateClientsCreditsBread
+                //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
+                //commonElements.commentsTab, commonElements.aboutOrgTab,
+        );
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
