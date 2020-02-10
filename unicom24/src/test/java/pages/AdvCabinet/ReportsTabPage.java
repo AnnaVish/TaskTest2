@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
+import pages.AdvCabinet.ReportsPages.Reports;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,8 @@ import java.util.List;
 public class ReportsTabPage extends Base {
 
     private final HeaderAdvPage header = new HeaderAdvPage();
+    private final Reports reports = new Reports();
+    private final AdvPage advPage = new AdvPage();
 
     @FindBy(xpath = "//div[contains(text(), 'Отчеты')]")
     private WebElement reportsTitle;
@@ -25,7 +28,12 @@ public class ReportsTabPage extends Base {
     @FindBys({
             @FindBy(css = "div.ds-report-list-item-wrapper")
     })
-    private List<WebElement> offers;
+    private List<WebElement> reportOrders;
+
+    @FindBys({
+            @FindBy(xpath = "//div[@class='ds-report-list-item-left-text-name']/a")
+    })
+    private List<WebElement> reportOrdersTitleText;
 
     private final List<WebElement> elements;
 
@@ -38,11 +46,23 @@ public class ReportsTabPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
-        Assert.assertEquals(offers.size(), 4);
+        Assert.assertEquals(reportOrdersTitleText.size(), 4);
     }
 
-    public void clickOfferBtn(String nameOfOffer) {
-        String xPath = String.format("//div[./div[./div[./div[./a[contains(text(), '%s')]]]]]//button", nameOfOffer);
+    public void reportsCheck() {
+        int countReportOrders = reportOrders.size();
+        for (int i = 0; i < countReportOrders; i++) {
+            String nameOfReport = reportOrdersTitleText.get(i).getText();
+            ordersClick(nameOfReport);
+            reports.pageIsDisplayed();
+            reports.reportPageCheck(nameOfReport);
+            advPage.reportsTabClick();
+            pageIsDisplayed();
+        }
+    }
+
+    public void ordersClick(String nameOfReport){
+        String xPath = String.format("//div[@class='ds-report-list-item-wrapper'][.//a[contains(text(), '%s')]]//button", nameOfReport);
         WebElement element = driver.findElement(By.xpath(xPath));
         waitForVisibility(element);
         element.click();
