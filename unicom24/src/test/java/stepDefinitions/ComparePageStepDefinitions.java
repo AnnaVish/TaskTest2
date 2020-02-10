@@ -4,6 +4,7 @@ import base.Base;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
+import org.junit.Assert;
 import pages.ComparePage;
 
 public class ComparePageStepDefinitions extends Base {
@@ -13,6 +14,12 @@ public class ComparePageStepDefinitions extends Base {
     public void comparePageIsDisplayed() {
         comparePage.pageIsDisplayed();
     }
+
+    @Тогда("^отображается пустая страница сравнение$")
+    public void emptyComparePageIsDisplayed() {
+        comparePage.emptyPageIsDisplayed();
+    }
+
     @И("^отображается \"([^\"]*)\" банков в сравнении")
     public void compareBanksCreditIsDisplayed(String countBanksCreditToCompare){
         comparePage.compareBanksCreditCompareIsDisplayed(countBanksCreditToCompare);

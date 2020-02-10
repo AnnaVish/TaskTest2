@@ -21,11 +21,11 @@ public class ComparePage extends Base {
     @FindBy(xpath = "//h1[contains(text(), 'Сравнение предложений')]")
     private WebElement pageTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'Только различающиеся характеристики')]")
-    private WebElement onlyDifferentCharacteristics;
+    @FindBy(xpath = "//div[@class='offers-compare-filters-container']//label[contains(text(), 'Показывать только различия ')]")
+    private WebElement onlyDifferentCharacteristicsCheckbox;
 
-    @FindBy(xpath = "//div[contains(text(), 'Все характеристики')]")
-    private WebElement allCharacteristics;
+    @FindBy(xpath = "//div[contains(text(), 'Перейти к выбору')]")
+    private WebElement goToChoosing;
 
     private final List<WebElement>elements;
 
@@ -34,15 +34,19 @@ public class ComparePage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(pageTitle, onlyDifferentCharacteristics, allCharacteristics);
+        elements = Arrays.asList(pageTitle, onlyDifferentCharacteristicsCheckbox);
+    }
+
+    public void emptyPageIsDisplayed() {
+        waitForVisibility(goToChoosing);
     }
 
     public void pageIsDisplayed(){
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        int countOfCompareTabs = driver.findElements(By.xpath("//li[@class='offers-compare-filters-list-item']")).size();
-        Assert.assertEquals(5, countOfCompareTabs);
+        int countOfCompareTabs = driver.findElements(By.xpath("//li[contains(@class, 'offers-compare-filters-list-item')]")).size();
+        Assert.assertEquals(6, countOfCompareTabs);
     }
 
     public void compareBanksCreditCompareIsDisplayed (String countBanksCreditToCompare){
