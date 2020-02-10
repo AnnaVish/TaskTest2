@@ -68,7 +68,7 @@ public class AuthPageStepDefinitions {
 
     @Тогда("^в окне восстановления пароля выводится текст \"([^\"]*)\"$")
     public void messageAboutResetPassEmailIsDisplayed(String message) {
-        Assert.assertTrue(authPage.messageAboutEmailIsDisplayed(message));
+        authPage.messageIsDisplayed(message);
     }
 
     @Тогда("^в поле ввода появится подсказка \"([^\"]*)\"$")

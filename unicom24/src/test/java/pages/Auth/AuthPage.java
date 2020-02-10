@@ -36,7 +36,7 @@ public class AuthPage extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Регистрация')]")
     private WebElement registrationTab;
-    
+
     @FindBy(name = "emanresu_htua")
     private WebElement mailOrTelField;
 
@@ -79,7 +79,7 @@ public class AuthPage extends Base {
      * Форма восстановления пароля окончена
      */
 
-    private final List<WebElement>elements;
+    private final List<WebElement> elements;
 
     public AuthPage() {
         PageFactory.initElements(driver, this);
@@ -97,15 +97,15 @@ public class AuthPage extends Base {
         allElementsAreVisible(footerPage.getFooter());
     }
 
-    public void loginFill(){
+    public void loginFill() {
         typeIntoField(login, mailOrTelField);
     }
 
-    public void passwordFill(){
+    public void passwordFill() {
         typeIntoField(password, passwordField);
     }
 
-    public void entranceBtnClick(){
+    public void entranceBtnClick() {
         entranceBtn.click();
     }
 
@@ -130,16 +130,10 @@ public class AuthPage extends Base {
         sendBtn.click();
     }
 
-    public Boolean messageIsDisplayed(String errorMessage) {
+    public void messageIsDisplayed(String errorMessage) {
         String xPath = String.format("//span[contains(text(), '%s')]", errorMessage);
         WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".input_container .ui-input-label-block"), By.xpath(xPath)));
-        return isElementVisible(element);
-    }
-
-    public Boolean messageAboutEmailIsDisplayed(String errorMessage) {
-        String xPath = String.format("//div[contains(text(), '%s')]", errorMessage);
-        WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".input_container .ui-input-label-block"), By.xpath(xPath)));
-        return isElementVisible(element);
+        waitForVisibility(element);
     }
 
     public Boolean hintIsDislayed(String hitn) {
