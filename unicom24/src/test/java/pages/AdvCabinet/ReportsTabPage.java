@@ -62,7 +62,7 @@ public class ReportsTabPage extends Base {
     }
 
     public void ordersClick(String nameOfReport){
-        String xPath = String.format("//a[contains(text(), '%s')]/../../../..//button", nameOfReport);
+        String xPath = String.format("//div[@class='ds-report-list-item-wrapper'][.//a[contains(text(), '%s')]]//button", nameOfReport);
         WebElement element = driver.findElement(By.xpath(xPath));
         waitForVisibility(element);
         element.click();
