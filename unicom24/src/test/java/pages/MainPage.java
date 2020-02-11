@@ -201,26 +201,32 @@ public class MainPage extends Base {
     *клики по вертикалям
      */
     public void creditClick() {
+        waitForVisibility(credits);
         credits.click();
     }
 
     public void creditCardsClicks() {
+        waitForVisibility(creditCards);
         creditCards.click();
     }
 
     public void autoCreditsClicks() {
+        waitForVisibility(autoCredits);
         autoCredits.click();
     }
 
     public void ipotekaClicks() {
+        waitForVisibility(ipoteka);
         ipoteka.click();
     }
 
     public void microCreditsClicks() {
+        waitForVisibility(microCredits);
         microCredits.click();
     }
 
     public void creditReportscClicks() {
+        waitForVisibility(creditReports);
         creditReports.click();
     }
 
