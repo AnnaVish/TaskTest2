@@ -1,5 +1,6 @@
 package stepDefinitions.webMaster;
 
+import TestContext.TestContext;
 import base.Base;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.То;
@@ -111,11 +112,14 @@ public class PartnerCabinetPageStepDefinitions extends Base {
 
     @Тогда("^отображается оповещение об успешном выводе денег в модальном окне$")
     public void webMasterGiveMoneyModalPageSuccessfulIsDisplayed(){
+        giveMoneyModal.checkAlert();
+        if (TestContext.messageBlockToGiveMoney == 0)
         giveMoneyModal.modalPageSuccessfulTextIsDisplayed();
     }
 
     @И("^вебмастер закрывает модальное окно вывода денег$")
     public void webMasterGiveMoneyModalPageCloseClick(){
+        if (TestContext.messageBlockToGiveMoney == 0)
         giveMoneyModal.modalPageClose();
     }
 }

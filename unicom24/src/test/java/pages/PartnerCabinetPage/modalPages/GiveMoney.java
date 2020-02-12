@@ -1,5 +1,6 @@
 package pages.PartnerCabinetPage.modalPages;
 
+import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,6 +31,9 @@ public class GiveMoney extends Base {
 
     @FindBy(xpath = "//button[@class='cash-modal-button cach-payment-method-button']")
     private WebElement modalPageExitBTN;
+
+    @FindBy(id = "toast-container")
+    private WebElement alertBlock;
 
     private final List<WebElement> elements;
 
@@ -65,9 +69,19 @@ public class GiveMoney extends Base {
     public void modalPageSuccessfulTextIsDisplayed(){
         waitForVisibility(modalPageSuccessfulText);
         waitForVisibility(modalPageExitBTN);
-    }
+            }
 
     public void modalPageClose(){
-        modalPageExitBTN.click();
+            modalPageExitBTN.click();
     }
+
+    public void checkAlert(){
+        try {
+            waitForAjaxElementIsVisible(alertBlock);
+            TestContext.messageBlockToGiveMoney = 1;
+        } catch (Exception e){
+            TestContext.messageBlockToGiveMoney = 0;
+        }
+    }
+
 }

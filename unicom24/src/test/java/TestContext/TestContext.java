@@ -13,4 +13,5 @@ public class TestContext {
     public static String emailServerLink;
     public static String passrordFromSms;
     public static String correctPhone;
+    public static Integer messageBlockToGiveMoney;
 }
