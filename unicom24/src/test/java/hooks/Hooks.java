@@ -27,6 +27,7 @@ public class Hooks extends Base {
     @Before
     public void before(Scenario scenario) {
         System.out.println(scenario.getName());
+        System.out.println(scenario.getId());
     }
 
 
