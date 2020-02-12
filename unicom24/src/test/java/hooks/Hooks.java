@@ -16,6 +16,7 @@ import java.util.HashMap;
 public class Hooks extends Base {
 
     Scenario scenario;
+
     private BaseProperties baseProperties = new BaseProperties();
 
     public static void deleteAllFilesFolder(String path) {
@@ -25,14 +26,9 @@ public class Hooks extends Base {
 
     @Before
     public void before(Scenario scenario) {
-        this.scenario = scenario;
+        System.out.println(scenario.getName());
     }
 
-    @Before
-    public void printNameOfScenario() {
-        System.out.println(this.scenario.getName());
-        System.out.println(this.scenario.getId());
-    }
 
     @Before
     public void setup() {
