@@ -1,6 +1,7 @@
 package hooks;
 
 import base.Base;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.apache.commons.lang3.SystemUtils;
@@ -14,11 +15,23 @@ import java.util.HashMap;
 
 public class Hooks extends Base {
 
+    Scenario scenario;
     private BaseProperties baseProperties = new BaseProperties();
 
     public static void deleteAllFilesFolder(String path) {
         for (File myFile : new File(path).listFiles())
             if (myFile.isFile()) myFile.delete();
+    }
+
+    @Before
+    public void before(Scenario scenario) {
+        this.scenario = scenario;
+    }
+
+    @Before
+    public void printNameOfScenario() {
+        System.out.println(this.scenario.getName());
+        System.out.println(this.scenario.getId());
     }
 
     @Before
