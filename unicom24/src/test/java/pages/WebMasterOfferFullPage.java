@@ -12,6 +12,8 @@ import java.util.List;
 
 public class WebMasterOfferFullPage extends Base {
 
+    String wayTypeBTNForClick = "//div[@class='ui-change-redirect-type-wrap ng-scope']";
+
     @FindBy(css = ".ui-offers-card-row-wrapper")
     private WebElement offerWrapper; //основной блок оффера
 
@@ -45,6 +47,9 @@ public class WebMasterOfferFullPage extends Base {
     @FindBy(css = ".ui-offers-detail-feedback-content")
     private WebElement offerContentFeedback;
 
+    @FindBy(xpath = "//div[@class='ui-offer-connect-referral-sub-fake-input']//div[@class='ng-binding']")
+    private WebElement wayForLink;
+
     @FindBys(
         @FindBy(xpath = "//div[@class='ui-offers-card-row-absolute-type']//div[contains(text(), 'REF')]")
     )
@@ -67,9 +72,19 @@ public class WebMasterOfferFullPage extends Base {
     }
 
     public void tabOnOffersFullPageClick(String tabName){ // клик по вкладке с названием из переменной
-        String xPath = String.format(tabsOnOfferFullPage+"[contains(text(), '%s')]", tabName);
-        WebElement element = driver.findElement(By.xpath(xPath));
-        element.click();
+        int tabCount = tabsOnOfferFullPage.size();
+        for ( int i = 1; i<tabCount; i++) {
+            if (tabName.equals(tabsOnOfferFullPage.get(i).getText())) {
+                tabsOnOfferFullPage.get(i).click();
+            }
+         /*
+        //int elements = tabsOnOfferFullPage.size();
+        for (WebElement element : elements){
+            if (tabName.equals(tabsOnOfferFullPage.get(element).getText())){
+                tabsOnOfferFullPage.get(element).click();
+            }
+           */
+        }
     }
 
     public void tabContentIsDisplayed(String tabName){ //ожидание отображение вкладки с названием из переменной
@@ -113,6 +128,31 @@ public class WebMasterOfferFullPage extends Base {
                 tabName = tabsOnOfferFullPage.get(i).getText();
                 tabsOnOfferFullPage.get(i).click();
                 tabContentIsDisplayed(tabName);
+        }
+    }
+
+    public void checkingLinkOnFullOfferPage(String targetNameLink){
+        String targetBTN = String.format(wayTypeBTNForClick+"//div[contains(text(), '%s')]", targetNameLink);
+        driver.findElement(By.xpath(targetBTN)).click();
+        // копирование в буфер
+        // открыть в новой вкладке
+        // проверить линк
+        openLinkInTheNewTab();
+        String xPath = String.format("//div[./h2[contains(text(), '%s')]]/ul/li/a", section);
+        List<WebElement> elements = driver.findElements(By.xpath(xPath));
+        for (WebElement element : elements) {
+            try {
+                waitForVisibility(element);
+                openLinkInTheNewTab(element);
+                String xPath1 = "//div[./h2]/ul/li/a";
+                waitForVisibility(By.xpath(xPath1));
+                closeTab();
+                switchToTheFirstTab();
+            } catch (Exception e) {
+                waitForVisibility(driver.findElement(By.className("ui-list-bank-item")));
+                closeTab();
+                switchToTheFirstTab();
+            }
         }
     }
 
