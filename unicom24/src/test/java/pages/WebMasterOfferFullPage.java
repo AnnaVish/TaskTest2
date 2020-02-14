@@ -135,11 +135,6 @@ public class WebMasterOfferFullPage extends Base {
         switchToTheSecondTab();
         driver.get(wayTextUrl);
         waitForPageLoaded(driver.getCurrentUrl());
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         microCreditsPage.locationIsDisplayed();
         closeTab();
         switchToTheFirstTab();
