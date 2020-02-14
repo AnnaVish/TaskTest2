@@ -61,4 +61,19 @@ public class OffersTabPageStepDefinitions {
     public void checkTabOnOfferFullPage(){
         webMasterOfferFullPage.checkingTabsOnFullOfferPage();
     }
+
+    @И("^вебмастер ищет через поиск оффер \"([^\"]*)\"$")
+    public void searchOffer(String targetNameOffer){
+        offersTabPage.searchOffer(targetNameOffer);
+    }
+
+    @Когда("^вебмастер кликает по офферу \"([^\"]*)\"$")
+    public void targetOfferClick(String targetNameOffer){
+        offersTabPage.targetNameOfferClick(targetNameOffer);
+    }
+
+    @И("^вебмастер проверяет ссылку \"([^\"]*)\"$")
+    public void checkLinkOnConnect(String targetNameLink){
+        webMasterOfferFullPage.checkingLinkOnFullOfferPage(targetNameLink);
+    }
 }

@@ -6,11 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import pages.verticals.common.CommonElementsForAllVerticals;
+import pages.verticals.microCredits.MicroCreditsPage;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class WebMasterOfferFullPage extends Base {
+    CommonElementsForAllVerticals commonElementsAll = new CommonElementsForAllVerticals();
+    MicroCreditsPage microCreditsPage = new MicroCreditsPage();
+
+    String wayTypeBTNForClick = "//div[@class='ui-change-redirect-type-wrap ng-scope']";
 
     @FindBy(css = ".ui-offers-card-row-wrapper")
     private WebElement offerWrapper; //основной блок оффера
@@ -45,6 +51,9 @@ public class WebMasterOfferFullPage extends Base {
     @FindBy(css = ".ui-offers-detail-feedback-content")
     private WebElement offerContentFeedback;
 
+    @FindBy(xpath = "//div[@class='ui-offer-connect-referral-sub-fake-input']//div[@class='ng-binding']")
+    private WebElement wayForLink;
+
     @FindBys(
         @FindBy(xpath = "//div[@class='ui-offers-card-row-absolute-type']//div[contains(text(), 'REF')]")
     )
@@ -67,9 +76,11 @@ public class WebMasterOfferFullPage extends Base {
     }
 
     public void tabOnOffersFullPageClick(String tabName){ // клик по вкладке с названием из переменной
-        String xPath = String.format(tabsOnOfferFullPage+"[contains(text(), '%s')]", tabName);
-        WebElement element = driver.findElement(By.xpath(xPath));
-        element.click();
+        for (WebElement element : tabsOnOfferFullPage){
+            if (element.getText().equals(tabName)){
+                element.click();
+            }
+        }
     }
 
     public void tabContentIsDisplayed(String tabName){ //ожидание отображение вкладки с названием из переменной
@@ -114,6 +125,19 @@ public class WebMasterOfferFullPage extends Base {
                 tabsOnOfferFullPage.get(i).click();
                 tabContentIsDisplayed(tabName);
         }
+    }
+
+    public void checkingLinkOnFullOfferPage(String targetNameLink){
+        String targetBTN = String.format(wayTypeBTNForClick+"//div[contains(text(), '%s')]", targetNameLink);
+        driver.findElement(By.xpath(targetBTN)).click();
+        String wayTextUrl = wayForLink.getText();
+        openNewTab();
+        switchToTheSecondTab();
+        driver.get(wayTextUrl);
+        waitForPageLoaded(driver.getCurrentUrl());
+        microCreditsPage.locationIsDisplayed();
+        closeTab();
+        switchToTheFirstTab();
     }
 
 }

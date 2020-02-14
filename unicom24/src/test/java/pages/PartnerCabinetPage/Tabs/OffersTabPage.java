@@ -25,6 +25,8 @@ public class OffersTabPage extends Base {
     String nameOfTypeOfferForCheck= "//div[@class='ui-offers-card-row-absolute-type-label ng-scope']";
     String nameOfTypeOfferForCheckActive= "//div[@class='ng-scope ui-offers-header-filters-button active']";
 
+    String wayForTargetOffer = "//div[@class='ui-offers-card-row-inner ng-scope']//a";
+
     @FindBy(xpath = "//div[contains(text(), 'Офферы')]")
     private WebElement offersTitle;
 
@@ -156,8 +158,19 @@ public class OffersTabPage extends Base {
 
     }
 
-    public void offerFullPageClick(){
-        //// клик по оферу
+    public void offerFullPageClick(){ // клик по офферу
         titleForAllNonUniversalOffer.get(1).click();
+    }
+
+    public void targetNameOfferClick(String targetNameOffer){  /// клик на наиманованию конкретного оффера для перехода на страницу подробной инфы о нем
+        String targetOffer = String.format(wayForTargetOffer+"[contains(text(), '%s')]", targetNameOffer);
+        driver.findElement(By.xpath(targetOffer)).click();
+    }
+
+    public void searchOffer(String targetNameOffer){   /// поиск конкретного офера с помощью поля поиска
+        typeIntoField(targetNameOffer, searchInputField);
+        String targetOffer = String.format(wayForTargetOffer+"[contains(text(), '%s')]", targetNameOffer);
+        WebElement element = waitForAjaxElementIsVisible(By.xpath(targetOffer));
+        waitForVisibility(element);
     }
 }
