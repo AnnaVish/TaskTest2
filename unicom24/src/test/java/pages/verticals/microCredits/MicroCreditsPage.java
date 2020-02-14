@@ -276,4 +276,8 @@ public class MicroCreditsPage extends Base {
                 approvedSmsDateOfPasportField, approvedSmsBtn);
         allElementsAreVisible(approvedSmsForm);
     }
+
+    public void locationIsDisplayed(){
+        waitForVisibility(common.spanForSelectLocationCity);
+    }
 }

@@ -6,11 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import pages.verticals.common.CommonElementsForAllVerticals;
+import pages.verticals.microCredits.MicroCreditsPage;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class WebMasterOfferFullPage extends Base {
+    CommonElementsForAllVerticals commonElementsAll = new CommonElementsForAllVerticals();
+    MicroCreditsPage microCreditsPage = new MicroCreditsPage();
 
     String wayTypeBTNForClick = "//div[@class='ui-change-redirect-type-wrap ng-scope']";
 
@@ -72,18 +76,10 @@ public class WebMasterOfferFullPage extends Base {
     }
 
     public void tabOnOffersFullPageClick(String tabName){ // клик по вкладке с названием из переменной
-        int tabCount = tabsOnOfferFullPage.size();
-        for ( int i = 1; i<tabCount; i++) {
-            if (tabName.equals(tabsOnOfferFullPage.get(i).getText())) {
-                tabsOnOfferFullPage.get(i).click();
+        for (WebElement element : tabsOnOfferFullPage){
+            if (element.getText().equals(tabName)){
+                element.click();
             }
-         /*
-        //int elements = tabsOnOfferFullPage.size();
-        for (WebElement element : elements){
-            if (tabName.equals(tabsOnOfferFullPage.get(element).getText())){
-                tabsOnOfferFullPage.get(element).click();
-            }
-           */
         }
     }
 
@@ -134,26 +130,19 @@ public class WebMasterOfferFullPage extends Base {
     public void checkingLinkOnFullOfferPage(String targetNameLink){
         String targetBTN = String.format(wayTypeBTNForClick+"//div[contains(text(), '%s')]", targetNameLink);
         driver.findElement(By.xpath(targetBTN)).click();
-        // копирование в буфер
-        // открыть в новой вкладке
-        // проверить линк
-        openLinkInTheNewTab();
-        String xPath = String.format("//div[./h2[contains(text(), '%s')]]/ul/li/a", section);
-        List<WebElement> elements = driver.findElements(By.xpath(xPath));
-        for (WebElement element : elements) {
-            try {
-                waitForVisibility(element);
-                openLinkInTheNewTab(element);
-                String xPath1 = "//div[./h2]/ul/li/a";
-                waitForVisibility(By.xpath(xPath1));
-                closeTab();
-                switchToTheFirstTab();
-            } catch (Exception e) {
-                waitForVisibility(driver.findElement(By.className("ui-list-bank-item")));
-                closeTab();
-                switchToTheFirstTab();
-            }
+        String wayTextUrl = wayForLink.getText();
+        openNewTab();
+        switchToTheSecondTab();
+        driver.get(wayTextUrl);
+        waitForPageLoaded(driver.getCurrentUrl());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        microCreditsPage.locationIsDisplayed();
+        closeTab();
+        switchToTheFirstTab();
     }
 
 }
