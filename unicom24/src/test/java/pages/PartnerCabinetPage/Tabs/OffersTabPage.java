@@ -158,8 +158,7 @@ public class OffersTabPage extends Base {
 
     }
 
-    public void offerFullPageClick(){
-        //// клик по оферу
+    public void offerFullPageClick(){ // клик по офферу
         titleForAllNonUniversalOffer.get(1).click();
     }
 
@@ -169,13 +168,9 @@ public class OffersTabPage extends Base {
     }
 
     public void searchOffer(String targetNameOffer){   /// поиск конкретного офера с помощью поля поиска
-        searchInputField.sendKeys(targetNameOffer);
+        typeIntoField(targetNameOffer, searchInputField);
         String targetOffer = String.format(wayForTargetOffer+"[contains(text(), '%s')]", targetNameOffer);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        waitForVisibility(driver.findElement(By.xpath(targetOffer)));
+        WebElement element = waitForAjaxElementIsVisible(By.xpath(targetOffer));
+        waitForVisibility(element);
     }
 }
