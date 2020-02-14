@@ -9,7 +9,7 @@ public class ActivationPageStepDefinitions {
     private final ActivationPage activationPage = new ActivationPage();
 
     @Тогда("^отображается страница активации аккаунта$")
-    public void activationPageШыВшыздфнув() {
+    public void activationPageIsDisplayed() {
         activationPage.pageIsDisplayed();
     }
 
