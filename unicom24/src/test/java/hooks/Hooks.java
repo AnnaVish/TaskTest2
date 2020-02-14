@@ -8,6 +8,7 @@ import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.asserts.SoftAssert;
 import properties.BaseProperties;
 
 import java.io.File;
@@ -58,6 +59,17 @@ public class Hooks extends Base {
         chromeOptions.addArguments("--no-sandbox");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
+    }
+
+    @Before
+    public void setUpAssert() {
+        sa = new SoftAssert();
+    }
+
+    @After
+    public void test(){
+        sa.assertAll();
+        sa = new SoftAssert();
     }
 
     @After

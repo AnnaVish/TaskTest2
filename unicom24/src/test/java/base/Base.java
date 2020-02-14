@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 import pagesUrls.PagesUrls;
 import properties.BaseProperties;
 
@@ -24,6 +25,9 @@ public abstract class Base {
      * Default timeout for waiting
      */
     private static final int ELEMENT_TIMEOUT_SECONDS = 20;
+
+    public static SoftAssert sa;
+
 
     protected static WebDriver driver;
     public JavascriptExecutor js = (JavascriptExecutor) driver;
