@@ -47,11 +47,11 @@ public class CreditsDetailsPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
-    private WebElement privateClientsCreditsBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+    //private WebElement privateClientsCreditsBread;
 
     public final List<WebElement> elements;
 
@@ -64,8 +64,8 @@ public class CreditsDetailsPage extends Base {
                 countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
-                privateClientsCreditsBread
+                commonElements.time, commonElements.age, commonElements.beforeApproved
+                //, privateClientsBread, privateClientsCreditsBread
                 //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 //commonElements.commentsTab, commonElements.aboutOrgTab,
         );

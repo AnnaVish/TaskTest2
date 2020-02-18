@@ -38,11 +38,11 @@ public class CreditCardsDetailedPage extends Base {
     @FindBy(xpath = "//button/span[contains(text(), 'Получить карту')]")
     private WebElement getCard;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
-    private WebElement privateClientsCreditsCardBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Кредитные карты')]")
+    //private WebElement privateClientsCreditsCardBread;
 
     public final List<WebElement> elements;
 
@@ -53,8 +53,8 @@ public class CreditCardsDetailedPage extends Base {
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList(commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating, logo,
                 cardBet, creditLimit, freePeriod, price, cashBack, getCard, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved, privateClientsBread,
-                privateClientsCreditsCardBread
+                commonElements.time, commonElements.age, commonElements.beforeApproved
+                //, privateClientsBread, privateClientsCreditsCardBread
                 //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 //commonElements.commentsTab, commonElements.aboutOrgTab,
         );

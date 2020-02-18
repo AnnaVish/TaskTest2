@@ -47,11 +47,11 @@ public class AutoCreditsDetailedPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Автокредиты')]")
-    private WebElement privateClientsAutoBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Автокредиты')]")
+    //private WebElement privateClientsAutoBread;
 
     public final List<WebElement> elements;
 
@@ -60,7 +60,7 @@ public class AutoCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(privateClientsAutoBread, privateClientsBread,
+        elements = Arrays.asList( // privateClientsAutoBread, privateClientsBread,
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
                 countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,

@@ -30,11 +30,11 @@ public class MicroCreditsPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
-    private WebElement privateClientsMFOBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
+    //private WebElement privateClientsMFOBread;
 
     /*
      * форма с отправленным смс
@@ -120,10 +120,11 @@ public class MicroCreditsPage extends Base {
         elements = Arrays.asList(//getCreditBtn,
                 formOffer, common.logo,
                 //common.rating,
-                common.title,
+                common.title
                 //common.payPerDay,
-                //common.time, common.neededPaying, common.license,
-                privateClientsBread, privateClientsMFOBread);
+                //common.time, common.neededPaying, common.license
+                //,privateClientsBread, privateClientsMFOBread
+        );
         elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
         headerPage.getMainHeader();
         footerPage.getFooter();

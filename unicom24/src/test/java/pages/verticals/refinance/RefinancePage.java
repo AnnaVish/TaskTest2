@@ -26,11 +26,11 @@ public class RefinancePage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
-    private WebElement privateClientsRefinanceBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
+    //private WebElement privateClientsRefinanceBread;
 
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
@@ -49,8 +49,9 @@ public class RefinancePage extends Base {
                 //common.ratePerYear,
                 //common.payPerMonth, common.time
                 //common.neededPaying, common.license
-                btnResetToDefault,
-                privateClientsBread, privateClientsRefinanceBread); // добавил хлебные крошки, а то не было
+                btnResetToDefault
+                //,privateClientsBread, privateClientsRefinanceBread
+        ); // добавил хлебные крошки, а то не было
         headerPage.getMainHeader();
         footerPage.getFooter();
     }

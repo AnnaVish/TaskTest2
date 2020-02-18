@@ -56,11 +56,11 @@ public class IpotekaDetailedPage extends Base {
     @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
     private WebElement schedualOfPayment;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Ипотека')]")
-    private WebElement privateClientsIpotekaBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Ипотека')]")
+    //private WebElement privateClientsIpotekaBread;
 
     public final List<WebElement> elements;
 
@@ -69,7 +69,7 @@ public class IpotekaDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(privateClientsBread, privateClientsIpotekaBread ,
+        elements = Arrays.asList( //privateClientsBread, privateClientsIpotekaBread ,
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
                 priceOfRealty, licenseOfCB, priceOfRealtyInput, firstDonation, firstDonationInput, durationOfIpoteka,
                 durationOfIpotekaInput, percent, paymentPerMonth, commonSum, getIpotekaBtn, schedualOfPayment,

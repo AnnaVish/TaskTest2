@@ -33,11 +33,11 @@ public class CreditsPage extends Base {
     private WebElement formOffer;
 
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
-    private WebElement privateClientsCreditsBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Кредиты')]")
+    //private WebElement privateClientsCreditsBread;
 
     @FindBy(xpath = "//div[@class='clear_wrapper']/i[contains(text(), 'close')]")
     private WebElement closeModalBtn;
@@ -90,8 +90,9 @@ public class CreditsPage extends Base {
                 //common.time,  - тоже отсутствует на странице вообще
                 //common.neededPaying, - тоже отсутствует на странице вообще
                 //common.license, - тоже отсутствует
-                btnResetToDefault,
-                privateClientsBread, privateClientsCreditsBread);
+                btnResetToDefault
+                //,privateClientsBread, privateClientsCreditsBread
+        );
         elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo3, h2Seo4, h2Seo5, h2Seo6, h2Seo7);
         headerPage.getMainHeader();
         footerPage.getFooter();

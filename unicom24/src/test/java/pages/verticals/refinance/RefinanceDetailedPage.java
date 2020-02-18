@@ -17,11 +17,11 @@ public class RefinanceDetailedPage extends Base {
     Footer footerPage = new Footer();
     CommonElements commonElements = new CommonElements();
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
-    private WebElement privateClientsRefinanceBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Рефинансирование')]")
+    //private WebElement privateClientsRefinanceBread;
 
     public final List<WebElement> elements;
 
@@ -30,7 +30,8 @@ public class RefinanceDetailedPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(privateClientsBread, privateClientsRefinanceBread, commonElements.bankBlock,
+        elements = Arrays.asList( // privateClientsBread, privateClientsRefinanceBread,
+                commonElements.bankBlock,
                 commonElements.headerOfBank, commonElements.rating, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
         headerPage.getMainHeader();

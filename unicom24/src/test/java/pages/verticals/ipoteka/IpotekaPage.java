@@ -28,11 +28,11 @@ public class IpotekaPage extends Base {
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
 
-    @FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    private WebElement privateClientsBread;
+    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
+    //private WebElement privateClientsBread;
 
-    @FindBy(xpath = "//li/span[contains(text(), 'Ипотека')]")
-    private WebElement privateClientsIpotekaBread;
+    //@FindBy(xpath = "//li/span[contains(text(), 'Ипотека')]")
+    //private WebElement privateClientsIpotekaBread;
 
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
@@ -70,7 +70,7 @@ public class IpotekaPage extends Base {
                 //common.ratePerYear,
                 //common.neededPaying, common.license,
                 //common.overpayment,
-                privateClientsBread, privateClientsIpotekaBread,
+                //privateClientsBread, privateClientsIpotekaBread,
                 btnResetToDefault);
         elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
         headerPage.getMainHeader();
