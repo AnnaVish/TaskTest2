@@ -17,11 +17,16 @@ public class FullCreditsHistoryNewPage extends Base {
     @FindBy(css = ".row .ui-credit-report-header__price-round")
     private WebElement prive;
 
-    @FindBy(xpath = "//div[contains(text(), 'История запросов на кредитный отчет')]")
-    private WebElement historyTitle;
+    @FindBy(css = ".ui-credit-report-header__price-money")
+    private WebElement priceCost;
 
-    @FindBy(css = ".ui-credit-report-history-credit .ui-form-requests-history-credit_report__data-wrapper")
-    private WebElement history;
+    @FindBy(css = ".ui-credit-report-application")
+    private WebElement creditReportApplication;
+    //@FindBy(xpath = "//div[contains(text(), 'История запросов на кредитный отчет')]")
+    //private WebElement historyTitle;
+
+    //@FindBy(css = ".ui-credit-report-history-credit .ui-form-requests-history-credit_report__data-wrapper")
+    //private WebElement history;
 
     @FindBy(xpath = "//button[@class='btn-middle-with-border ui-btn font__base yellow']")
     private WebElement downloadBlankBtn;
@@ -33,7 +38,7 @@ public class FullCreditsHistoryNewPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(historyTitle, history);
+        elements = Arrays.asList(/*historyTitle, history*/ priceCost, creditReportApplication);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
