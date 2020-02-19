@@ -20,14 +20,14 @@ public class FinancialHealthPage extends Base {
     @FindBy(xpath = "//button[./span[contains(text(), 'Получить отчет')]]")
     private WebElement getReport;
 
-    @FindBy(xpath = "//h1[contains(text(), 'Рейтинг финансового здоровья')]")
+    @FindBy(xpath = "//h1[@class='font__h1']")
     private WebElement pageTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'История запросов на рейтинг финансового здоровья')]")
-    private WebElement historyTitle;
+    //@FindBy(xpath = "//div[contains(text(), 'История запросов на рейтинг финансового здоровья')]")
+    //private WebElement historyTitle;
 
-    @FindBy(css = ".ui-auto-requests-history .ui-form-requests-history-credit_report__data-wrapper")
-    private WebElement history;
+    //@FindBy(css = ".ui-auto-requests-history .ui-form-requests-history-credit_report__data-wrapper")
+    //private WebElement history;
 
     @FindBy(css = ".ui-report-default-content-block .ui-report-default-content-cover")
     private WebElement reportImg;
@@ -52,7 +52,7 @@ public class FinancialHealthPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(getReport, pageTitle, historyTitle, history);
+        elements = Arrays.asList(getReport, pageTitle /*, historyTitle, history */);
         elementsWithoutAuth = Arrays.asList(getMyRating, pageTitle, ratingImg);
         headerPage.getMainHeader();
         footerPage.getFooter();
