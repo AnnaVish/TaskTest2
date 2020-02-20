@@ -17,6 +17,7 @@ public class CreditsPageStepDefinitions extends Base {
     public void creditsPageIsDisplayed() {
         creditsPage.pageIsDisplayed();
         Assert.assertTrue(creditsPage.offersOnPageMore0());
+        Assert.assertTrue(creditsPage.checkH2SeoElements());
     }
 
     @Тогда("^пользователь кликает на название банка$")

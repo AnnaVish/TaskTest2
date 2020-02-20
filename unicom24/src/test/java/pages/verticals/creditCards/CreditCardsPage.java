@@ -5,6 +5,7 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
@@ -36,6 +37,7 @@ public class CreditCardsPage extends Base {
     @FindBy(xpath = "//button[@class='filters-btns__btn filters-btns__reset default medium']")
     private WebElement btnResetToDefault; // Кнопка Сбросить в боди страницы
 
+    /*
     // h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Кредитные карты банков России')]")
     private WebElement h2Seo1;
@@ -51,10 +53,15 @@ public class CreditCardsPage extends Base {
 
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как оформить кредитную карту онлайн?')]")
     private WebElement h2Seo5;
-    // h2 элементы конец
+    // h2 элементы конец */
+
+    @FindBys(
+            @FindBy(xpath = "//div[@class='col-12']/h2")
+    )
+    private List<WebElement> h2SeoElemets;
 
     public final List<WebElement> elements;
-    public final List<WebElement> elementsH2;
+    //public final List<WebElement> elementsH2;
 
     public CreditCardsPage() {
         PageFactory.initElements(driver, this);
@@ -72,7 +79,7 @@ public class CreditCardsPage extends Base {
                 btnResetToDefault
                 //,privateClientsBread, privateClientsCreditsCardBread
         );
-        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
+        //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -85,12 +92,16 @@ public class CreditCardsPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(elementsH2);
+        //allElementsAreVisible(elementsH2);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
     }
 
     public Boolean offersOnPageMore0(){
         return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
+    }
+
+    public Boolean checkH2SeoElements(){
+        return h2SeoElemets.size() == 5;
     }
 }

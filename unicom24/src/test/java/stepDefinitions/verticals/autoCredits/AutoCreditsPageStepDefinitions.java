@@ -15,7 +15,8 @@ public class AutoCreditsPageStepDefinitions {
     }
 
     @Тогда("^отображается страница Автокредиты$")
-    public void autoCreditsPageIsDispyaed() {
+    public void autoCreditsPageIsDisplayed() {
         autoCreditsPage.pageIsDisplayed();
+        Assert.assertTrue(autoCreditsPage.checkH2SeoElements());
     }
 }
