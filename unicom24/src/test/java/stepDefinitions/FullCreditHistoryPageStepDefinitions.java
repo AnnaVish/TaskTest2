@@ -25,12 +25,14 @@ public class FullCreditHistoryPageStepDefinitions extends Base {
             fullCreditHistoryPage.pageIsDisplayed();
             fullCreditHistoryPage.getReportClick();
             fullCreditHistoryPage.seeReportResult();
+            fullCreditHistoryPage.historyElementsAreDisplayed();
             Base.refreshPage();
             fullCreditHistoryPage.seeReportResult();
+            fullCreditHistoryPage.historyElementsAreDisplayed();
             fullCreditHistoryPage.downloadReport();
             Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 300000);
             Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
-            fullCreditHistoryPage.historyElementsAreDisplayed();
+
         }//тут новая страница
         catch (NoSuchElementException|TimeoutException| StaleElementReferenceException e) {
             fullCreditsHistoryNewPage.pageIsDisplayed();
