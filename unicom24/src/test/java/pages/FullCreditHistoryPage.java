@@ -40,12 +40,14 @@ public class FullCreditHistoryPage extends Base {
     private WebElement newReportCreate;
 
     public final List<WebElement> elements;
+    public final List<WebElement> elementsHistory;
 
     public FullCreditHistoryPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(getReport, pageTitle, historyTitle, history);
+        elements = Arrays.asList(getReport, pageTitle);
+        elementsHistory = Arrays.asList(historyTitle, history);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -64,6 +66,10 @@ public class FullCreditHistoryPage extends Base {
         waitForVisibility(reportImg);
         waitForVisibility(downLoadReportBtn);
         waitForVisibility(newReportCreate);
+    }
+
+    public void historyElementsAreDisplayed(){
+        allElementsAreVisible(elementsHistory);
     }
 
     public void downloadReport(){
