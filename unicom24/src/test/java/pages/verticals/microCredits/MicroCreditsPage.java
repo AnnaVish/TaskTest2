@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
@@ -87,6 +88,7 @@ public class MicroCreditsPage extends Base {
      * форма с подтвержденным кодом из смс окончена
      */
 
+    /*
     // h2 элементы начало
     @FindBy(xpath = "//h2[contains(text(), 'Особенности займов на карту')]")
     private WebElement h2Seo1;
@@ -105,11 +107,16 @@ public class MicroCreditsPage extends Base {
 
     @FindBy(xpath = "//h2[contains(text(), 'Способы погашения займа')]")
     private WebElement h2Seo6;
-    // h2 элементы конец
+    // h2 элементы конец */
+
+    @FindBys(
+            @FindBy(xpath = "//div[@class='col-12']/h2")
+    )
+    private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;
     private final List<WebElement> personalOffer;
-    public final List<WebElement> elementsH2;
+    //public final List<WebElement> elementsH2;
 
 
     public MicroCreditsPage() {
@@ -125,7 +132,7 @@ public class MicroCreditsPage extends Base {
                 //common.time, common.neededPaying, common.license
                 //,privateClientsBread, privateClientsMFOBread
         );
-        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
+        //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
         headerPage.getMainHeader();
         footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, //common.giftPic,
@@ -142,7 +149,7 @@ public class MicroCreditsPage extends Base {
     public void pageIsDisplyed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(elementsH2);
+        //allElementsAreVisible(elementsH2);
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
@@ -280,5 +287,9 @@ public class MicroCreditsPage extends Base {
 
     public void locationIsDisplayed(){
         waitForVisibility(common.spanForSelectLocationCity);
+    }
+
+    public Boolean checkH2SeoElements(){
+        return h2SeoElements.size() == 6;
     }
 }

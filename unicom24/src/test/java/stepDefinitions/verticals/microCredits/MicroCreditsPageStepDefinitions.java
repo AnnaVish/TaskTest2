@@ -20,6 +20,7 @@ public class MicroCreditsPageStepDefinitions {
     public void microCreditsIsDisplayed() {
         microCreditsPage.pageIsDisplyed();
         Assert.assertTrue(microCreditsPage.offersOnPageMore0());
+        Assert.assertTrue(microCreditsPage.checkH2SeoElements());
     }
 
     @Тогда("^пользователь отправляет пустую форму$")

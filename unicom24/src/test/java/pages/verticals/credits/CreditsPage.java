@@ -5,6 +5,7 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.Adminka.AdminkaRedirects;
 import pages.Adminka.admAuth.AdmAuth;
@@ -51,6 +52,7 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//div[@class='title']")
     private WebElement bankName;
 
+    /*
     //h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
     private WebElement h2Seo1;
@@ -72,10 +74,15 @@ public class CreditsPage extends Base {
 
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Способы погашения кредита')]")
     private WebElement h2Seo7;
-    //h2 элементы конец
+    //h2 элементы конец */
+
+    @FindBys(
+            @FindBy(xpath = "//div[@class='col-12']/h2")
+    )
+    private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;
-    public final List<WebElement> elementsH2;
+    //public final List<WebElement> elementsH2;
 
     public CreditsPage() {
         PageFactory.initElements(driver, this);
@@ -93,7 +100,7 @@ public class CreditsPage extends Base {
                 btnResetToDefault
                 //,privateClientsBread, privateClientsCreditsBread
         );
-        elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo3, h2Seo4, h2Seo5, h2Seo6, h2Seo7);
+        //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo3, h2Seo4, h2Seo5, h2Seo6, h2Seo7);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -106,7 +113,7 @@ public class CreditsPage extends Base {
     public void pageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(elementsH2);
+        //allElementsAreVisible(elementsH2);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
         Assert.assertEquals(common.countOffersOnPage.size(), common.btnBankCreditAddToCompare.size());
@@ -180,5 +187,9 @@ public class CreditsPage extends Base {
             CountBanks = common.countOffersOnPage.size();}
         for (int i = 0; i < CountBanks; i++)
             common.btnBankCreditAddToCompare.get(i).click();
+    }
+
+    public Boolean checkH2SeoElements(){
+        return h2SeoElements.size() == 7;
     }
 }

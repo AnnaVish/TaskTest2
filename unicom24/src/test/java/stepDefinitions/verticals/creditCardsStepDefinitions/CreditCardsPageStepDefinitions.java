@@ -19,5 +19,6 @@ public class CreditCardsPageStepDefinitions {
     public void creditCardsPageIsDisplayed() {
         creditCardsPage.pageIsDisplayed();
         Assert.assertTrue(creditCardsPage.offersOnPageMore0());
+        Assert.assertTrue(creditCardsPage.checkH2SeoElements());
     }
 }
