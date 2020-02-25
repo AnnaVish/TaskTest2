@@ -46,7 +46,7 @@ public abstract class Base {
      * @param element is element to check
      * @return true i element is visible, otherwise false
      */
-    protected static Boolean isElementVisible(WebElement element) {
+    public static Boolean isElementVisible(WebElement element) {
         if (!isElementPresented(element)) {
             return false;
         }

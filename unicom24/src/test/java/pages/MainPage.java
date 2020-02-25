@@ -39,9 +39,11 @@ public class MainPage extends Base {
     @FindBy(className = "ui-card-banks-block__more-text")
     private WebElement seeAllBanks;
 
-    @FindBy(xpath = "//div[contains(text(), 'Кредитные отчеты')]")
-    private WebElement creditReports;
+    //@FindBy(xpath = "//div[contains(text(), 'Кредитные отчеты')]")
+    //private WebElement creditReports;
 
+    @FindBy(xpath = "//div[contains(text(), 'Защита от мошенников')]")
+    private WebElement protectAndOther;
     /*
     *Отчеты
      */
@@ -120,7 +122,7 @@ public class MainPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, creditReports, financialHealthRatingGetBtn, creditReportsGetBtn,
+                ipoteka, microCredits, protectAndOther, financialHealthRatingGetBtn, creditReportsGetBtn,
                 rfz, fullCreditHistory);
         headerPage.getMainHeader();
         footerPage.getFooter();
@@ -225,9 +227,15 @@ public class MainPage extends Base {
         microCredits.click();
     }
 
+    /*
     public void creditReportscClicks() {
         waitForVisibility(creditReports);
         creditReports.click();
+    } */
+
+    public void protectClick(){
+        waitForVisibility(protectAndOther);
+        protectAndOther.click();
     }
 
     /*

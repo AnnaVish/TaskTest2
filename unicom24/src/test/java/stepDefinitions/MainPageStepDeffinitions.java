@@ -132,11 +132,17 @@ public class MainPageStepDeffinitions extends Base {
     }
 
 
-
+    /*
     @Когда("^пользователь кликает на Кредитные отчеты$")
     public void creditsReportsClicks() {
         mainPage.onMainPage();
         mainPage.creditReportscClicks();
+    } */
+
+    @Когда("^пользователь кликает на Защита от мошенников$")
+    public void protectClick(){
+        mainPage.onMainPage();
+        mainPage.protectClick();
     }
 
 
