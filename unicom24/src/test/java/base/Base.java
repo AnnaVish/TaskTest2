@@ -1,5 +1,6 @@
 package base;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.Before;
 import org.openqa.selenium.*;
@@ -226,6 +227,47 @@ public abstract class Base {
         WebElement element = driver.findElement(locator);
         waitForVisibility(element);
         return element;
+    }
+
+    public void waitForCountOfAjaxElementsEqualTo(By locator, int count) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(countOfAjaxElementsEqualTo(locator, count));
+    }
+
+    public static void clickOnAjaxElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(waitForAjaxElementWasClicked(element));
+    }
+
+    protected static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(By locator, int count) {
+        return new ExpectedCondition<Boolean>() {
+            @Nullable
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                List<WebElement>elements = driver.findElements(locator);
+                if(elements.size() != count) {
+                    elements = driver.findElements(locator);
+                    System.out.println(elements.size());
+                    return false;
+                }
+                return true;
+            }
+        };
+    }
+
+    protected static ExpectedCondition<Boolean> waitForAjaxElementWasClicked(WebElement element) {
+        return new ExpectedCondition<Boolean>() {
+            @Nullable
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                try {
+                    element.click();
+                } catch (NoSuchElementException | StaleElementReferenceException ex) {
+                    return false;
+                }
+                return true;
+            }
+        };
     }
 
     public void mouseOver(WebElement element) {
