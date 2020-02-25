@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,7 @@ public class ProtectionPage extends Base {
     private WebElement block1Form;
 
     @FindBys(
-    @FindBy(xpath = "//div[@class='subscribe-form']//input"))
+            @FindBy(xpath = "//div[@class='subscribe-form']//input"))
     private List<WebElement> block1Inputs;
 
     @FindBy(xpath = "//div[contains(text(), 'Фамилия')]/..//input")
@@ -61,10 +62,10 @@ public class ProtectionPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Дата выдачи паспорта')]/..//input")
     private WebElement inputDatePassport;
 
-    @FindBy (xpath = "//div[contains(text(), 'Мобильный телефон')]/..//input")
+    @FindBy(xpath = "//div[contains(text(), 'Мобильный телефон')]/..//input")
     private WebElement inputMobile;
 
-    @FindBy (xpath = "//div[contains(text(), 'E-mail')]/..//input")
+    @FindBy(xpath = "//div[contains(text(), 'E-mail')]/..//input")
     private WebElement inputEmail;
 
     @FindBy(xpath = "//button[@class='subscribe-form-data__button material large']")
@@ -88,29 +89,29 @@ public class ProtectionPage extends Base {
     private List<WebElement> block2LIList2;
 
     //боди блок 3
-    @FindBy (xpath = "//div[@class='subscribe-service__signal-title']/h6")
+    @FindBy(xpath = "//div[@class='subscribe-service__signal-title']/h6")
     private WebElement block3Title;
 
-    @FindBy (xpath = "//ul[@class='subscribe-service__signal-items subscribe-service__signal-items--big']")
+    @FindBy(xpath = "//ul[@class='subscribe-service__signal-items subscribe-service__signal-items--big']")
     private WebElement block3Text;
 
-    @FindBy (xpath = "//ul[@class='subscribe-service__signal-items subscribe-service__signal-items--big']/img")
+    @FindBy(xpath = "//ul[@class='subscribe-service__signal-items subscribe-service__signal-items--big']/img")
     private WebElement block3Img;
 
-    @FindBy (xpath = "//div[@class='subscribe-service__holder']//button")
+    @FindBy(xpath = "//div[@class='subscribe-service__holder']//button")
     private WebElement block3Button;
 
     //боди блок 4
-    @FindBy (xpath = "//div[@class='subscribe-news__title']")
+    @FindBy(xpath = "//div[@class='subscribe-news__title']")
     private WebElement block4Title;
 
-    @FindBy (xpath = "//div[@class='subscribe-news__text']")
+    @FindBy(xpath = "//div[@class='subscribe-news__text']")
     private WebElement block4Text;
 
-    @FindBy (xpath = "//div[@class='subscribe-news__wrapper']//input")
+    @FindBy(xpath = "//div[@class='subscribe-news__wrapper']//input")
     private WebElement block4EmailInput;
 
-    @FindBy (xpath = "//div[@class='subscribe-news__wrapper']/button")
+    @FindBy(xpath = "//div[@class='subscribe-news__wrapper']/button")
     private WebElement block4Button;
 
     @FindBys(
@@ -119,23 +120,23 @@ public class ProtectionPage extends Base {
     private List<WebElement> block4Promos;
 
     //боди блок 5
-    @FindBy (xpath = "//div[@class='subscribe-security__title']")
+    @FindBy(xpath = "//div[@class='subscribe-security__title']")
     private WebElement block5Title1;
 
-    @FindBy (xpath = "//div[@class='subscribe-security__img']/img")
+    @FindBy(xpath = "//div[@class='subscribe-security__img']/img")
     private WebElement block5Img;
 
-    @FindBy (xpath = "//div[@class='subscribe-security__card']")
+    @FindBy(xpath = "//div[@class='subscribe-security__card']")
     private WebElement block5Text;
 
-    @FindBy (xpath = "//div[@class='subscribe-security__wrapper']/button")
+    @FindBy(xpath = "//div[@class='subscribe-security__wrapper']/button")
     private WebElement block5Button;
 
-    @FindBy (xpath = "//div[@class='subscribe-security__subtitle']")
+    @FindBy(xpath = "//div[@class='subscribe-security__subtitle']")
     private WebElement block5Title2;
 
     @FindBys(
-            @FindBy (xpath = "//div[@class='subscribe-security__block']")
+            @FindBy(xpath = "//div[@class='subscribe-security__block']")
     )
     private List<WebElement> block5BlockText;
 
@@ -156,13 +157,13 @@ public class ProtectionPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(subHeaderFinHealth, subHeaderFullCreditHistory, subHeaderSignals,
-                block1Form, block1Contains,block1Title, block1Img, block1ButtonSubNow,
+                block1Form, block1Contains, block1Title, block1Img, block1ButtonSubNow,
                 inputFamily, inputName, inputSurname, inputDOB, inputDatePassport, inputNumberPassport, inputMobile, inputEmail,
                 block2Title1, block2Title2,
                 block3Title, block3Text, block3Img, block3Button,
                 block4Title, block4Text, block4EmailInput, block4Button,
                 block5Title1, block5Title2, block5Text, block5Img, block5Button,
-                footerText,footerBlock, footerButton);
+                footerText, footerBlock, footerButton);
         headerPage.getMainHeader();
         footerPage.getFooter();
     }
@@ -176,5 +177,10 @@ public class ProtectionPage extends Base {
         Assert.assertEquals(block2LIList2.size(), 3);
         Assert.assertEquals(block4Promos.size(), 2);
         Assert.assertEquals(block5BlockText.size(), 2);
+    }
+
+    public void onProtectionPage() {
+        driver.get(PagesUrls.protectionPageUrl());
+        waitForPageLoaded(PagesUrls.protectionPageUrl());
     }
 }
