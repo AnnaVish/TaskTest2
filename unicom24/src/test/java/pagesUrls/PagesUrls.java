@@ -63,6 +63,8 @@ public class PagesUrls {
         return mainPage + "/private/refinance?";
     }
 
+    public static String protectionPageUrl(){return mainPage + "/fraud-monitoring";}
+
     public static String adminRedirectsPage() {
         return mainPage + "/_ad_min_24/mfi/redirect/?q=";
     }

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.Arrays;
 import java.util.List;
 
+import static base.Base.isElementVisible;
+
 public class Footer {
 
     /*
@@ -67,11 +69,17 @@ public class Footer {
 
     @FindBy(xpath = "//a[@href=\"/about-company\" and contains(text(), 'О компании')]")
     public WebElement aboutCompany;
+
+    @FindBy(xpath = "//div[@class='container--enpop enpop_color_1 enpop_position_bottom ']//button")
+    private WebElement enpopElement;
     /*
      *Футэр окончен
      */
 
     public List<WebElement> getFooter() {
+        if (isElementVisible(enpopElement)) {
+            enpopElement.click();
+        }
         return Arrays.asList(footerContainer, footerLeftSide, appleAndGoogle,
                 footerSeoText, becomePartnerLink, becomeAgentLink, cabinetOfBroker,
                 cabinetOfBank, cabinetOfWebmaster,
