@@ -27,7 +27,7 @@ public class FullCreditHistoryPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'История запросов на кредитный отчет')]")
     private WebElement historyTitle;
 
-    @FindBy(css = ".ui-credit-report-history-credit .ui-form-requests-history-credit_report__data-wrapper")
+    @FindBy(css = ".ui-form-requests-history-credit_report__data-wrapper")
     private WebElement history;
 
     @FindBy(css = ".ui-report-default-content-block .ui-main-loader__container ")
