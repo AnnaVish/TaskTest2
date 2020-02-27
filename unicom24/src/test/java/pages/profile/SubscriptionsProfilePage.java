@@ -40,7 +40,7 @@ public class SubscriptionsProfilePage extends Base {
         allElementsAreVisible(footerPage.getFooter());
         commonVerticalsForProfilePages.compareNumberOfVerticalsOnPage();
         int tariffTabsOnPage = driver.findElements(By.cssSelector(tariffTabsSubPage)).size();
-        Assert.assertEquals(tariffTabsOnPage, 2);
+        Assert.assertTrue(tariffTabsOnPage>=2);
     }
 
 }
