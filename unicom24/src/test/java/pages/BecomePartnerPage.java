@@ -66,6 +66,8 @@ public class BecomePartnerPage extends Base {
     }
 
     public void getMoneyNowClick(){
+        waitForVisibility(leftSidePageBtn);
+        waitToBeClickable(leftSideOfPage);
         leftSidePageBtn.click();
         switchToTheSecondTab();
     }
