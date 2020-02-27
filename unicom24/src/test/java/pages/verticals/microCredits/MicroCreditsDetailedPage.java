@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.verticals.common.CommonElements;
+import pages.verticals.common.CommonMethodsForAllVerticals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,9 +17,7 @@ public class MicroCreditsDetailedPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
     CommonElements commonElements = new CommonElements();
-
-    @FindBy(xpath = "//div[contains(text(), 'Лицезния ЦБ')]")
-    private WebElement licenseOfCB;
+    CommonMethodsForAllVerticals commonMethodsForAllVerticals = new CommonMethodsForAllVerticals();
 
     @FindBy(xpath = "//span[contains(text(), 'Расчет кредита')]")
     private WebElement countCreditTitle;
@@ -59,19 +58,10 @@ public class MicroCreditsDetailedPage extends Base {
     }
 
     public void pageIsDisplayed() {
-        sa.assertTrue(licenseOfBankDisplayed());
+        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed());
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3); // была цифра 4 почему-то, хотя там 3 элемента, а не 4
-    }
-
-    private boolean licenseOfBankDisplayed(){
-        try {
-            waitForVisibility(licenseOfCB);
-            return true;
-        } catch (Exception e) {
-        }
-        return false;
     }
 }

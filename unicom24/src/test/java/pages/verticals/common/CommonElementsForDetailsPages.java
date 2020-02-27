@@ -32,6 +32,9 @@ public class CommonElementsForDetailsPages extends Base {
     @FindBy (xpath = "//section[@class='info']")
     private WebElement aboutOfBankOffer; // блок боди Об организации
 
+    @FindBy(xpath = "//div[contains(text(), 'Лицезния ЦБ')]")
+    public WebElement licenseOfCB;
+
     public CommonElementsForDetailsPages() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);

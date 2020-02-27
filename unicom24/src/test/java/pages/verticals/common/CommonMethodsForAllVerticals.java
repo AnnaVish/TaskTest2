@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class CommonMethodsForAllVerticals extends Base{
     CommonElementsForAllVerticals commonElementsAll = new CommonElementsForAllVerticals();
+    CommonElementsForDetailsPages commonElementsForDetailsPages = new CommonElementsForDetailsPages();
 
     public CommonMethodsForAllVerticals() {
         PageFactory.initElements(driver, this);
@@ -34,5 +35,14 @@ public class CommonMethodsForAllVerticals extends Base{
         commonElementsAll.nameForDropProfileMenuBTN.click();
         waitForVisibility(commonElementsAll.enterProfileBTN);
         commonElementsAll.enterProfileBTN.click();
+    }
+
+    public boolean licenseOfBankDisplayed(){
+        try {
+            waitForVisibility(commonElementsForDetailsPages.licenseOfCB);
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 }

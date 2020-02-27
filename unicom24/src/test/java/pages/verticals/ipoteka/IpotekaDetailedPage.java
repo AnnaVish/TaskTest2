@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.verticals.common.CommonElements;
+import pages.verticals.common.CommonMethodsForAllVerticals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +18,7 @@ public class IpotekaDetailedPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
     CommonElements commonElements = new CommonElements();
+    CommonMethodsForAllVerticals commonMethodsForAllVerticals = new CommonMethodsForAllVerticals();
 
     @FindBy(xpath = "//div[contains(text(), 'Лицезния ЦБ')]")
     private WebElement licenseOfCB;
@@ -81,19 +83,10 @@ public class IpotekaDetailedPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        sa.assertTrue(licenseOfBankDisplayed());
+        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed());
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
-    }
-
-    private boolean licenseOfBankDisplayed(){
-        try {
-            waitForVisibility(licenseOfCB);
-            return true;
-        } catch (Exception e) {
-        }
-        return false;
     }
 }
