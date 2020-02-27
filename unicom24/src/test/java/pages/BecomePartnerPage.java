@@ -66,6 +66,7 @@ public class BecomePartnerPage extends Base {
     }
 
     public void getMoneyNowClick(){
+        scrollTo(leftSidePageBtn);
         waitForVisibility(leftSidePageBtn);
         waitToBeClickable(leftSideOfPage);
         leftSidePageBtn.click();
