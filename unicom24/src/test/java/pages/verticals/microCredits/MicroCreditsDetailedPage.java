@@ -50,7 +50,7 @@ public class MicroCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList(commonElements.bankBlock,
-                commonElements.headerOfBank, commonElements.rating, countCreditTitle, licenseOfCB,
+                commonElements.headerOfBank, commonElements.rating, countCreditTitle,
                 howMuchYouNeedInput, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
@@ -59,9 +59,19 @@ public class MicroCreditsDetailedPage extends Base {
     }
 
     public void pageIsDisplayed() {
+        sa.assertTrue(licenseOfBankDisplayed());
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(3); // была цифра 4 почему-то, хотя там 3 элемента, а не 4
+    }
+
+    private boolean licenseOfBankDisplayed(){
+        try {
+            waitForVisibility(licenseOfCB);
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 }

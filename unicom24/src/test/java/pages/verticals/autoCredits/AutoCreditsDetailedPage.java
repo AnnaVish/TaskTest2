@@ -62,7 +62,7 @@ public class AutoCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList( // privateClientsAutoBread, privateClientsBread,
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
-                countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
+                countCreditTitle, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
@@ -71,9 +71,19 @@ public class AutoCreditsDetailedPage extends Base {
     }
 
     public void pageIsDisplayed(){
+        sa.assertTrue(licenseOfBankDisplayed());
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
+    }
+
+    private boolean licenseOfBankDisplayed(){
+        try {
+            waitForVisibility(licenseOfCB);
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 }

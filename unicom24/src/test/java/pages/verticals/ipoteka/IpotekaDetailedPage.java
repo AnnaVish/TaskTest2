@@ -1,6 +1,7 @@
 package pages.verticals.ipoteka;
 
 import base.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -71,7 +72,7 @@ public class IpotekaDetailedPage extends Base {
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList( //privateClientsBread, privateClientsIpotekaBread ,
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
-                priceOfRealty, licenseOfCB, priceOfRealtyInput, firstDonation, firstDonationInput, durationOfIpoteka,
+                priceOfRealty, priceOfRealtyInput, firstDonation, firstDonationInput, durationOfIpoteka,
                 durationOfIpotekaInput, percent, paymentPerMonth, commonSum, getIpotekaBtn, schedualOfPayment,
                 moreThanNeed, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
@@ -80,9 +81,19 @@ public class IpotekaDetailedPage extends Base {
     }
 
     public void pageIsDisplayed(){
+        sa.assertTrue(licenseOfBankDisplayed());
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
         Header.checkBreadCrumbs(2);
+    }
+
+    private boolean licenseOfBankDisplayed(){
+        try {
+            waitForVisibility(licenseOfCB);
+            return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 }
