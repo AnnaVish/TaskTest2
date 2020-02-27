@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.verticals.common.CommonElements;
+import pages.verticals.common.CommonMethodsForAllVerticals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +17,7 @@ public class AutoCreditsDetailedPage extends Base {
     Header headerPage = new Header();
     Footer footerPage = new Footer();
     CommonElements commonElements = new CommonElements();
+    CommonMethodsForAllVerticals commonMethodsForAllVerticals = new CommonMethodsForAllVerticals();
 
     @FindBy(xpath = "//div[contains(text(), 'Лицезния ЦБ')]")
     private WebElement licenseOfCB;
@@ -62,7 +64,7 @@ public class AutoCreditsDetailedPage extends Base {
         PageFactory.initElements(driver, commonElements);
         elements = Arrays.asList( // privateClientsAutoBread, privateClientsBread,
                 commonElements.bankBlock, commonElements.headerOfBank, commonElements.rating,
-                countCreditTitle, licenseOfCB, howMuchMoneyYouNeed,
+                countCreditTitle, howMuchMoneyYouNeed,
                 howMuchYouNeedInput, howMuchTimeYouNeed, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
                 schedualOfPayment, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
@@ -71,6 +73,7 @@ public class AutoCreditsDetailedPage extends Base {
     }
 
     public void pageIsDisplayed(){
+        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed());
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
