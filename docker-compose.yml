@@ -9,3 +9,7 @@ services:
       - ./target:/srv/autotests/unicom24/target
     env_file:
       - .env_tests
+    networks:
+      - ui_tests
+networks:
+  ui_tests:
