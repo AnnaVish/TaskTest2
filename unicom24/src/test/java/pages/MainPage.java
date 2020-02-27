@@ -1,5 +1,6 @@
 package pages;
 
+import api.AdminBalance;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pagesUrls.PagesUrls;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -98,6 +100,10 @@ public class MainPage extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Рейтинг бесплатно')]")
     private WebElement ratingFreeLink;
+
+    //Количетсов денег на счету в хедере
+    @FindBy(css = ".ui-dropdown-rating-data-balance-value__value.font__base-small")
+    private WebElement moneyValue;
 
     /*
      *Панель активации
@@ -273,6 +279,14 @@ public class MainPage extends Base {
             waitForVisibility(ratingFreeLink);
         }
         waitForVisibility(yourBalanceField);
+
+        if(Integer.parseInt(moneyValue.getText()) < 5000) {
+            try {
+                AdminBalance.runClass();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void becomePartnerInFooterClick(){

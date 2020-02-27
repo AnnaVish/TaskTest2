@@ -32,18 +32,34 @@ public class AdminBalance {
                 .data("next", "/_ad_min_24/")
                 .method(Connection.Method.POST)
                 .followRedirects(true);
+        Connection.Response connectionToLogIn = logInConnection.url(PagesUrls.adminkaLogIn()).execute();
 
         Connection.Response responseToGetId = logInConnection.url(PagesUrls.adminkaGetBalanceId(AuthPage.login)).execute();
         String balanceId = responseToGetId.parse().select(".field-id a").text();
 
         Connection.Response response4 = logInConnection.url(PagesUrls.adminkaTransactions()).execute();
-        String token1 = response.parse().select("input[name='csrfmiddlewaretoken']").attr("value");
-//
-//        Connection connection3 = connection.url(PagesUrls.adminkaTransactions())
+        String token1 = response4.parse().select("input[name='csrfmiddlewaretoken']").attr("value");
+
+        Connection connectionToAddBalance = logInConnection.url(PagesUrls.adminkaTransactions())
+                .data("csrfmiddlewaretoken", token1)
+                .data("balance", balanceId)
+                .data("description", "")
+                .data("payment_type", "FUNDING")
+                .data("responsible", "278708")
+                .data("transaction_type", "+")
+                .data("sum_real", "30000")
+                .data("confirmation_document", "")
+                .data("basement_ct", "")
+                .data("basement_pk", "")
+                .data("_addanother", "")
+                .method(Connection.Method.POST)
+                .followRedirects(false);
+
+        Connection.Response responseToAddBalance = connectionToAddBalance.url(PagesUrls.adminkaTransactions()).execute();
 
 
-//        Document tt2 = response3.parse();
-//        System.out.println(tt2);
+        Document tt2 = responseToAddBalance.parse();
+        System.out.println(tt2);
     }
 
 }
