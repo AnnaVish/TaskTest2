@@ -69,6 +69,10 @@ public class PagesUrls {
         return mainPage + "/_ad_min_24/mfi/redirect/?q=";
     }
 
+    public static String adminkaLogIn() {
+        return mainPage + "/_ad_min_24/login/?next=/_ad_min_24/";
+    }
+
     public static String brokerRFZPageUrl() {
         return mainPage + "/b2b_office/financial-health";
     }
