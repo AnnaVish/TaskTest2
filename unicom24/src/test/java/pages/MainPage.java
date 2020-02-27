@@ -280,7 +280,9 @@ public class MainPage extends Base {
         }
         waitForVisibility(yourBalanceField);
 
-        if(Integer.parseInt(moneyValue.getText()) < 5000) {
+        String valueMoney = moneyValue.getText();
+        valueMoney = valueMoney.replaceAll("\\s", "");
+        if(Integer.parseInt(valueMoney) < 5000) {
             try {
                 AdminBalance.runClass();
             } catch (IOException e) {
