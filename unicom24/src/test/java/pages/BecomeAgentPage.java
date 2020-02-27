@@ -24,9 +24,6 @@ public class BecomeAgentPage extends Base {
     @FindBy(css = ".container .result-pay-sum__wrapper")
     private WebElement otherAgentProfit;
 
-    @FindBy(css = ".container .news__wrapper")
-    private WebElement news;
-
     /*
      *Отчеты
      */
@@ -63,7 +60,7 @@ public class BecomeAgentPage extends Base {
         PageFactory.initElements(driver, this);
         headerPage.getMainHeader();
         footerPage.getFooter();
-        elements = Arrays.asList(bacomeAgentBanner, bacomeAgentBannerBtn, otherAgentProfit, news,
+        elements = Arrays.asList(bacomeAgentBanner, bacomeAgentBannerBtn, otherAgentProfit,
                 financialHealthRatingGetBtn, creditReportsGetBtn, rfz, fullCreditHistory, supportBlock, aboutText,
                 supportEmailBlock);
     }
