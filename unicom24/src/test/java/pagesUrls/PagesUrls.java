@@ -73,6 +73,14 @@ public class PagesUrls {
         return mainPage + "/_ad_min_24/login/?next=/_ad_min_24/";
     }
 
+    public static String adminkaTransactions() {
+        return mainPage + "/_ad_min_24/wallet/transaction/add/";
+    }
+
+    public static String adminkaGetBalanceId(String userEmail) {
+        return mainPage + "/_ad_min_24/wallet/balance/?_to_field=id&_popup=1&q=" + userEmail;
+    }
+
     public static String brokerRFZPageUrl() {
         return mainPage + "/b2b_office/financial-health";
     }

@@ -21,9 +21,9 @@ public class AdminBalance {
         Connection.Response response = connection.execute();
         String token = response.parse().select("input[name='csrfmiddlewaretoken']").attr("value");
 
-        Connection connection2 = connection.url(PagesUrls.adminkaLogIn())
+        Connection logInConnection = connection.url(PagesUrls.adminkaLogIn())
                 .cookies(response.cookies())
-                .header("Referer", "f'" + PagesUrls.adminkaLogIn())
+                .header("Referer", PagesUrls.adminkaLogIn())
                 .header("{'Cookie'", "f'csrftoken={r.cookies[" + token + "]}'}")
                 .ignoreHttpErrors(true)
                 .data("csrfmiddlewaretoken", token)
@@ -33,8 +33,17 @@ public class AdminBalance {
                 .method(Connection.Method.POST)
                 .followRedirects(true);
 
-        Connection.Response response2 = connection2.execute();
-        Document tt2 = response2.parse();
-        System.out.println(tt2);
+        Connection.Response responseToGetId = logInConnection.url(PagesUrls.adminkaGetBalanceId(AuthPage.login)).execute();
+        String balanceId = responseToGetId.parse().select(".field-id a").text();
+
+        Connection.Response response4 = logInConnection.url(PagesUrls.adminkaTransactions()).execute();
+        String token1 = response.parse().select("input[name='csrfmiddlewaretoken']").attr("value");
+//
+//        Connection connection3 = connection.url(PagesUrls.adminkaTransactions())
+
+
+//        Document tt2 = response3.parse();
+//        System.out.println(tt2);
     }
+
 }
