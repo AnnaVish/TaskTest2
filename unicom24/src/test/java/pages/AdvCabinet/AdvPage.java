@@ -61,7 +61,6 @@ public class AdvPage extends Base {
     public void reportsTabClick() {
         checkReportsTabIsVisible();
         if (TestContext.reportsTabIsVisible == 1) {
-            waitForVisibility(reportsTab);
             reportsTab.click();}
     }
 
@@ -84,7 +83,7 @@ public class AdvPage extends Base {
     driver.get(PagesUrls.bankirAuth());}
 
     public void checkReportsTabIsVisible(){
-        if (driver.getCurrentUrl().contains(PagesUrls.preprod())) {
+        if (isElementVisible(reportsTab)) {
         TestContext.reportsTabIsVisible = 1;
     } else TestContext.reportsTabIsVisible = 0;}
 
