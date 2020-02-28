@@ -1,5 +1,6 @@
 package pages.AdvCabinet;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -44,12 +45,14 @@ public class ReportsTabPage extends Base {
     }
 
     public void pageIsDisplayed() {
+        if (TestContext.reportsTabIsVisible == 1) {
         allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
-        Assert.assertEquals(reportOrdersTitleText.size(), 4);
+        Assert.assertEquals(reportOrdersTitleText.size(), 4);}
     }
 
     public void reportsCheck() {
+        if (TestContext.reportsTabIsVisible == 1) {
         int countReportOrders = reportOrders.size();
         for (int i = 0; i < countReportOrders; i++) {
             String nameOfReport = reportOrdersTitleText.get(i).getText();
@@ -58,7 +61,7 @@ public class ReportsTabPage extends Base {
             reports.reportPageCheck(nameOfReport);
             advPage.reportsTabClick();
             pageIsDisplayed();
-        }
+        }}
     }
 
     public void ordersClick(String nameOfReport){

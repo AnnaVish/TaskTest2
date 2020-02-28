@@ -77,6 +77,10 @@ public class PagesUrls {
         return mainPage + "/_ad_min_24/wallet/transaction/add/";
     }
 
+    public static String preprod() {
+        return "https://pre-prod.vuaro.ru";
+    }
+
     public static String adminkaGetBalanceId(String userEmail) {
         return mainPage + "/_ad_min_24/wallet/balance/?_to_field=id&_popup=1&q=" + userEmail;
     }
