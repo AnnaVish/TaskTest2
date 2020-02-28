@@ -49,7 +49,7 @@ public class WebMasterRegistrationPage extends Base {
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(elements);
+        waitForCountOfAjaxElementsEqualTo(elements);
     }
 
     public void entranceTabClick() {
