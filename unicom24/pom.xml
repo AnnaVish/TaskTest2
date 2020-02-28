@@ -56,6 +56,7 @@
         <aspectj.version>1.8.4</aspectj.version>
         <browser.height>1080</browser.height>
         <browser.width>1920</browser.width>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <includes>**/runners/TestFirstRunner.java</includes>
 
     </properties>
@@ -137,6 +138,12 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>1.2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
 
         <dependency>

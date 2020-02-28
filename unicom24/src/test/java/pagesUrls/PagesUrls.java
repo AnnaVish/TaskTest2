@@ -10,7 +10,7 @@ public class PagesUrls {
 
     public static String baseUrl() {
         String base = System.getenv("TESTING_HOST");
-        return "https://" + base;
+        return "https://develop-34.vuaro.ru";
     }
 
     public static String authPageUrl() {
