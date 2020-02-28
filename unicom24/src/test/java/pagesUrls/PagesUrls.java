@@ -9,10 +9,8 @@ public class PagesUrls {
     public static String bankListPage = bankList();
 
     public static String baseUrl() {
-        //String base = System.getenv("TESTING_HOST");
-        //return "https://" + base;
-        return "https://develop-40.vuaro.ru";
-        // return "https://pre-prod.vuaro.ru";
+        String base = System.getenv("TESTING_HOST");
+        return "https://" + base;
     }
 
     public static String authPageUrl() {
