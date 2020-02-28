@@ -355,6 +355,8 @@ public class MainPage extends Base {
 
     public void siteMapClick() {
         waitForVisibility(footerPage.siteMap);
+        scrollToFooter();
+        waitForVisibility(footerPage.siteMap);
         footerPage.siteMap.click();
     }
 
