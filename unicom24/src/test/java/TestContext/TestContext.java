@@ -14,4 +14,5 @@ public class TestContext {
     public static String passrordFromSms;
     public static String correctPhone;
     public static Integer messageBlockToGiveMoney;
+    public static Integer reportsTabIsVisible;
 }

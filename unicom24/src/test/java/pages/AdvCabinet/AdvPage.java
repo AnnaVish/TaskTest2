@@ -1,5 +1,6 @@
 package pages.AdvCabinet;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -58,7 +59,9 @@ public class AdvPage extends Base {
     }
 
     public void reportsTabClick() {
-        reportsTab.click();
+        checkReportsTabIsVisible();
+        if (TestContext.reportsTabIsVisible == 1) {
+            reportsTab.click();}
     }
 
     public void dropMenuClick() {
@@ -79,5 +82,9 @@ public class AdvPage extends Base {
     public void onCabinetOfBanksAndAdvPage(){
     driver.get(PagesUrls.bankirAuth());}
 
+    public void checkReportsTabIsVisible(){
+        if (isElementVisible(reportsTab)) {
+        TestContext.reportsTabIsVisible = 1;
+    } else TestContext.reportsTabIsVisible = 0;}
 
 }
