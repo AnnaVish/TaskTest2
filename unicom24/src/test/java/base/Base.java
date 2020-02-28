@@ -26,6 +26,7 @@ public abstract class Base {
      * Default timeout for waiting
      */
     private static final int ELEMENT_TIMEOUT_SECONDS = 20;
+    private static final int ELEMENT_TIMEOUT_SECONDS_MIN = 5;
 
     public static SoftAssert sa;
 
@@ -52,7 +53,7 @@ public abstract class Base {
             return false;
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, 0);
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS_MIN);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (Throwable th) {
