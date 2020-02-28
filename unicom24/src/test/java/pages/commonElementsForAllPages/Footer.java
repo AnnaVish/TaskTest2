@@ -85,6 +85,7 @@ public class Footer {
                 cabinetOfBank, cabinetOfWebmaster,
                 copyright, copyrightText, becomeAgentDown, becomePartnerDown,
                 personalData, mail, siteMap, adress, aboutCompany);
+
     }
 
 }

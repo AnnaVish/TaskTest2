@@ -26,7 +26,7 @@ public abstract class Base {
      * Default timeout for waiting
      */
     private static final int ELEMENT_TIMEOUT_SECONDS = 20;
-    private static final int ELEMENT_TIMEOUT_SECONDS_MIN = 5;
+    private static final int ELEMENT_TIMEOUT_SECONDS_MIN = 10;
 
     public static SoftAssert sa;
 
