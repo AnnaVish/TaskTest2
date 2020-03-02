@@ -60,8 +60,6 @@ public class AboutCompany extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(aboutImg, ipotekaLink, autoCreditLink, microCreditsLink, bankGarantiesLink,
                 sattlementAccountLink, creditsForBusiness, aboutYellow, press, aboutVideo, aboutContacts, ymap);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

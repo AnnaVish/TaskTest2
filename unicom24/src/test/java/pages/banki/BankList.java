@@ -47,8 +47,6 @@ public class BankList extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(pageTitle, seacrchField, searchBtn);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

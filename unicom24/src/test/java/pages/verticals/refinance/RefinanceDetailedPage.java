@@ -34,8 +34,6 @@ public class RefinanceDetailedPage extends Base {
                 commonElements.bankBlock,
                 commonElements.headerOfBank, commonElements.rating, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

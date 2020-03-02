@@ -62,10 +62,8 @@ public class MyClientsTabPage extends Base {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        header.getHeader();
         elements = Arrays.asList(searchField, yesterdayBtn, lastWeekBtn, monthBtn, halfYear, dates, dateOne, dateTwo,
                 idApplicationTitle, dateAndTimeTitle, fioTitle, offerTitle, statusTitle);
-        footer.getFooter();
     }
 
     public void pageIsDisplayed() {

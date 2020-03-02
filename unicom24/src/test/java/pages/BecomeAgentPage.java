@@ -58,8 +58,6 @@ public class BecomeAgentPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, this);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
         elements = Arrays.asList(bacomeAgentBanner, bacomeAgentBannerBtn, otherAgentProfit,
                 financialHealthRatingGetBtn, creditReportsGetBtn, rfz, fullCreditHistory, supportBlock, aboutText,
                 supportEmailBlock);

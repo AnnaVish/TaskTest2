@@ -36,8 +36,6 @@ public class DetailBankPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(headerOfBank, feedBackBtn);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
 
     }
 

@@ -85,10 +85,8 @@ public class AuthPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        headerPage.getMainHeader();
         elements = Arrays.asList(authForm, entranceLink, registrationTab, mailOrTelField, passwordField,
                 entranceBtn, registrationLink, forgotPasswordLink, authGosUslugiLink);
-        footerPage.getFooter();
     }
 
     public void authPageIsDisplayed() {

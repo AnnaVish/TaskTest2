@@ -1,5 +1,6 @@
 package hooks;
 
+import TestContext.TestContext;
 import base.Base;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -70,6 +71,11 @@ public class Hooks extends Base {
     public void test(){
         sa.assertAll();
         sa = new SoftAssert();
+    }
+
+    @After
+    public void updateCountOfStart() {
+        TestContext.countOfStart = 0;
     }
 
     @After

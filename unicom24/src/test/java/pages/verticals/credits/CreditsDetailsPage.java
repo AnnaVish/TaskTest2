@@ -71,8 +71,6 @@ public class CreditsDetailsPage extends Base {
                 //commonElements.offersTab, commonElements.conditionsTab, commonElements.documentsTab,
                 //commonElements.commentsTab, commonElements.aboutOrgTab,
         );
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

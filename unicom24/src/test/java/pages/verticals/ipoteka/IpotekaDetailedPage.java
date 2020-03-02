@@ -78,8 +78,6 @@ public class IpotekaDetailedPage extends Base {
                 durationOfIpotekaInput, percent, paymentPerMonth, commonSum, getIpotekaBtn, schedualOfPayment,
                 moreThanNeed, commonElements.bet, commonElements.sum,
                 commonElements.time, commonElements.age, commonElements.beforeApproved);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){

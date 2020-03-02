@@ -130,8 +130,6 @@ public class MainPage extends Base {
         elements = Arrays.asList(credits, creditCards, autoCredits,
                 ipoteka, microCredits, protectAndOther, financialHealthRatingGetBtn, creditReportsGetBtn,
                 rfz, fullCreditHistory);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void onMainPage() {

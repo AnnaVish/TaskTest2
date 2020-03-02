@@ -49,10 +49,8 @@ public class CatalogOffersTabPage extends Base {
         PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, footer);
-        header.getHeader();
         elements = Arrays.asList(offersTitle, searchField, hideFilters, microcreditsType, creditsType, creditCardsType,
                 autocreditsType, ipotekaType);
-        footer.getFooter();
     }
 
     public void pageIsDisplayed() {

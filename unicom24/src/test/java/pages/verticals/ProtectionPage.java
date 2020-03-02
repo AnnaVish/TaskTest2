@@ -164,8 +164,6 @@ public class ProtectionPage extends Base {
                 block4Title, block4Text, block4EmailInput, block4Button,
                 block5Title1, block5Title2, block5Text, block5Img, block5Button,
                 footerText, footerBlock, footerButton);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

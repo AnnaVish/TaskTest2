@@ -1,5 +1,7 @@
 package pages.commonElementsForAllPages;
 
+import TestContext.TestContext;
+import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -8,7 +10,7 @@ import java.util.List;
 
 import static base.Base.isElementVisible;
 
-public class Footer {
+public class Footer extends Base {
 
     /*
      *Футэр начался
@@ -77,9 +79,12 @@ public class Footer {
      */
 
     public List<WebElement> getFooter() {
-        if (isElementVisible(enpopElement)) {
-            enpopElement.click();
+        if(TestContext.countOfStart == 0) {
+            waitForAjaxElementIsVisible(enpopElement);
+            clickOnAjaxElement(enpopElement);
+            TestContext.countOfStart++;
         }
+
         return Arrays.asList(footerContainer, footerLeftSide, appleAndGoogle,
                 footerSeoText, becomePartnerLink, becomeAgentLink, cabinetOfBroker,
                 cabinetOfBank, cabinetOfWebmaster,

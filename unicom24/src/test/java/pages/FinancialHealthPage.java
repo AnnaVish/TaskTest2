@@ -54,8 +54,6 @@ public class FinancialHealthPage extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(getReport, pageTitle /*, historyTitle, history */);
         elementsWithoutAuth = Arrays.asList(getMyRating, pageTitle, ratingImg);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed() {

@@ -15,4 +15,5 @@ public class TestContext {
     public static String correctPhone;
     public static Integer messageBlockToGiveMoney;
     public static Integer reportsTabIsVisible;
+    public static Integer countOfStart = 0;
 }

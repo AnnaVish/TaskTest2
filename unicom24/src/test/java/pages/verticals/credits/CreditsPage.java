@@ -101,8 +101,6 @@ public class CreditsPage extends Base {
                 //,privateClientsBread, privateClientsCreditsBread
         );
         //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo3, h2Seo4, h2Seo5, h2Seo6, h2Seo7);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void onCreditsPage() {

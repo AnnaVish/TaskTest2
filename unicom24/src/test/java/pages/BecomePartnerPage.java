@@ -49,8 +49,6 @@ public class BecomePartnerPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
         elements = Arrays.asList(bannerPage, leftSideOfPage, leftSidePageBtn, rightSideOfPage, rightSideOfPageBtn,
                 supportBlock, aboutText, ourPartnersBlock, supportEmailBlock);
     }
