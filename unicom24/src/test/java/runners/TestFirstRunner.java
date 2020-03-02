@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/tests",
         glue = {"stepDefinitions", "runners", "hooks"},
-        tags = {"@test1"},
+        tags = {"@test", "~@ignore"},
         strict = true,
         snippets = SnippetType.CAMELCASE,
         monochrome = true,
