@@ -23,10 +23,6 @@ public class MicroCreditsPageStepDefinitions {
         Assert.assertTrue(microCreditsPage.checkH2SeoElements());
     }
 
-    @Тогда("^пользователь отправляет пустую форму$")
-    public void userSendEmptyForm() {
-        microCreditsPage.sendForm();
-    }
 
     @И("^отображается сообщение: Поле обязательно для заполнения$")
     public void userSeeErrorText() {
@@ -71,5 +67,10 @@ public class MicroCreditsPageStepDefinitions {
     @Тогда("^отображается форма для определения вероятности выдачи$")
     public void approvedSmsFormIsDisplayed() {
         microCreditsPage.approvedSmsFormIsDisplayed();
+    }
+
+    @Когда("^пользователь нажимает кнопку Персональный займ$")
+    public void userClicksPersonalCreditBtn() {
+        microCreditsPage.personalCreditsBtnClick();
     }
 }

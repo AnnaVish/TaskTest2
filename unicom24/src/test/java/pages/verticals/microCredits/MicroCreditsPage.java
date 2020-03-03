@@ -3,7 +3,6 @@ package pages.verticals.microCredits;
 import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -158,7 +157,7 @@ public class MicroCreditsPage extends Base {
         return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
     }
 
-    public void sendForm() {
+    public void personalCreditsBtnClick() {
         common.makeOfferBtn.click();
     }
 
@@ -268,7 +267,7 @@ public class MicroCreditsPage extends Base {
 
     public void sendFormWithCorrectNumber() {
         typeIntoField(UserData.correctPhoneNumber, common.personalOfferField);
-        sendForm();
+        personalCreditsBtnClick();
     }
 
     public void smsHasBeenSent() {

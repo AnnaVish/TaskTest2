@@ -91,7 +91,7 @@ public class CommonElementsForAllVerticals extends Base {
     @FindBy(css = ".form-one .ui-input-new input")
     public WebElement personalOfferField;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Подобрать персональный займ')]]") //- отсутствует на странице на период 10.01.2020, не закоментил, так как задействован еще в каком-то методе
+    @FindBy(css = "div.offers-item-banner button") //- отсутствует на странице на период 10.01.2020, не закоментил, так как задействован еще в каком-то методе
     public WebElement makeOfferBtn;
 
     //@FindBy(xpath = "//div[contains(text(), 'Нажимая кнопку «Подобрать персональный займ»,  ')]") - тоже самое
