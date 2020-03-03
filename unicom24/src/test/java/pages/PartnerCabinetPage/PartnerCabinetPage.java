@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
+import pages.PartnerCabinetPage.Tabs.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,13 @@ import java.util.List;
 public class PartnerCabinetPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
+    private final SettingsTabPage settingsTabPage = new SettingsTabPage();
+    private final ReferenceTabPage referenceTabPage = new ReferenceTabPage();
+    private final PostbackTabPage postbackTabPage = new PostbackTabPage();
+    private final ProductsTabPage productsTabPage = new ProductsTabPage();
+    private final LandingsTabPage landingsTabPage = new LandingsTabPage();
+    private final OffersTabPage offersTabPage = new OffersTabPage();
+    private final StatisticTabPage statisticTabPage = new StatisticTabPage();
 
     /*
      * Верхний блок
@@ -101,42 +109,67 @@ public class PartnerCabinetPage extends Base {
         allElementsAreVisible(elements);
     }
 
-    public void postBackClick(){
-        header.postBacksLink.click();
-    }
-
-    public void referenceClick() {
-        header.helpLink.click();
-    }
-
-    public void productsClick() {
-        header.productsLink.click();
-    }
-
-    public void landingsClick() {
-        header.landingsLink.click();
-    }
-
-    public void offersClick() {
-        header.offersLink.click();
-    }
-
-    public void statisticClick() {
-        header.statisticLink.click();
-    }
-
     public void logOutBtnClick() {
         waitForVisibility(header.logOutBtn);
         header.logOutBtn.click();
     }
 
-    public void settingsClick() {
-        waitForVisibility(header.settingsLink);
-        header.settingsLink.click();
-    }
-
     public void giveMoneyModalClick(){
         waitForVisibility(header.getMoney);
         header.getMoney.click();
+    }
+
+    public void tabClick(String tabName){
+        switch (tabName){
+            case ("Настройки"):
+                waitForVisibility(header.settingsLink);
+                header.settingsLink.click();
+                break;
+            case ("Справка"):
+                header.helpLink.click();
+                break;
+            case ("Постбэк"):
+                header.postBacksLink.click();
+                break;
+            case ("Продукты"):
+                header.productsLink.click();
+                break;
+            case ("Лендинги"):
+                header.landingsLink.click();
+                break;
+            case ("Офферы"):
+                header.offersLink.click();
+                break;
+            case ("Статистика"):
+                header.statisticLink.click();
+                break;
+        }
+    }
+
+    public void tabIsDisplayed(String tabName){
+        switch (tabName){
+            case ("Настройки"):
+                settingsTabPage.pageIsDisplayed();
+                break;
+            case ("Справка"):
+                referenceTabPage.pageIsDisplayed();
+                break;
+            case ("Постбэк"):
+                postbackTabPage.pageIsDisplayed();
+                break;
+            case ("Продукты"):
+                productsTabPage.pageIsDisplayed();
+                break;
+            case ("Лендинги"):
+                landingsTabPage.pageIsDisplayed();
+                break;
+            case ("Офферы"):
+                offersTabPage.pageIsDisplayed();
+                offersTabPage.checkCountFilters();
+                break;
+            case ("Статистика"):
+                statisticTabPage.pageIsDisplayed();
+                break;
+        }
     }
 }

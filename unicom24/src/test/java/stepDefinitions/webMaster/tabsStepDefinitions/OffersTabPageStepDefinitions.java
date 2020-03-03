@@ -11,12 +11,6 @@ public class OffersTabPageStepDefinitions {
     private final OffersTabPage offersTabPage = new OffersTabPage();
     private final WebMasterOfferFullPage webMasterOfferFullPage= new WebMasterOfferFullPage();
 
-    @Тогда("^отображается страница Офферы$")
-    public void offersTabPageIsDisplayed() {
-        offersTabPage.pageIsDisplayed();
-        offersTabPage.checkCountFilters();
-    }
-
     @Когда("^вебмастер кликает по фильтру типа товара \"([^\"]*)\"$")
     public void offersTabPageFiltersOfTypeClick(String nameFilter){
         offersTabPage.filterOfTypeClick(nameFilter);
