@@ -23,41 +23,6 @@ public class PartnerCabinetPageStepDefinitions extends Base {
         partnerCabinetPage.pageIsDisplayed();
     }
 
-    @То("^вебмастер кликает на вкладку Постбек$")
-    public void webMasterClickPostbackTab(){
-        partnerCabinetPage.postBackClick();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Справка$")
-    public void webMasterClickReferenceTab() {
-        partnerCabinetPage.referenceClick();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Продукты$")
-    public void webMasterClickProductsTab() {
-        partnerCabinetPage.productsClick();
-    }
-
-    @То("^отображается страница Постбек$")
-    public void postbakPageIsDisplayed(){
-        postbackTabPage.pageIsDisplayed();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Лендинги$")
-    public void webMasterLandingsClick() {
-        partnerCabinetPage.landingsClick();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Офферы$")
-    public void webMasterOffersClick() {
-        partnerCabinetPage.offersClick();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Статистика$")
-    public void webMasterStatisticClick() {
-        partnerCabinetPage.statisticClick();
-    }
-
     @То("^вебмастер подготавливает параметры для постбека$")
     public void prepareParameters(){
             postbackTabPage.fillFields();
@@ -66,11 +31,6 @@ public class PartnerCabinetPageStepDefinitions extends Base {
     @То("на странице постбека отображаются данные из параметров")
     public void checkPostBackData() {
         postbackTabPage.checkIsPostbackDone();
-    }
-
-    @Тогда("^вебмастер кликает на вкладку Настройки$")
-    public void webMasterSettingsClick() {
-        partnerCabinetPage.settingsClick();
     }
 
     @Тогда("^вебмастер разлогинивается$")
@@ -121,5 +81,15 @@ public class PartnerCabinetPageStepDefinitions extends Base {
     public void webMasterGiveMoneyModalPageCloseClick(){
         if (TestContext.messageBlockToGiveMoney == 0)
         giveMoneyModal.modalPageClose();
+    }
+
+    @Когда("^вебмастер кликает на вкладку \"([^\"]*)\"$")
+    public void webMasterSelectTabClick(String tabName){
+        partnerCabinetPage.tabClick(tabName);
+    }
+
+    @Тогда("^вебмастеру отображается страница \"([^\"]*)\"$")
+    public void webMasterIsDisplayed(String tabName){
+        partnerCabinetPage.tabIsDisplayed(tabName);
     }
 }
