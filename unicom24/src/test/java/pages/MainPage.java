@@ -327,6 +327,7 @@ public class MainPage extends Base {
     }
 
     public void scrollToFooter(){
+        waitForVisibility(footerPage.siteMap);
         scrollTo(footerPage.siteMap);
     }
 

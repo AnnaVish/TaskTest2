@@ -55,7 +55,7 @@ public class GiveMoney extends Base {
     }
 
     public void modalPageNextStepIsDisplayed(){
-        waitForVisibility(modalPageFirstMethodBTN);
+        waitForAjaxElementIsVisible(modalPageFirstMethodBTN);
     }
 
     public void modalPageFirstMethodBTNClick(){
