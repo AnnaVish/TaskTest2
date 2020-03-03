@@ -1,6 +1,7 @@
 package pages.PartnerCabinetPage;
 
 import base.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -120,30 +121,11 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void tabClick(String tabName){
-        switch (tabName){
-            case ("Настройки"):
-                waitForVisibility(header.settingsLink);
-                header.settingsLink.click();
-                break;
-            case ("Справка"):
-                header.helpLink.click();
-                break;
-            case ("Постбэк"):
-                header.postBacksLink.click();
-                break;
-            case ("Продукты"):
-                header.productsLink.click();
-                break;
-            case ("Лендинги"):
-                header.landingsLink.click();
-                break;
-            case ("Офферы"):
-                header.offersLink.click();
-                break;
-            case ("Статистика"):
-                header.statisticLink.click();
-                break;
-        }
+        String xPath = String.format("//div[@class=\"ui-app-header__nav-navigation\"]/a[contains(text(), '%s')]", tabName);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        element.click();
+
     }
 
     public void tabIsDisplayed(String tabName){
@@ -154,7 +136,7 @@ public class PartnerCabinetPage extends Base {
             case ("Справка"):
                 referenceTabPage.pageIsDisplayed();
                 break;
-            case ("Постбэк"):
+            case ("Постбек"):
                 postbackTabPage.pageIsDisplayed();
                 break;
             case ("Продукты"):
