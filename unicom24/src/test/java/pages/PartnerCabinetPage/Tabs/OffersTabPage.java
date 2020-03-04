@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
 
@@ -42,14 +41,10 @@ public class OffersTabPage extends Base {
     @FindBy(xpath = "//div[./div[contains(text(), 'Сортировать')]]/div[2]/div[contains(text(), 'По вознаграждению (больше — меньше)')]")
     private WebElement sortField;
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='ui-offers-card-row-inner ng-scope']")
-    )
+    @FindBy(xpath = "//div[@class='ui-offers-card-row-inner ng-scope']")
     private List <WebElement>  countForAllNonUniversalOffer; // число всех блоков с офферами на странице
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='ui-offers-card-row-inner ng-scope']//a")
-    )
+    @FindBy(xpath = "//div[@class='ui-offers-card-row-inner ng-scope']//a")
     private List <WebElement> titleForAllNonUniversalOffer; // названия всех (титульники) всех офферов (организаций)
 
     private final List<WebElement> elements;

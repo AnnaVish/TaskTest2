@@ -5,7 +5,6 @@ import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 import pagesUrls.PagesUrls;
@@ -38,9 +37,7 @@ public class AdvPage extends Base {
     @FindBy(xpath = "//button[contains(text(), 'Поиск')]")
     private WebElement searchBtn;
 
-    @FindBys({
-            @FindBy(xpath = "//div[contains(@class, 'requests-view-navigation ')]//a")
-    })
+    @FindBy(xpath = "//div[contains(@class, 'requests-view-navigation ')]//a")
     private List<WebElement> tabs;
 
     private final List<WebElement> elements;

@@ -3,7 +3,6 @@ package pages.verticals.common;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,19 +14,13 @@ public class CommonElementsForAllVerticals extends Base {
     /*
     * Тута будут массивы
      */
-    @FindBys({
-            @FindBy(xpath = "//div[@class='button__wrapper']//span[contains(text(), 'Добавить в сравнение')]")
-    })
+    @FindBy(xpath = "//div[@class='button__wrapper']//span[contains(text(), 'Добавить в сравнение')]")
     public List<WebElement> btnBankCreditAddToCompare;
 
-    @FindBys({
-            @FindBy(xpath = "//div[@class='offer-item-new wrapper']")
-    })
+    @FindBy(xpath = "//div[@class='offer-item-new wrapper']")
     public List<WebElement> countOffersOnPage;
 
-    @FindBys({
-            @FindBy(xpath = "//div[@class='offers-compare-table-offer-header-controls-remove']")
-    })
+    @FindBy(xpath = "//div[@class='offers-compare-table-offer-header-controls-remove']")
     public List<WebElement> btnBankCreditRemoveFromCompare;
     /*
     *Тута уже не будут массивы
@@ -117,9 +110,7 @@ public class CommonElementsForAllVerticals extends Base {
     @FindBy(xpath = "//span[@class='filters-city-selected-info__name']") // Вызывает меню на смену города
     public WebElement spanForSelectLocationCity;
 
-    @FindBys(
     @FindBy(xpath = "//div[@class='filters-city-content-list-item']/span") // список локаций-городов
-    )
     public WebElement spanLocationCity;
     /*
     Элементы отвечающие за локацию пользователя конец

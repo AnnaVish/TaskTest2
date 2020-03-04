@@ -5,7 +5,6 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.Adminka.AdminkaRedirects;
 import pages.Adminka.admAuth.AdmAuth;
@@ -76,9 +75,8 @@ public class CreditsPage extends Base {
     private WebElement h2Seo7;
     //h2 элементы конец */
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='col-12']/h2")
-    )
+
+    @FindBy(xpath = "//div[@class='col-12']/h2")
     private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;

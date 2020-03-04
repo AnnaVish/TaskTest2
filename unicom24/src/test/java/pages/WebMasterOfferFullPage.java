@@ -4,7 +4,6 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.verticals.common.CommonElementsForAllVerticals;
 import pages.verticals.microCredits.MicroCreditsPage;
@@ -54,14 +53,10 @@ public class WebMasterOfferFullPage extends Base {
     @FindBy(xpath = "//div[@class='ui-offer-connect-referral-sub-fake-input']//div[@class='ng-binding']")
     private WebElement wayForLink;
 
-    @FindBys(
-        @FindBy(xpath = "//div[@class='ui-offers-card-row-absolute-type']//div[contains(text(), 'REF')]")
-    )
+    @FindBy(xpath = "//div[@class='ui-offers-card-row-absolute-type']//div[contains(text(), 'REF')]")
     private List <WebElement> offerOfREF;
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='ui-offers-card-row-inner-footer']//span")
-    )
+    @FindBy(xpath = "//div[@class='ui-offers-card-row-inner-footer']//span")
     private List <WebElement> tabsOnOfferFullPage;
 
     private final List<WebElement> elements;

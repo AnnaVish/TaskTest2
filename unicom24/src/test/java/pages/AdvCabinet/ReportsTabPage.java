@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 import pages.AdvCabinet.ReportsPages.Reports;
@@ -26,14 +25,10 @@ public class ReportsTabPage extends Base {
     @FindBy(css = "div.reports-view-list")
     private WebElement offersList;
 
-    @FindBys({
-            @FindBy(css = "div.ds-report-list-item-wrapper")
-    })
+    @FindBy(css = "div.ds-report-list-item-wrapper")
     private List<WebElement> reportOrders;
 
-    @FindBys({
-            @FindBy(xpath = "//div[@class='ds-report-list-item-left-text-name']/a")
-    })
+    @FindBy(xpath = "//div[@class='ds-report-list-item-left-text-name']/a")
     private List<WebElement> reportOrdersTitleText;
 
     private final List<WebElement> elements;
