@@ -9,7 +9,7 @@ import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
 import java.util.Arrays;
 import java.util.List;
 
-public class StatisticTabPage extends Base {
+public class ReportsTabPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
 
@@ -45,7 +45,7 @@ public class StatisticTabPage extends Base {
 
     private final List<WebElement> elements;
 
-    public StatisticTabPage() {
+    public ReportsTabPage() {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(traficBtn, landingsAndApiBtn, changeBalanceBtn, productsBtn, dynamicLandingBtn,
                 navigation, showBtn, statisticTable);

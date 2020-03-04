@@ -123,9 +123,7 @@ public class PostbackTabPage extends Base {
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        try {
-            waitForVisibility(postbackTable);
-        } catch (TimeoutException e) {
+        if (!isElementVisible(postbackTable)) {
             waitForVisibility(youDontHavePostbackTitle);
         }
     }

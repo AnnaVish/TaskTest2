@@ -64,4 +64,8 @@ public class HeaderPartnerCabinetPage extends Base {
         Assert.assertEquals(10, downHeader.size());
     }
 
+    public List<WebElement> returnDownHeader() {
+        return downHeader;
+    }
+
 }

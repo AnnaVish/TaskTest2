@@ -1,7 +1,6 @@
 package pages.PartnerCabinetPage;
 
 import base.Base;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,7 +19,7 @@ public class PartnerCabinetPage extends Base {
     private final ProductsTabPage productsTabPage = new ProductsTabPage();
     private final LandingsTabPage landingsTabPage = new LandingsTabPage();
     private final OffersTabPage offersTabPage = new OffersTabPage();
-    private final StatisticTabPage statisticTabPage = new StatisticTabPage();
+    private final ReportsTabPage reportsTabPage = new ReportsTabPage();
 
     /*
      * Верхний блок
@@ -120,11 +119,12 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void tabClick(String tabName){
-        String xPath = String.format("//div[@class=\"ui-app-header__nav-navigation\"]/a[contains(text(), '%s')]", tabName);
-        WebElement element = driver.findElement(By.xpath(xPath));
-        waitForVisibility(element);
-        element.click();
-
+        for (WebElement element : header.returnDownHeader()) {
+            if (element.getText().equals(tabName)) {
+                waitForVisibility(element);
+                element.click();
+            }
+        }
     }
 
     public void tabIsDisplayed(String tabName){
@@ -148,8 +148,8 @@ public class PartnerCabinetPage extends Base {
                 offersTabPage.pageIsDisplayed();
                 offersTabPage.checkCountFilters();
                 break;
-            case ("Статистика"):
-                statisticTabPage.pageIsDisplayed();
+            case ("Отчеты"):
+                reportsTabPage.pageIsDisplayed();
                 break;
         }
     }
