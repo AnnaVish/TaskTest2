@@ -53,28 +53,21 @@ public class OffersTabPage extends Base {
     private List <WebElement> titleForAllNonUniversalOffer; // названия всех (титульники) всех офферов (организаций)
 
     private final List<WebElement> elements;
-    private final List<WebElement> headerPartnerCabinetPage;
 
     public OffersTabPage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, header);
         elements = Arrays.asList(offersTitle, searchInputField, hideFiltersBtn, resetFilters,
                 sortField);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
     }
 
     public void pageIsDisplayed() {
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        allElementsAreVisible(headerPartnerCabinetPage);
         Assert.assertTrue(driver.findElements(By.cssSelector(".ui-offers-card-row-inner")).size() > 0);
     }
 
     public void checkCountFilters(){
-        Assert.assertEquals(7, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // 7 если будет 7 фильтров, на момент написания кода их 5
+        Assert.assertEquals(7, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size());
         Assert.assertEquals(4, driver.findElements(By.xpath(nameOfTargetActionTitle+anyButton)).size());
         Assert.assertEquals(2, driver.findElements(By.xpath(nameOfTypeOffer)).size());
     }

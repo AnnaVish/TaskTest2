@@ -44,22 +44,15 @@ public class StatisticTabPage extends Base {
     private WebElement statisticTable;
 
     private final List<WebElement> elements;
-    private final List<WebElement> headerPartnerCabinetPage;
 
     public StatisticTabPage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, header);
         elements = Arrays.asList(traficBtn, landingsAndApiBtn, changeBalanceBtn, productsBtn, dynamicLandingBtn,
                 navigation, showBtn, statisticTable);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
     }
 
     public void pageIsDisplayed() {
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        allElementsAreVisible(headerPartnerCabinetPage);
     }
 }

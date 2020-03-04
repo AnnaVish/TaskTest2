@@ -109,17 +109,10 @@ public class PostbackTabPage extends Base {
     @FindBy(css = ".ui-landings-ticket-connection-ui-input-icon")
     private WebElement copyBtn;
 
-    private final List<WebElement> headerPartnerCabinetPage;
     private final List<WebElement> elements;
 
     public PostbackTabPage() {
-        PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
         elements = Arrays.asList(postBackTitle, createPostBackBtn, uiPostBackForm, nameOfPostbackInput,
                 typePostBtn, typeGetBtn, inProgressCheck, approvedCheck, deniedCheck, extraditionCheck, issueCheck,
                 approvalCheck, secondExtradition, transitionCheck, baseUrlInput, offerIdNameOfParametrInput,
@@ -128,7 +121,7 @@ public class PostbackTabPage extends Base {
     }
 
     public void pageIsDisplayed() {
-        allElementsAreVisible(headerPartnerCabinetPage);
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
         try {
             waitForVisibility(postbackTable);

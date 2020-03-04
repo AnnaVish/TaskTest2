@@ -97,7 +97,6 @@ public class PartnerCabinetPage extends Base {
     private final List<WebElement>elements;
 
     public PartnerCabinetPage(){
-        PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
@@ -106,7 +105,7 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(header.getHeaderPartnerCabinetPage());
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
     }
 

@@ -3,6 +3,8 @@ package pages.PartnerCabinetPage.Header;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,45 +47,21 @@ public class HeaderPartnerCabinetPage extends Base {
      *Верхний хэдэр окончен
      */
 
-    /*
-     *Нижний хэдэр
-     */
+    @FindBy(css = "nav a")
+    private List<WebElement>downHeader;
 
-    @FindBy(xpath = "//a[@href=\"/partners/office/statistics/total\"][contains(text(), 'Отчеты')]")
-    public WebElement statisticLink;
+    private final List<WebElement>elements;
 
-    @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Офферы')]")
-    public WebElement offersLink;
-
-    @FindBy(xpath = "//a[@href=\"/partners/office/landings\"][contains(text(), 'Лендинги')]")
-    public WebElement landingsLink;
-
-    @FindBy(xpath = "//a[@href=\"/partners/office/cross-reports\"][contains(text(), 'Продукты')]")
-    public WebElement productsLink;
-
-    @FindBy(xpath = "//a[@href=\"/partners/office/postback\"][contains(text(), 'Постбек')]")
-    public WebElement postBacksLink;
-
-    @FindBy(xpath = "//a[@href=\"/partners/office/help/\"][contains(text(), 'Справка')]")
-    public WebElement helpLink;
-
-    @FindBy(xpath = "//a[@href=\"/partners/office/settings\"][contains(text(), 'Настройки')]")
-    public WebElement settingsLink;
-
-    @FindBy(xpath = "//img[@src=\"/static/dist/partners/office/img/icons/graphx-4e5169fcbf.png\"]")
-    public WebElement staticticImg;
-
-    @FindBy(xpath = "//a[contains(@href, 'https://docs.google.com/spreadsheets') and contains(text(), 'Статистика офферов на рынке')]")
-    public WebElement statisticTitle;
-    /*
-     *Нижний хэдэр окончен
-     */
-
-    public List<WebElement> getHeaderPartnerCabinetPage() {
-        return Arrays.asList(headerContainer, logo, logoTitle, balance,
+    public HeaderPartnerCabinetPage() {
+        PageFactory.initElements(driver, this);
+        elements = Arrays.asList(headerContainer, logo, logoTitle, balance,
                 getMoney, patentialMoney, moneyOfAllTime, getMoneyForAllTime,
-                logOutBtn, ringBtn, statisticLink, offersLink, landingsLink,
-                productsLink, postBacksLink, helpLink, settingsLink,
-                staticticImg, statisticTitle);
+                logOutBtn, ringBtn);
     }
+
+    public void headerIsDisplayed() {
+        allElementsAreVisible(elements);
+        Assert.assertEquals(10, downHeader.size());
+    }
+
 }
