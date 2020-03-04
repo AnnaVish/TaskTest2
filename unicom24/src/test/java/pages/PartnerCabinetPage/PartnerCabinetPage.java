@@ -20,6 +20,7 @@ public class PartnerCabinetPage extends Base {
     private final LandingsTabPage landingsTabPage = new LandingsTabPage();
     private final OffersTabPage offersTabPage = new OffersTabPage();
     private final ReportsTabPage reportsTabPage = new ReportsTabPage();
+    private final MyClientsTabPage myClientsTabPage = new MyClientsTabPage();
 
     /*
      * Верхний блок
@@ -150,6 +151,12 @@ public class PartnerCabinetPage extends Base {
                 break;
             case ("Отчеты"):
                 reportsTabPage.pageIsDisplayed();
+                break;
+            case ("Мои клиенты"):
+                myClientsTabPage.pageIsDisplayed();
+                break;
+            case ("Подбор Кредита"):
+                pageIsDisplayed();
                 break;
         }
     }
