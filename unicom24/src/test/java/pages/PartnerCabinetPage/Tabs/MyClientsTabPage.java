@@ -26,16 +26,13 @@ public class MyClientsTabPage extends Base {
     @FindBy(xpath = "//div[@class='ui-offers-header-input']/input")
     private WebElement inputFieldTab;
 
-    @FindBys(
-            @FindBy(css = ".ui-clients-controls-button")
-    )
+    @FindBy(css = ".ui-clients-controls-button")
     private List<WebElement> buttonsTabs;
 
     private final List<WebElement> elements;
 
     public MyClientsTabPage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, header);
         elements = Arrays.asList(myClientsTitle, panelWithTabs, listOfTab, inputFieldTab);
     }
 
