@@ -81,6 +81,9 @@ public class ReportsTabPage extends Base {
     @FindBy (xpath = "//div[@class='ui-report-total-table-grouping-block']/div")
     private List<WebElement> mainFilterTotalControlsButtons;
 
+    @FindBy (css = ".reports-toolbar-navigation-list-label")
+    private List<WebElement> mainFiltersButtons;
+
     private final List<WebElement> elements;
     private final List<WebElement> elementsForCheckMainFilterTotal;
     private final List<WebElement> elementsForCheckMainFilterDetailed;
@@ -101,10 +104,14 @@ public class ReportsTabPage extends Base {
     }
 
     public void selectMainFilter(String nameMainFilter){
-        String xPath = String.format(wayForMainFilter + "/div[contains(text(), '%s')]", nameMainFilter);
-        driver.findElement(By.xpath(xPath)).click();
-
-        /// Новый метод клика по кнопкам
+        /// Новый способ клика по кнопкам
+        for (WebElement element : returnMainFiltersButtons()) {
+            if (element.getText().equals(nameMainFilter)) {
+                waitForVisibility(element);
+                element.click();
+                break;
+            }
+        }
     }
 
     public void mainFilterIsDisplayed(String nameMainFilter){
@@ -121,5 +128,9 @@ public class ReportsTabPage extends Base {
                 Assert.assertEquals(mainFilterTotalControlsButtons.size(), 4);
                 break;
         }
+    }
+
+    public List <WebElement> returnMainFiltersButtons(){
+        return mainFiltersButtons;
     }
 }
