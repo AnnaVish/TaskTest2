@@ -15,11 +15,6 @@ public class ReportsTabPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
 
-    String wayForMainFilter = "//div[@class='reports-toolbar-navigation-list']";
-
-//    @FindBy(xpath = "//div[contains(text(), 'Отчеты')]")
-//    private WebElement reportsTitle;
-
     @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\" and contains(text(), 'Трафик')]")
     private WebElement traficBtn;
 
@@ -130,7 +125,7 @@ public class ReportsTabPage extends Base {
         }
     }
 
-    public List <WebElement> returnMainFiltersButtons(){
+    private List <WebElement> returnMainFiltersButtons(){
         return mainFiltersButtons;
     }
 }
