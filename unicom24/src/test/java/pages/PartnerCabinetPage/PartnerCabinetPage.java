@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
 import pages.PartnerCabinetPage.Tabs.*;
+import pages.PartnerCabinetPage.Tabs.ReportsTab.ReportsTabPage;
 
 import java.util.Arrays;
 import java.util.List;
