@@ -3,6 +3,7 @@ package stepDefinitions.verticals.credits;
 import base.Base;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.И;
+import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
 import pages.verticals.common.CommonMethodsForAllVerticals;
@@ -24,6 +25,22 @@ public class CreditsPageStepDefinitions extends Base {
     public void userClickTitleOfBankClick(){
         creditsPage.titleOfBankClick();
     }
+
+    @Когда("^пользователь нажимает Подробнее в оффере$")
+    public void userClickDetailedInOffer() {
+        commonMethods.clickShowMoreBtn();
+    }
+
+    @Тогда("^открывается дополнительная информация об оффере$")
+    public void addInfoOpened() {
+        commonMethods.addInfoIsDisplayed();
+    }
+
+    @Тогда("^пользователь нажимает Перейти$")
+    public void userClickGotoAddInfoLink() {
+        commonMethods.gotoAddInfoLinkClick();
+    }
+
 
     @Дано("^пользователь нахоидится на странице Кредиты$")
     public void onCreditsPage(){

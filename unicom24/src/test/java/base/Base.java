@@ -276,7 +276,7 @@ public abstract class Base {
         };
     }
 
-    protected static ExpectedCondition<Boolean> waitForAjaxElementWasClicked(WebElement element) {
+    private static ExpectedCondition<Boolean> waitForAjaxElementWasClicked(WebElement element) {
         return new ExpectedCondition<Boolean>() {
             @Nullable
             @Override

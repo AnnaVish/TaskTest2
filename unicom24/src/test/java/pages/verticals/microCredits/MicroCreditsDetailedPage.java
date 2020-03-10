@@ -1,6 +1,7 @@
 package pages.verticals.microCredits;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -19,47 +20,47 @@ public class MicroCreditsDetailedPage extends Base {
     CommonElements commonElements = new CommonElements();
     CommonMethodsForAllVerticals commonMethodsForAllVerticals = new CommonMethodsForAllVerticals();
 
-    @FindBy(xpath = "//span[contains(text(), 'Расчет кредита')]")
-    private WebElement countCreditTitle;
 
-    @FindBy(xpath = "//label[./div[contains(text(), 'Какая сумма вам нужна')]]/div/input")
-    private WebElement howMuchYouNeedInput;
+    //Синий баннер
+    @FindBy(css = ".offer-detail-qiwi-header")
+    private WebElement banner;
 
-    @FindBy(xpath = "//label[./div[contains(text(), 'На какой срок')]]/div/input")
-    private WebElement howMuchTimeInput;
+    //Заголовок в баннере
+    @FindBy(css = ".offer-detail-qiwi-header h1")
+    private WebElement titleH1;
 
-    @FindBy(xpath = "//div[@class='rate']/div[contains(text(), 'Ставка')]")
-    private WebElement percent;
+    //заголовки h2
+    @FindBy(css = ".content h2")
+    private List<WebElement> h2Titles;
 
-    @FindBy(xpath = "//div[contains(text(), 'Ежемесячный платеж')]")
-    private WebElement paymentPerMonth;
+    //Все блоки на странице в теле под баннером 6 единиц
+    @FindBy(css = ".scroll-to-component")
+    private List<WebElement>blocksInBody;
 
-    @FindBy(xpath = "//button[./span[contains(text(), 'Получить кредит')]]")
-    private WebElement getCreditBtn;
+    //меню справа 6 линков
+    @FindBy(css = ".menu a")
+    private List<WebElement>menuLinks;
 
-    @FindBy(xpath = "//a[contains(text(), 'График платежей')]")
-    private WebElement schedualOfPayment;
+    private final List<WebElement> elements;
 
-
-    public final List<WebElement> elements;
 
     public MicroCreditsDetailedPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        elements = Arrays.asList(commonElements.bankBlock,
-                commonElements.headerOfBank, commonElements.rating, countCreditTitle,
-                howMuchYouNeedInput, howMuchTimeInput, percent, paymentPerMonth, getCreditBtn,
-                schedualOfPayment, commonElements.bet, commonElements.sum,
-                commonElements.time, commonElements.age, commonElements.beforeApproved);
+        elements = Arrays.asList(banner, titleH1);
     }
 
     public void pageIsDisplayed() {
-        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed());
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
-        Header.checkBreadCrumbs(3); // была цифра 4 почему-то, хотя там 3 элемента, а не 4
+        allElementsAreVisible(h2Titles);
+        allElementsAreVisible(blocksInBody);
+        Header.checkBreadCrumbsMicroCreditsDetailedPage(3);
+        Assert.assertEquals(2, h2Titles.size());
+        Assert.assertEquals(6, blocksInBody.size());
+        Assert.assertEquals(6, menuLinks.size());
     }
 }
