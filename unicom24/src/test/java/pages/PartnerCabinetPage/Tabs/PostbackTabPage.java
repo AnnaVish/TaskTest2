@@ -82,7 +82,7 @@ public class PostbackTabPage extends Base {
     @FindBy(xpath = "//div[./div[contains(text(), 'Базовая ссылка')]]/input")
     private WebElement baseUrlInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[10]/div/input[@type='text'][1]")
+    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[10]//input[@type='text'][1]")
     private WebElement offerIdNameOfParametrInput;
 
     @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[10]/div/input[@type='text'][2]")

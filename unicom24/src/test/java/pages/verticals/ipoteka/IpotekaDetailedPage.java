@@ -81,7 +81,7 @@ public class IpotekaDetailedPage extends Base {
     }
 
     public void pageIsDisplayed(){
-        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed());
+        sa.assertTrue(commonMethodsForAllVerticals.licenseOfBankDisplayed(), "Лицензия банка");
         allElementsAreVisible(elements);
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(footerPage.getFooter());
