@@ -3,12 +3,8 @@ package stepDefinitions.webMaster.tabsStepDefinitions;
 import base.Base;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import org.junit.Assert;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.ReportsTabPage;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.Detailed;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.Summary;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.TraficPage;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.Union;
+import pages.PartnerCabinetPage.Tabs.ReportsTab.*;
+import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.*;
 
 public class ReportsTabPageStepDefinitions extends Base {
     private final ReportsTabPage reportsTabPage = new ReportsTabPage();
@@ -16,6 +12,10 @@ public class ReportsTabPageStepDefinitions extends Base {
     private final Union union = new Union();
     private final Detailed detailed = new Detailed();
     TraficPage traficPage = new TraficPage();
+    ChangeBalanceTabPage changeBalanceTabPage = new ChangeBalanceTabPage();
+    LandingsAndAPI landingsAndAPI = new LandingsAndAPI();
+    ProductsTabPage productsTabPage = new ProductsTabPage();
+    DinamicLandingTabPage dinamicLandingTabPage = new DinamicLandingTabPage();
 
     @Когда("^вебмастер выбирает \"([^\"]*)\" в отчетах$")
     public void webMasterReportsTrafficSelectMainFilter(String nameMainFilter) {
@@ -36,5 +36,31 @@ public class ReportsTabPageStepDefinitions extends Base {
                 break;
         }
 
+    }
+
+    @Когда("^вебмастер выбирает вкладку \"([^\"]*)\" в отчетах$")
+    public void webMasterReportsTabClick(String tabName){
+        reportsTabPage.selectTypeReports(tabName);
+    }
+
+    @Тогда("^вебмастеру отображается вкладка \"([^\"]*)\" в отчетах$")
+    public void webMasterReportsTabIsDisplayed(String tabName){
+        switch (tabName) {
+            case ("Сводный отчет"):
+                union.pageIsDisplayed();
+                break;
+            case ("Изменение баланса"):
+                changeBalanceTabPage.pageIsDisplayed();
+                break;
+            case ("Лендинги и API"):
+                landingsAndAPI.pageIsDisplayed();
+                break;
+            case ("Продукты"):
+                productsTabPage.pageIsDisplayed();
+                break;
+            case ("Динамический лендинг"):
+                dinamicLandingTabPage.pageIsDisplayed();
+                break;
+        }
     }
 }

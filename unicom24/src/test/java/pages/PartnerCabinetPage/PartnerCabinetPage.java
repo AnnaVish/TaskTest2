@@ -26,16 +26,16 @@ public class PartnerCabinetPage extends Base {
     /*
      * Верхний блок
      */
-    @FindBy(xpath = "//div[contains(@class, 'ui-app-main-header')][./div[contains(text(), 'Статистика')]]")
-    private WebElement statisticTitle;
+    //@FindBy(xpath = "//div[contains(@class, 'ui-app-main-header')][./div[contains(text(), 'Статистика')]]")
+    //private WebElement statisticTitle; вроде как выпилили, так как на старых скринах есть, а сейчас нету
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-statistics-questionnaires-left')]/div[contains(text(), 'Анкеты')]")
+    @FindBy(xpath = "//div[contains(@class, 'left')]/div[contains(text(), 'Анкеты')]")
     private WebElement anketyTitle;
 
-    @FindBy(xpath = "//div[./span[contains(text(), 'от')]]/div/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'от')]]//input")
     private WebElement anketyDateFrom;
 
-    @FindBy(xpath = "//div[./span[contains(text(), 'до')]]/div/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'до')]]//input")
     private WebElement anketyDateTo;
 
     @FindBy(xpath = "//div[contains(text(), 'Кол-во сконвертившихся анкет')]")
@@ -47,22 +47,22 @@ public class PartnerCabinetPage extends Base {
     * Статистика окончена
      */
 
-    @FindBy(css = ".ui-cabinet-stat-blocks-left")
+    @FindBy(xpath = "//div[@class='home-left']")
     private WebElement leftBlock;
 
     @FindBy(xpath = "//div[contains(text(), 'Входящие')]")
     private WebElement inputTitle;
 
-    @FindBy(css = ".ui-cabinet-stat-blocks-right ")
+    @FindBy(xpath = "//div[@class='home-right']")
     private WebElement rightBlock;
 
     @FindBy(xpath = "//div[contains(text(), 'Конверсия за текущий месяц')]")
     private WebElement currentYearTitle;
 
-    @FindBy(xpath = "//span[contains(text(), 'Доход')]")
+    @FindBy(xpath = "//button[contains(text(), 'Доход')]")
     private WebElement incomeTab;
 
-    @FindBy(xpath = "//span[contains(text(), 'Заявки')]")
+    @FindBy(xpath = "//button[contains(text(), 'Заявки')]")
     private WebElement applicationsTab;
 
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые офферы')]")
@@ -71,38 +71,39 @@ public class PartnerCabinetPage extends Base {
     @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Все офферы')]")
     private WebElement allOffersLink;
 
-    @FindBy(css = ".ui-offers-card-row-inner")
-    private WebElement offer;
-
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые лендинги')]")
     private WebElement recomendLandings;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/landings\"][contains(text(), 'Все лендинги')]")
     private WebElement allLandingsLink;
 
-    @FindBy(css = ".ui-landings-container-item")
-    private WebElement landing;
-
-    @FindBy(xpath = "//div[contains(text(), 'Подключение') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Подключение')]")
     private WebElement connectLanding;
 
-    @FindBy(xpath = "//div[contains(text(), 'Описание') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Описание')]")
     private WebElement landingDescriptionTab;
 
-    @FindBy(xpath = "//div[contains(text(), 'Настройка') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Настройка')]")
     private WebElement landingSettingsTab;
+
+    @FindBy(xpath = "//div[@class='connection-wrap']")
+    private WebElement landingParametersLink;
 
     @FindBy(xpath = "//button[contains(text(), 'Привязать')]")
     private WebElement connectLandingTab;
+
+    @FindBy(xpath = "//div[@class='ds-offer-card']")
+    private List<WebElement> offer;
 
     private final List<WebElement>elements;
 
     public PartnerCabinetPage(){
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
+        elements = Arrays.asList(//statisticTitle,
+                anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
-                allOffersLink, offer, recomendLandings, allLandingsLink, landing, connectLanding, landingDescriptionTab,
-                landingSettingsTab, connectLandingTab);
+                allOffersLink, recomendLandings, allLandingsLink, connectLanding, landingDescriptionTab,
+                landingSettingsTab, connectLandingTab, landingParametersLink);
     }
 
     public void pageIsDisplayed(){

@@ -14,40 +14,40 @@ public class HeaderPartnerCabinetPage extends Base {
     /*
      *Верхний хэдэр
      */
-    @FindBy(css = ".ui-app-header__dash")
+    @FindBy(xpath = "//div[@class='ds-header']")
     public WebElement headerContainer;
 
-    @FindBy(css = ".ui-app-header__dash-item.ui-app-header__dash-item_logo")
+    @FindBy(xpath = "//div[@class='ds-header-info-logo']")
     public WebElement logo;
 
-    @FindBy(xpath = "//div[contains(text(), 'Кабинет Вебмастеров')]")
+    @FindBy(xpath = "//span[contains(text(), 'Кабинет Вебмастеров')]")
     public WebElement logoTitle;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Текущий баланс')]")
+    @FindBy(xpath = "//div[contains(text(), 'Текущий баланс')]")
     public WebElement balance;
 
-    @FindBy(xpath = "//div[@class='ui-app-header__dash-item ui-app-header__dash-item-w-border ui-app-header__dash-item_hide-s']/div[contains(text(), 'Вывести деньги')]")
+    @FindBy(xpath = "//div[@class='ds-header-info-balance']/div[contains(text(), 'Вывести деньги')]")
     public WebElement getMoney;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Возможный максимальный доход')]")
+    @FindBy(xpath = "//div[@class='ds-header-info-max-income']/div[contains(text(), 'Возможный максимальный доход')]")
     public WebElement patentialMoney;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Заработано за все время')]")
+    @FindBy(xpath = "//div[@class='ds-header-info-income']/div[contains(text(), 'Заработано за все время')]")
     public WebElement moneyOfAllTime;
 
-    @FindBy(xpath = "//div[@href=\"/partners/office/statistics/total\"]/div[contains(text(), 'Выведено за все время')]")
+    @FindBy(xpath = "//div[@class='ds-header-info-withdrawn']/div[contains(text(), 'Выведено за все время')]")
     public WebElement getMoneyForAllTime;
 
-    @FindBy(xpath = "//div[contains(@class,'ui-app-header__dash-item')]/div[contains(text(), 'Выход')]")
+    @FindBy(xpath = "//div[contains(@class,'ds-header-info-user')]/div[contains(text(), 'Выход')]")
     public WebElement logOutBtn;
 
-    @FindBy(xpath = "//div[./img[@src=\"/static/dist/partners/office/img/icons/alert-b1f1245cd7.svg\"]]")
-    public WebElement ringBtn;
+    @FindBy(xpath = "//div[@class='icon-bell']")
+    public WebElement bellBtn;
     /*
      *Верхний хэдэр окончен
      */
 
-    @FindBy(css = "nav a")
+    @FindBy(xpath = "//div[@class='ds-menu-navigation-list']/a")
     private List<WebElement>downHeader;
 
     private final List<WebElement>elements;
@@ -56,7 +56,7 @@ public class HeaderPartnerCabinetPage extends Base {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(headerContainer, logo, logoTitle, balance,
                 getMoney, patentialMoney, moneyOfAllTime, getMoneyForAllTime,
-                logOutBtn, ringBtn);
+                logOutBtn, bellBtn);
     }
 
     public void headerIsDisplayed() {

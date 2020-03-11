@@ -8,7 +8,7 @@ public class Union extends TraficPage {
 
     TraficPage traficPage = new TraficPage();
 
-    @FindBy(css = ".ui-report-total__wrap")
+    @FindBy(xpath = "//div[@class='statistics-general-table']")
     private WebElement trafficUnionOfferTable;
 
     public Union() {

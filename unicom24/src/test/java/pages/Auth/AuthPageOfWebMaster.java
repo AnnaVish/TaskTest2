@@ -11,33 +11,30 @@ import java.util.List;
 
 public class AuthPageOfWebMaster extends Base {
 
-    @FindBy(css = ".login-partners-inner")
-    private WebElement form;
-
-    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='email']")
+    @FindBy(id = "email")
     private WebElement loginField;
 
-    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='password']")
+    @FindBy(id = "password")
     private WebElement passwordField;
 
     @FindBy(xpath = "//button[contains(text(), 'Войти')]")
     private WebElement entranceLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Зарегистрироваться')]")
+    @FindBy(xpath = "//a[contains(text(), 'Регистрация')]")
     private WebElement registerPageLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Забыли пароль')]")
+    @FindBy(xpath = "//a[contains(text(), 'Забыли пароль')]")
     private WebElement forgottenPasswordLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner']/div/div[contains(text(), 'Регистрация')]")
-    private WebElement registrationPageOfWebmasterLink;
+    @FindBy(xpath = "//label[contains(text(), 'Запомнить меня')]")
+    private WebElement rememberMe;
 
     private final List<WebElement> elements;
 
     public AuthPageOfWebMaster(){
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(form, loginField, passwordField, entranceLink, registerPageLink, forgottenPasswordLink,
-                registrationPageOfWebmasterLink);
+        elements = Arrays.asList(loginField, passwordField, entranceLink, registerPageLink, forgottenPasswordLink,
+                rememberMe);
     }
 
     public void onAuthPage(){
