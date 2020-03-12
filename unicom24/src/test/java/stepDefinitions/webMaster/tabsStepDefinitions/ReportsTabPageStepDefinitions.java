@@ -22,7 +22,7 @@ public class ReportsTabPageStepDefinitions extends Base {
         traficPage.selectMainFilter(nameMainFilter);
     }
 
-    @Тогда("^вебмастеру отображается результат выборки \"([^\"]*)\" в отчетах$")
+    @Тогда("^вебмастеру отображается результат выборки \"([^\"]*)\" в отчетах$") // основные фильтры сводных отчетов
     public void webMasterReportsTrafficMainFilterIsDisplayed(String nameMainFilter) {
         switch (nameMainFilter) {
             case ("Единый оффер"):
@@ -43,7 +43,7 @@ public class ReportsTabPageStepDefinitions extends Base {
         reportsTabPage.selectTypeReports(tabName);
     }
 
-    @Тогда("^вебмастеру отображается вкладка \"([^\"]*)\" в отчетах$")
+    @Тогда("^вебмастеру отображается вкладка \"([^\"]*)\" в отчетах$") // сами табы Отчетов
     public void webMasterReportsTabIsDisplayed(String tabName){
         switch (tabName) {
             case ("Сводный отчет"):
