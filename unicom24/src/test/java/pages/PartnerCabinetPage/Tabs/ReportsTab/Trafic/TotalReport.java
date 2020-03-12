@@ -9,30 +9,34 @@ import pages.PartnerCabinetPage.Tabs.ReportsTab.ReportsTabPage;
 import java.util.Arrays;
 import java.util.List;
 
-public class TraficPage extends ReportsTabPage {
+public class TotalReport extends ReportsTabPage {
 
     //Вкладки сводный детализированный единый
-    @FindBy(xpath = "//div[@class='ds-button-group']//button")
+    @FindBy(css = ".header button")
     protected List<WebElement> navigationBTNs;
 
     //большие лэйблы
     @FindBy(css = ".reports-toolbar-filters label")
     private List<WebElement> labels;
 
+    //Группировка по Дата Оффер UTM Sub_id внизу навигационной панели
+    @FindBy(css = ".group-by button")
+    private List<WebElement>groupByBtn;
 
-    public TraficPage() {
+
+    public TotalReport() {
         PageFactory.initElements(driver, this);
     }
 
     public void pageIsDisplayed() {
         super.pageIsDisplayed();
-        allElementsAreVisible(navigationBTNs); // чтоб не падал
-        allElementsAreVisible(periodsInputs); // тож чтоб не падал
-        Assert.assertEquals(7, navigationBTNs.size()); // изменил на 7, так как нижние кнопки тоже надо считать
-        Assert.assertEquals(2, periodsInputs.size());
         allElementsAreVisible(navigationBTNs);
         allElementsAreVisible(periodsInputs);
+        allElementsAreVisible(groupByBtn);
         waitForVisibility(showBtn);
+        Assert.assertEquals(3, navigationBTNs.size());
+        Assert.assertEquals(2, periodsInputs.size());
+        Assert.assertEquals(4, groupByBtn.size());
     }
 
     public void selectMainFilter(String nameMainFilter) {

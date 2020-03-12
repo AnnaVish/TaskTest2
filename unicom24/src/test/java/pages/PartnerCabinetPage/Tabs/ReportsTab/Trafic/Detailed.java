@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class Detailed extends TraficPage {
+public class Detailed extends TotalReport {
 
 
     @FindBy(css = ".ui-detail-report-table-forms")

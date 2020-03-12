@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.Arrays;
 import java.util.List;
 
-public class Summary extends TraficPage{
+public class Summary extends TotalReport {
 
 
     @FindBy(css = ".reports-toolbar-filters")

@@ -4,9 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Union extends TraficPage {
+public class Union extends TotalReport {
 
-    TraficPage traficPage = new TraficPage();
+    TotalReport totalReport = new TotalReport();
 
     @FindBy(xpath = "//div[@class='statistics-general-table']")
     private WebElement trafficUnionOfferTable;

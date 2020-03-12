@@ -22,12 +22,10 @@ public class CommonElementsForAllReportsTabs extends Base {
     private WebElement clearBTN;
 
     public List<WebElement> getHeaderReportsTabsMin() {
-        return Arrays.asList(dateFrom, dateTo, displayBTN
-                );
+        return Arrays.asList(dateFrom, dateTo, displayBTN);
     }
 
     public List<WebElement> getHeaderReportsTabsMax() {
-        return Arrays.asList(dateFrom, dateTo, displayBTN, clearBTN
-        );
+        return Arrays.asList(dateFrom, dateTo, displayBTN, clearBTN);
     }
 }

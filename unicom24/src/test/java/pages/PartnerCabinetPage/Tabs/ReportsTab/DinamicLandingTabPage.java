@@ -24,7 +24,7 @@ public class DinamicLandingTabPage extends ReportsTabPage {
         PageFactory.initElements(driver, commonElementsForAllReportsTabs);;
     }
 
-    public void pageIsDisplayed() {
+    public void  pageIsDisplayed() {
         super.pageIsDisplayed();
         allElementsAreVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
         waitForVisibility(statsBlock);

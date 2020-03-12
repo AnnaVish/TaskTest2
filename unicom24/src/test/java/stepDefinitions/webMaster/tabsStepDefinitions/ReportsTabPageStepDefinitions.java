@@ -11,7 +11,7 @@ public class ReportsTabPageStepDefinitions extends Base {
     private final Summary summary = new Summary();
     private final Union union = new Union();
     private final Detailed detailed = new Detailed();
-    TraficPage traficPage = new TraficPage();
+    TotalReport totalReport = new TotalReport();
     ChangeBalanceTabPage changeBalanceTabPage = new ChangeBalanceTabPage();
     LandingsAndAPI landingsAndAPI = new LandingsAndAPI();
     ProductsTabPage productsTabPage = new ProductsTabPage();
@@ -19,7 +19,7 @@ public class ReportsTabPageStepDefinitions extends Base {
 
     @Когда("^вебмастер выбирает \"([^\"]*)\" в отчетах$")
     public void webMasterReportsTrafficSelectMainFilter(String nameMainFilter) {
-        traficPage.selectMainFilter(nameMainFilter);
+        totalReport.selectMainFilter(nameMainFilter);
     }
 
     @Тогда("^вебмастеру отображается результат выборки \"([^\"]*)\" в отчетах$") // основные фильтры сводных отчетов
