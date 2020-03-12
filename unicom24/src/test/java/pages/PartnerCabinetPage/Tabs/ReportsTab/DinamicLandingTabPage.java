@@ -10,32 +10,24 @@ import java.util.List;
 
 public class DinamicLandingTabPage extends ReportsTabPage {
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
+    private final CommonElementsForAllReportsTabs commonElementsForAllReportsTabs = new CommonElementsForAllReportsTabs();
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'от')]]//input")
-    private WebElement dateFrom;
-
-    @FindBy(xpath = "//div[./div[contains(text(), 'до')]]//input")
-    private WebElement dateTo;
-
-    @FindBy(xpath = "//div[@class='buttons']//button[contains(text(), 'Показать')]")
-    private WebElement displayBTN;
-
-    @FindBy(xpath = "//div[@class='buttons']//button[contains(text(), 'Очистить')]")
-    private WebElement clearBTN;
+    @FindBy(xpath = "//div[@class='stats']")
+    private WebElement statsBlock;
 
     @FindBy(xpath = "//div[@class='ds-button-group']//button")
-    private List<WebElement> statisticBTNs;
+    private List<WebElement> statsBTNs;
 
     public DinamicLandingTabPage() {
+
         PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, commonElementsForAllReportsTabs);;
     }
 
     public void pageIsDisplayed() {
         super.pageIsDisplayed();
-        waitForVisibility(displayBTN);
-        waitForVisibility(clearBTN);
-        waitForVisibility(dateTo);
-        waitForVisibility(dateFrom);
-        Assert.assertEquals(2, statisticBTNs.size());
+        allElementsAreVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
+        waitForVisibility(statsBlock);
+        Assert.assertEquals(2, statsBTNs.size());
     }
 }
