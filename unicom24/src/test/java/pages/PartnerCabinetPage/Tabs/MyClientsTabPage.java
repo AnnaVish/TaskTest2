@@ -16,16 +16,16 @@ public class MyClientsTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Мои клиенты')]")
     private WebElement myClientsTitle;
 
-    @FindBy(css = ".ui-clients-controls-wrapper")
+    @FindBy(xpath = "//div[@class='menu']")
     private WebElement panelWithTabs;
 
-    @FindBy(xpath = "//div[@class='ui-clients-table-wrapper ng-scope']")
+    @FindBy(xpath = "//div[@class='table']")
     private WebElement listOfTab;
 
-    @FindBy(xpath = "//div[@class='ui-offers-header-input']/input")
+    @FindBy(xpath = "//div[@class='ds-input-search']//input")
     private WebElement inputFieldTab;
 
-    @FindBy(css = ".ui-clients-controls-button")
+    @FindBy(xpath = "//div[@class='filter-button ds-button-wrapper']")
     private List<WebElement> buttonsTabs;
 
     private final List<WebElement> elements;

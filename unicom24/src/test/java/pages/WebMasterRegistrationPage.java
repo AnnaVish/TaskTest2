@@ -10,34 +10,34 @@ import java.util.List;
 
 public class WebMasterRegistrationPage extends Base {
 
-    @FindBy(xpath = "//div[contains(text(), 'Вход')]")
+    @FindBy(xpath = "//a[contains(text(), 'Вход')]")
     private WebElement entanceTab;
 
-    @FindBy(name = "company_name")
+    @FindBy(name = "company")
     private WebElement companyNameField;
 
-    @FindBy(name = "partner_phone")
+    @FindBy(name = "phone")
     private WebElement partnerPhoneField;
 
-    @FindBy(name = "last_name")
+    @FindBy(name = "surname")
     private WebElement lastNameField;
 
     @FindBy(name = "email")
     private WebElement emailField;
 
-    @FindBy(name = "first_name")
+    @FindBy(name = "name")
     private WebElement nameField;
 
     @FindBy(name = "password")
     private WebElement passwordField;
 
-    @FindBy(css = ".ui-select-top-block__input")
+    @FindBy(xpath = "//div[@class='inner']")
     private WebElement messangerOptions;
 
-    @FindBy(name = "password2")
+    @FindBy(name = "passwordRepeat")
     private WebElement repeatPassword;
 
-    @FindBy(xpath = "//button[text()='Зарегистрироваться']")
+    @FindBy(xpath = "//button[contains(text(),'Зарегистрироваться')]")
     private WebElement registerBtn;
 
     private final List<WebElement> elements;

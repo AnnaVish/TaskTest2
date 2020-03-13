@@ -16,16 +16,16 @@ public class SettingsTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Настройки')]")
     private WebElement settingsTitle;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Демо режим')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Демо режим')]")
     private WebElement demoSwitcher;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Новые офферы')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Новые офферы')]")
     private WebElement newOfferSwitcher;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Изменения офферов')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Изменения офферов')]")
     private WebElement changeOffersSwitcher;
 
-    @FindBy(xpath = "//div[contains(text(), 'Яндекс.Метрика ID:')]")
+    @FindBy(xpath = "//div[contains(text(), 'Яндекс.Метрика ID')]")
     private WebElement yaMeter;
 
     @FindBy(xpath = "//button[contains(text(), 'Сохранить')]")

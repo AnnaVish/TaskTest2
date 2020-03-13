@@ -34,25 +34,25 @@ public class PostbackTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Постбек')]")
     private WebElement postBackTitle;
 
-    @FindBy(css = ".ui-postback-table-self")
+    @FindBy(xpath = "//div[@class='table-wrap']")
     private WebElement postbackTable;
 
     @FindBy(xpath = "//div[contains(text(), 'У вас пока нет ни одной записи')]")
     private WebElement youDontHavePostbackTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'Создать')]")
+    @FindBy(xpath = "//button[contains(text(), 'Создать')]")
     private WebElement createPostBackBtn;
 
-    @FindBy(css = ".ui-postback-form")
+    @FindBy(xpath = "//div[@class='form']")
     private WebElement uiPostBackForm;
 
-    @FindBy(xpath = "//div[@class='ui-postback-form-name']/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Название')]]//input")
     private WebElement nameOfPostbackInput;
 
-    @FindBy(xpath = "//div[contains(text(), 'Post')]")
+    @FindBy(xpath = "//button[contains(text(), 'POST')]")
     private WebElement typePostBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Get')]")
+    @FindBy(xpath = "//button[contains(text(), 'GET')]")
     private WebElement typeGetBtn;
 
     @FindBy(xpath = "//label[contains(text(), 'В работе')]")
@@ -76,37 +76,37 @@ public class PostbackTabPage extends Base {
     @FindBy(xpath = "//label[contains(text(), 'Повторная выдача')]")
     private WebElement secondExtradition;
 
-    @FindBy(xpath = "//label[contains(text(), 'переход')]")
+    @FindBy(xpath = "//label[contains(text(), 'Переход')]")
     private WebElement transitionCheck;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Базовая ссылка')]]/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Базовая ссылка')]]//input")
     private WebElement baseUrlInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[10]//input[@type='text'][1]")
+    @FindBy(id = "offer_id")
     private WebElement offerIdNameOfParametrInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[10]/div/input[@type='text'][2]")
+    @FindBy(id = "{offer_id}")
     private WebElement offerIdValueOfParametrInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[11]/div/input[@type='text'][1]")
+    @FindBy(id = "offer_name")
     private WebElement offerNameNameOfParametrInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[11]/div/input[@type='text'][2]")
+    @FindBy(id = "{offer_name}")
     private WebElement offerNameValueOfParametrInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[12]/div/input[@type='text'][1]")
+    @FindBy(id = "click_id")
     private WebElement clickIdNameOfParametrInput;
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-postback-form ng-scope')]/div[12]/div/input[@type='text'][2]")
+    @FindBy(id = "{click_id}")
     private WebElement clickIdValueOfParametrInput;
 
-    @FindBy(css = "textarea.ui-landings-ticket-connection-ui-textarea-target")
+    @FindBy(xpath = "//div[@class='fake']/div[@class='value']")
     private WebElement mainTextArea;
 
-    @FindBy(xpath = "//button[contains(text(), 'Протестировать')]")
+    @FindBy(xpath = "//button[contains(text(), 'Сохранить')]")
     private WebElement checkBtn;
 
-    @FindBy(css = ".ui-landings-ticket-connection-ui-input-icon")
+    @FindBy(xpath = "//div[contains(text(), 'filter_none')]")
     private WebElement copyBtn;
 
     private final List<WebElement> elements;

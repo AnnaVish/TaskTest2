@@ -16,25 +16,22 @@ public class ReferenceTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Справка')]")
     private WebElement referenceTitle;
 
-    @FindBy(css = ".ui-help-container-content")
+    @FindBy(xpath = "//div[@class='content']")
     private WebElement documentsContainer;
-
-    @FindBy(css = "div.ui-help-container-images-item")
-    private WebElement document;
 
     @FindBy(xpath = "//div[contains(text(), 'Информация для разработчиков')]")
     private WebElement forDevelopersTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'API')]")
+    @FindBy(xpath = "//a[contains(text(), 'API')]")
     private WebElement apiTitle;
 
-    @FindBy(xpath = "//div[contains(text(), 'Универсальное')]")
+    @FindBy(xpath = "//a[contains(text(), 'Универсальное')]")
     private WebElement universalLink;
 
-    @FindBy(xpath = "//div[contains(text(), 'Единый оффер')]")
+    @FindBy(xpath = "//a[contains(text(), 'Единый оффер')]")
     private WebElement uniounOfferLink;
 
-    @FindBy(xpath = "//div[contains(text(), 'Документы')]")
+    @FindBy(xpath = "//a[contains(text(), 'Документы')]")
     private WebElement documentsLink;
 
     private final List<WebElement> elements;
@@ -42,7 +39,7 @@ public class ReferenceTabPage extends Base {
     public ReferenceTabPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, header);
-        elements = Arrays.asList(referenceTitle, documentsContainer, document, forDevelopersTitle, apiTitle,
+        elements = Arrays.asList(referenceTitle, documentsContainer, forDevelopersTitle, apiTitle,
                 universalLink, uniounOfferLink, documentsLink);
     }
 

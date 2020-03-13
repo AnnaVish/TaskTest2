@@ -16,25 +16,25 @@ public class LandingsTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Лендинги')]")
     private WebElement landingsTitle;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]/div[2]/div[2]/div/div/div[contains(text(), 'Подключение')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Подключение')]")
     private WebElement dynamicLandingConnectTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]/div[2]/div[2]/div/div/div[contains(text(), 'Описание')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Описание')]")
     private WebElement dynamicLandingDescriptionTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]/div[2]/div[2]/div/div/div[contains(text(), 'Настройка')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Настройка')]")
     private WebElement dynamicLandingSettingsTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Рейтинг Финансового Здоровья')]]/div[2]/div[2]/div/div/div[contains(text(), 'Подключение')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Рейтинг Финансового Здоровья')]]//button[contains(text(), 'Подключение')]")
     private WebElement rfzConnectTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Рейтинг Финансового Здоровья')]]/div[2]/div[2]/div/div/div[contains(text(), 'Описание')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Рейтинг Финансового Здоровья')]]//button[contains(text(), 'Описание')]")
     private WebElement rfzDescriptionTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'mfi_iframe_v101')]]/div[2]/div[2]/div/div/div[contains(text(), 'Подключение')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'mfi_iframe_v101')]]//button[contains(text(), 'Подключение')]")
     private WebElement mfiConnectTab;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'mfi_iframe_v101')]]/div[2]/div[2]/div/div/div[contains(text(), 'Описание')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'mfi_iframe_v101')]]//button[contains(text(), 'Описание')]")
     private WebElement mfiDescriptionTab;
 
     private final List<WebElement> elements;
