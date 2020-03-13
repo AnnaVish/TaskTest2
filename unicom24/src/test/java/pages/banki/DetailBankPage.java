@@ -23,8 +23,8 @@ public class DetailBankPage extends Base {
     @FindBy(xpath = "//div[contains(@class, 'ui-forms-bank-detail-header-bottom ')]/a[3]")
     private WebElement feedBackBtn;
 
-    @FindBy(css = ".ui-forms-bank-detail-review")
-    private WebElement feedBack;
+    @FindBy(css = ".ui-market-feedback-head")
+    private WebElement feedBackHeader;
 
     @FindBy(xpath = "//div[contains(text(), 'Нет отзывов')]")
     private WebElement thereIsNoFeedbackTitle;
@@ -53,7 +53,7 @@ public class DetailBankPage extends Base {
 
     public void checkCountOfFeedBack() {
         try {
-            waitForAjaxElementIsVisible(feedBack);
+            waitForAjaxElementIsVisible(feedBackHeader);
         } catch (Exception e) {
             waitForVisibility(thereIsNoFeedbackTitle);
         }
