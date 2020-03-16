@@ -20,22 +20,13 @@ public class OffersTabPage extends Base {
     String anyButton = "//button";
 
     String nameOfTypeOffer= "//div[./div[contains(text(), 'Тип оффера')]]//button";
-    String nameOfTypeOfferForCheck= "//div[@class='type']";
+    String wayForTargetOffer = "//div[@class='ds-offer-card-wrap']//a";
 
-    //Точно устарешвее начало
-    String nameOfTypeOfferForCheckActive= "//div[@class='ng-scope ui-offers-header-filters-button active']";
-    String nameOfTypeOfferTitle= "//div[./div[contains(text(), 'Тип оффера')]]";
-    // Точно устаревшее конец
-    String wayForTargetOffer = "//div[@class='ui-offers-card-row-inner ng-scope']//a";
-
-
-    String wayForActiveButtonOfTypeOffer = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(@class, 'active')]"; // для проверки включена ли кнопка
-    String wayForNonActiveButtonOfTypeOffer = "//div[./div[contains(text(), 'Тип оффера')]]//button[not(contains(@class, 'active'))]"; // для проверки выключена ли кнопка
 
     @FindBy(xpath = "//div[contains(text(), 'Офферы')]")
     private WebElement offersTitle;
 
-    @FindBy(xpath = "//input[@placeholder=\"Поиск по названию оффера\"]")
+    @FindBy(xpath = "//div[@class='search']//input[@placeholder=\"Поиск по названию оффера\"]")
     private WebElement searchInputField;
 
     @FindBy(xpath = "//div[contains(text(), 'Скрыть фильтры')]")
@@ -56,17 +47,17 @@ public class OffersTabPage extends Base {
     @FindBy(xpath = "//div[@class='ds-offer-card']")
     private List <WebElement> countAllOffersOnPage;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button") // кнопка API для манипуляций в коде
+    @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button") // кнопки для манипуляций в коде Тип оффера фильтр
     private List<WebElement> nameTypeOfferOfButtonsWay;
 
     @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(text(), 'API')]")
-    private WebElement typeOfferFilterApiButton;
+    private WebElement typeOfferFilterApiButton;    //кнопка фильтра типа оффера
 
     @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(text(), 'Реферальные ссылки')]")
-    private WebElement typeOfferFilterREFButton;
+    private WebElement typeOfferFilterREFButton; //кнопка фильтра типа оффера
 
     @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(@class, 'active')]")
-    private List<WebElement> listWayForActiveButtonOfTypeOffer;
+    private List<WebElement> listWayForActiveButtonOfTypeOffer; // массив активных кнопок типа оффера фильтр
 
     @FindBy(xpath = "//div[@class='type']/span[contains(text(), 'API')]") // значок типа у оффера
     private List<WebElement> typeAPIOfferToTable;

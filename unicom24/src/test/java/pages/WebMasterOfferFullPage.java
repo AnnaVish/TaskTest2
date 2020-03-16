@@ -15,48 +15,48 @@ public class WebMasterOfferFullPage extends Base {
     CommonElementsForAllVerticals commonElementsAll = new CommonElementsForAllVerticals();
     MicroCreditsPage microCreditsPage = new MicroCreditsPage();
 
-    String wayTypeBTNForClick = "//div[@class='ui-change-redirect-type-wrap ng-scope']";
+    String wayTypeBTNForClick = "//div[@class='link-types']";
 
-    @FindBy(css = ".ui-offers-card-row-wrapper")
+    @FindBy(xpath = "//div[@class='ds-offer-card-wrap detail']")
     private WebElement offerWrapper; //основной блок оффера
 
-    @FindBy(css = ".ui-offers-detail-container-wrapper")
+    @FindBy(xpath = "//div[@class='offers-detail-child']")
     private WebElement offerContainerWrapper; //содержание вкладки
 
-    @FindBy(css = ".ui-offer-base-header-breadcrumbs")
+    @FindBy(xpath = "//div[@class='offers-detail-breadcrumbs']")
     private WebElement offerFullPageBreadcrumbs; // хлебные крошки
 
-    @FindBy(xpath = "//div[@class='ui-offers-detail-container-wrapper']/div[@class='ui-offers-detail-description-wrapper']")
+    @FindBy(xpath = "//div[@class='offers-detail-child']/div[@class='offers-description-view']")
     private  WebElement offerContentProfile;
 
-    @FindBy(xpath = "//div[@class='ui-offers-detail-container-wrapper']//div[@class='ng-binding ng-scope']")
+    @FindBy(xpath = "//div[@class='offers-detail-child']//div[@class='offers-description font__base-small']")
     private WebElement offerContentAboutCompany;
 
-    @FindBy(css = ".ui-offers-detail-connection-content")
+    @FindBy(xpath = "//div[@class='offers-connection-referral']")
     private WebElement offerContentConnectREF;
 
-    @FindBy(css = ".ui-offers-detail-connection-wrapper")
+    @FindBy(xpath = "//div[@class='offers-connection-api']")
     private WebElement offerContentConnectAPI;
 
-    @FindBy(css = ".ui-offers-detail-tariffs-content")
+    @FindBy(xpath = "//div[@class='offers-tariffs-and-changes-view']")
     private WebElement offerContentTariff;
 
-    @FindBy(css =".ui-offers-detail-traffic-content")
+    @FindBy(xpath ="//div[@class='offers-types-of-traffic-view']")
     private WebElement offerContentTraffic;
 
-    @FindBy(css = ".ui-offers-detail-regions-content")
+    @FindBy(xpath = "//div[@class='offers-regions-view']")
     private WebElement offerContentRegions;
 
-    @FindBy(css = ".ui-offers-detail-feedback-content")
+    @FindBy(xpath = "//div[@class='offers-reviews-view']")
     private WebElement offerContentFeedback;
 
-    @FindBy(xpath = "//div[@class='ui-offer-connect-referral-sub-fake-input']//div[@class='ng-binding']")
+    @FindBy(xpath = "//div[@class='fake inset']")
     private WebElement wayForLink;
 
-    @FindBy(xpath = "//div[@class='ui-offers-card-row-absolute-type']//div[contains(text(), 'REF')]")
+    @FindBy(xpath = "//div[@class='ds-offer-card-wrap detail']//span[contains(text(), 'REF')]")
     private List <WebElement> offerOfREF;
 
-    @FindBy(xpath = "//div[@class='ui-offers-card-row-inner-footer']//span")
+    @FindBy(xpath = "//div[@class='navigation detail']/a")
     private List <WebElement> tabsOnOfferFullPage;
 
     private final List<WebElement> elements;
@@ -123,7 +123,7 @@ public class WebMasterOfferFullPage extends Base {
     }
 
     public void checkingLinkOnFullOfferPage(String targetNameLink){
-        String targetBTN = String.format(wayTypeBTNForClick+"//div[contains(text(), '%s')]", targetNameLink);
+        String targetBTN = String.format(wayTypeBTNForClick+"//button[contains(text(), '%s')]", targetNameLink);
         driver.findElement(By.xpath(targetBTN)).click();
         String wayTextUrl = wayForLink.getText();
         openNewTab();
