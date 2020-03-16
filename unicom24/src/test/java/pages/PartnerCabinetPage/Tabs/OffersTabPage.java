@@ -17,17 +17,20 @@ public class OffersTabPage extends Base {
 
     String nameOfTypeProductTitle = "//div[./div[contains(text(), 'Тип продукта')]]";
     String nameOfTargetActionTitle = "//div[./div[contains(text(), 'Целевое действие')]]";
-    //String nameOfTypeOfferTitle= "//div[./div[contains(text(), 'Тип оффера')]]";
     String anyButton = "//button";
 
     String nameOfTypeOffer= "//div[./div[contains(text(), 'Тип оффера')]]//button";
     String nameOfTypeOfferForCheck= "//div[@class='type']";
-    //String nameOfTypeOfferForCheckActive= "//div[@class='ng-scope ui-offers-header-filters-button active']";
 
+    //Точно устарешвее начало
+    String nameOfTypeOfferForCheckActive= "//div[@class='ng-scope ui-offers-header-filters-button active']";
+    String nameOfTypeOfferTitle= "//div[./div[contains(text(), 'Тип оффера')]]";
+    // Точно устаревшее конец
     String wayForTargetOffer = "//div[@class='ui-offers-card-row-inner ng-scope']//a";
 
 
-    String wayForActiveButtonOfTypeOffer = "//div[./div[contains(text(), 'Тип оффера')]]//button[not(contains(@class, 'active'))]"; // для проверки выключена ли кнопка
+    String wayForActiveButtonOfTypeOffer = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(@class, 'active')]"; // для проверки включена ли кнопка
+    String wayForNonActiveButtonOfTypeOffer = "//div[./div[contains(text(), 'Тип оффера')]]//button[not(contains(@class, 'active'))]"; // для проверки выключена ли кнопка
 
     @FindBy(xpath = "//div[contains(text(), 'Офферы')]")
     private WebElement offersTitle;
@@ -56,8 +59,20 @@ public class OffersTabPage extends Base {
     @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button") // кнопка API для манипуляций в коде
     private List<WebElement> nameTypeOfferOfButtonsWay;
 
-    @FindBy(xpath = "//div[@class='type']/span") // значок типа у оффера
-    private List<WebElement> typeOfferToTable;
+    @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(text(), 'API')]")
+    private WebElement typeOfferFilterApiButton;
+
+    @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(text(), 'Реферальные ссылки')]")
+    private WebElement typeOfferFilterREFButton;
+
+    @FindBy(xpath = "//div[./div[contains(text(), 'Тип оффера')]]//button[contains(@class, 'active')]")
+    private List<WebElement> listWayForActiveButtonOfTypeOffer;
+
+    @FindBy(xpath = "//div[@class='type']/span[contains(text(), 'API')]") // значок типа у оффера
+    private List<WebElement> typeAPIOfferToTable;
+
+    @FindBy(xpath = "//div[@class='type']/span[contains(text(), 'REF')]") // значок типа у оффера
+    private List<WebElement> typeREFOfferToTable;
 
     private final List<WebElement> elements;
 
@@ -89,113 +104,44 @@ public class OffersTabPage extends Base {
         driver.findElement(By.xpath(nameOfFilter)).click();
     }
 
-    public void filterOfOfferClick(String nameFilter){    /// API Рефы
-        //String nameOfFilter = String.format(nameOfTypeOfferTitle+"//button[contains(text(), '%s')]", nameFilter);
-        //driver.findElement(By.xpath(nameOfFilter)).click();
-        for (WebElement element : nameTypeOfferOfButtonsWay){
-            if (element.getText().equals(nameFilter)){
+    public void filterOfOfferClick(String nameFilter) {    /// API Рефы
+        for (WebElement element : nameTypeOfferOfButtonsWay) {
+            if (element.getText().contains(nameFilter)){
                 element.click();
                 break;
+            }
+        }
+
+        if (nameFilter.equals("API")) {
+            for (WebElement element : nameTypeOfferOfButtonsWay) {
+                    if ( (listWayForActiveButtonOfTypeOffer.size()) > 1) {
+                        typeOfferFilterREFButton.click();
+                        break;
+                    }
+            }
+        }
+
+        if (nameFilter.equals("Реферальные ссылки")) {
+            for (WebElement element : nameTypeOfferOfButtonsWay) {
+                if ((listWayForActiveButtonOfTypeOffer.size()) > 1){
+                    typeOfferFilterApiButton.click();
+                    break;
+                }
             }
         }
     }
 
     public void checkFilterOfOffersType(String nameFilter){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        /*
-        if (nameFilter.equals("API")){
-            for (WebElement element : nameTypeOfferOfButtonsWay){
-                if (!element.getText().contains(nameFilter) && (driver.findElements(By.xpath(wayForActiveButtonOfTypeOffer)).size())>0){
-                    element.click();
-
-                    // кликнули, ждем чтоб страница обновилась
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    // страница обновилась, проверяем результат
-                    for (WebElement elementOnOffer : typeOfferToTable)
-                        if (elementOnOffer.getText().contains(nameFilter) && (elementOnOffer.) )
-                    break;
+                if (nameFilter.equals("API")) {
+                    waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='type']/span[contains(text(), 'API')]"), 0);
+                    Assert.assertTrue(typeAPIOfferToTable.size() > 0 );
+                    Assert.assertTrue(typeREFOfferToTable.size() == 0);
                 }
-            }
-            Assert.assertEquals(typeOfferToTable.);
-        }
-        if (nameFilter.equals("Реферальные ссылки")){
-
-        }
-
-
-
-        */
-
-
-
-
-
-
-
-
-        String notSelectedFilterName;
-        String notSelectedNameOfFilter;
-
-        String correctFilterName;// для манипуляций в коде
-        String nameFilterForDisable; // для понимания какой фильтр отключать
-        if (nameFilter.equals("Реферальные ссылки")){
-            correctFilterName = "Реферальные ссылки";
-            nameFilterForDisable = "API";}
-        else{
-            correctFilterName = "API";
-            nameFilterForDisable = "Реферальные ссылки";
-        }
-
-        String nameOfFilter = String.format("//button[contains(text(), '%s')]", nameFilterForDisable); //запоминаем xpath нажатой кнопки
-        int countOfOffersWithThisType = driver.findElements(By.xpath(nameOfFilter)).size(); // вносим в переменную наличие нажатой кнопки
-
-        if (correctFilterName.equals("API") && countOfOffersWithThisType>0) { // если тестер писал API
-            correctFilterName = "Реферальные ссылки"; // корректируем название
-            nameOfFilter = String.format("//button[contains(text(), '%s')]", correctFilterName); //ищем путь
-            driver.findElement(By.xpath(nameOfFilter)).click();
-        }
-        if (nameFilter.equals("Реферальные ссылки") && countOfOffersWithThisType>0) {
-            correctFilterName = "API";
-            nameOfFilter = String.format("//button[contains(text(), '%s')]", correctFilterName); //ищем путь
-            driver.findElement(By.xpath(nameOfFilter)).click();
-        }
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        if (nameFilter.equals("Реферальные ссылки")) {
-            correctFilterName = "Реферальные ссылки";
-            notSelectedFilterName = "API";}
-        else {correctFilterName = "API";
-            notSelectedFilterName = "Реферальные ссылки";}
-
-
-        nameOfFilter = String.format(nameOfTypeOfferForCheck+"//span[contains(text(), '%s')]", correctFilterName);
-        notSelectedNameOfFilter = String.format(nameOfTypeOfferForCheck+"/div[contains(text(), '%s')]", notSelectedFilterName);
-        countOfOffersWithThisType = driver.findElements(By.xpath(nameOfFilter)).size();
-         int countOfOffersWithoutThisType = driver.findElements(By.xpath(notSelectedNameOfFilter)).size();
-        if (nameFilter.equals("API")){
-                // код1
-                Assert.assertTrue(countOfOffersWithThisType > 3);
-                Assert.assertTrue(countOfOffersWithoutThisType < 1);
-        }
-        if (nameFilter.equals("REF")){
-                // код2
-                Assert.assertTrue(countOfOffersWithThisType > 4);
-                Assert.assertTrue(countOfOffersWithoutThisType < 2); //Потому что 1 будет всегда хоть ты тресни
-        }
-
+                if (nameFilter.equals("Реферальные ссылки")) {
+                    waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='type']/span[contains(text(), 'REF')]"), 0);
+                    Assert.assertTrue(typeAPIOfferToTable.size() == 1 );
+                    Assert.assertTrue(typeREFOfferToTable.size() > 0);
+                }
     }
 
     public void offerFullPageClick(){ // клик по офферу
@@ -212,5 +158,7 @@ public class OffersTabPage extends Base {
         String targetOffer = String.format(wayForTargetOffer+"[contains(text(), '%s')]", targetNameOffer);
         WebElement element = waitForAjaxElementIsVisible(By.xpath(targetOffer));
         waitForVisibility(element);
+
+
     }
 }
