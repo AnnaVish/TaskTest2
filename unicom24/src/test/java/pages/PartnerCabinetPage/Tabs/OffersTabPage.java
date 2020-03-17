@@ -76,7 +76,7 @@ public class OffersTabPage extends Base {
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        Assert.assertTrue(countAllOffersOnPage.size() > 0);  //тут изредка падает, придется наверное переделать
+        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='ds-offer-card']"), 0);
     }
 
     public void checkCountFilters(){
