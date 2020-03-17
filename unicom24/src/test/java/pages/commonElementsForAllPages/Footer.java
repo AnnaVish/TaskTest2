@@ -80,9 +80,13 @@ public class Footer extends Base {
 
     public List<WebElement> getFooter() {
         if(TestContext.countOfStart == 0) {
-            waitForAjaxElementIsVisible(enpopElement);
-            clickOnAjaxElement(enpopElement);
-            TestContext.countOfStart++;
+            try {
+                waitForAjaxElementIsVisible(enpopElement);
+                clickOnAjaxElement(enpopElement);
+                TestContext.countOfStart++;
+            } catch (Exception ignore) {
+
+            }
         }
 
         return Arrays.asList(footerContainer, footerLeftSide, appleAndGoogle,
