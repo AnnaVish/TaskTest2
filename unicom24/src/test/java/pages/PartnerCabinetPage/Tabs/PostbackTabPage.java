@@ -1,6 +1,7 @@
 package pages.PartnerCabinetPage.Tabs;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -82,32 +83,52 @@ public class PostbackTabPage extends Base {
     @FindBy(xpath = "//div[./div[contains(text(), 'Базовая ссылка')]]//input")
     private WebElement baseUrlInput;
 
-    @FindBy(id = "offer_id")
+    //@FindBy(id = "offer_id")
+    @FindBy(xpath = "//div[@class=\'row params\'][1]//div[@class=\'ds-input-default-wrap\'][1]//input")
     private WebElement offerIdNameOfParametrInput;
 
-    @FindBy(id = "{offer_id}")
+    //@FindBy(id = "{offer_id}")
+    @FindBy(xpath = "//div[@class=\'row params\'][1]//div[@class=\'ds-input-default-wrap\'][2]//input")
     private WebElement offerIdValueOfParametrInput;
 
-    @FindBy(id = "offer_name")
+    //@FindBy(id = "offer_name")
+    @FindBy(xpath = "//div[@class=\'row params\'][2]//div[@class=\'ds-input-default-wrap\'][1]//input")
     private WebElement offerNameNameOfParametrInput;
 
-    @FindBy(id = "{offer_name}")
+    //@FindBy(id = "{offer_name}")
+    @FindBy(xpath = "//div[@class=\'row params\'][2]//div[@class=\'ds-input-default-wrap\'][2]//input")
     private WebElement offerNameValueOfParametrInput;
 
-    @FindBy(id = "click_id")
+    //@FindBy(id = "click_id")
+    @FindBy(xpath = "//div[@class=\'row params\'][3]//div[@class=\'ds-input-default-wrap\'][1]//input")
     private WebElement clickIdNameOfParametrInput;
 
-    @FindBy(id = "{click_id}")
+    //@FindBy(id = "{click_id}")
+    @FindBy(xpath = "//div[@class=\'row params\'][3]//div[@class=\'ds-input-default-wrap\'][2]//input")
     private WebElement clickIdValueOfParametrInput;
 
     @FindBy(xpath = "//div[@class='fake']/div[@class='value']")
     private WebElement mainTextArea;
 
-    @FindBy(xpath = "//button[contains(text(), 'Сохранить')]")
+    @FindBy(xpath = "//button[contains(text(), 'Протестировать')]")
     private WebElement checkBtn;
+
+    @FindBy(xpath = "//button[contains(text(), 'Сохранить')]")
+    private WebElement saveBtn;
 
     @FindBy(xpath = "//div[contains(text(), 'filter_none')]")
     private WebElement copyBtn;
+
+    ////// окно после тестирования постбэка начало
+    @FindBy(xpath = "//div[@class='ds-modal-inner']")
+    private WebElement formAfterTestPostBack;
+
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//div[@class='close']")
+    private WebElement closeFormAfterTestPostBack;
+    /// окно после тестирования постбэка конец
+
+    @FindBy(xpath = "//div[@class='row font__base-small']")
+    private List<WebElement> listPostBacks;
 
     private final List<WebElement> elements;
 
@@ -139,18 +160,17 @@ public class PostbackTabPage extends Base {
         typeIntoField(clickId, clickIdNameOfParametrInput);
         typeIntoField(clickIdValue, clickIdValueOfParametrInput);
         typeIntoField(baseUrl, baseUrlInput);
+        typeIntoField("AutoTestPostBack1", nameOfPostbackInput);
+        inProgressCheck.click();
+        extraditionCheck.click();
         checkBtn.click();
         try {
             Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebElement element = driver.findElement(By.xpath("//div[contains(text(), ' 200')]"));
-        WebElement element1 = driver.findElement(By.xpath("//div/b[contains(text(), 'Код ответа сервера:')]"));
-        WebElement element2 = driver.findElement(By.xpath("//div[contains(text(), 'Тестовый постбек отправлен')]"));
+        WebElement element = driver.findElement(By.xpath("//div[contains(text(), 'успешно')]"));
         waitForVisibility(element);
-        waitForVisibility(element1);
-        waitForVisibility(element2);
     }
 
     public void checkIsPostbackDone() {
@@ -162,7 +182,16 @@ public class PostbackTabPage extends Base {
         waitForVisibility(driver.findElement(By.xpath(xpathName)));
         String xpathId = String.format("//p[./strong[contains(text(), '%s')]][contains(text(), '%s')]", this.offerId, this.offerIdValue);
         waitForVisibility(driver.findElement(By.xpath(xpathId)));
+        switchToTheFirstTab();
     }
 
+    public void saveAndCheckSavedPostBack(){
+        waitForAjaxElementIsVisible(formAfterTestPostBack);
+        closeFormAfterTestPostBack.click();
+        int countPostBacks = listPostBacks.size();
+        saveBtn.click();
+        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='row font__base-small']"), countPostBacks);
+        Assert.assertTrue(countPostBacks < listPostBacks.size());
+    }
 
 }

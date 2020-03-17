@@ -76,7 +76,7 @@ public class OffersTabPage extends Base {
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        Assert.assertTrue(countAllOffersOnPage.size() > 0);
+        Assert.assertTrue(countAllOffersOnPage.size() > 0);  //тут изредка падает, придется наверное переделать
     }
 
     public void checkCountFilters(){

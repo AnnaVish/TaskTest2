@@ -33,6 +33,11 @@ public class PartnerCabinetPageStepDefinitions extends Base {
         postbackTabPage.checkIsPostbackDone();
     }
 
+    @И("^вебмастер сохраняет новый постбэк$")
+    public void webMasterSaveNewPostBack(){
+        postbackTabPage.saveAndCheckSavedPostBack();
+    }
+
     @Тогда("^вебмастер разлогинивается$")
     public void webMasterLogOut() {
         partnerCabinetPage.logOutBtnClick();
