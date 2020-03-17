@@ -62,7 +62,7 @@ public abstract class Base {
         return true;
     }
 
-    public void allElementsAreVisible(List<WebElement> elements) {
+    public static void allElementsAreVisible(List<WebElement> elements) {
         for (WebElement webElement : elements) {
             waitForVisibility(webElement);
         }
@@ -235,12 +235,22 @@ public abstract class Base {
         wait.until(countOfAjaxElementsEqualTo(locator, count));
     }
 
+    public void waitForCountOfAjaxElementsMoreThen(By locator, int count) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(countOfAjaxElementsMoreThen(locator, count));
+    }
+
+    public void waitForCountOfAjaxElementsEqualTo(final List<WebElement> elements) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(countOfAjaxElementsEqualTo(elements));
+    }
+
     public static void clickOnAjaxElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
         wait.until(waitForAjaxElementWasClicked(element));
     }
 
-    protected static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(By locator, int count) {
+    private static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(By locator, int count) {
         return new ExpectedCondition<Boolean>() {
             @Nullable
             @Override
@@ -256,7 +266,38 @@ public abstract class Base {
         };
     }
 
-    protected static ExpectedCondition<Boolean> waitForAjaxElementWasClicked(WebElement element) {
+    private static ExpectedCondition<Boolean> countOfAjaxElementsMoreThen(By locator, int count) {
+        return new ExpectedCondition<Boolean>() {
+            @Nullable
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                List<WebElement>elements = driver.findElements(locator);
+                if(elements.size() <= count) {
+                    elements = driver.findElements(locator);
+                    System.out.println(elements.size());
+                    return false;
+                }
+                return true;
+            }
+        };
+    }
+
+    protected static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(final List<WebElement> elements) {
+        return new ExpectedCondition<Boolean>() {
+            @Nullable
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                try {
+                    allElementsAreVisible(elements);
+                } catch (NoSuchElementException | StaleElementReferenceException ex) {
+                    return false;
+                }
+                return true;
+            }
+        };
+    }
+
+    private static ExpectedCondition<Boolean> waitForAjaxElementWasClicked(WebElement element) {
         return new ExpectedCondition<Boolean>() {
             @Nullable
             @Override

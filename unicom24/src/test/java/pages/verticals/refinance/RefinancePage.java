@@ -52,8 +52,6 @@ public class RefinancePage extends Base {
                 btnResetToDefault
                 //,privateClientsBread, privateClientsRefinanceBread
         ); // добавил хлебные крошки, а то не было
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void oneRefinancePage(){

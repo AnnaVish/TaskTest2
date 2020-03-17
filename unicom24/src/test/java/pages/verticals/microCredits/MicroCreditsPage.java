@@ -3,11 +3,9 @@ package pages.verticals.microCredits;
 import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
@@ -109,9 +107,7 @@ public class MicroCreditsPage extends Base {
     private WebElement h2Seo6;
     // h2 элементы конец */
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='col-12']/h2")
-    )
+    @FindBy(xpath = "//div[@class='col-12']/h2")
     private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;
@@ -133,8 +129,6 @@ public class MicroCreditsPage extends Base {
                 //,privateClientsBread, privateClientsMFOBread
         );
         //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
         personalOffer = Arrays.asList(common.personalOfferContainer, //common.giftPic,
                 common.personalOfferField
                 //common.makeOfferBtn,common.ifYouText, common.agreeLink
@@ -160,7 +154,7 @@ public class MicroCreditsPage extends Base {
         return driver.findElements(By.xpath("//div[@class='offer-item-new wrapper']")).size() > 0;
     }
 
-    public void sendForm() {
+    public void personalCreditsBtnClick() {
         common.makeOfferBtn.click();
     }
 
@@ -270,7 +264,7 @@ public class MicroCreditsPage extends Base {
 
     public void sendFormWithCorrectNumber() {
         typeIntoField(UserData.correctPhoneNumber, common.personalOfferField);
-        sendForm();
+        personalCreditsBtnClick();
     }
 
     public void smsHasBeenSent() {

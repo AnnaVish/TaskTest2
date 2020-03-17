@@ -48,8 +48,6 @@ public class FullCreditHistoryPage extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(getReport, pageTitle);
         elementsHistory = Arrays.asList(historyTitle, history);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){

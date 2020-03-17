@@ -5,7 +5,6 @@ import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
@@ -49,9 +48,7 @@ public class AutoCreditsPage extends Base {
     private WebElement h2Seo5;
     // h2 элементы конец */
 
-    @FindBys(
-            @FindBy(xpath = "//div[@class='col-12']/h2")
-    )
+    @FindBy(xpath = "//div[@class='col-12']/h2")
     private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;
@@ -71,8 +68,6 @@ public class AutoCreditsPage extends Base {
                 btnResetToDefault
                 );
         //h2Elements = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void onAutoCreditsPage(){

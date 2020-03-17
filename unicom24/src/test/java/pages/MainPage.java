@@ -130,8 +130,6 @@ public class MainPage extends Base {
         elements = Arrays.asList(credits, creditCards, autoCredits,
                 ipoteka, microCredits, protectAndOther, financialHealthRatingGetBtn, creditReportsGetBtn,
                 rfz, fullCreditHistory);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void onMainPage() {
@@ -329,6 +327,7 @@ public class MainPage extends Base {
     }
 
     public void scrollToFooter(){
+        waitForVisibility(footerPage.siteMap);
         scrollTo(footerPage.siteMap);
     }
 
@@ -354,6 +353,8 @@ public class MainPage extends Base {
     }
 
     public void siteMapClick() {
+        waitForVisibility(footerPage.siteMap);
+        scrollToFooter();
         waitForVisibility(footerPage.siteMap);
         footerPage.siteMap.click();
     }

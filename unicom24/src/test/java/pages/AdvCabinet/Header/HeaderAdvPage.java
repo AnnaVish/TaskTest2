@@ -8,7 +8,7 @@ import java.util.List;
 
 public class HeaderAdvPage {
 
-    @FindBy(xpath = "//img[@src=\"/advertiser_office/_nuxt/img/f7de1b6.png\"]")
+    @FindBy(css = "div.ds-header-logo")
     public WebElement logo;
 
     @FindBy(xpath = "//div[contains(text(), 'Кабинет банков и рекламодателей')]")

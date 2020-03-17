@@ -85,10 +85,8 @@ public class AuthPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        headerPage.getMainHeader();
         elements = Arrays.asList(authForm, entranceLink, registrationTab, mailOrTelField, passwordField,
                 entranceBtn, registrationLink, forgotPasswordLink, authGosUslugiLink);
-        footerPage.getFooter();
     }
 
     public void authPageIsDisplayed() {
@@ -133,7 +131,7 @@ public class AuthPage extends Base {
     public void messageIsDisplayed(String errorMessage) {
         String xPath = String.format("//span[contains(text(), '%s')]", errorMessage);
         WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".input_container .ui-input-label-block"), By.xpath(xPath)));
-        waitForVisibility(element);
+        waitForAjaxElementIsVisible(element);
     }
 
     public Boolean hintIsDislayed(String hitn) {

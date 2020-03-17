@@ -35,8 +35,6 @@ public class ServicesPage extends Base {
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(creditHistoryTitle, financialHealthRatingTitle,
                 getFullCreditHistoryBtn, getFinancialHealthRatingBtn);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){

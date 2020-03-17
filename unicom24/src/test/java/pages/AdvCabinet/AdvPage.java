@@ -1,10 +1,10 @@
 package pages.AdvCabinet;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 import pagesUrls.PagesUrls;
@@ -37,9 +37,7 @@ public class AdvPage extends Base {
     @FindBy(xpath = "//button[contains(text(), 'Поиск')]")
     private WebElement searchBtn;
 
-    @FindBys({
-            @FindBy(xpath = "//div[contains(@class, 'requests-view-navigation ')]//a")
-    })
+    @FindBy(xpath = "//div[contains(@class, 'requests-view-navigation ')]//a")
     private List<WebElement> tabs;
 
     private final List<WebElement> elements;
@@ -58,7 +56,9 @@ public class AdvPage extends Base {
     }
 
     public void reportsTabClick() {
-        reportsTab.click();
+        checkReportsTabIsVisible();
+        if (TestContext.reportsTabIsVisible == 1) {
+            reportsTab.click();}
     }
 
     public void dropMenuClick() {
@@ -79,5 +79,9 @@ public class AdvPage extends Base {
     public void onCabinetOfBanksAndAdvPage(){
     driver.get(PagesUrls.bankirAuth());}
 
+    public void checkReportsTabIsVisible(){
+        if (isElementVisible(reportsTab)) {
+        TestContext.reportsTabIsVisible = 1;
+    } else TestContext.reportsTabIsVisible = 0;}
 
 }

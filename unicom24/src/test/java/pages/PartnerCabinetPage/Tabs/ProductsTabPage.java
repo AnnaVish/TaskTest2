@@ -61,24 +61,17 @@ public class ProductsTabPage extends Base {
 //    private WebElement creditReportUnicom24GetReportBtn;
 
     private final List<WebElement> elements;
-    private final List<WebElement> headerPartnerCabinetPage;
 
     public ProductsTabPage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, header);
         elements = Arrays.asList(productsTitle, productsBoard/*expertizeGetReportBtn, okbGetReportBtn, fsspGetReportBtn,
                 fmsGetReportBtn, rfzGetReportBtn, creditReportGetBtn, creditRatingGetBtn,
                 ficoGetReportBtn, checkAutoGetReportBtn, scorePhoneNumberGetReportBtn, socialMediaScoringGetReportBtn */);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
     }
 
     public void pageIsDisplayed() {
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        allElementsAreVisible(headerPartnerCabinetPage);
         int countButtonsGiveReport = driver.findElements(By.cssSelector(".reports-target-action-button")).size();
         Assert.assertTrue(countButtonsGiveReport>2);
         int countBoardsProducts = driver.findElements(By.cssSelector(".reports-target")).size();

@@ -57,8 +57,6 @@ public class ActivationPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
         elements = Arrays.asList(cityField, surenameField, nameField, lastNameField, serialNumberPassportField,
                 birthDayField, dateOfPassportField, emailField, activateBtn);
     }

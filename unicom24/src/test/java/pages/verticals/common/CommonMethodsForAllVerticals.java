@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 
 public class CommonMethodsForAllVerticals extends Base{
+    CommonElements commonElements = new CommonElements();
     CommonElementsForAllVerticals commonElementsAll = new CommonElementsForAllVerticals();
     CommonElementsForDetailsPages commonElementsForDetailsPages = new CommonElementsForDetailsPages();
 
@@ -44,5 +45,18 @@ public class CommonMethodsForAllVerticals extends Base{
         } catch (Exception e) {
         }
         return false;
+    }
+
+    public void clickShowMoreBtn() {
+        waitForVisibility(commonElements.showMoreBtn);
+        commonElements.showMoreBtn.click();
+    }
+
+    public void addInfoIsDisplayed() {
+        waitForAjaxElementIsVisible(commonElements.additionalInfo);
+    }
+
+    public void gotoAddInfoLinkClick() {
+        clickOnAjaxElement(commonElements.gotoAddInfoLink);
     }
 }

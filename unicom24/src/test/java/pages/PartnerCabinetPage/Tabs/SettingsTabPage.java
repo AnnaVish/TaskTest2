@@ -16,37 +16,30 @@ public class SettingsTabPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Настройки')]")
     private WebElement settingsTitle;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Демо режим')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Демо режим')]")
     private WebElement demoSwitcher;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Новые офферы')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Новые офферы')]")
     private WebElement newOfferSwitcher;
 
-    @FindBy(xpath = "//div[./div[contains(text(), 'Изменения офферов')]]/div[2]/label/span")
+    @FindBy(xpath = "//label[contains(text(), 'Изменения офферов')]")
     private WebElement changeOffersSwitcher;
 
-    @FindBy(xpath = "//div[contains(text(), 'Яндекс.Метрика ID:')]")
+    @FindBy(xpath = "//div[contains(text(), 'Яндекс.Метрика ID')]")
     private WebElement yaMeter;
 
     @FindBy(xpath = "//button[contains(text(), 'Сохранить')]")
     private WebElement saveBtn;
 
     private final List<WebElement> elements;
-    private final List<WebElement> headerPartnerCabinetPage;
 
     public SettingsTabPage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, header);
         elements = Arrays.asList(settingsTitle, demoSwitcher, newOfferSwitcher, changeOffersSwitcher, yaMeter, saveBtn);
-        headerPartnerCabinetPage = Arrays.asList(header.headerContainer, header.logo, header.logoTitle, header.balance,
-                header.getMoney, header.patentialMoney, header.moneyOfAllTime, header.getMoneyForAllTime,
-                header.logOutBtn, header.ringBtn, header.statisticLink, header.offersLink, header.landingsLink,
-                header.productsLink, header.postBacksLink, header.helpLink, header.settingsLink,
-                header.staticticImg, header.statisticTitle);
     }
 
     public void pageIsDisplayed() {
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        allElementsAreVisible(headerPartnerCabinetPage);
     }
 }

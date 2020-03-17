@@ -131,4 +131,9 @@ public class Header extends Base {
         //Assert.assertEquals(countOfBreadCrumbs, driver.findElements(By.xpath("//ul[contains(@class, 'ui-breadcrumbs-list')]/li[not(contains(@class, 'ui-breadcrumbs-item-img'))][./*[contains(text(), '')]]")).size());
         sa.assertEquals(countOfBreadCrumbs, driver.findElements(By.xpath("//ul[contains(@class, 'ui-breadcrumbs-list')]/li[not(contains(@class, 'ui-breadcrumbs-item-img'))][./*[contains(text(), '')]]")).size());
     }
+
+    //проверка ХК в подробной странице микрозайма
+    public static void checkBreadCrumbsMicroCreditsDetailedPage(int countOfBreadCrumbs) {
+        sa.assertEquals(countOfBreadCrumbs, driver.findElements(By.cssSelector(".offer-detail-qiwi-breadcrumbs a")).size());
+    }
 }

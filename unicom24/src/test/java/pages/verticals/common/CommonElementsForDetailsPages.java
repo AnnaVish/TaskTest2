@@ -40,8 +40,6 @@ public class CommonElementsForDetailsPages extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, commonElements);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(String nameOfVerticalFullIfoBankOffer){

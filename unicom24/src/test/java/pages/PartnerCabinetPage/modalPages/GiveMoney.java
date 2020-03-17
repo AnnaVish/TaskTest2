@@ -11,35 +11,35 @@ import java.util.List;
 
 public class GiveMoney extends Base {
 
-    @FindBy(xpath = "//div[@class='cash-modal-view']")
-    private WebElement modalPageHowMuchMoney;
-
-    @FindBy(xpath = "//div[@class='cash-modal-money-input-button cash-modal-money-input-button-left']")
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//div[contains(text(), '+')]")
     private WebElement modalPagePlusBTN;
 
-    @FindBy(xpath = "//button[@class='cash-modal-button cash-modal-money-button']")
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//div[contains(text(), '−')]")
+    private WebElement modalPageMinusBTN;
+
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//button[contains(text(), 'Далее')]")
     private WebElement modalPageNextStepBTN;
 
-    @FindBy(xpath= "//div[@class='cash-modal-buttons-wrap']/div[contains(text(), 'Расчетный счет')]")
+    @FindBy(xpath= "//div[@class='ds-modal-inner']//button[contains(text(), 'Расчетный счет')]")
     private WebElement modalPageFirstMethodBTN;
 
-    @FindBy(xpath = "//button[@class='cash-modal-button cach-payment-method-button ng-scope']")
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//button[contains(text(), 'Вывести')]")
     private WebElement modalPageGiveMoneyBTN;
 
-    @FindBy(xpath = "//div[@class='cach-payment-send-money']")
+    @FindBy(xpath = "//div[@class='send-money font__base-small']")
     private WebElement modalPageSuccessfulText;
 
-    @FindBy(xpath = "//button[@class='cash-modal-button cach-payment-method-button']")
+    @FindBy(xpath = "//div[@class='ds-modal-inner']//button[contains(text(), 'Закрыть')]")
     private WebElement modalPageExitBTN;
 
-    @FindBy(id = "toast-container")
+    @FindBy(xpath ="//em[@class='material-icons send-image']")
     private WebElement alertBlock;
 
     private final List<WebElement> elements;
 
     public GiveMoney(){
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(modalPageHowMuchMoney, modalPagePlusBTN, modalPageNextStepBTN);
+        elements = Arrays.asList(modalPagePlusBTN, modalPageMinusBTN, modalPageNextStepBTN);
     }
 
     public void modalPageIsDisplayed(){
@@ -55,7 +55,7 @@ public class GiveMoney extends Base {
     }
 
     public void modalPageNextStepIsDisplayed(){
-        waitForVisibility(modalPageFirstMethodBTN);
+        waitForAjaxElementIsVisible(modalPageFirstMethodBTN);
     }
 
     public void modalPageFirstMethodBTNClick(){

@@ -1,11 +1,11 @@
 package pages.AdvCabinet;
 
+import TestContext.TestContext;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import pages.AdvCabinet.Header.HeaderAdvPage;
 import pages.AdvCabinet.ReportsPages.Reports;
@@ -25,14 +25,10 @@ public class ReportsTabPage extends Base {
     @FindBy(css = "div.reports-view-list")
     private WebElement offersList;
 
-    @FindBys({
-            @FindBy(css = "div.ds-report-list-item-wrapper")
-    })
+    @FindBy(css = "div.ds-report-list-item-wrapper")
     private List<WebElement> reportOrders;
 
-    @FindBys({
-            @FindBy(xpath = "//div[@class='ds-report-list-item-left-text-name']/a")
-    })
+    @FindBy(xpath = "//div[@class='ds-report-list-item-left-text-name']/a")
     private List<WebElement> reportOrdersTitleText;
 
     private final List<WebElement> elements;
@@ -44,12 +40,14 @@ public class ReportsTabPage extends Base {
     }
 
     public void pageIsDisplayed() {
+        if (TestContext.reportsTabIsVisible == 1) {
         allElementsAreVisible(header.getAdvHeader());
         allElementsAreVisible(elements);
-        Assert.assertEquals(reportOrdersTitleText.size(), 4);
+        Assert.assertEquals(reportOrdersTitleText.size(), 4);}
     }
 
     public void reportsCheck() {
+        if (TestContext.reportsTabIsVisible == 1) {
         int countReportOrders = reportOrders.size();
         for (int i = 0; i < countReportOrders; i++) {
             String nameOfReport = reportOrdersTitleText.get(i).getText();
@@ -58,7 +56,7 @@ public class ReportsTabPage extends Base {
             reports.reportPageCheck(nameOfReport);
             advPage.reportsTabClick();
             pageIsDisplayed();
-        }
+        }}
     }
 
     public void ordersClick(String nameOfReport){

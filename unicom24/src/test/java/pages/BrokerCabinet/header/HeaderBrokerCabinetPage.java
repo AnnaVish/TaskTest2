@@ -3,7 +3,6 @@ package pages.BrokerCabinet.header;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 
 import java.util.Arrays;
 import java.util.List;
@@ -70,9 +69,7 @@ public class HeaderBrokerCabinetPage extends Base {
     /*
      * Подменю хэдэра
      */
-    @FindBys({
-            @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text')]")
-    })
+    @FindBy(xpath = "//div[contains(@class, 'ui-sub-menu-item-text')]")
     private List<WebElement> elements;
 
     public List<WebElement> getSubMenuElements() {

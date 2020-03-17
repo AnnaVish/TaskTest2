@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
+import pages.PartnerCabinetPage.Tabs.*;
+import pages.PartnerCabinetPage.Tabs.ReportsTab.ReportsTabPage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,20 +14,28 @@ import java.util.List;
 public class PartnerCabinetPage extends Base {
 
     private final HeaderPartnerCabinetPage header = new HeaderPartnerCabinetPage();
+    private final SettingsTabPage settingsTabPage = new SettingsTabPage();
+    private final ReferenceTabPage referenceTabPage = new ReferenceTabPage();
+    private final PostbackTabPage postbackTabPage = new PostbackTabPage();
+    private final ProductsTabPage productsTabPage = new ProductsTabPage();
+    private final LandingsTabPage landingsTabPage = new LandingsTabPage();
+    private final OffersTabPage offersTabPage = new OffersTabPage();
+    private final ReportsTabPage reportsTabPage = new ReportsTabPage();
+    private final MyClientsTabPage myClientsTabPage = new MyClientsTabPage();
 
     /*
      * Верхний блок
      */
-    @FindBy(xpath = "//div[contains(@class, 'ui-app-main-header')][./div[contains(text(), 'Статистика')]]")
-    private WebElement statisticTitle;
+    //@FindBy(xpath = "//div[contains(@class, 'ui-app-main-header')][./div[contains(text(), 'Статистика')]]")
+    //private WebElement statisticTitle; вроде как выпилили, так как на старых скринах есть, а сейчас нету
 
-    @FindBy(xpath = "//div[contains(@class, 'ui-statistics-questionnaires-left')]/div[contains(text(), 'Анкеты')]")
+    @FindBy(xpath = "//div[contains(@class, 'left')]/div[contains(text(), 'Анкеты')]")
     private WebElement anketyTitle;
 
-    @FindBy(xpath = "//div[./span[contains(text(), 'от')]]/div/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'от')]]//input")
     private WebElement anketyDateFrom;
 
-    @FindBy(xpath = "//div[./span[contains(text(), 'до')]]/div/input")
+    @FindBy(xpath = "//div[./div[contains(text(), 'до')]]//input")
     private WebElement anketyDateTo;
 
     @FindBy(xpath = "//div[contains(text(), 'Кол-во сконвертившихся анкет')]")
@@ -37,22 +47,22 @@ public class PartnerCabinetPage extends Base {
     * Статистика окончена
      */
 
-    @FindBy(css = ".ui-cabinet-stat-blocks-left")
+    @FindBy(xpath = "//div[@class='home-left']")
     private WebElement leftBlock;
 
     @FindBy(xpath = "//div[contains(text(), 'Входящие')]")
     private WebElement inputTitle;
 
-    @FindBy(css = ".ui-cabinet-stat-blocks-right ")
+    @FindBy(xpath = "//div[@class='home-right']")
     private WebElement rightBlock;
 
     @FindBy(xpath = "//div[contains(text(), 'Конверсия за текущий месяц')]")
     private WebElement currentYearTitle;
 
-    @FindBy(xpath = "//span[contains(text(), 'Доход')]")
+    @FindBy(xpath = "//button[contains(text(), 'Доход')]")
     private WebElement incomeTab;
 
-    @FindBy(xpath = "//span[contains(text(), 'Заявки')]")
+    @FindBy(xpath = "//button[contains(text(), 'Заявки')]")
     private WebElement applicationsTab;
 
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые офферы')]")
@@ -61,68 +71,44 @@ public class PartnerCabinetPage extends Base {
     @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Все офферы')]")
     private WebElement allOffersLink;
 
-    @FindBy(css = ".ui-offers-card-row-inner")
-    private WebElement offer;
-
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые лендинги')]")
     private WebElement recomendLandings;
 
     @FindBy(xpath = "//a[@href=\"/partners/office/landings\"][contains(text(), 'Все лендинги')]")
     private WebElement allLandingsLink;
 
-    @FindBy(css = ".ui-landings-container-item")
-    private WebElement landing;
-
-    @FindBy(xpath = "//div[contains(text(), 'Подключение') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Подключение')]")
     private WebElement connectLanding;
 
-    @FindBy(xpath = "//div[contains(text(), 'Описание') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Описание')]")
     private WebElement landingDescriptionTab;
 
-    @FindBy(xpath = "//div[contains(text(), 'Настройка') and contains(@class, 'ui-cabinet-offer-tab')]")
+    @FindBy(xpath = "//div[./div[contains(text(), 'Динамический лендинг')]]//button[contains(text(), 'Настройка')]")
     private WebElement landingSettingsTab;
+
+    @FindBy(xpath = "//div[@class='connection-wrap']")
+    private WebElement landingParametersLink;
 
     @FindBy(xpath = "//button[contains(text(), 'Привязать')]")
     private WebElement connectLandingTab;
 
+    @FindBy(xpath = "//div[@class='ds-offer-card']")
+    private List<WebElement> offer;
+
     private final List<WebElement>elements;
 
     public PartnerCabinetPage(){
-        PageFactory.initElements(driver, header);
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(statisticTitle, anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
+        elements = Arrays.asList(//statisticTitle,
+                anketyTitle, anketyDateFrom, anketyDateTo, countOfAnket, middleSaldo,
                 leftBlock, inputTitle, rightBlock, currentYearTitle, incomeTab, applicationsTab, recomendOffer,
-                allOffersLink, offer, recomendLandings, allLandingsLink, landing, connectLanding, landingDescriptionTab,
-                landingSettingsTab, connectLandingTab);
+                allOffersLink, recomendLandings, allLandingsLink, connectLanding, landingDescriptionTab,
+                landingSettingsTab, connectLandingTab, landingParametersLink);
     }
 
     public void pageIsDisplayed(){
-        allElementsAreVisible(header.getHeaderPartnerCabinetPage());
+        header.headerIsDisplayed();
         allElementsAreVisible(elements);
-    }
-
-    public void postBackClick(){
-        header.postBacksLink.click();
-    }
-
-    public void referenceClick() {
-        header.helpLink.click();
-    }
-
-    public void productsClick() {
-        header.productsLink.click();
-    }
-
-    public void landingsClick() {
-        header.landingsLink.click();
-    }
-
-    public void offersClick() {
-        header.offersLink.click();
-    }
-
-    public void statisticClick() {
-        header.statisticLink.click();
     }
 
     public void logOutBtnClick() {
@@ -130,13 +116,50 @@ public class PartnerCabinetPage extends Base {
         header.logOutBtn.click();
     }
 
-    public void settingsClick() {
-        waitForVisibility(header.settingsLink);
-        header.settingsLink.click();
-    }
-
     public void giveMoneyModalClick(){
         waitForVisibility(header.getMoney);
         header.getMoney.click();
+    }
+
+    public void tabClick(String tabName){
+        for (WebElement element : header.returnDownHeader()) {
+            if (element.getText().equals(tabName)) {
+                waitForVisibility(element);
+                element.click();
+            }
+        }
+    }
+
+    public void tabIsDisplayed(String tabName){
+        switch (tabName){
+            case ("Настройки"):
+                settingsTabPage.pageIsDisplayed();
+                break;
+            case ("Справка"):
+                referenceTabPage.pageIsDisplayed();
+                break;
+            case ("Постбек"):
+                postbackTabPage.pageIsDisplayed();
+                break;
+            case ("Продукты"):
+                productsTabPage.pageIsDisplayed();
+                break;
+            case ("Лендинги"):
+                landingsTabPage.pageIsDisplayed();
+                break;
+            case ("Офферы"):
+                offersTabPage.pageIsDisplayed();
+                offersTabPage.checkCountFilters();
+                break;
+            case ("Отчеты"):
+                reportsTabPage.pageIsDisplayed();
+                break;
+            case ("Мои клиенты"):
+                myClientsTabPage.pageIsDisplayed();
+                break;
+            case ("Подбор Кредита"):
+                pageIsDisplayed();
+                break;
+        }
     }
 }

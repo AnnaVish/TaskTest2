@@ -39,8 +39,6 @@ public class FullCreditsHistoryNewPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(/*historyTitle, history*/ priceCost, creditReportApplication);
-        headerPage.getMainHeader();
-        footerPage.getFooter();
     }
 
     public void pageIsDisplayed(){
