@@ -12,8 +12,8 @@ import java.util.List;
 public class TotalReport extends ReportsTabPage {
 
     //Вкладки сводный детализированный единый
-    @FindBy(css = ".header button")
-    protected List<WebElement> navigationBTNs;
+    @FindBy(xpath = "//div[./div[contains(text(), 'Статистика')]]//button")
+    private List<WebElement> navigationBTNs;
 
     //большие лэйблы
     @FindBy(css = ".reports-toolbar-filters label")
