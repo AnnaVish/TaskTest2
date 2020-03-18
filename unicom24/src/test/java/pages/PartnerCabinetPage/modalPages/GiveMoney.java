@@ -32,7 +32,7 @@ public class GiveMoney extends Base {
     @FindBy(xpath = "//div[@class='ds-modal-inner']//button[contains(text(), 'Закрыть')]")
     private WebElement modalPageExitBTN;
 
-    @FindBy(xpath ="//em[@class='material-icons send-image']")
+    @FindBy(xpath ="//div[@class='message font__base']")
     private WebElement alertBlock;
 
     private final List<WebElement> elements;

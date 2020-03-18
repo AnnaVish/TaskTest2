@@ -80,7 +80,7 @@ public class OffersTabPage extends Base {
     }
 
     public void checkCountFilters(){
-        Assert.assertEquals(5, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // внезапно снова стало 5 кнопок вместо 7
+        Assert.assertEquals(7, driver.findElements(By.xpath(nameOfTypeProductTitle+anyButton)).size()); // внезапно снова стало 5 кнопок вместо 7 а теперь снова 7
         Assert.assertEquals(4, driver.findElements(By.xpath(nameOfTargetActionTitle+anyButton)).size());
         Assert.assertEquals(2, driver.findElements(By.xpath(nameOfTypeOffer)).size());
     }

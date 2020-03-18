@@ -2,6 +2,7 @@ package pages.PartnerCabinetPage.Tabs.ReportsTab;
 
 import base.Base;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,7 +35,8 @@ public class ReportsTabPage extends Base {
 
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
-        allElementsAreVisible(reportTabs); // без этого иногда падает, так как не успевает страница прогрузиться правильно
+        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='navigation']/div[@class='ds-button-wrapper']"), 0);
+        //allElementsAreVisible(reportTabs);
         Assert.assertEquals(5, reportTabs.size());
     }
 
