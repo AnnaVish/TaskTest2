@@ -2,7 +2,7 @@
 
 Функционал: Проверка постбеков
 
-  @test4
+  @test
   @TestCaseId("40")
   @Severity(Critical)
   Сценарий: Сделать постбек get
