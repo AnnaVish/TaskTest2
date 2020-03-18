@@ -1,6 +1,7 @@
 package pages.PartnerCabinetPage.Tabs.ReportsTab;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +25,7 @@ public class LandingsAndAPI extends ReportsTabPage {
     public void pageIsDisplayed() {
         super.pageIsDisplayed();
         allElementsAreVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
+        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='ds-button-group']//button"), 0);
         Assert.assertEquals(4, statsBTNs.size());
     }
 }
