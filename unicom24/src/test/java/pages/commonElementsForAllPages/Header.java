@@ -17,6 +17,9 @@ public class Header extends Base {
     @FindBy(css = "a.ui-app-header-logo-wrapper")
     public WebElement logoLink;
 
+    @FindBy(css = "span.ui-app-header-logo-wrapper") //хэдэр только на главной span
+    public WebElement logoSpan;
+
     @FindBy(xpath = "//span[contains(text(), 'Частным клиентам')]")
     public WebElement privateCustomersLink;
 
@@ -53,11 +56,13 @@ public class Header extends Base {
     @FindBy(xpath = "//span[contains(text(), 'МФО')]")
     public WebElement mfoHeaderLink;
 
-    //@FindBy(xpath = "//span[contains(text(), 'Блог')]") - на 10.01.2020 уже нет на странице
-    //public WebElement blogHeaderLink;
-
     public List<WebElement> getMainHeader() {
         return Arrays.asList(logoLink, privateCustomersLink, othersLink, servicesLink,
+                creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
+    }
+
+    public List<WebElement> getMainHeaderOnMainPage() {
+        return Arrays.asList(logoSpan, privateCustomersLink, othersLink, servicesLink,
                 creditsHeaderLink, creditCardsHeaderLink, autoCreditsHeaderLink, ipotekaHeaderLink, refinanceHeaderLink);
     }
 
@@ -128,7 +133,6 @@ public class Header extends Base {
 //    }
 
     public static void checkBreadCrumbs(int countOfBreadCrumbs) {
-        //Assert.assertEquals(countOfBreadCrumbs, driver.findElements(By.xpath("//ul[contains(@class, 'ui-breadcrumbs-list')]/li[not(contains(@class, 'ui-breadcrumbs-item-img'))][./*[contains(text(), '')]]")).size());
         sa.assertEquals(countOfBreadCrumbs, driver.findElements(By.xpath("//ul[contains(@class, 'ui-breadcrumbs-list')]/li[not(contains(@class, 'ui-breadcrumbs-item-img'))][./*[contains(text(), '')]]")).size());
     }
 
