@@ -141,7 +141,7 @@ public class MainPage extends Base {
     }
 
     public void mainPageIsDisplayed() {
-        allElementsAreVisible(headerPage.getMainHeader());
+        allElementsAreVisible(headerPage.getMainHeaderOnMainPage());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
         Assert.assertTrue(countOfImageVertical());
