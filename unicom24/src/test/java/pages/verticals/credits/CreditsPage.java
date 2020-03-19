@@ -51,30 +51,6 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//div[@class='title']")
     private WebElement bankName;
 
-    /*
-    //h2 элементы начало
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
-    private WebElement h2Seo1;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Плюсы и минусы онлайн кредитов')]")
-    private WebElement h2Seo2;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения потребительского кредита')]")
-    private WebElement h2Seo3;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как и где взять кредит онлайн?')]")
-    private WebElement h2Seo4;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Какие документы необходимы при оформлении потребительского кредита?')]")
-    private WebElement h2Seo5;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Почему банк может отказать в выдаче кредита?')]")
-    private WebElement h2Seo6;
-
-    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Способы погашения кредита')]")
-    private WebElement h2Seo7;
-    //h2 элементы конец */
-
 
     @FindBy(xpath = "//div[@class='col-12']/h2")
     private List<WebElement> h2SeoElements;
@@ -88,17 +64,8 @@ public class CreditsPage extends Base {
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
         PageFactory.initElements(driver, adminkaRedirects);
-        elements = Arrays.asList(getCreditList, formOffer, common.logo, //common.rating, - отсутствует на странице
-                common.title,
-                //common.ratePerYear, - тоже отсутствует на странице вообще
-                //common.payPerMonth,  - тоже отсутствует на странице вообще
-                //common.time,  - тоже отсутствует на странице вообще
-                //common.neededPaying, - тоже отсутствует на странице вообще
-                //common.license, - тоже отсутствует
-                btnResetToDefault
-                //,privateClientsBread, privateClientsCreditsBread
+        elements = Arrays.asList(getCreditList, formOffer, common.title, btnResetToDefault
         );
-        //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo3, h2Seo4, h2Seo5, h2Seo6, h2Seo7);
     }
 
     public void onCreditsPage() {

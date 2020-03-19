@@ -25,8 +25,6 @@ public class CommonElementsForAllVerticals extends Base {
     /*
     *Тута уже не будут массивы
      */
-    @FindBy(xpath = "//a[@class='ui-app-header-logo-wrapper nuxt-link-active']")
-    public WebElement logo;
 
     @FindBy(xpath = "//div[@class='rating']")
     public WebElement rating;

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class PagesUrls {
 
-    public static String mainPage = baseUrl();
+    public static String mainPage = "https://release-01.vuaro.ru/";
     public static String bankListPage = bankList();
 
     public static String baseUrl() {
