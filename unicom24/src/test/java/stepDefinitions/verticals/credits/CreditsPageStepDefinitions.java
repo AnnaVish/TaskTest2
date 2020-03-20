@@ -60,4 +60,34 @@ public class CreditsPageStepDefinitions extends Base {
     public void userChangeLocation(String selectCity){
         commonMethods.userChangeLocationCity(selectCity);
     };
+
+    @И("^пользователь кликает на Подобрать на странице Кредиты$")
+    public void userPodobratClick(){
+        creditsPage.podobratCreditClick();
+    }
+
+    @Тогда("^пользователь видит форму ввода кода из смс в подборе кредита$")
+    public void nonUserPodborCreditFormSmsConfirmIsDisplayed(){
+        creditsPage.podobrCreditFormSmsConfirmIsDisplayed();
+    }
+
+    @Когда("^пользователь видит форму с персональными данными зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditFormStep2IsDisplayed(){
+        creditsPage.podborCreditFormStep2IsDisplayed();
+    }
+
+    @Тогда("^пользователь кликает Далее в форме с персональными данными зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditNextClick(){
+        creditsPage.podborCreditNextClick();
+    }
+
+    @Когда("^пользователь видит форму с паспортными данными зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditFormStep3IsDisplayed(){
+        creditsPage.podborCreditFormStep3IsDisplayed();
+    }
+
+    @Тогда("^пользователь кликает Показать предложения в форме с паспортными данными зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditStep3Click(){
+        creditsPage.podborCreditResultsDisplayedClick();
+    }
 }

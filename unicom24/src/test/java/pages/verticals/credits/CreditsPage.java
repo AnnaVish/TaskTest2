@@ -51,6 +51,21 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//div[@class='title']")
     private WebElement bankName;
 
+    @FindBy(xpath = "//button[contains(text(), 'Подобрать')]")
+    private WebElement podobratCredit;
+
+    @FindBy(xpath = "//button[contains(text(), 'Далее')]")
+    private WebElement podborCreditNext;
+
+    @FindBy(xpath = "//form[@class='form-offers-step-two']")
+    private WebElement podborCreditStep2;
+
+    @FindBy(xpath = "//form[@class='form-confirm']")
+    private WebElement podobrCreditFormSmsConfirm;
+
+    @FindBy(xpath = "//button[contains(text(), 'Показать предложения')]")
+    private WebElement podborCreditResultsDisplayed;
+
     /*
     //h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
@@ -187,5 +202,29 @@ public class CreditsPage extends Base {
 
     public Boolean checkH2SeoElements(){
         return h2SeoElements.size() == 7;
+    }
+
+    public void podobratCreditClick(){
+        podobratCredit.click();
+    }
+
+    public void podobrCreditFormSmsConfirmIsDisplayed(){
+        waitForAjaxElementIsVisible(podobrCreditFormSmsConfirm);
+    }
+
+    public void podborCreditFormStep2IsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditStep2);
+    }
+
+    public void podborCreditNextClick(){
+        podborCreditNext.click();
+    }
+
+    public void podborCreditFormStep3IsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditResultsDisplayed);
+    }
+
+    public void podborCreditResultsDisplayedClick(){
+        podborCreditResultsDisplayed.click();
     }
 }
