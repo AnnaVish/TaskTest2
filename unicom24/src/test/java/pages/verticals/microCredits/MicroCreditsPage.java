@@ -23,17 +23,9 @@ public class MicroCreditsPage extends Base {
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
 
-    //@FindBy(css = ".offers-list-row .offer-online") - отсутствует на странице на период 10.01.2020
-    //private WebElement getCreditBtn;
 
     @FindBy(css = ".form-offers-small .form-one")
     private WebElement formOffer;
-
-    //@FindBy(xpath = "//a[contains(text(), 'Частным клиентам')]")
-    //private WebElement privateClientsBread;
-
-    //@FindBy(xpath = "//li/span[contains(text(), 'Займы онлайн')]")
-    //private WebElement privateClientsMFOBread;
 
     /*
      * форма с отправленным смс
@@ -82,37 +74,12 @@ public class MicroCreditsPage extends Base {
 
     @FindBy(xpath = "//button[./span[contains(text(), 'Далее')]]")
     private WebElement approvedSmsBtn;
-    /*
-     * форма с подтвержденным кодом из смс окончена
-     */
-
-    /*
-    // h2 элементы начало
-    @FindBy(xpath = "//h2[contains(text(), 'Особенности займов на карту')]")
-    private WebElement h2Seo1;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Плюсы и минусы микрозаймов')]")
-    private WebElement h2Seo2;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Условия получения займов на карту')]")
-    private WebElement h2Seo3;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Как оформить микрозайм на карту онлайн?')]")
-    private WebElement h2Seo4;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Список документов для оформления займа онлайн на карту')]")
-    private WebElement h2Seo5;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Способы погашения займа')]")
-    private WebElement h2Seo6;
-    // h2 элементы конец */
 
     @FindBy(xpath = "//div[@class='col-12']/h2")
     private List<WebElement> h2SeoElements;
 
     public final List<WebElement> elements;
     private final List<WebElement> personalOffer;
-    //public final List<WebElement> elementsH2;
 
 
     public MicroCreditsPage() {
@@ -120,19 +87,9 @@ public class MicroCreditsPage extends Base {
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
         PageFactory.initElements(driver, common);
-        elements = Arrays.asList(//getCreditBtn,
-                formOffer, common.logo,
-                //common.rating,
-                common.title
-                //common.payPerDay,
-                //common.time, common.neededPaying, common.license
-                //,privateClientsBread, privateClientsMFOBread
-        );
-        //elementsH2 = Arrays.asList(h2Seo1, h2Seo2, h2Seo3, h2Seo4, h2Seo5, h2Seo6);
-        personalOffer = Arrays.asList(common.personalOfferContainer, //common.giftPic,
-                common.personalOfferField
-                //common.makeOfferBtn,common.ifYouText, common.agreeLink
-                );
+        elements = Arrays.asList(formOffer, common.title);
+        personalOffer = Arrays.asList(common.personalOfferContainer,
+                common.personalOfferField);
     }
 
     public void onMicroCreditsPage(){
@@ -143,7 +100,6 @@ public class MicroCreditsPage extends Base {
     public void pageIsDisplyed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        //allElementsAreVisible(elementsH2);
         scrollTo(common.personalOfferContainer);
         allElementsAreVisible(personalOffer);
         allElementsAreVisible(footerPage.getFooter());
