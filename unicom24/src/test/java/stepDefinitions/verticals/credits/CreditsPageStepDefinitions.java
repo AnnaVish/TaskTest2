@@ -90,4 +90,24 @@ public class CreditsPageStepDefinitions extends Base {
     public void userPodborCreditStep3Click(){
         creditsPage.podborCreditResultsDisplayedClick();
     }
+
+    @Когда("^пользователь вводит номер телефона в форме подбора кредита$")
+    public void userPodborCreditNumberFonInput(){
+        creditsPage.podborCreditInputFonField();
+    }
+
+    @И("^пользователь кликает Далее в форме подбора кредита для не зарегистрованного пользователя$")
+    public void userPodborCreditFonNext(){
+        creditsPage.podborCreditNextClick();
+    }
+
+    @Когда("^пользователь видит форму ввода кода из смс для не зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditFormForSMSCodeIsDisplayed(){
+        creditsPage.podborCreditFormForSMSCodeIsDisplayed();
+    }
+
+    @Тогда("^пользователь вводит код из смс в форму для не зарегистрированного пользователя в подборе кредита$")
+    public void userPodborCreditInputSMSToForm(){
+        creditsPage.InputSMSCodeForPodborCredit();
+    }
 }

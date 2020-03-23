@@ -10,6 +10,7 @@ import pages.Adminka.AdminkaRedirects;
 import pages.Adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pages.commonElementsForAllPages.UserData;
 import pages.verticals.common.CommonElementsForAllVerticals;
 import org.junit.Assert;
 import pagesUrls.PagesUrls;
@@ -66,6 +67,14 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//button[contains(text(), 'Показать предложения')]")
     private WebElement podborCreditResultsDisplayed;
 
+    @FindBy(xpath = "//div[@class='ui-input-new']/input")
+    private WebElement podborCreditInputFon;
+
+    @FindBy(xpath = "//form[@class='form-confirm']")
+    private WebElement podborCreditFormForSMSCode;
+
+    @FindBy(xpath = "//label[./div[contains(text(), 'Код из СМС')]]//input")
+    private WebElement podborCreditInputForSMSCode;
     /*
     //h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
@@ -226,5 +235,68 @@ public class CreditsPage extends Base {
 
     public void podborCreditResultsDisplayedClick(){
         podborCreditResultsDisplayed.click();
+    }
+
+    public void podborCreditInputFonField() {
+        podborCreditInputFon.clear();
+        typeIntoField(UserData.correctPhoneNumber, podborCreditInputFon);
+
+    }
+
+    public void podborCreditFormForSMSCodeIsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditFormForSMSCode);
+    }
+
+    public void InputSMSCodeForPodborCredit() {
+        try {
+            openNewTab();
+            switchToTheSecondTab();
+            for (int i = 0; i < 4; i++) {
+                if (TestContext.passrordFromSms == null) {
+                    try {
+                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer1"));
+                    } catch (Exception e) {
+                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+                    }
+                } else break;
+            }
+            driver.close();
+            switchToTheFirstTab();
+            clearField(podborCreditInputForSMSCode);
+            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passrordFromSms)) {
+                clearField(podborCreditInputForSMSCode);
+                typeIntoField(TestContext.passrordFromSms, podborCreditInputForSMSCode);
+            }
+            podborCreditNextClick();
+            //waitForUrlContains(PagesUrls.baseUrl() + "/");
+        }
+        catch (Exception e) {
+            openNewTab();
+            switchToTheSecondTab();
+            getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+            driver.close();
+            switchToTheFirstTab();
+            clearField(podborCreditInputForSMSCode);
+            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passrordFromSms)) {
+                clearField(podborCreditInputForSMSCode);
+                typeIntoField(TestContext.passrordFromSms, podborCreditInputForSMSCode);
+            }
+
+            podborCreditNextClick();
+            //waitForUrlContains(PagesUrls.baseUrl() + "/");
+        }
+    }
+
+    public void getPasswordSMSFromServer(String url) {
+        driver.get(url);
+        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код')]", UserData.getFormatNumber());
+        TestContext.passrordFromSms = driver.findElement(By.xpath(xPath)).getText();
+        TestContext.passrordFromSms = TestContext.passrordFromSms.replaceAll("[^0-9]", "");
+        TestContext.passrordFromSms = TestContext.passrordFromSms.substring(0, TestContext.passrordFromSms.length() - 2);
+        TestContext.smsServerValueUrl = driver.getCurrentUrl();
     }
 }
