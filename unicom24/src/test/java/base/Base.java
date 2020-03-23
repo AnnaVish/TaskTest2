@@ -282,7 +282,7 @@ public abstract class Base {
         };
     }
 
-    protected static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(final List<WebElement> elements) {
+    private static ExpectedCondition<Boolean> countOfAjaxElementsEqualTo(final List<WebElement> elements) {
         return new ExpectedCondition<Boolean>() {
             @Nullable
             @Override
