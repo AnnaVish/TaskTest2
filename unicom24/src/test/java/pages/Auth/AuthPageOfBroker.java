@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AuthPageOfBroker extends Base {
 
-    @FindBy(css = ".login-partners-inner")
+    @FindBy(css = "div.form")
     private WebElement form;
 
     @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='email']")
