@@ -76,7 +76,7 @@ public class OffersTabPage extends Base {
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
         allElementsAreVisible(elements);
-        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='ds-offer-card']"), 0);
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='ds-offer-card']"), 0);
     }
 
     public void checkCountFilters(){
@@ -124,12 +124,12 @@ public class OffersTabPage extends Base {
 
     public void checkFilterOfOffersType(String nameFilter){
                 if (nameFilter.equals("API")) {
-                    waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='type']/span[contains(text(), 'API')]"), 0);
+                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'API')]"), 0);
                     Assert.assertTrue(typeAPIOfferToTable.size() > 0 );
                     Assert.assertTrue(typeREFOfferToTable.size() == 0);
                 }
                 if (nameFilter.equals("Реферальные ссылки")) {
-                    waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='type']/span[contains(text(), 'REF')]"), 0);
+                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'REF')]"), 0);
                     Assert.assertTrue(typeAPIOfferToTable.size() == 1 );
                     Assert.assertTrue(typeREFOfferToTable.size() > 0);
                 }

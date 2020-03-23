@@ -235,7 +235,7 @@ public abstract class Base {
         wait.until(countOfAjaxElementsEqualTo(locator, count));
     }
 
-    public void waitForCountOfAjaxElementsMoreThen(By locator, int count) {
+    public void waitForCountOfAjaxElementsMoreThan(By locator, int count) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
         wait.until(countOfAjaxElementsMoreThen(locator, count));
     }
@@ -272,7 +272,7 @@ public abstract class Base {
             @Override
             public Boolean apply(@Nullable WebDriver driver) {
                 List<WebElement>elements = driver.findElements(locator);
-                if(elements.size() <= count) {
+                if(elements.size() < count) {
                     elements = driver.findElements(locator);
                     System.out.println(elements.size());
                     return false;

@@ -3,7 +3,6 @@ package pages.PartnerCabinetPage.Tabs;
 import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -190,7 +189,7 @@ public class PostbackTabPage extends Base {
         closeFormAfterTestPostBack.click();
         int countPostBacks = listPostBacks.size();
         saveBtn.click();
-        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='row font__base-small']"), countPostBacks);
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='row font__base-small']"), countPostBacks);
         Assert.assertTrue(countPostBacks < listPostBacks.size());
     }
 

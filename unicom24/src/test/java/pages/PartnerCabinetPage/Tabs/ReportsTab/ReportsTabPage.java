@@ -35,7 +35,7 @@ public class ReportsTabPage extends Base {
 
     public void pageIsDisplayed() {
         header.headerIsDisplayed();
-        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='navigation']/div[@class='ds-button-wrapper']"), 0);
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='navigation']/div[@class='ds-button-wrapper']"), 0);
         //allElementsAreVisible(reportTabs);
         Assert.assertEquals(5, reportTabs.size());
     }

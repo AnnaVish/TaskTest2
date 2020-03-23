@@ -25,7 +25,7 @@ public class LandingsAndAPI extends ReportsTabPage {
     public void pageIsDisplayed() {
         super.pageIsDisplayed();
         allElementsAreVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
-        waitForCountOfAjaxElementsMoreThen(By.xpath("//div[@class='ds-button-group']//button"), 0);
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='ds-button-group']//button"), 4);
         Assert.assertEquals(4, statsBTNs.size());
     }
 }
