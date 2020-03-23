@@ -124,12 +124,12 @@ public class OffersTabPage extends Base {
 
     public void checkFilterOfOffersType(String nameFilter){
                 if (nameFilter.equals("API")) {
-                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'API')]"), 0);
+                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'API')]"), 1);
                     Assert.assertTrue(typeAPIOfferToTable.size() > 0 );
                     Assert.assertTrue(typeREFOfferToTable.size() == 0);
                 }
                 if (nameFilter.equals("Реферальные ссылки")) {
-                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'REF')]"), 0);
+                    waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='type']/span[contains(text(), 'REF')]"), 1);
                     Assert.assertTrue(typeAPIOfferToTable.size() == 1 );
                     Assert.assertTrue(typeREFOfferToTable.size() > 0);
                 }
