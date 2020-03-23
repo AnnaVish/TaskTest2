@@ -74,8 +74,7 @@ public class Header extends Base {
      *Хэдэр вкладки прочее
      */
     public List<WebElement> othersHeaderLinks() {
-        return Arrays.asList(bankiHeaderLink, mfoHeaderLink //blogHeaderLink - нет на странице на 10.01.2020
-                );
+        return Arrays.asList(bankiHeaderLink, mfoHeaderLink); //blogHeaderLink - нет на странице на 10.01.2020
     }
     /*
      *Хэдэр вкладки прочее окончен

@@ -41,25 +41,27 @@ public class ReportsTabPage extends Base {
 
     public void pageIsDisplayed() {
         if (TestContext.reportsTabIsVisible == 1) {
-        allElementsAreVisible(header.getAdvHeader());
-        allElementsAreVisible(elements);
-        Assert.assertEquals(reportOrdersTitleText.size(), 4);}
+            allElementsAreVisible(header.getAdvHeader());
+            allElementsAreVisible(elements);
+            Assert.assertEquals(4, reportOrdersTitleText.size());
+        }
     }
 
     public void reportsCheck() {
         if (TestContext.reportsTabIsVisible == 1) {
-        int countReportOrders = reportOrders.size();
-        for (int i = 0; i < countReportOrders; i++) {
-            String nameOfReport = reportOrdersTitleText.get(i).getText();
-            ordersClick(nameOfReport);
-            reports.pageIsDisplayed();
-            reports.reportPageCheck(nameOfReport);
-            advPage.reportsTabClick();
-            pageIsDisplayed();
-        }}
+            int countReportOrders = reportOrders.size();
+            for (int i = 0; i < countReportOrders; i++) {
+                String nameOfReport = reportOrdersTitleText.get(i).getText();
+                ordersClick(nameOfReport);
+                reports.pageIsDisplayed();
+                reports.reportPageCheck(nameOfReport);
+                advPage.reportsTabClick();
+                pageIsDisplayed();
+            }
+        }
     }
 
-    public void ordersClick(String nameOfReport){
+    public void ordersClick(String nameOfReport) {
         String xPath = String.format("//div[@class='ds-report-list-item-wrapper'][.//a[contains(text(), '%s')]]//button", nameOfReport);
         WebElement element = driver.findElement(By.xpath(xPath));
         waitForVisibility(element);

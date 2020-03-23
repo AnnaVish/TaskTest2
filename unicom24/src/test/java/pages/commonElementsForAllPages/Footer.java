@@ -79,6 +79,11 @@ public class Footer extends Base {
      */
 
     public List<WebElement> getFooter() {
+        /* Здесь в трай кэч закоментирован код который убирает дурацкий попап "Расскажите о себе"
+        его включают в админке,
+        это аджакс элемент - проверка на него удлиняет тесты в два раза, поэтому если он выключен, то лучше даже
+        не проверять. Раскомментировать если врубят.
+
         if(TestContext.countOfStart == 0) {
             try {
                 waitForAjaxElementIsVisible(enpopElement);
@@ -88,7 +93,7 @@ public class Footer extends Base {
 
             }
         }
-
+         */
         return Arrays.asList(footerContainer, footerLeftSide, appleAndGoogle,
                 footerSeoText, becomePartnerLink, becomeAgentLink, cabinetOfBroker,
                 cabinetOfBank, cabinetOfWebmaster,

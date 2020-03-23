@@ -29,7 +29,7 @@ public class AuthPageOfBroker extends Base {
     @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Забыли пароль')]")
     private WebElement forgottenPasswordLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner']/div/div[contains(text(), 'Регистрация')]")
+    @FindBy(xpath = "//a[contains(text(), 'Регистрация')]")
     private WebElement registrationPageOfLink;
 
     private final List<WebElement> elements;
