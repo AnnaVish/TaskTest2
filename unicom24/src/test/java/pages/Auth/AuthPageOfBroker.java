@@ -14,30 +14,27 @@ public class AuthPageOfBroker extends Base {
     @FindBy(css = "div.form")
     private WebElement form;
 
-    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='email']")
+    @FindBy(id = "email")
     private WebElement loginField;
 
-    @FindBy(xpath = "//div[@class= 'login-partners-inner-log-block']/div/input[@name='password']")
+    @FindBy(id = "password")
     private WebElement passwordField;
 
     @FindBy(xpath = "//button[contains(text(), 'Войти')]")
     private WebElement entranceLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Зарегистрироваться')]")
+    @FindBy(xpath = "//a[contains(text(), 'Регистрация')]")
     private WebElement registerPageLink;
 
-    @FindBy(xpath = "//div[@class='login-partners-inner-additional-block']/div[contains(text(), 'Забыли пароль')]")
+    @FindBy(xpath = "//a[contains(text(), 'Забыли пароль')]")
     private WebElement forgottenPasswordLink;
-
-    @FindBy(xpath = "//a[contains(text(), 'Регистрация')]")
-    private WebElement registrationPageOfLink;
 
     private final List<WebElement> elements;
 
     public AuthPageOfBroker() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(form, registrationPageOfLink, loginField, passwordField, entranceLink, forgottenPasswordLink,
-                registrationPageOfLink);
+        elements = Arrays.asList(form, registerPageLink, loginField, passwordField, entranceLink,
+                forgottenPasswordLink);
     }
 
     public void onPage() {
