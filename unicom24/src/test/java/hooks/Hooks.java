@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.asserts.SoftAssert;
 import properties.BaseProperties;
+import util.Browsers;
+import util.WebDriverFactory;
 
 import java.io.File;
 import java.util.HashMap;
@@ -37,14 +39,13 @@ public class Hooks extends Base {
     public void setup() {
         baseProperties.createDownloadDirURL();
         HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+        driver = WebDriverFactory.getDriver(Browsers.CHROME);
         if (SystemUtils.IS_OS_LINUX) {
-            System.setProperty("webdriver.chrome.driver", BaseProperties.driverDirLinux );
             BaseProperties.createDownloadDir();
             chromePrefs.put("download.default_directory", baseProperties.createDownloadDirURL());
             deleteAllFilesFolder(baseProperties.createDownloadDirURL());
 
         } else {
-            System.setProperty("webdriver.chrome.driver", BaseProperties.driverDir);
             BaseProperties.createDownloadDir();
             chromePrefs.put("download.default_directory", baseProperties.createDownloadDirURL());
             deleteAllFilesFolder(baseProperties.createDownloadDirURL());
@@ -58,7 +59,6 @@ public class Hooks extends Base {
         //chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--no-sandbox");
-        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
     }
 
