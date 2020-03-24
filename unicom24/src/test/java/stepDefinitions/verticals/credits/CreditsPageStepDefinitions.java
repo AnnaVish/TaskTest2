@@ -102,12 +102,43 @@ public class CreditsPageStepDefinitions extends Base {
     }
 
     @Когда("^пользователь видит форму ввода кода из смс для не зарегистрированного пользователя в подборе кредита$")
-    public void userPodborCreditFormForSMSCodeIsDisplayed(){
+    public void nonUserPodborCreditFormForSMSCodeIsDisplayed(){
         creditsPage.podborCreditFormForSMSCodeIsDisplayed();
     }
 
     @Тогда("^пользователь вводит код из смс в форму для не зарегистрированного пользователя в подборе кредита$")
-    public void userPodborCreditInputSMSToForm(){
+    public void nonUserPodborCreditInputSMSToForm(){
         creditsPage.InputSMSCodeForPodborCredit();
     }
+
+    @Когда("^пользователь видит форму заполнения персональных данных для не зарегистрированного пользователя в подборе кредита$")
+    public void nonUserPodborCreditStep2IsDisplayed(){
+        creditsPage.podborCreditFormStep2IsDisplayed();
+    }
+
+    @Тогда("^пользователь заполняет персональные данные для не зарегистрированного пользователя в подборе кредита$")
+    public void nonUserPodborCreditInputTextToFieldsOnStep2(){
+        creditsPage.nonUserPodborCreditTypeTextStep2();
+    }
+
+    @Когда("^пользователь видит форму с паспортными данными для не зарегистрированного пользователя в подборе кредита$")
+    public void nonUserPodborCreditFormStep3IsDisplayed(){
+        creditsPage.podborCreditFormStep3IsDisplayed();
+    }
+
+    @Тогда("^пользователь вводит данные в форму с паспортными данными для не зарегистрированного пользователя в подборе кредита$")
+    public void nonUserPodborCreditInputTextToFieldsOnStep3(){
+        creditsPage.nonUserPodborCreditInputTextStep3();
+    }
+
+    @И("^пользователь кликает Показать предложения в форме с паспортными данными для не зарегистрированного пользователя в подборе кредита$")
+    public void nonUserPodborCreditFormStep3NextClick(){
+        creditsPage.podborCreditResultsDisplayedClick();
+    }
+
+    @И("^пользователь ожидает отображения результатов подбора кредитов$")
+    public void userWaitingResultsOfPodborCredit(){
+        creditsPage.userWaitingResultsPodborCredits();
+    }
+
 }

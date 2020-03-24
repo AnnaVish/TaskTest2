@@ -75,6 +75,25 @@ public class CreditsPage extends Base {
 
     @FindBy(xpath = "//label[./div[contains(text(), 'Код из СМС')]]//input")
     private WebElement podborCreditInputForSMSCode;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Фамилия')]]//input")
+    private WebElement podborCreditInputSurName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Имя')]]//input")
+    private WebElement podborCreditInputName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Отчество')]]//input")
+    private WebElement podborCreditInputSecondName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Дата рождения')]]//input")
+    private WebElement podborCreditInputBirthDay;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Серия и номер')]]//input")
+    private WebElement podborCreditInputPassportNumber;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Дата выдачи')]]//input")
+    private WebElement podborCreditInputPassportDate;
+
     /*
     //h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
@@ -298,5 +317,21 @@ public class CreditsPage extends Base {
         TestContext.passrordFromSms = TestContext.passrordFromSms.replaceAll("[^0-9]", "");
         TestContext.passrordFromSms = TestContext.passrordFromSms.substring(0, TestContext.passrordFromSms.length() - 2);
         TestContext.smsServerValueUrl = driver.getCurrentUrl();
+    }
+
+    public void nonUserPodborCreditTypeTextStep2(){
+        typeIntoField(UserData.names, podborCreditInputName);
+        typeIntoField(UserData.names, podborCreditInputSurName);
+        typeIntoField(UserData.names, podborCreditInputSecondName);
+    }
+
+    public void nonUserPodborCreditInputTextStep3(){
+        typeIntoField(UserData.birthDay, podborCreditInputBirthDay);
+        typeIntoField(UserData.passportNumber, podborCreditInputPassportNumber);
+        typeIntoField(UserData.dateOfPasport, podborCreditInputPassportDate);
+    }
+
+    public void userWaitingResultsPodborCredits(){
+        //////
     }
 }
