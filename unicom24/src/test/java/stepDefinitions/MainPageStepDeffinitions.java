@@ -135,7 +135,7 @@ public class MainPageStepDeffinitions extends Base {
 
     @Тогда("^пользователь кликает Кабинет вебмастера в футере$")
     public void userClickCabinetOfWebMaster(){
-        mainPage.cabinetOfWebmasterClick();
+        mainPage.becomePartnerInFooterClick();
     }
 
     @Тогда("^пользователь кликает Личный кабинет Банков и Рекламодателей в футере$")

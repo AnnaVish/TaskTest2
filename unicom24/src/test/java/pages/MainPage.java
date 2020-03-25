@@ -262,35 +262,7 @@ public class MainPage extends Base {
         footerPage.becomeAgentLink.click();
     }
 
-    public void aboutCompanyFooterClick() {
-        footerPage.aboutCompany.click();
-    }
 
-    public void cabinetOfWebmasterClick(){
-        footerPage.cabinetOfWebmaster.click();
-        switchToTheSecondTab();
-    }
-
-    public void cabinetOfBankClick(){
-        footerPage.cabinetOfBank.click();
-        switchToTheSecondTab();
-    }
-
-    public void cabinetOfBrokerClick(){
-        waitForVisibility(footerPage.cabinetOfBroker);
-        footerPage.cabinetOfBroker.click();
-        switchToTheSecondTab();
-    }
-
-    public void oldCabinetOfBrokerClick(){
-        footerPage.oldCabinetOfBroker.click();
-        switchToTheSecondTab();
-    }
-
-    public void scrollToFooter(){
-        waitForVisibility(footerPage.siteMap);
-        scrollTo(footerPage.siteMap);
-    }
 
     public void headerBecomeSmall(){
         //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается
@@ -313,12 +285,20 @@ public class MainPage extends Base {
         activateBtn.click();
     }
 
-    public void siteMapClick() {
-        waitForVisibility(footerPage.siteMap);
-        scrollToFooter();
-        waitForVisibility(footerPage.siteMap);
-        footerPage.siteMap.click();
+    public void clickTopLinkInFooter(String nameOfLink) {
+        for (WebElement element : footerPage.footerLinks) {
+            if(element.getText().equals(nameOfLink))
+                element.click();
+        }
+    }
+
+    public void clickDownLinkInFooter(String nameOfLink) {
+        for (WebElement element : footerPage.downLinks) {
+            if(element.getText().equals(nameOfLink))
+                element.click();
+        }
     }
 
     public void comparePageClick() { compareBtn.click(); }
+
 }

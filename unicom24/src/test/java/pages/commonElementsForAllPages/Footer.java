@@ -5,6 +5,7 @@ import base.Base;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,16 +24,16 @@ public class Footer extends Base {
     private WebElement footerLogo;
 
     @FindBy(css = ".app-footer-main-links-title")
-    private List<WebElement> footerTitles; //3 штука
+    public List<WebElement> footerTitles; //3 штука
 
     @FindBy(css = ".app-footer-main-links-list a")
-    private List<WebElement> footerLinks; //12 штука
+    public List<WebElement> footerLinks; //12 штука
 
     @FindBy(css = ".app-footer-social-links-item")
-    private List<WebElement> socialBtn; // 4
+    public List<WebElement> socialBtn; // 4
 
     @FindBy(css = ".app-footer-products-item")
-    private List<WebElement> downLinks; // 5 штук
+    public List<WebElement> downLinks; // 5 штук
 
     @FindBy(className = "app-footer-extend")
     private WebElement footerText;
@@ -46,6 +47,10 @@ public class Footer extends Base {
     /*
      *Футэр окончен
      */
+
+    public Footer() {
+        PageFactory.initElements(driver, this);
+    }
 
     public List<WebElement> getFooter() {
         /* Здесь в трай кэч закоментирован код который убирает дурацкий попап "Расскажите о себе"
