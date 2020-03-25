@@ -94,6 +94,9 @@ public class CreditsPage extends Base {
     @FindBy(xpath = "//label[./div[contains(text(),'Дата выдачи')]]//input")
     private WebElement podborCreditInputPassportDate;
 
+    @FindBy(xpath = "//div[@class='ui-selection-step']")
+    private WebElement podborLoading;
+
     /*
     //h2 элементы начало
     @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
@@ -332,6 +335,6 @@ public class CreditsPage extends Base {
     }
 
     public void userWaitingResultsPodborCredits(){
-        //////
+        waitForAjaxElementIsVisible(podborLoading);
     }
 }
