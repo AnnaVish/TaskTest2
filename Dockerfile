@@ -1,4 +1,4 @@
-FROM selenium/standalone-chrome
+FROM selenium/standalone-chrome:3.141.59
 USER root
 RUN apt -qq update -y
 #RUN apt install python3 python3-pip python3-pytest python3-behave -y && \
