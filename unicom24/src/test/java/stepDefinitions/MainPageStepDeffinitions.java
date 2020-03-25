@@ -175,7 +175,7 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.entranceInAccountBtnClick();
     }
 
-    @Тогда("^в шапке сайта видно Ваш баланс и Ваш тейтинг$")
+    @Тогда("^в шапке сайта видно Ваш баланс и Ваш рейтинг$")
     public void checkBalanceAndRating(){
         mainPage.checkBalanceAndRating();
     }

@@ -1,7 +1,6 @@
 package stepDefinitions.Auth;
 
 import cucumber.api.java.ru.Тогда;
-import org.junit.Assert;
 import pages.Auth.AuthPage;
 import pages.commonElementsForAllPages.UserData;
 
@@ -44,6 +43,11 @@ public class AuthPageStepDefinitions {
     @Тогда("отображается ошибка \"([^\"]*)\"")
     public void errorIsDisplayed(String errorMessage) {
         authPage.messageIsDisplayed(errorMessage);
+    }
+
+    @Тогда("отображается уведомление \"([^\"]*)\"")
+    public void notificationIsDisplayed(String notificationMessage) {
+        authPage.notificationIsDisplayed(notificationMessage);
     }
 
     @Тогда("^пользователь вводит неккоректный номер и нажимает отправить$")
@@ -89,6 +93,11 @@ public class AuthPageStepDefinitions {
     @Тогда("^пользователь вводит пароль из смс и нажимает на \"([^\"]*)\"$")
     public void typePasswordAndClickBtn(String btn) {
         authPage.typeCodeFromFirstServerOrSecondServer(btn);
+    }
+
+    @Тогда("^пользователь переходит по ссылке из письма$")
+    public void getEmailAndOpenLink() {
+        authPage.changePasswordFromFirstServerOrSecondServer();
     }
 
     @Тогда("^пользователь нажимает на Регистрация$")

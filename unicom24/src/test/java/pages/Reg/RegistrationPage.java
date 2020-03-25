@@ -92,7 +92,7 @@ public class RegistrationPage extends Base {
         switchToTheFirstTab();
         int incorrectPasswordValue = Integer.parseInt(TestContext.passrordFromSms) + 1;
         String inccorectPassword = Integer.toString(incorrectPasswordValue);
-        // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+        // Повторение неведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
         while (!passwordField.getAttribute("value").equals(inccorectPassword)) {
             clearField(passwordField);
             typeIntoField(inccorectPassword, passwordField);

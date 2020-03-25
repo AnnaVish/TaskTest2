@@ -9,7 +9,8 @@ public class PagesUrls {
     public static String bankListPage = bankList();
 
     public static String baseUrl() {
-        String base = System.getenv("TESTING_HOST");
+//        String base = System.getenv("TESTING_HOST");
+        String base = "pre-prod.vuaro.ru";
         return "https://" + base;
     }
 
@@ -99,7 +100,8 @@ public class PagesUrls {
     }
 
     public static Map<String, String> smsServerLink2() {
-        String base = System.getenv("TESTING_HOST");
+//        String base = System.getenv("TESTING_HOST");
+        String base = "pre-prod.vuaro.ru";
         Map<String, String> smsServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
             smsServer.put("smsServer1", "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue");
@@ -112,7 +114,8 @@ public class PagesUrls {
     }
 
     public static Map<String, String> emailServerLink() {
-        String base = System.getenv("TESTING_HOST");
+//        String base = System.getenv("TESTING_HOST");
+        String base = "pre-prod.vuaro.ru";
         Map<String, String> smsServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
             smsServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");

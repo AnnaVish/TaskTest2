@@ -37,13 +37,13 @@ public class AuthPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Регистрация')]")
     private WebElement registrationTab;
 
-    @FindBy(name = "emanresu_htua")
+    @FindBy(xpath = "//input[@name='emanresu_htua']")
     private WebElement mailOrTelField;
 
-    @FindBy(name = "drowssap_htua")
+    @FindBy(xpath = "//input[@name='drowssap_htua']")
     private WebElement passwordField;
 
-    @FindBy(className = "ui-authorization-ui-button-container")
+    @FindBy(xpath = "//button[@class='ui-btn font__base yellow']")
     private WebElement entranceBtn;
 
     @FindBy(xpath = "//div[contains(text(), 'Зарегистрироваться')]")
@@ -92,7 +92,7 @@ public class AuthPage extends Base {
     public void authPageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footerPage.getFooter());
+//        allElementsAreVisible(footerPage.getFooter());
     }
 
     public void loginFill() {
@@ -131,6 +131,12 @@ public class AuthPage extends Base {
     public void messageIsDisplayed(String errorMessage) {
         String xPath = String.format("//span[contains(text(), '%s')]", errorMessage);
         WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".input_container .ui-input-label-block"), By.xpath(xPath)));
+        waitForAjaxElementIsVisible(element);
+    }
+
+    public void notificationIsDisplayed(String notificationMessage) {
+        String xPath = String.format("//div[contains(text(), '%s')]", notificationMessage);
+        WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".ui-authorization-form__login"), By.xpath(xPath)));
         waitForAjaxElementIsVisible(element);
     }
 
