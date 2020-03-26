@@ -2,15 +2,12 @@ package pages.Reg;
 
 import TestContext.TestContext;
 import base.Base;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.commonElementsForAllPages.UserData;
 import pagesUrls.PagesUrls;
 
@@ -80,7 +77,7 @@ public class RegistrationPage extends Base {
         openNewTab();
         switchToTheSecondTab();
         for (int i = 0; i < 4; i++) {
-            if (TestContext.passrordFromSms == null) {
+            if (TestContext.passwordFromSms == null) {
                 try {
                     getPasswordFromServer(PagesUrls.smsServerLink2().get("smsServer1"));
                 } catch (Exception e) {
@@ -90,7 +87,7 @@ public class RegistrationPage extends Base {
         }
         driver.close();
         switchToTheFirstTab();
-        int incorrectPasswordValue = Integer.parseInt(TestContext.passrordFromSms) + 1;
+        int incorrectPasswordValue = Integer.parseInt(TestContext.passwordFromSms) + 1;
         String inccorectPassword = Integer.toString(incorrectPasswordValue);
         // Повторение неведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
         while (!passwordField.getAttribute("value").equals(inccorectPassword)) {
@@ -111,9 +108,9 @@ public class RegistrationPage extends Base {
             clearField(passwordField);
             //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
             // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
-            while (!passwordField.getAttribute("value").equals(TestContext.passrordFromSms)) {
+            while (!passwordField.getAttribute("value").equals(TestContext.passwordFromSms)) {
                 clearField(passwordField);
-                typeIntoField(TestContext.passrordFromSms, passwordField);
+                typeIntoField(TestContext.passwordFromSms, passwordField);
             }
             entranceBtnClick();
             waitForUrlContains(PagesUrls.baseUrl() + "/");
@@ -126,9 +123,9 @@ public class RegistrationPage extends Base {
             clearField(passwordField);
             //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
             // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
-            while (!passwordField.getAttribute("value").equals(TestContext.passrordFromSms)) {
+            while (!passwordField.getAttribute("value").equals(TestContext.passwordFromSms)) {
                 clearField(passwordField);
-                typeIntoField(TestContext.passrordFromSms, passwordField);
+                typeIntoField(TestContext.passwordFromSms, passwordField);
             }
 
             entranceBtnClick();
@@ -144,9 +141,9 @@ public class RegistrationPage extends Base {
     public void getPasswordFromServer(String url) {
         driver.get(url);
         String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет')]", UserData.getFormatNumber());
-        TestContext.passrordFromSms = driver.findElement(By.xpath(xPath)).getText();
-        TestContext.passrordFromSms = TestContext.passrordFromSms.replaceAll("[^0-9]", "");
-        TestContext.passrordFromSms = TestContext.passrordFromSms.substring(0, TestContext.passrordFromSms.length() - 2);
+        TestContext.passwordFromSms = driver.findElement(By.xpath(xPath)).getText();
+        TestContext.passwordFromSms = TestContext.passwordFromSms.replaceAll("[^0-9]", "");
+        TestContext.passwordFromSms = TestContext.passwordFromSms.substring(0, TestContext.passwordFromSms.length() - 2);
         TestContext.smsServerValueUrl = driver.getCurrentUrl();
     }
 }

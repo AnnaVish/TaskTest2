@@ -10,7 +10,8 @@ public class PagesUrls {
 
     public static String baseUrl() {
 //        String base = System.getenv("TESTING_HOST");
-        String base = "pre-prod.vuaro.ru";
+        String base = "develop-34.vuaro.ru";
+//        String base = "pre-prod.vuaro.ru";
         return "https://" + base;
     }
 
@@ -92,7 +93,7 @@ public class PagesUrls {
 
     public static String smsServerLink() {
         String base = System.getenv("TESTING_HOST");
-        if (base.equals("pre-prod.vuaro.ru")) {
+        if (base.equals("develop-34.vuaro.ru")) {
             return "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue";
         } else {
             return "http://" + base + ":13003/channel/dev_channel/queue";
@@ -101,7 +102,7 @@ public class PagesUrls {
 
     public static Map<String, String> smsServerLink2() {
 //        String base = System.getenv("TESTING_HOST");
-        String base = "pre-prod.vuaro.ru";
+        String base = "develop-34.vuaro.ru";
         Map<String, String> smsServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
             smsServer.put("smsServer1", "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue");
@@ -115,15 +116,15 @@ public class PagesUrls {
 
     public static Map<String, String> emailServerLink() {
 //        String base = System.getenv("TESTING_HOST");
-        String base = "pre-prod.vuaro.ru";
-        Map<String, String> smsServer = new HashMap<String, String>();
+        String base = "develop-34.vuaro.ru";
+        Map<String, String> emailServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
-            smsServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");
-            smsServer.put("emailServer2", "http://pre-prod-02.vuaro.ru:1080/");
-            return smsServer;
+            emailServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");
+            emailServer.put("emailServer2", "http://pre-prod-02.vuaro.ru:1080/");
+            return emailServer;
         } else {
-            smsServer.put("smsServer1", "http://" + base + ":13003/channel/dev_channel/queue");
-            return smsServer;
+            emailServer.put("smsServer1", "http://" + base + ":1080");
+            return emailServer;
         }
     }
 }

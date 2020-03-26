@@ -96,8 +96,13 @@ public class AuthPageStepDefinitions {
     }
 
     @Тогда("^пользователь переходит по ссылке из письма$")
-    public void getEmailAndOpenLink() {
+    public void getEmailAndOpenLink() throws InterruptedException {
         authPage.changePasswordFromFirstServerOrSecondServer();
+    }
+
+    @Тогда("^пользователь вводит новый пароль и нажимает Сохранить$")
+    public void enterNewPasswordAndClickSave() {
+        authPage.enterNewPasswordAndSave();
     }
 
     @Тогда("^пользователь нажимает на Регистрация$")

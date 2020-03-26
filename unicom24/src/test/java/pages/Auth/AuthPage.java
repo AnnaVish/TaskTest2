@@ -3,9 +3,7 @@ package pages.Auth;
 import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
+import pages.mailCatcher.MailCatcher;
 import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
@@ -20,10 +19,10 @@ import java.util.List;
 
 public class AuthPage extends Base {
 
-    Actions actions = new Actions(driver);
     WebDriverWait wait = new WebDriverWait(driver, 20);
     Header headerPage = new Header();
     Footer footerPage = new Footer();
+    MailCatcher mailCatcher = new MailCatcher();
 
     public static String login = "glushkova.es@unicom24.ru";
     public static String password = "usertest1";
@@ -42,6 +41,15 @@ public class AuthPage extends Base {
 
     @FindBy(xpath = "//input[@name='drowssap_htua']")
     private WebElement passwordField;
+
+    @FindBy(xpath = "//input[@name='drowssap_teser']")
+    private WebElement newPasswordField;
+
+    @FindBy(xpath = "//input[@name='wen_drowssap_teser']")
+    private WebElement repeatNewPasswordField;
+
+    @FindBy(xpath = "//button[@class='ui-btn font__base yellow']")
+    private WebElement savePasswordButton;
 
     @FindBy(xpath = "//button[@class='ui-btn font__base yellow']")
     private WebElement entranceBtn;
@@ -220,12 +228,28 @@ public class AuthPage extends Base {
         TestContext.smsCode = smsCode;
     }
 
-    public void changePasswordFromFirstServerOrSecondServer() {
+    public void changePasswordFromFirstServerOrSecondServer() throws InterruptedException {
         openNewTab();
         switchToTheSecondTab();
-        driver.get(PagesUrls.emailServerLink().get("emailServer1"));
-        waitForPageLoaded(PagesUrls.smsServerLink2().get("emailServer1"));
-        TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("emailServer1");
+//        driver.get(PagesUrls.emailServerLink().get("emailServer1"));
+//        waitForPageLoaded(PagesUrls.smsServerLink2().get("emailServer1"));
+//        TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("emailServer1");
+        driver.get("http://develop-34.vuaro.ru:1080/");
+        waitForPageLoaded("http://develop-34.vuaro.ru:1080/");
+        TestContext.emailServerLink = "http://develop-34.vuaro.ru:1080/";
+        mailCatcher.latestEmailByToAndSubjectClick();
+    }
+
+    public void enterNewPasswordAndSave() {
+        driver.findElement(By.xpath("//input[@name='drowssap_teser']")).sendKeys("12122111");
+        driver.findElement(By.xpath("//input[@name='wen_drowssap_teser']")).sendKeys("12122111");
+        driver.findElement(By.xpath("//button[@class='ui-btn font__base yellow']")).click();
+
+//        typeIntoField("12122111", newPasswordField);
+//        typeIntoField("12122111", repeatNewPasswordField);
+//        savePasswordButton.click();
+
+
     }
 
     public void regClick() {

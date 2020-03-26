@@ -1,14 +1,10 @@
 package pages.commonElementsForAllPages;
 
-import TestContext.TestContext;
 import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.Arrays;
 import java.util.List;
-
-import static base.Base.isElementVisible;
 
 public class Footer extends Base {
 
