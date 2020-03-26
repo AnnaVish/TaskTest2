@@ -23,71 +23,71 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[@class='offers-compare-block']/div[contains(text(), 'Сравнение')]")
     public WebElement compareBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Кредиты')]")
-    private WebElement credits;
-
-    @FindBy(xpath = "//div[contains(text(), 'Кредитные карты')]")
-    private WebElement creditCards;
-
-    @FindBy(xpath = "//div[contains(text(), 'Автокредиты')]")
-    private WebElement autoCredits;
-
-    @FindBy(xpath = "//div[contains(text(), 'Ипотека')]")
-    private WebElement ipoteka;
-
-    @FindBy(xpath = "//div[contains(text(), 'Микрозаймы')]")
-    private WebElement microCredits;
-
-    @FindBy(className = "ui-card-banks-block__more-text")
-    private WebElement seeAllBanks;
-
-    //@FindBy(xpath = "//div[contains(text(), 'Кредитные отчеты')]")
-    //private WebElement creditReports;
-
-    @FindBy(xpath = "//div[contains(text(), 'Защита от мошенников')]")
-    private WebElement protectAndOther;
-    /*
-    *Отчеты
-     */
-    @FindBy(css = ".card-useful-services-rfz .ui-btn ")
-    private WebElement financialHealthRatingGetBtn;
-
-    @FindBy(css = ".card-useful-services-fch .ui-btn")
-    private WebElement creditReportsGetBtn;
-
-    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-rfz")
-    private WebElement rfz;
-
-    @FindBy(css = ".card-useful-services-wrapper .card-useful-services-fch")
-    private WebElement fullCreditHistory;
-
-    /*
-    *Отчеты окончены
-     */
-
-    @FindBy(className = "ui-credit-with-us-wrapper")
+    //Главный баннер вверху
+    @FindBy(css = ".app-main-fold  .glide__slide.glide__slide--active")
     private WebElement banner;
 
-    @FindBy(xpath = "//div[contains(text(), 'Вы сможете сравнить банковские предложения и выбрать лучшие')]")
-    private WebElement bannerText1;
+    @FindBy(className = "app-main-fold-glide-button__left")
+    private WebElement leftScrollBannerBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Наш сервис абсолютно бесплатен для Вас (никаких скрытых платежей')]")
-    private WebElement bannerText2;
+    @FindBy(className = "app-main-fold-glide-button__right")
+    private WebElement rightScrollBannerBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Вы можете отправить заявку сразу в несколько банков')]")
-    private WebElement bannerText3;
+    @FindBy(css = ".app-main-fold  .glide__slide.glide__slide--active button")
+    private WebElement yellowBannerBtn;
 
-    @FindBy(xpath = "//div[contains(text(), 'Вы получите предварительное решение банков на основе кредитного рейтинга за 3 минуты!')]")
-    private WebElement bannerText4;
+    @FindBy(xpath = "//a[@class=\"main-fold-link\"]/div")
+    private List<WebElement> mainOffersBtns;
 
-    @FindBy(xpath = "//div[contains(text(), 'Ваши данные в безопасности. Мы не передаем их сторонним организациям. Вы сами выбираете в какие банки отправить заявку.')]")
-    private WebElement bannerText5;
+    @FindBy(css = ".ui-app-content h2")
+    private List<WebElement> h2;
 
-    @FindBy(className = "ui-card-credit-with-us-right__girl-image")
-    private WebElement bannerImage;
+    @FindBy(css = ".app-tabs-list a")
+    private List<WebElement> bestOffersTabs;
 
-    @FindBy(className = "ui-credit-news-wrapper")
-    private WebElement newsBlock;
+    //карточки лучших предложений
+    @FindBy(xpath = "//li[@class='glide__slide glide__slide--clone']/a") // исправил, так как определял не точно
+    private List<WebElement> bestOffersCards;
+
+    //Блок инструкции
+    @FindBy(css = ".app-instructions")
+    private WebElement instructionsBlock;
+
+    //4 кружочка в инструкциях
+    @FindBy(css = ".app-instructions .app-instructions-block-number__number")
+    private List<WebElement> instructionsRounds;
+
+    //Кнопка подобрать кредит в инструкциях
+    @FindBy(css = ".app-instructions button")
+    private WebElement instructionBtn;
+
+    //4 блока с жетлытми кнопками каждый ниже
+    @FindBy(css = ".app-landing-cards-item")
+    private List<WebElement> blocks;
+
+    //Блок Блог
+    @FindBy(css = ".app-blog")
+    private WebElement blog;
+
+    //4 карточки блога
+    @FindBy(css = ".app-blog a.app-blog-list-item")
+    private List<WebElement>blogCards;
+
+    //Кнопка в блоге
+    @FindBy(css = ".app-blog button")
+    private WebElement blogBtn;
+
+    //блок скачайте приложение
+    @FindBy(css = ".app-mobile-apps-wrapper")
+    private WebElement mobileApp;
+
+    //сео блок
+    @FindBy(css = ".app-seo-links a")
+    private List<WebElement>seoLinks;
+
+    @FindBy(css = ".app-seo-links-list-title")
+    private List<WebElement>seoTitles;
+
 
     @FindBy(css = ".header-site-right .ui-btn")
     private WebElement entranceInAccountBtn;
@@ -127,9 +127,8 @@ public class MainPage extends Base {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        elements = Arrays.asList(credits, creditCards, autoCredits,
-                ipoteka, microCredits, protectAndOther, financialHealthRatingGetBtn, creditReportsGetBtn,
-                rfz, fullCreditHistory);
+        elements = Arrays.asList(banner, leftScrollBannerBtn, rightScrollBannerBtn, yellowBannerBtn, instructionsBlock,
+                instructionBtn, blog, blogBtn, mobileApp);
     }
 
     public void onMainPage() {
@@ -144,8 +143,15 @@ public class MainPage extends Base {
         allElementsAreVisible(headerPage.getMainHeaderOnMainPage());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
-        Assert.assertTrue(countOfImageVertical());
-        //allElementsAreVisible(bannerArray);
+        Assert.assertEquals(4, mainOffersBtns.size());
+        Assert.assertEquals(8, h2.size());
+        Assert.assertEquals(4, bestOffersTabs.size());
+        Assert.assertEquals(6, bestOffersCards.size()); //исправил с 3 на 6
+        Assert.assertEquals(4, instructionsRounds.size());
+        Assert.assertEquals(4, blocks.size());
+        Assert.assertEquals(4, blogCards.size());
+        Assert.assertEquals(22, seoLinks.size()); //исправил 23 на 22
+        Assert.assertEquals(8, seoTitles.size());
     }
 
     /*
@@ -206,63 +212,18 @@ public class MainPage extends Base {
     /*
     *клики по вертикалям
      */
-    public void creditClick() {
-        waitForVisibility(credits);
-        credits.click();
+    public void verticalsClick(String nameOfVertical) {
+        for(WebElement element : mainOffersBtns) {
+            if(element.getText().equals(nameOfVertical))
+                element.click();
+        }
     }
 
-    public void creditCardsClicks() {
-        waitForVisibility(creditCards);
-        creditCards.click();
-    }
-
-    public void autoCreditsClicks() {
-        waitForVisibility(autoCredits);
-        autoCredits.click();
-    }
-
-    public void ipotekaClicks() {
-        waitForVisibility(ipoteka);
-        ipoteka.click();
-    }
-
-    public void microCreditsClicks() {
-        waitForVisibility(microCredits);
-        microCredits.click();
-    }
-
-    /*
-    public void creditReportscClicks() {
-        waitForVisibility(creditReports);
-        creditReports.click();
-    } */
-
-    public void protectClick(){
-        waitForVisibility(protectAndOther);
-        protectAndOther.click();
-    }
-
-    /*
-     *клики по вертикалям окончены
-     */
-
-
-    public void financialHealthRatingGetBtnClick() {
-        waitForVisibility(financialHealthRatingGetBtn);
-        financialHealthRatingGetBtn.click();
-    }
-
-    public void creditReportsGetBtnClicks() {
-        waitForVisibility(creditReportsGetBtn);
-        creditReportsGetBtn.click();
-    }
-
-//    public void ficioGetBtnClicks() {
-//        ficioGetBtn.click();
-//    }
-
-    public void seeAllBanksClicks() {
-        seeAllBanks.click();
+    public void ratingReportClick(String nameOfRating) {
+        String xPath = String.format("//div[./h2[contains(text(), '%s')]]//button", nameOfRating);
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        element.click();
     }
 
     public void entranceInAccountBtnClick(){
@@ -290,9 +251,9 @@ public class MainPage extends Base {
     }
 
     public void becomePartnerInFooterClick(){
+        scrollTo(footerPage.becomePartnerLink);
         waitForVisibility(footerPage.becomePartnerLink);
-        waitToBeClickable(footerPage.becomePartnerLink);
-        footerPage.becomePartnerLink.click();
+        footerPage.becomeAgentLink.click();
     }
 
     public void becomeAgentInFooterClick(){
@@ -301,35 +262,7 @@ public class MainPage extends Base {
         footerPage.becomeAgentLink.click();
     }
 
-    public void aboutCompanyFooterClick() {
-        footerPage.aboutCompany.click();
-    }
 
-    public void cabinetOfWebmasterClick(){
-        footerPage.cabinetOfWebmaster.click();
-        switchToTheSecondTab();
-    }
-
-    public void cabinetOfBankClick(){
-        footerPage.cabinetOfBank.click();
-        switchToTheSecondTab();
-    }
-
-    public void cabinetOfBrokerClick(){
-        waitForVisibility(footerPage.cabinetOfBroker);
-        footerPage.cabinetOfBroker.click();
-        switchToTheSecondTab();
-    }
-
-    public void oldCabinetOfBrokerClick(){
-        footerPage.oldCabinetOfBroker.click();
-        switchToTheSecondTab();
-    }
-
-    public void scrollToFooter(){
-        waitForVisibility(footerPage.siteMap);
-        scrollTo(footerPage.siteMap);
-    }
 
     public void headerBecomeSmall(){
         //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается
@@ -352,12 +285,24 @@ public class MainPage extends Base {
         activateBtn.click();
     }
 
-    public void siteMapClick() {
-        waitForVisibility(footerPage.siteMap);
-        scrollToFooter();
-        waitForVisibility(footerPage.siteMap);
-        footerPage.siteMap.click();
+    public void clickTopLinkInFooter(String nameOfLink) {
+        for (WebElement element : footerPage.footerLinks) {
+            if(element.getText().equals(nameOfLink))
+                element.click();
+        }
+    }
+
+    public void clickDownProductsInFooter(String nameOfLink) {
+        for (WebElement element : footerPage.downLinks) {
+            if(element.getText().equals(nameOfLink))
+                element.click();
+        }
     }
 
     public void comparePageClick() { compareBtn.click(); }
+
+    public void scrollToFooter(){
+        waitForVisibility(footerPage.downLinks.get(1));
+        scrollTo(footerPage.downLinks.get(1));
+    }
 }
