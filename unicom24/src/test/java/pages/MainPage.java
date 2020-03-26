@@ -46,7 +46,7 @@ public class MainPage extends Base {
     private List<WebElement> bestOffersTabs;
 
     //карточки лучших предложений
-    @FindBy(css = ".app-tab-content .glide__slide")
+    @FindBy(xpath = "//li[@class='glide__slide glide__slide--clone']/a") // исправил, так как определял не точно
     private List<WebElement> bestOffersCards;
 
     //Блок инструкции
@@ -146,11 +146,11 @@ public class MainPage extends Base {
         Assert.assertEquals(4, mainOffersBtns.size());
         Assert.assertEquals(8, h2.size());
         Assert.assertEquals(4, bestOffersTabs.size());
-        Assert.assertEquals(3, bestOffersCards.size());
+        Assert.assertEquals(6, bestOffersCards.size()); //исправил с 3 на 6
         Assert.assertEquals(4, instructionsRounds.size());
         Assert.assertEquals(4, blocks.size());
         Assert.assertEquals(4, blogCards.size());
-        Assert.assertEquals(23, seoLinks.size());
+        Assert.assertEquals(22, seoLinks.size()); //исправил 23 на 22
         Assert.assertEquals(8, seoTitles.size());
     }
 
@@ -292,7 +292,7 @@ public class MainPage extends Base {
         }
     }
 
-    public void clickDownLinkInFooter(String nameOfLink) {
+    public void clickDownProductsInFooter(String nameOfLink) {
         for (WebElement element : footerPage.downLinks) {
             if(element.getText().equals(nameOfLink))
                 element.click();
@@ -301,4 +301,8 @@ public class MainPage extends Base {
 
     public void comparePageClick() { compareBtn.click(); }
 
+    public void scrollToFooter(){
+        waitForVisibility(footerPage.downLinks.get(1));
+        scrollTo(footerPage.downLinks.get(1));
+    }
 }

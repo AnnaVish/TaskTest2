@@ -133,34 +133,14 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.becomeAgentInFooterClick();
     }
 
-    @Тогда("^пользователь кликает Кабинет вебмастера в футере$")
-    public void userClickCabinetOfWebMaster(){
-        mainPage.becomePartnerInFooterClick();
+    @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")
+    public void userInFooterProductsClick(String nameProducts){
+        mainPage.clickDownProductsInFooter(nameProducts);
     }
 
-    @Тогда("^пользователь кликает Личный кабинет Банков и Рекламодателей в футере$")
-    public void userClickCabinetOfBankClick(){
-        mainPage.cabinetOfBankClick();
-    }
-
-    @Тогда("^пользователь кликает Личный кабинет Брокера и Агента в футере$")
-    public void userClickAuthPageOfBroker(){
-        mainPage.cabinetOfBrokerClick();
-    }
-
-    @Тогда("^пользователь кликает Старый кабинет брокера и агента в футере$")
-    public void userClickOldCabinetOfBroker() {
-        mainPage.oldCabinetOfBrokerClick();
-    }
-
-    @Тогда("^пользователь кликает О компании в футере$")
-    public void userClickAboutCompanyInFooter() {
-        mainPage.aboutCompanyFooterClick();
-    }
-
-    @Тогда("^пользователь кликает Карта сайта в футере$")
-    public void userClickSiteMapInFooter() {
-        mainPage.siteMapClick();
+    @Тогда("^пользователь кликает \"([^\"]*)\" в верхней части футера$")
+    public void userClickTopLinksInFooter(String nameLinks) {
+        mainPage.clickTopLinkInFooter(nameLinks);
     }
 
     @Тогда("пользователь делает скролл в футэру")
