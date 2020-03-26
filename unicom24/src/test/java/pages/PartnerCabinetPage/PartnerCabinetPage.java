@@ -68,7 +68,7 @@ public class PartnerCabinetPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые офферы')]")
     private WebElement recomendOffer;
 
-    @FindBy(xpath = "//a[@href=\"/partners/office/offers\"][contains(text(), 'Все офферы')]")
+    @FindBy(xpath = "//a[@href=\"/offers\"][contains(text(), 'Все офферы')]")
     private WebElement allOffersLink;
 
     @FindBy(xpath = "//div[contains(text(), 'Рекомендуемые лендинги')]")
