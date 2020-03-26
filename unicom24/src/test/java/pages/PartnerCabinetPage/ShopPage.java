@@ -1,9 +1,11 @@
 package pages.PartnerCabinetPage;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +69,7 @@ public class ShopPage extends Base {
    Блок Footer
     */
 
-    @FindBy(xpath = "//div[@class='t-col t-col_10 t-prefix_1']//a ")
+    @FindBy(xpath = "//div[@class='t-col t-col_10 t-prefix_1']//a")
     private List<WebElement> links;
 
     @FindBy(xpath = "//div[@class='t-col t-col_6 t-prefix_3']")
@@ -85,7 +87,15 @@ public class ShopPage extends Base {
                 socialLinksBlock, text);
     }
 
+    public void onPage() {
+        driver.get(PagesUrls.shopPage());
+        waitForPageLoaded(PagesUrls.shopPage());
+    }
+
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
+        Assert.assertTrue(items.size() > 0);
+        Assert.assertEquals(4, socialLinks.size());
+        Assert.assertEquals(4, links.size());
     }
 }
