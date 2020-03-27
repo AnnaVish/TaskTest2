@@ -24,7 +24,7 @@ public class MailCatcher extends Base {
         PageFactory.initElements(driver, this);
     }
 
-    public void latestEmailByToAndSubjectClick() throws InterruptedException {
+    public void latestEmailByToAndSubjectClick() {
         String latestEmailByToAndSubject = String.format("//tr[1]//td[contains(text(),'%s')]/following-sibling::td[text()='Сброс пароля пользователя']", UserData.correctEmail);
         waitForPageLoaded("http://develop-34.vuaro.ru:1080/");
         WebElement targetElement = driver.findElement(By.xpath(latestEmailByToAndSubject));

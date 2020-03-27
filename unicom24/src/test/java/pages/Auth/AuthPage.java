@@ -100,7 +100,7 @@ public class AuthPage extends Base {
     public void authPageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-//        allElementsAreVisible(footerPage.getFooter());
+        allElementsAreVisible(footerPage.getFooter());
     }
 
     public void loginFill() {
@@ -133,8 +133,7 @@ public class AuthPage extends Base {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        sendBtn.click();
-        driver.findElement(By.xpath("//button[./span[contains(text(), 'Отправить')]]")).click();
+        sendBtn.click();
     }
 
     public void messageIsDisplayed(String errorMessage) {
@@ -247,8 +246,8 @@ public class AuthPage extends Base {
         typeIntoField(UserData.newCorrectPassword, newPasswordField);
         typeIntoField(UserData.newCorrectPassword, repeatNewPasswordField);
         savePasswordButton.click();
+        
         waitForVisibility(By.xpath("//div[contains(text(),'Оксана Олеговна Александрова')]"));
-        System.out.println("кнопка Сохранить пароль нажата");
     }
 
     public void regClick() {
