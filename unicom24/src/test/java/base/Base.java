@@ -81,6 +81,26 @@ public abstract class Base {
         actions.perform();
     }
 
+    public void waitUntilElementRemove(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(countOfElementsIsZero(locator));
+    }
+
+    private static ExpectedCondition<Boolean> countOfElementsIsZero(By locator) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                List<WebElement>elements = driver.findElements(locator);
+                if(elements.size() != 0) {
+                    elements = driver.findElements(locator);
+                    System.out.println(elements.size());
+                    return false;
+                }
+                return true;
+            }
+        };
+    }
+
     public static void waitForVisibility(WebElement element) {
         waitForVisibility(element, ELEMENT_TIMEOUT_SECONDS);
     }
