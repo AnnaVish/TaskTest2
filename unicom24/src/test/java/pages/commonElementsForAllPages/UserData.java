@@ -11,6 +11,7 @@ public class UserData {
     public static String incorrectMail = "Test@tt";
     public static String unregisteredEmail = "Test@tt.mm";
     public static String correctEmail = "a.s.san.17.8.939@yandex.ru";
+    public static String newCorrectPassword = "Aa123456";
     public static String names = "Test";
     public static String nameRU = "Тест";
     public static String dateOfPasport = "01112014";

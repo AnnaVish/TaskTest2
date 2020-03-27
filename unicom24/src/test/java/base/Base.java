@@ -160,6 +160,11 @@ public abstract class Base {
         driver.switchTo().window(tabs.get(1));
     }
 
+    public static void switchToTheThirdTab() {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(2));
+    }
+
     public void openLinkInTheNewTab(WebElement element) {
         String keyOpenNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
         element.sendKeys(keyOpenNewTab);

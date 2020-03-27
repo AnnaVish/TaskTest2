@@ -133,7 +133,8 @@ public class AuthPage extends Base {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        sendBtn.click();
+//        sendBtn.click();
+        driver.findElement(By.xpath("//button[./span[contains(text(), 'Отправить')]]")).click();
     }
 
     public void messageIsDisplayed(String errorMessage) {
@@ -143,6 +144,7 @@ public class AuthPage extends Base {
     }
 
     public void notificationIsDisplayed(String notificationMessage) {
+        waitForVisibility(By.xpath("//div[contains(text(),'Письмо с дальнейшими инструкциями успешно отправлено!')]"));
         String xPath = String.format("//div[contains(text(), '%s')]", notificationMessage);
         WebElement element = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(By.cssSelector(".ui-authorization-form__login"), By.xpath(xPath)));
         waitForAjaxElementIsVisible(element);
@@ -241,15 +243,12 @@ public class AuthPage extends Base {
     }
 
     public void enterNewPasswordAndSave() {
-        driver.findElement(By.xpath("//input[@name='drowssap_teser']")).sendKeys("12122111");
-        driver.findElement(By.xpath("//input[@name='wen_drowssap_teser']")).sendKeys("12122111");
-        driver.findElement(By.xpath("//button[@class='ui-btn font__base yellow']")).click();
-
-//        typeIntoField("12122111", newPasswordField);
-//        typeIntoField("12122111", repeatNewPasswordField);
-//        savePasswordButton.click();
-
-
+        switchToTheThirdTab();
+        typeIntoField(UserData.newCorrectPassword, newPasswordField);
+        typeIntoField(UserData.newCorrectPassword, repeatNewPasswordField);
+        savePasswordButton.click();
+        waitForVisibility(By.xpath("//div[contains(text(),'Оксана Олеговна Александрова')]"));
+        System.out.println("кнопка Сохранить пароль нажата");
     }
 
     public void regClick() {
