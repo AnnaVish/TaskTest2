@@ -85,14 +85,9 @@ public class FinancialHealthPage extends Base {
     }
 
     public void seeReportResult() {
-        /*
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } */
-        waitForVisibility(historyTitle);
         waitUntilElementRemove(By.xpath("//button[./span[contains(text(), 'Получить отчет')]]"));
+        waitForVisibility(historyTitle);
+        waitForTextChanged(dateValue,  By.cssSelector(".ui-form-requests-history-credit_report__data-item-date"));
         String date = driver.findElement(By.cssSelector(".ui-form-requests-history-credit_report__data-item-date")).getText();
         String dateValue = date.replaceAll("\\D+","");
         Assert.assertTrue(dateIntValue < Long.parseLong(dateValue));

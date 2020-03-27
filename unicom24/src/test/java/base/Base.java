@@ -101,6 +101,21 @@ public abstract class Base {
         };
     }
 
+    public void waitForTextChanged(String text, By locator){
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(textNotEquals(text, locator));
+    }
+
+    private static ExpectedCondition<Boolean> textNotEquals(String text, By locator) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                WebElement elements = driver.findElement(locator);
+                return !elements.getText().equals(text);
+            }
+        };
+    }
+
     public static void waitForVisibility(WebElement element) {
         waitForVisibility(element, ELEMENT_TIMEOUT_SECONDS);
     }
