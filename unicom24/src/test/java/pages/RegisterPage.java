@@ -63,25 +63,13 @@ public class RegisterPage extends Base {
     private WebElement errorMessage;
 
     public final List<WebElement> elements;
-    public final List<WebElement> header;
-    private final List<WebElement> footer;
-
 
     public RegisterPage() {
         PageFactory.initElements(driver, this);
         PageFactory.initElements(driver, headerPage);
         PageFactory.initElements(driver, footerPage);
-        header = Arrays.asList(headerPage.logoLink, headerPage.privateCustomersLink, headerPage.forBusinessLink,
-                headerPage.othersLink, headerPage.servicesLink,
-                headerPage.creditsHeaderLink, headerPage.creditCardsHeaderLink, headerPage.autoCreditsHeaderLink,
-                headerPage.ipotekaHeaderLink, headerPage.refinanceHeaderLink);
         elements = Arrays.asList(companyNameField, lastNameField, firstNameField,
                 chooseMessangerBtn, partnerPhoneField, emailField, passwordField, password2Field);
-        footer = Arrays.asList(footerPage.footerContainer, footerPage.footerLeftSide, footerPage.appleAndGoogle,
-                footerPage.footerSeoText, footerPage.becomePartnerLink, footerPage.becomeAgentLink, footerPage.cabinetOfBroker,
-                footerPage.cabinetOfBank, footerPage.cabinetOfWebmaster,
-                footerPage.copyright, footerPage.copyrightText, footerPage.becomeAgentDown, footerPage.becomePartnerDown,
-                footerPage.personalData, footerPage.mail, footerPage.siteMap, footerPage.adress);
     }
 
     public void onAuthPage() {
@@ -89,9 +77,9 @@ public class RegisterPage extends Base {
     }
 
     public void registerPageIsDisplayed() {
-        allElementsAreVisible(header);
+        allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
-        allElementsAreVisible(footer);
+        allElementsAreVisible(footerPage.getFooter());
     }
 
     public void fillFildsWithTakenEmail() {

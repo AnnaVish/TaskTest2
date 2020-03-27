@@ -106,7 +106,7 @@ public class RegistrationPage extends Base {
     public void typeCorrectCode() {
         try {
             clearField(passwordField);
-            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
             // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
             while (!passwordField.getAttribute("value").equals(TestContext.passwordFromSms)) {
                 clearField(passwordField);
@@ -121,7 +121,7 @@ public class RegistrationPage extends Base {
             driver.close();
             switchToTheFirstTab();
             clearField(passwordField);
-            //typeIntoField(TestContext.passrordFromSms, passwordField); иногда теряет 1 символ
+            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
             // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
             while (!passwordField.getAttribute("value").equals(TestContext.passwordFromSms)) {
                 clearField(passwordField);

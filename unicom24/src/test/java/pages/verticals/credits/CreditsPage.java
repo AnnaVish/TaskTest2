@@ -10,6 +10,7 @@ import pages.Adminka.AdminkaRedirects;
 import pages.Adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
+import pages.commonElementsForAllPages.UserData;
 import pages.verticals.common.CommonElementsForAllVerticals;
 import org.junit.Assert;
 import pagesUrls.PagesUrls;
@@ -50,6 +51,75 @@ public class CreditsPage extends Base {
 
     @FindBy(xpath = "//div[@class='title']")
     private WebElement bankName;
+
+    @FindBy(xpath = "//button[contains(text(), 'Подобрать')]")
+    private WebElement podobratCredit;
+
+    @FindBy(xpath = "//button[contains(text(), 'Далее')]")
+    private WebElement podborCreditNext;
+
+    @FindBy(xpath = "//form[@class='form-offers-step-two']")
+    private WebElement podborCreditStep2;
+
+    @FindBy(xpath = "//form[@class='form-confirm']")
+    private WebElement podobrCreditFormSmsConfirm;
+
+    @FindBy(xpath = "//button[contains(text(), 'Показать предложения')]")
+    private WebElement podborCreditResultsDisplayed;
+
+    @FindBy(xpath = "//div[@class='ui-input-new']/input")
+    private WebElement podborCreditInputFon;
+
+    @FindBy(xpath = "//form[@class='form-confirm']")
+    private WebElement podborCreditFormForSMSCode;
+
+    @FindBy(xpath = "//label[./div[contains(text(), 'Код из СМС')]]//input")
+    private WebElement podborCreditInputForSMSCode;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Фамилия')]]//input")
+    private WebElement podborCreditInputSurName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Имя')]]//input")
+    private WebElement podborCreditInputName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Отчество')]]//input")
+    private WebElement podborCreditInputSecondName;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Дата рождения')]]//input")
+    private WebElement podborCreditInputBirthDay;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Серия и номер')]]//input")
+    private WebElement podborCreditInputPassportNumber;
+
+    @FindBy(xpath = "//label[./div[contains(text(),'Дата выдачи')]]//input")
+    private WebElement podborCreditInputPassportDate;
+
+    @FindBy(xpath = "//div[@class='ui-selection-step']")
+    private WebElement podborLoading;
+
+    /*
+    //h2 элементы начало
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Для чего брать потребительский кредит?')]")
+    private WebElement h2Seo1;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Плюсы и минусы онлайн кредитов')]")
+    private WebElement h2Seo2;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Условия получения потребительского кредита')]")
+    private WebElement h2Seo3;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Как и где взять кредит онлайн?')]")
+    private WebElement h2Seo4;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Какие документы необходимы при оформлении потребительского кредита?')]")
+    private WebElement h2Seo5;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Почему банк может отказать в выдаче кредита?')]")
+    private WebElement h2Seo6;
+
+    @FindBy(xpath = "//div[@class='col-12']/h2[contains(text(), 'Способы погашения кредита')]")
+    private WebElement h2Seo7;
+    //h2 элементы конец */
 
 
     @FindBy(xpath = "//div[@class='col-12']/h2")
@@ -154,5 +224,108 @@ public class CreditsPage extends Base {
 
     public Boolean checkH2SeoElements(){
         return h2SeoElements.size() == 7;
+    }
+
+    public void podobratCreditClick(){
+        podobratCredit.click();
+    }
+
+    public void podobrCreditFormSmsConfirmIsDisplayed(){
+        waitForAjaxElementIsVisible(podobrCreditFormSmsConfirm);
+    }
+
+    public void podborCreditFormStep2IsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditStep2);
+    }
+
+    public void podborCreditNextClick(){
+        podborCreditNext.click();
+    }
+
+    public void podborCreditFormStep3IsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditResultsDisplayed);
+    }
+
+    public void podborCreditResultsDisplayedClick(){
+        podborCreditResultsDisplayed.click();
+    }
+
+    public void podborCreditInputFonField() {
+        podborCreditInputFon.clear();
+        typeIntoField(UserData.correctPhoneNumber, podborCreditInputFon);
+
+    }
+
+    public void podborCreditFormForSMSCodeIsDisplayed(){
+        waitForAjaxElementIsVisible(podborCreditFormForSMSCode);
+    }
+
+    public void InputSMSCodeForPodborCredit() {
+        try {
+            openNewTab();
+            switchToTheSecondTab();
+            for (int i = 0; i < 4; i++) {
+                if (TestContext.passwordFromSms == null) {
+                    try {
+                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer1"));
+                    } catch (Exception e) {
+                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+                    }
+                } else break;
+            }
+            driver.close();
+            switchToTheFirstTab();
+            clearField(podborCreditInputForSMSCode);
+            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passwordFromSms)) {
+                clearField(podborCreditInputForSMSCode);
+                typeIntoField(TestContext.passwordFromSms, podborCreditInputForSMSCode);
+            }
+            podborCreditNextClick();
+            //waitForUrlContains(PagesUrls.baseUrl() + "/");
+        }
+        catch (Exception e) {
+            openNewTab();
+            switchToTheSecondTab();
+            getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+            driver.close();
+            switchToTheFirstTab();
+            clearField(podborCreditInputForSMSCode);
+            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
+            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passwordFromSms)) {
+                clearField(podborCreditInputForSMSCode);
+                typeIntoField(TestContext.passwordFromSms, podborCreditInputForSMSCode);
+            }
+
+            podborCreditNextClick();
+            //waitForUrlContains(PagesUrls.baseUrl() + "/");
+        }
+    }
+
+    public void getPasswordSMSFromServer(String url) {
+        driver.get(url);
+        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код')]", UserData.getFormatNumber());
+        TestContext.passwordFromSms = driver.findElement(By.xpath(xPath)).getText();
+        TestContext.passwordFromSms = TestContext.passwordFromSms.replaceAll("[^0-9]", "");
+        TestContext.passwordFromSms = TestContext.passwordFromSms.substring(0, TestContext.passwordFromSms.length() - 2);
+        TestContext.smsServerValueUrl = driver.getCurrentUrl();
+    }
+
+    public void nonUserPodborCreditTypeTextStep2(){
+        typeIntoField(UserData.names, podborCreditInputName);
+        typeIntoField(UserData.names, podborCreditInputSurName);
+        typeIntoField(UserData.names, podborCreditInputSecondName);
+    }
+
+    public void nonUserPodborCreditInputTextStep3(){
+        typeIntoField(UserData.birthDay, podborCreditInputBirthDay);
+        typeIntoField(UserData.passportNumber, podborCreditInputPassportNumber);
+        typeIntoField(UserData.dateOfPasport, podborCreditInputPassportDate);
+    }
+
+    public void userWaitingResultsPodborCredits(){
+        waitForAjaxElementIsVisible(podborLoading);
     }
 }

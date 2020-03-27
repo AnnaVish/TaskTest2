@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,6 +56,10 @@ public class Header extends Base {
 
     @FindBy(xpath = "//span[contains(text(), 'МФО')]")
     public WebElement mfoHeaderLink;
+
+    public Header() {
+        PageFactory.initElements(driver, this);
+    }
 
     public List<WebElement> getMainHeader() {
         return Arrays.asList(logoLink, privateCustomersLink, othersLink, servicesLink,

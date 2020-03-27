@@ -30,11 +30,6 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.mainPageIsDisplayed();
     }
 
-    @Когда("^пользователь кликает на Кредиты$")
-    public void creditsClicks(){
-        mainPage.creditClick();
-    }
-
     /*
     *Методы хэдэра
      */
@@ -103,71 +98,15 @@ public class MainPageStepDeffinitions extends Base {
      */
 
 
-    @Когда("^пользователь кликает на Кредитные карты$")
-    public void creditCardsClicks() {
-        mainPage.onMainPage();
-        mainPage.creditCardsClicks();
+    @Когда("^пользователь кликает на вертикаль с именем \"([^\"]*)\"$")
+    public void creditCardsClicks(String nameOfVertical) {
+        mainPage.verticalsClick(nameOfVertical);
     }
 
 
-    @Когда("^пользователь кликает на Автокредиты$")
-    public void autoCreditsClicks() {
-        mainPage.onMainPage();
-        mainPage.autoCreditsClicks();
-    }
-
-
-
-    @Когда("^пользователь кликает на Ипотека$")
-    public void ipotekaClicks() {
-        mainPage.onMainPage();
-        mainPage.ipotekaClicks();
-    }
-
-
-    @Когда("^пользователь кликает на Микрозаймы$")
-    public void microCreditsClick() {
-        mainPage.onMainPage();
-        mainPage.microCreditsClicks();
-    }
-
-
-    /*
-    @Когда("^пользователь кликает на Кредитные отчеты$")
-    public void creditsReportsClicks() {
-        mainPage.onMainPage();
-        mainPage.creditReportscClicks();
-    } */
-
-    @Когда("^пользователь кликает на Защита от мошенников$")
-    public void protectClick(){
-        mainPage.onMainPage();
-        mainPage.protectClick();
-    }
-
-
-    @Когда("^пользователь кликает получить рейтинг финансового здоровья$")
-    public void getFinancialHealth() {
-        mainPage.financialHealthRatingGetBtnClick();
-    }
-
-
-    @Когда("^пользователь кликает получить Кредитный отчет$")
-    public void getCrefitReport() {
-        mainPage.onMainPage();
-        mainPage.creditReportsGetBtnClicks();
-    }
-
-//    @Когда("^пользователь кликает получить FICIO$")
-//    public void getFICIO() {
-//        mainPage.onMainPage();
-//        mainPage.ficioGetBtnClicks();
-
-//    }
-
-    @Тогда("^пользователь кликает Посмотреть все банки и МФО$")
-    public void seeAllBanksClicks(){
-        mainPage.seeAllBanksClicks();
+    @Когда("^пользователь кликает получить \"([^\"]*)\"$")
+    public void getFinancialHealth(String nameOfRating) {
+        mainPage.ratingReportClick(nameOfRating);
     }
 
     @И("^пользователь нажимает на кнопку войти$")
@@ -194,34 +133,14 @@ public class MainPageStepDeffinitions extends Base {
         mainPage.becomeAgentInFooterClick();
     }
 
-    @Тогда("^пользователь кликает Кабинет вебмастера в футере$")
-    public void userClickCabinetOfWebMaster(){
-        mainPage.cabinetOfWebmasterClick();
+    @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")
+    public void userInFooterProductsClick(String nameProducts){
+        mainPage.clickDownProductsInFooter(nameProducts);
     }
 
-    @Тогда("^пользователь кликает Личный кабинет Банков и Рекламодателей в футере$")
-    public void userClickCabinetOfBankClick(){
-        mainPage.cabinetOfBankClick();
-    }
-
-    @Тогда("^пользователь кликает Личный кабинет Брокера и Агента в футере$")
-    public void userClickAuthPageOfBroker(){
-        mainPage.cabinetOfBrokerClick();
-    }
-
-    @Тогда("^пользователь кликает Старый кабинет брокера и агента в футере$")
-    public void userClickOldCabinetOfBroker() {
-        mainPage.oldCabinetOfBrokerClick();
-    }
-
-    @Тогда("^пользователь кликает О компании в футере$")
-    public void userClickAboutCompanyInFooter() {
-        mainPage.aboutCompanyFooterClick();
-    }
-
-    @Тогда("^пользователь кликает Карта сайта в футере$")
-    public void userClickSiteMapInFooter() {
-        mainPage.siteMapClick();
+    @Тогда("^пользователь кликает \"([^\"]*)\" в верхней части футера$")
+    public void userClickTopLinksInFooter(String nameLinks) {
+        mainPage.clickTopLinkInFooter(nameLinks);
     }
 
     @Тогда("пользователь делает скролл в футэру")
