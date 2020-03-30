@@ -93,6 +93,11 @@ public class MainPageStepDeffinitions extends Base {
     public void userSeeBankiAndMFOInHeader(){
         mainPage.bankiAndMfoAreDisplayedInHeader();
     }
+
+    @Тогда("^пользователь авторизован$")
+    public void mainPageUserIsAuthorized() {
+        mainPage.mainPageUserIsAuthorized();
+    }
     /*
      *Методы хэдэра окончены
      */

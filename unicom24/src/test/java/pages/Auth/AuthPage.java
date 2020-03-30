@@ -103,6 +103,12 @@ public class AuthPage extends Base {
         allElementsAreVisible(footerPage.getFooter());
     }
 
+    public void newPasswordFieldsAreDisplayed() {
+        switchToTheThirdTab();
+        waitForVisibility(newPasswordField);
+        waitForVisibility(repeatNewPasswordField);
+    }
+
     public void loginFill() {
         typeIntoField(login, mailOrTelField);
     }
@@ -229,15 +235,13 @@ public class AuthPage extends Base {
         TestContext.smsCode = smsCode;
     }
 
-    public void changePasswordFromFirstServerOrSecondServer() throws InterruptedException {
+    public void changePasswordFromFirstServerOrSecondServer() {
         openNewTab();
         switchToTheSecondTab();
-//        driver.get(PagesUrls.emailServerLink().get("emailServer1"));
-//        waitForPageLoaded(PagesUrls.smsServerLink2().get("emailServer1"));
-//        TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("emailServer1");
-        driver.get("http://develop-34.vuaro.ru:1080/");
-        waitForPageLoaded("http://develop-34.vuaro.ru:1080/");
-        TestContext.emailServerLink = "http://develop-34.vuaro.ru:1080/";
+        driver.get(PagesUrls.emailServerLink().get("emailServer1"));
+        waitForPageLoaded(PagesUrls.emailServerLink().get("emailServer1"));
+        TestContext.emailServerLink = PagesUrls.emailServerLink().get("emailServer1");
+        waitForVisibility(By.xpath("//tbody/tr[1]"));
         mailCatcher.latestEmailByToAndSubjectClick();
     }
 
@@ -246,8 +250,6 @@ public class AuthPage extends Base {
         typeIntoField(UserData.newCorrectPassword, newPasswordField);
         typeIntoField(UserData.newCorrectPassword, repeatNewPasswordField);
         savePasswordButton.click();
-        
-        waitForVisibility(By.xpath("//div[contains(text(),'Оксана Олеговна Александрова')]"));
     }
 
     public void regClick() {

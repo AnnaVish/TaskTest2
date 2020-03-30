@@ -5,13 +5,11 @@ import java.util.Map;
 
 public class PagesUrls {
 
+    public static String base = System.getenv("TESTING_HOST");
     public static String mainPage = baseUrl();
     public static String bankListPage = bankList();
 
     public static String baseUrl() {
-//        String base = System.getenv("TESTING_HOST");
-        String base = "develop-34.vuaro.ru";
-//        String base = "pre-prod.vuaro.ru";
         return "https://" + base;
     }
 
@@ -96,8 +94,7 @@ public class PagesUrls {
     public static String webMasterMicrocreditPage() {return mainPage + "/form-offers-small-webmaster/mikrozajmy?"; } //некая рекламная страница на которую можно попасть только по ссылке
 
     public static String smsServerLink() {
-        String base = System.getenv("TESTING_HOST");
-        if (base.equals("develop-34.vuaro.ru")) {
+        if (base.equals("pre-prod.vuaro.ru")) {
             return "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue";
         } else {
             return "http://" + base + ":13003/channel/dev_channel/queue";
@@ -105,8 +102,6 @@ public class PagesUrls {
     }
 
     public static Map<String, String> smsServerLink2() {
-//        String base = System.getenv("TESTING_HOST");
-        String base = "develop-34.vuaro.ru";
         Map<String, String> smsServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
             smsServer.put("smsServer1", "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue");
@@ -119,15 +114,13 @@ public class PagesUrls {
     }
 
     public static Map<String, String> emailServerLink() {
-//        String base = System.getenv("TESTING_HOST");
-        String base = "develop-34.vuaro.ru";
         Map<String, String> emailServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
             emailServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");
             emailServer.put("emailServer2", "http://pre-prod-02.vuaro.ru:1080/");
             return emailServer;
         } else {
-            emailServer.put("smsServer1", "http://" + base + ":1080");
+            emailServer.put("emailServer1", "http://" + base + ":1080");
             return emailServer;
         }
     }

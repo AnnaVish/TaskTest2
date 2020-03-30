@@ -154,6 +154,10 @@ public class MainPage extends Base {
         Assert.assertEquals(8, seoTitles.size());
     }
 
+    public void mainPageUserIsAuthorized() {
+        waitForVisibility(By.xpath("//div[@class='ui-dropdown-rating-block']"));
+    }
+
     /*
      *клики в хэдэре
      */
