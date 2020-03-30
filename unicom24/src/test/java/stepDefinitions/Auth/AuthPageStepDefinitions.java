@@ -31,7 +31,7 @@ public class AuthPageStepDefinitions {
     }
 
     @Тогда("^пользователь вводит номер несуществующего пользователя и нажимает Отправить$")
-    public void userTypePhoneOfUnregisteredUser() throws InterruptedException {
+    public void userTypePhoneOfUnregisteredUser() {
         authPage.typePhoneOfUnregisteredUser(UserData.unRegisteredUserPhone);
     }
 
