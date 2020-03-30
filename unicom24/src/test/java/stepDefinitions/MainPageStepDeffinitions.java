@@ -136,6 +136,7 @@ public class MainPageStepDeffinitions extends Base {
     @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")
     public void userInFooterProductsClick(String nameProducts){
         mainPage.clickDownProductsInFooter(nameProducts);
+        switchToTheSecondTab();
     }
 
     @Тогда("^пользователь кликает \"([^\"]*)\" в верхней части футера$")
