@@ -81,6 +81,11 @@ public abstract class Base {
         actions.perform();
     }
 
+    public void scrollToTop() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,0);");
+    }
+
     public void waitUntilElementRemove(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
         wait.until(countOfElementsIsZero(locator));

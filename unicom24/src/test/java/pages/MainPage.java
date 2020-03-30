@@ -299,7 +299,11 @@ public class MainPage extends Base {
         }
     }
 
-    public void comparePageClick() { compareBtn.click(); }
+    public void comparePageClick() {
+        scrollToTop();
+        waitForVisibility(compareBtn);
+        compareBtn.click();
+    }
 
     public void scrollToFooter(){
         waitForVisibility(footerPage.downLinks.get(1));
