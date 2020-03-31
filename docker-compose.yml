@@ -7,6 +7,8 @@ services:
     volumes:
       - ./ui-screenshots:/srv/autotests/ui-screenshots
       - ./target:/srv/autotests/unicom24/target
+      - /dev/shm:/dev/shm
+
     env_file:
       - .env_tests
     networks:
