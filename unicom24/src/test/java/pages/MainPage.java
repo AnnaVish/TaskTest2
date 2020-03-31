@@ -217,8 +217,10 @@ public class MainPage extends Base {
     public void verticalsClick(String nameOfVertical) {
         int i = 0;
         for (WebElement element : mainOffersBtns) {
-            if (element.getText().equals(nameOfVertical))
+            if (element.getText().equals(nameOfVertical)) {
                 element.click();
+            break;
+            }
             i++;
             if(i == mainOffersBtns.size())
                 waitForText(element, nameOfVertical);
