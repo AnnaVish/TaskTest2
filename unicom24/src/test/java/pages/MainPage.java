@@ -253,7 +253,7 @@ public class MainPage extends Base {
     public void becomePartnerInFooterClick(){
         scrollTo(footerPage.becomePartnerLink);
         waitForVisibility(footerPage.becomePartnerLink);
-        footerPage.becomeAgentLink.click();
+        footerPage.becomePartnerLink.click();
     }
 
     public void becomeAgentInFooterClick(){

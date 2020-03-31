@@ -126,11 +126,13 @@ public class MainPageStepDeffinitions extends Base {
     @Тогда("^пользователь кликает Стать партнером в футере$")
     public void userClickBecomePartnerInFooter(){
         mainPage.becomePartnerInFooterClick();
+        switchToTheSecondTab();
     }
 
     @Тогда("^пользователь кликает Стать агентом в футере$")
     public void userClickBecomeAgentInFooter(){
         mainPage.becomeAgentInFooterClick();
+        switchToTheSecondTab();
     }
 
     @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")

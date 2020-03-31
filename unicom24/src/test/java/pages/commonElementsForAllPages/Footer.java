@@ -32,7 +32,7 @@ public class Footer extends Base {
     @FindBy(css = ".app-footer-social-links-item")
     public List<WebElement> socialBtn; // 4
 
-    @FindBy(css = ".app-footer-products-item")
+    @FindBy(xpath = "//div[@class='app-footer-products-item']/a")
     public List<WebElement> downLinks; // 5 штук
 
     @FindBy(className = "app-footer-extend")
