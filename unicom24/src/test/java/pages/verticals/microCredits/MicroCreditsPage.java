@@ -236,7 +236,7 @@ public class MicroCreditsPage extends Base {
     }
 
     public void locationIsDisplayed(){
-        waitForVisibility(common.spanForSelectLocationCity);
+        waitForAjaxElementIsVisible(common.spanForSelectLocationCity);
     }
 
     public Boolean checkH2SeoElements(){

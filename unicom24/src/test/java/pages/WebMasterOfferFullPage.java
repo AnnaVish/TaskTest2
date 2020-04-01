@@ -27,7 +27,7 @@ public class WebMasterOfferFullPage extends Base {
     private WebElement offerFullPageBreadcrumbs; // хлебные крошки
 
     @FindBy(xpath = "//div[@class='offers-detail-child']/div[@class='offers-description-view']")
-    private  WebElement offerContentProfile;
+    private WebElement offerContentProfile;
 
     @FindBy(xpath = "//div[@class='offers-detail-child']//div[@class='offers-description font__base-small']")
     private WebElement offerContentAboutCompany;
@@ -41,7 +41,7 @@ public class WebMasterOfferFullPage extends Base {
     @FindBy(xpath = "//div[@class='offers-tariffs-and-changes-view']")
     private WebElement offerContentTariff;
 
-    @FindBy(xpath ="//div[@class='offers-types-of-traffic-view']")
+    @FindBy(xpath = "//div[@class='offers-types-of-traffic-view']")
     private WebElement offerContentTraffic;
 
     @FindBy(xpath = "//div[@class='offers-regions-view']")
@@ -54,56 +54,59 @@ public class WebMasterOfferFullPage extends Base {
     private WebElement wayForLink;
 
     @FindBy(xpath = "//div[@class='ds-offer-card-wrap detail']//span[contains(text(), 'REF')]")
-    private List <WebElement> offerOfREF;
+    private List<WebElement> offerOfREF;
 
     @FindBy(xpath = "//div[@class='navigation detail']/a")
-    private List <WebElement> tabsOnOfferFullPage;
+    private List<WebElement> tabsOnOfferFullPage;
+
+    //дурацкое окно ваш персональный менеджер, нужно для закрытия - мешает выполнить тест
+    @FindBy(css = "div.close em")
+    private WebElement yourPersonalManagerClose;
 
     private final List<WebElement> elements;
 
-    public WebMasterOfferFullPage(){
+    public WebMasterOfferFullPage() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(offerWrapper,offerContainerWrapper, offerFullPageBreadcrumbs);
+        elements = Arrays.asList(offerWrapper, offerContainerWrapper, offerFullPageBreadcrumbs);
     }
 
     public void pageIsDisplayed() {
         allElementsAreVisible(elements);
     }
 
-    public void tabOnOffersFullPageClick(String tabName){ // клик по вкладке с названием из переменной
-        for (WebElement element : tabsOnOfferFullPage){
-            if (element.getText().equals(tabName)){
+    public void tabOnOffersFullPageClick(String tabName) { // клик по вкладке с названием из переменной
+        for (WebElement element : tabsOnOfferFullPage) {
+            if (element.getText().equals(tabName)) {
                 element.click();
             }
         }
     }
 
-    public void tabContentIsDisplayed(String tabName){ //ожидание отображение вкладки с названием из переменной
-        switch (tabName){
+    public void tabContentIsDisplayed(String tabName) { //ожидание отображение вкладки с названием из переменной
+        switch (tabName) {
             case ("Об анкете"):
                 waitForVisibility(offerContentProfile);
                 break;
-            case("О компании"):
+            case ("О компании"):
                 waitForVisibility(offerContentAboutCompany);
                 break;
-            case("Подключение"):
-            if (offerOfREF.size()>0) {
-                waitForVisibility(offerContentConnectREF);
-            }
-             else{
-                waitForVisibility(offerContentConnectAPI);
-            }
+            case ("Подключение"):
+                if (offerOfREF.size() > 0) {
+                    waitForVisibility(offerContentConnectREF);
+                } else {
+                    waitForVisibility(offerContentConnectAPI);
+                }
                 break;
-            case("Тарифы и изменения"):
+            case ("Тарифы и изменения"):
                 waitForVisibility(offerContentTariff);
                 break;
-            case("Виды трафика"):
+            case ("Виды трафика"):
                 waitForVisibility(offerContentTraffic);
                 break;
-            case("Регионы"):
+            case ("Регионы"):
                 waitForVisibility(offerContentRegions);
                 break;
-            case("Отзывы"):
+            case ("Отзывы"):
                 waitForVisibility(offerContentFeedback);
                 break;
             default:
@@ -112,18 +115,21 @@ public class WebMasterOfferFullPage extends Base {
         }
     }
 
-    public void checkingTabsOnFullOfferPage(){ // проверка вкладок
+    public void checkingTabsOnFullOfferPage() { // проверка вкладок
         String tabName;
         int tabCount = tabsOnOfferFullPage.size();
-        for ( int i = 1; i<tabCount; i++) {
-                tabName = tabsOnOfferFullPage.get(i).getText();
-                tabsOnOfferFullPage.get(i).click();
-                tabContentIsDisplayed(tabName);
+        for (int i = 1; i < tabCount; i++) {
+            if (isElementVisible(yourPersonalManagerClose)) //закрываем окно которое может мешать кликнуть на элемент
+                yourPersonalManagerClose.click();
+
+            tabName = tabsOnOfferFullPage.get(i).getText();
+            tabsOnOfferFullPage.get(i).click();
+            tabContentIsDisplayed(tabName);
         }
     }
 
-    public void checkingLinkOnFullOfferPage(String targetNameLink){
-        String targetBTN = String.format(wayTypeBTNForClick+"//button[contains(text(), '%s')]", targetNameLink);
+    public void checkingLinkOnFullOfferPage(String targetNameLink) {
+        String targetBTN = String.format(wayTypeBTNForClick + "//button[contains(text(), '%s')]", targetNameLink);
         driver.findElement(By.xpath(targetBTN)).click();
         String wayTextUrl = wayForLink.getText();
         openNewTab();

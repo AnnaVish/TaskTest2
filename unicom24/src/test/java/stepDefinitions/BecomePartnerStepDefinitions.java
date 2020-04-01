@@ -18,4 +18,9 @@ public class BecomePartnerStepDefinitions extends Base {
     public void becomePartnerPageIsDisplayed(){
         becomePartner.pageIsDisplayed();
     }
+
+    @Тогда("^пользователь нажимает Зарабатывать сейчас$")
+    public void userClickEarnNow() {
+        becomePartner.getMoneyNowClick();
+    }
 }

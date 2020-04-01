@@ -226,10 +226,10 @@ public class MainPage extends Base {
         for (WebElement element : mainOffersBtns) {
             if (element.getText().equals(nameOfVertical)) {
                 element.click();
-            break;
+                break;
             }
             i++;
-            if(i == mainOffersBtns.size())
+            if (i == mainOffersBtns.size())
                 waitForText(element, nameOfVertical);
         }
     }
@@ -307,9 +307,15 @@ public class MainPage extends Base {
     }
 
     public void clickDownProductsInFooter(String nameOfLink) {
+        int i = 0;
         for (WebElement element : footerPage.downLinks) {
-            if (element.getText().equals(nameOfLink))
+            if (element.getText().equals(nameOfLink)) {
                 element.click();
+                break;
+            }
+            i++;
+            if (i == footerPage.downLinks.size())
+                waitForText(element, nameOfLink);
         }
     }
 
