@@ -25,6 +25,9 @@ public class MainPage extends Base {
     @FindBy(xpath = "//div[@class='offers-compare-block']/div[contains(text(), 'Сравнение')]")
     public WebElement compareBtn;
 
+    @FindBy(xpath = "//div[@class='ui-dropdown-rating-block']")
+    private WebElement userAuthedBlock;
+
     //Главный баннер вверху
     @FindBy(css = ".app-main-fold  .glide__slide.glide__slide--active")
     private WebElement banner;
@@ -157,7 +160,7 @@ public class MainPage extends Base {
     }
 
     public void mainPageUserIsAuthorized() {
-        waitForVisibility(By.xpath("//div[@class='ui-dropdown-rating-block']"));
+        waitForVisibility(userAuthedBlock);
     }
 
     /*
