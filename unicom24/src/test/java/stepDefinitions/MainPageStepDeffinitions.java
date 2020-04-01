@@ -120,7 +120,7 @@ public class MainPageStepDeffinitions extends Base {
     }
 
     @Тогда("^в шапке сайта видно Ваш баланс и Ваш рейтинг$")
-    public void checkBalanceAndRating(){
+    public void checkBalanceAndRating() {
         mainPage.checkBalanceAndRating();
     }
 
