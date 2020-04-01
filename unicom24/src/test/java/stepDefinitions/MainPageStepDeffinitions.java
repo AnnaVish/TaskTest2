@@ -31,66 +31,66 @@ public class MainPageStepDeffinitions extends Base {
     }
 
     /*
-    *Методы хэдэра
+     *Методы хэдэра
      */
 
     @Когда("^пользователь нажимает на Логотип$")
-    public void userLogoLinkClick(){
+    public void userLogoLinkClick() {
         mainPage.logoLinkClick();
     }
 
     @Когда("^пользователь нажимает Частным клиентам в Хэдэре$")
-    public void userPrivateCustomersLinkClick(){
+    public void userPrivateCustomersLinkClick() {
         mainPage.privateCustomersLinkClick();
     }
 
     @Когда("^пользователь нажимает Малому и среднему бизнесу в Хэдэре$")
-    public void userForBusinessLinkClick(){
+    public void userForBusinessLinkClick() {
         mainPage.forBusinessLinkClick();
     }
 
     @Когда("^пользователь нажимает Сервисы в Хэдэре$")
-    public void userServicesLinkClick(){
+    public void userServicesLinkClick() {
         mainPage.servicesLinkClick();
     }
 
     @Когда("^пользователь нажимает Прочее в Хэдэре$")
-    public void userOthersLinkClick(){
+    public void userOthersLinkClick() {
         mainPage.othersLinkClick();
     }
 
     @Когда("^пользователь нажимает Кредиты в Хэдэре$")
-    public void userCreditsHeaderLinkClick(){
+    public void userCreditsHeaderLinkClick() {
         mainPage.creditsHeaderLinkClick();
     }
 
     @Когда("^пользователь нажимает Кредитные карты в Хэдэре$")
-    public void userCreditCardsHeaderLinkClick(){
+    public void userCreditCardsHeaderLinkClick() {
         mainPage.creditCardsHeaderLinkClick();
     }
 
     @Когда("^пользователь нажимает Автокредиты в Хэдэре$")
-    public void userAutoCreditsHeaderLinkClick(){
+    public void userAutoCreditsHeaderLinkClick() {
         mainPage.autoCreditsHeaderLinkClick();
     }
 
     @Когда("^пользователь нажимает Ипотека в Хэдэре$")
-    public void userIpotekaHeaderLinkClick(){
+    public void userIpotekaHeaderLinkClick() {
         mainPage.ipotekaHeaderLinkClick();
     }
 
     @Когда("^пользователь нажимает Микрокредиты в Хэдэре$")
-    public void userMicroCreditsHeaderLinkClick(){
+    public void userMicroCreditsHeaderLinkClick() {
         mainPage.microCreditsHeaderLinkClick();
     }
 
     @Когда("^пользователь нажимает Рефинансирование в Хэдэре$")
-    public void userRefinanceHeaderLinkClick(){
+    public void userRefinanceHeaderLinkClick() {
         mainPage.refinanceHeaderLinkClick();
     }
 
     @Когда("^в хэдэре видно - банки и МФО$")
-    public void userSeeBankiAndMFOInHeader(){
+    public void userSeeBankiAndMFOInHeader() {
         mainPage.bankiAndMfoAreDisplayedInHeader();
     }
 
@@ -115,32 +115,40 @@ public class MainPageStepDeffinitions extends Base {
     }
 
     @И("^пользователь нажимает на кнопку войти$")
-    public void logIn(){
+    public void logIn() {
         mainPage.entranceInAccountBtnClick();
     }
 
-    @Тогда("^в шапке сайта видно Ваш баланс и Ваш рейтинг$")
-    public void checkBalanceAndRating(){
+    @Тогда("^в шапке сайта видно Ваш баланс и Ваш тейтинг$")
+    public void checkBalanceAndRating() {
         mainPage.checkBalanceAndRating();
     }
 
     /*
-    *методы футэра
+     *методы футэра
      */
 
     @Тогда("^пользователь кликает Стать партнером в футере$")
-    public void userClickBecomePartnerInFooter(){
+    public void userClickBecomePartnerInFooter() {
         mainPage.becomePartnerInFooterClick();
+        switchToTheSecondTab();
     }
 
     @Тогда("^пользователь кликает Стать агентом в футере$")
-    public void userClickBecomeAgentInFooter(){
+    public void userClickBecomeAgentInFooter() {
         mainPage.becomeAgentInFooterClick();
+        switchToTheSecondTab();
     }
 
     @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")
-    public void userInFooterProductsClick(String nameProducts){
-        mainPage.clickDownProductsInFooter(nameProducts);
+    public void userInFooterProductsClick(String nameProducts) {
+        if (nameProducts.equals("Карта сайта")) {
+            mainPage.clickDownProductsInFooter(nameProducts);
+        } else {
+            mainPage.clickDownProductsInFooter(nameProducts);
+            switchToTheSecondTab();
+        }
+
     }
 
     @Тогда("^пользователь кликает \"([^\"]*)\" в верхней части футера$")
@@ -162,7 +170,7 @@ public class MainPageStepDeffinitions extends Base {
      */
 
     @Тогда("^пользователь обновляет страницу$")
-    public void userRefreshPage(){
+    public void userRefreshPage() {
         Base.refreshPage();
     }
 
@@ -182,5 +190,7 @@ public class MainPageStepDeffinitions extends Base {
     }
 
     @И("^пользователь заходит в свой профиль$")
-    public void userGoToMyProfile(){commonMethodsForAllVerticals.userEnterToProFilePage();}
+    public void userGoToMyProfile() {
+        commonMethodsForAllVerticals.userEnterToProFilePage();
+    }
 }

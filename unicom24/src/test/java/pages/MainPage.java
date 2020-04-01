@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pagesUrls.PagesUrls;
@@ -71,7 +73,7 @@ public class MainPage extends Base {
 
     //4 карточки блога
     @FindBy(css = ".app-blog a.app-blog-list-item")
-    private List<WebElement>blogCards;
+    private List<WebElement> blogCards;
 
     //Кнопка в блоге
     @FindBy(css = ".app-blog button")
@@ -83,10 +85,10 @@ public class MainPage extends Base {
 
     //сео блок
     @FindBy(css = ".app-seo-links a")
-    private List<WebElement>seoLinks;
+    private List<WebElement> seoLinks;
 
     @FindBy(css = ".app-seo-links-list-title")
-    private List<WebElement>seoTitles;
+    private List<WebElement> seoTitles;
 
 
     @FindBy(css = ".header-site-right .ui-btn")
@@ -135,7 +137,7 @@ public class MainPage extends Base {
         driver.get(PagesUrls.mainPage);
     }
 
-    private Boolean countOfImageVertical(){
+    private Boolean countOfImageVertical() {
         return driver.findElements(By.cssSelector(".ui-card-offers-wrap a")).size() == 6;
     }
 
@@ -146,11 +148,11 @@ public class MainPage extends Base {
         Assert.assertEquals(4, mainOffersBtns.size());
         Assert.assertEquals(8, h2.size());
         Assert.assertEquals(4, bestOffersTabs.size());
-        Assert.assertTrue( bestOffersCards.size()>0);
+        Assert.assertTrue(bestOffersCards.size() > 0);
         Assert.assertEquals(4, instructionsRounds.size());
         Assert.assertEquals(4, blocks.size());
         Assert.assertEquals(4, blogCards.size());
-        Assert.assertTrue(seoLinks.size()>20);
+        Assert.assertTrue(seoLinks.size() > 20);
         Assert.assertEquals(8, seoTitles.size());
     }
 
@@ -161,51 +163,51 @@ public class MainPage extends Base {
     /*
      *клики в хэдэре
      */
-    public void logoLinkClick(){
+    public void logoLinkClick() {
         headerPage.logoLink.click();
     }
 
-    public void privateCustomersLinkClick(){
+    public void privateCustomersLinkClick() {
         headerPage.privateCustomersLink.click();
     }
 
-    public void forBusinessLinkClick(){
+    public void forBusinessLinkClick() {
         headerPage.forBusinessLink.click();
     }
 
-    public void othersLinkClick(){
+    public void othersLinkClick() {
         headerPage.othersLink.click();
     }
 
-    public void servicesLinkClick(){
+    public void servicesLinkClick() {
         headerPage.servicesLink.click();
     }
 
-    public void creditsHeaderLinkClick(){
+    public void creditsHeaderLinkClick() {
         headerPage.creditsHeaderLink.click();
     }
 
-    public void creditCardsHeaderLinkClick(){
+    public void creditCardsHeaderLinkClick() {
         headerPage.creditCardsHeaderLink.click();
     }
 
-    public void autoCreditsHeaderLinkClick(){
+    public void autoCreditsHeaderLinkClick() {
         headerPage.autoCreditsHeaderLink.click();
     }
 
-    public void ipotekaHeaderLinkClick(){
+    public void ipotekaHeaderLinkClick() {
         headerPage.ipotekaHeaderLink.click();
     }
 
-    public void microCreditsHeaderLinkClick(){
+    public void microCreditsHeaderLinkClick() {
         headerPage.microCreditsHeaderLink.click();
     }
 
-    public void refinanceHeaderLinkClick(){
+    public void refinanceHeaderLinkClick() {
         headerPage.refinanceHeaderLink.click();
     }
 
-    public void bankiAndMfoAreDisplayedInHeader(){
+    public void bankiAndMfoAreDisplayedInHeader() {
         allElementsAreVisible(headerPage.othersHeaderLinks());
     }
     /*
@@ -214,12 +216,18 @@ public class MainPage extends Base {
 
 
     /*
-    *клики по вертикалям
+     *клики по вертикалям
      */
     public void verticalsClick(String nameOfVertical) {
-        for(WebElement element : mainOffersBtns) {
-            if(element.getText().equals(nameOfVertical))
+        int i = 0;
+        for (WebElement element : mainOffersBtns) {
+            if (element.getText().equals(nameOfVertical)) {
                 element.click();
+            break;
+            }
+            i++;
+            if(i == mainOffersBtns.size())
+                waitForText(element, nameOfVertical);
         }
     }
 
@@ -230,12 +238,12 @@ public class MainPage extends Base {
         element.click();
     }
 
-    public void entranceInAccountBtnClick(){
+    public void entranceInAccountBtnClick() {
         waitForVisibility(entranceInAccountBtn);
         entranceInAccountBtn.click();
     }
 
-    public void checkBalanceAndRating(){
+    public void checkBalanceAndRating() {
         try {
             waitForVisibility(ratingField);
         } catch (Exception E) {
@@ -245,7 +253,7 @@ public class MainPage extends Base {
 
         String valueMoney = moneyValue.getText();
         valueMoney = valueMoney.replaceAll("\\s", "");
-        if(Integer.parseInt(valueMoney) < 5000) {
+        if (Integer.parseInt(valueMoney) < 5000) {
             try {
                 AdminBalance.runClass();
             } catch (IOException e) {
@@ -254,21 +262,20 @@ public class MainPage extends Base {
         }
     }
 
-    public void becomePartnerInFooterClick(){
+    public void becomePartnerInFooterClick() {
         scrollTo(footerPage.becomePartnerLink);
         waitForVisibility(footerPage.becomePartnerLink);
-        footerPage.becomeAgentLink.click();
+        footerPage.becomePartnerLink.click();
     }
 
-    public void becomeAgentInFooterClick(){
+    public void becomeAgentInFooterClick() {
         scrollTo(footerPage.becomeAgentLink);
         waitToBeClickable(footerPage.becomeAgentLink);
         footerPage.becomeAgentLink.click();
     }
 
 
-
-    public void headerBecomeSmall(){
+    public void headerBecomeSmall() {
         //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается
         //waitForInvisibility(headerPage.forBusinessLink); //- на период 10.01.2020 хедер теперь не так уменьшается
         waitForInvisibility(headerPage.othersLink);
@@ -291,21 +298,25 @@ public class MainPage extends Base {
 
     public void clickTopLinkInFooter(String nameOfLink) {
         for (WebElement element : footerPage.footerLinks) {
-            if(element.getText().equals(nameOfLink))
+            if (element.getText().equals(nameOfLink))
                 element.click();
         }
     }
 
     public void clickDownProductsInFooter(String nameOfLink) {
         for (WebElement element : footerPage.downLinks) {
-            if(element.getText().equals(nameOfLink))
+            if (element.getText().equals(nameOfLink))
                 element.click();
         }
     }
 
-    public void comparePageClick() { compareBtn.click(); }
+    public void comparePageClick() {
+        scrollToTop();
+        waitForVisibility(compareBtn);
+        compareBtn.click();
+    }
 
-    public void scrollToFooter(){
+    public void scrollToFooter() {
         waitForVisibility(footerPage.downLinks.get(1));
         scrollTo(footerPage.downLinks.get(1));
     }

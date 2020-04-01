@@ -13,7 +13,6 @@ import java.io.File;
 public class FinancialHealthPageStepDefinitions extends Base {
 
     private final FinancialHealthPage financialHealthPage = new FinancialHealthPage();
-    private final BaseProperties baseProperties = new BaseProperties();
 
     @Тогда("^отображается страница Рейтинг финансового здоровья$")
     public void financialHealtPageIsDisplayed(){
@@ -33,8 +32,8 @@ public class FinancialHealthPageStepDefinitions extends Base {
     @Тогда("^пользователь скачивает отчет финансового здоровья$")
     public void userDownloadReport(){
         financialHealthPage.downloadReport();
-        Assert.assertTrue(folderSize(new File(baseProperties.createDownloadDirURL())) > 100000);
-        Assert.assertEquals("pdf", getFileExtension(new File(baseProperties.createDownloadDirURL())));
+        Assert.assertTrue(folderSize(new File(BaseProperties.createDownloadDirURL())) > 100000);
+        Assert.assertEquals("pdf", getFileExtension(new File(BaseProperties.createDownloadDirURL())));
     }
 
     @Дано("^пользователь находится на странице Рейтинг финансового здоровья$")
