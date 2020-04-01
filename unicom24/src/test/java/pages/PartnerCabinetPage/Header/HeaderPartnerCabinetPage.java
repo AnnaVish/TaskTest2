@@ -14,7 +14,7 @@ public class HeaderPartnerCabinetPage extends Base {
     /*
      *Верхний хэдэр
      */
-    @FindBy(xpath = "//div[@class='ds-header']")
+    @FindBy(xpath = "//div[@class='ds-header-wrap']")
     public WebElement headerContainer;
 
     @FindBy(xpath = "//div[@class='ds-header-info-logo']")
