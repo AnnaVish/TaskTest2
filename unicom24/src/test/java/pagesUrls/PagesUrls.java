@@ -85,6 +85,10 @@ public class PagesUrls {
         return mainPage + "/_ad_min_24/wallet/balance/?_to_field=id&_popup=1&q=" + userEmail;
     }
 
+    public static String aboutFullCreditHistoryPage() {
+        return mainPage + "/services/polnaya-kreditnaya-istoriya";
+    }
+
     public static String brokerRFZPageUrl() {
         return mainPage + "/b2b_office/financial-health";
     }

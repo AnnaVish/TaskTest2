@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pagesUrls.PagesUrls;
@@ -24,7 +26,7 @@ public class FinancialHealthPage extends Base {
     Footer footerPage = new Footer();
 
     String dateValue;
-    int dateIntValue;
+    long dateIntValue;
 
     @FindBy(xpath = "//button[./span[contains(text(), 'Получить отчет')]]")
     private WebElement getReport;
@@ -32,8 +34,8 @@ public class FinancialHealthPage extends Base {
     @FindBy(xpath = "//h1[@class='font__h1']")
     private WebElement pageTitle;
 
-    //@FindBy(xpath = "//div[contains(text(), 'История запросов на рейтинг финансового здоровья')]")
-    //private WebElement historyTitle;
+    @FindBy(xpath = "//div[contains(text(), 'История запросов на рейтинг финансового здоровья')]")
+    private WebElement historyTitle;
 
     //@FindBy(css = ".ui-auto-requests-history .ui-form-requests-history-credit_report__data-wrapper")
     //private WebElement history;
@@ -74,7 +76,7 @@ public class FinancialHealthPage extends Base {
     public void parseDateOfReport() {
         String date = driver.findElement(By.cssSelector(".ui-form-requests-history-credit_report__data-item-date")).getText();
         dateValue = date.replaceAll("\\D+","");
-        dateIntValue = Integer.parseInt(dateValue);
+        dateIntValue = Long.parseLong(dateValue);
     }
 
     public void getReportClick() {
@@ -83,9 +85,12 @@ public class FinancialHealthPage extends Base {
     }
 
     public void seeReportResult() {
+        waitUntilElementRemove(By.xpath("//button[./span[contains(text(), 'Получить отчет')]]"));
+        waitForVisibility(historyTitle);
+        waitForTextChanged(dateValue,  By.cssSelector(".ui-form-requests-history-credit_report__data-item-date"));
         String date = driver.findElement(By.cssSelector(".ui-form-requests-history-credit_report__data-item-date")).getText();
         String dateValue = date.replaceAll("\\D+","");
-        Assert.assertTrue(dateIntValue < Integer.parseInt(dateValue));
+        Assert.assertTrue(dateIntValue < Long.parseLong(dateValue));
     }
 
     public void downloadReport() {

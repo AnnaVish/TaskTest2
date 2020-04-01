@@ -81,6 +81,46 @@ public abstract class Base {
         actions.perform();
     }
 
+    public void scrollToTop() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,0);");
+    }
+
+    public void waitUntilElementRemove(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(countOfElementsIsZero(locator));
+    }
+
+    private static ExpectedCondition<Boolean> countOfElementsIsZero(By locator) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                List<WebElement>elements = driver.findElements(locator);
+                if(elements.size() != 0) {
+                    elements = driver.findElements(locator);
+                    System.out.println(elements.size());
+                    return false;
+                }
+                return true;
+            }
+        };
+    }
+
+    public void waitForTextChanged(String text, By locator){
+        WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
+        wait.until(textNotEquals(text, locator));
+    }
+
+    private static ExpectedCondition<Boolean> textNotEquals(String text, By locator) {
+        return new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(@Nullable WebDriver driver) {
+                WebElement elements = driver.findElement(locator);
+                return !elements.getText().equals(text);
+            }
+        };
+    }
+
     public static void waitForVisibility(WebElement element) {
         waitForVisibility(element, ELEMENT_TIMEOUT_SECONDS);
     }
