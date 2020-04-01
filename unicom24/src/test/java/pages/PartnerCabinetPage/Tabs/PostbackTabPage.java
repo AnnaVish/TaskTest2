@@ -190,7 +190,6 @@ public class PostbackTabPage extends Base {
         int countPostBacks = listPostBacks.size();
         saveBtn.click();
         waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='row font__base-small']"), countPostBacks);
-        Assert.assertTrue(countPostBacks < listPostBacks.size());
     }
 
 }
