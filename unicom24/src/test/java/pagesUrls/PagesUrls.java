@@ -29,6 +29,10 @@ public class PagesUrls {
         return mainPage + "/partners/dashboard/login";
     }
 
+    public static String webMasterPage() {
+        return mainPage + "/partners/office";
+    }
+
     public static String brokerAuth() {
         return mainPage + "/b2b_office/auth/login";
     }

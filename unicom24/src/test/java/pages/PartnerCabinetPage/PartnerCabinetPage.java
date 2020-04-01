@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
 import pages.PartnerCabinetPage.Tabs.*;
 import pages.PartnerCabinetPage.Tabs.ReportsTab.ReportsTabPage;
+import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -107,6 +108,7 @@ public class PartnerCabinetPage extends Base {
     }
 
     public void pageIsDisplayed(){
+        waitForPageLoaded(PagesUrls.webMasterPage());
         header.headerIsDisplayed();
         allElementsAreVisible(elements);
     }
