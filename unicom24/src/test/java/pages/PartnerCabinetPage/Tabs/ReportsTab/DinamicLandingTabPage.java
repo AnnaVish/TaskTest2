@@ -26,7 +26,7 @@ public class DinamicLandingTabPage extends ReportsTabPage {
 
     public void  pageIsDisplayed() {
         super.pageIsDisplayed();
-        allElementsAreVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
+        waitForAllAjaxElementIsVisible(commonElementsForAllReportsTabs.getHeaderReportsTabsMax());
         waitForVisibility(statsBlock);
         Assert.assertEquals(2, statsBTNs.size());
     }
