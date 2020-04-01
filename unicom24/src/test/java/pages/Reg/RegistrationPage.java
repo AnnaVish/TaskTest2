@@ -141,7 +141,7 @@ public class RegistrationPage extends Base {
     public void getPasswordFromServer(String url) {
         driver.get(url);
         String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет')]", UserData.getFormatNumber());
-        TestContext.passwordFromSms = driver.findElement(By.xpath(xPath)).getText();
+        TestContext.passwordFromSms =  waitForAjaxElementIsVisible(By.xpath(xPath)).getText();
         TestContext.passwordFromSms = TestContext.passwordFromSms.replaceAll("[^0-9]", "");
         TestContext.passwordFromSms = TestContext.passwordFromSms.substring(0, TestContext.passwordFromSms.length() - 2);
         TestContext.smsServerValueUrl = driver.getCurrentUrl();
