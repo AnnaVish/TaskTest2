@@ -63,6 +63,10 @@ public class PagesUrls {
         return mainPage + "/private/mikrozajmy?";
     }
 
+    public static String blogPageUrl(){
+        return mainPage + "/articles";
+    }
+
     public static String privateRefinancePageUrl() {
         return mainPage + "/private/refinance?";
     }
