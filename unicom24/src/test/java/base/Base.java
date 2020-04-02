@@ -269,8 +269,7 @@ public abstract class Base {
 
     public WebElement waitForAjaxElementIsVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, ELEMENT_TIMEOUT_SECONDS);
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        WebElement element = driver.findElement(locator);
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         waitForVisibility(element);
         return element;
     }
