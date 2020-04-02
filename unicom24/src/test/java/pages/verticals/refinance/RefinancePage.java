@@ -1,6 +1,6 @@
 package pages.verticals.refinance;
 
-import TestContext.TestContext;
+import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

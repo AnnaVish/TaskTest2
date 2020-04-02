@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.ru.То;
-import pages.Reg.RegistrationPage;
+import pages.reg.RegistrationPage;
 
 public class RegistrationPageStepDefinitions {
 

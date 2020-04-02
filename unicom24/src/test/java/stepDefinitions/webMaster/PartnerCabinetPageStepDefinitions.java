@@ -1,15 +1,15 @@
 package stepDefinitions.webMaster;
 
-import TestContext.TestContext;
+import testContext.TestContext;
 import base.Base;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.То;
 import cucumber.api.java.ru.Тогда;
 import cucumber.api.java.ru.И;
-import pages.PartnerCabinetPage.Header.HeaderPartnerCabinetPage;
-import pages.PartnerCabinetPage.PartnerCabinetPage;
-import pages.PartnerCabinetPage.Tabs.PostbackTabPage;
-import pages.PartnerCabinetPage.modalPages.GiveMoney;
+import pages.partnerCabinetPage.Header.HeaderPartnerCabinetPage;
+import pages.partnerCabinetPage.PartnerCabinetPage;
+import pages.partnerCabinetPage.Tabs.PostbackTabPage;
+import pages.partnerCabinetPage.modalPages.GiveMoney;
 
 public class PartnerCabinetPageStepDefinitions extends Base {
 

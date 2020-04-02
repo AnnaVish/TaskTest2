@@ -2,7 +2,7 @@ package stepDefinitions.webMaster;
 
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pages.PartnerCabinetPage.ShopPage;
+import pages.partnerCabinetPage.ShopPage;
 
 public class ShopPageЫStepDefinitions {
 

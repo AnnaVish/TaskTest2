@@ -3,8 +3,8 @@ package stepDefinitions.webMaster.tabsStepDefinitions;
 import base.Base;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.*;
-import pages.PartnerCabinetPage.Tabs.ReportsTab.Trafic.*;
+import pages.partnerCabinetPage.Tabs.ReportsTab.*;
+import pages.partnerCabinetPage.Tabs.ReportsTab.Trafic.*;
 
 public class ReportsTabPageStepDefinitions extends Base {
     private final ReportsTabPage reportsTabPage = new ReportsTabPage();

@@ -2,8 +2,8 @@ package stepDefinitions.broker;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
-import pages.BrokerCabinet.BrokerCabinetPage;
-import pages.BrokerCabinet.BrokerVehicleVerificationPage;
+import pages.brokerCabinet.BrokerCabinetPage;
+import pages.brokerCabinet.BrokerVehicleVerificationPage;
 
 public class BrokerVehicleVerificationPageStepDefinitions extends Base {
 

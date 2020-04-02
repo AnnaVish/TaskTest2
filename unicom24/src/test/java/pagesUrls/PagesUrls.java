@@ -5,7 +5,8 @@ import java.util.Map;
 
 public class PagesUrls {
 
-    public static String base = System.getenv("TESTING_HOST");
+//    public static String base = System.getenv("TESTING_HOST");
+    public static String base = "develop-40.vuaro.ru";
     public static String mainPage = baseUrl();
     public static String bankListPage = bankList();
 
@@ -105,35 +106,14 @@ public class PagesUrls {
 
     public static String webMasterMicrocreditPage() {return mainPage + "/form-offers-small-webmaster/mikrozajmy?"; } //некая рекламная страница на которую можно попасть только по ссылке
 
-    public static String smsServerLink() {
-        if (base.equals("pre-prod.vuaro.ru")) {
-            return "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue";
-        } else {
-            return "http://" + base + ":13003/channel/dev_channel/queue";
-        }
-    }
-
-    public static Map<String, String> smsServerLink2() {
+    public static Map<String, String> smsserverlink() {
         Map<String, String> smsServer = new HashMap<String, String>();
         if (base.equals("pre-prod.vuaro.ru")) {
-            smsServer.put("smsServer1", "http://pre-prod-local.vuaro.ru:13003/channel/dev_channel/queue");
-            smsServer.put("smsServer2", "http://pre-prod-02.vuaro.ru:13003/channel/dev_channel/queue");
+            smsServer.put("smsServer", "http://pre-prod-01.vuaro.ru:13003/channel/dev_channel/queue");
             return smsServer;
         } else {
-            smsServer.put("smsServer1", "http://" + base + ":13003/channel/dev_channel/queue");
+            smsServer.put("smsServer", "http://" + base + ":13003/channel/dev_channel/queue");
             return smsServer;
-        }
-    }
-
-    public static Map<String, String> emailServerLink() {
-        Map<String, String> emailServer = new HashMap<String, String>();
-        if (base.equals("pre-prod.vuaro.ru")) {
-            emailServer.put("emailServer1", "http://pre-prod-01.vuaro.ru:1080/");
-            emailServer.put("emailServer2", "http://pre-prod-02.vuaro.ru:1080/");
-            return emailServer;
-        } else {
-            emailServer.put("emailServer1", "http://" + base + ":1080");
-            return emailServer;
         }
     }
 }

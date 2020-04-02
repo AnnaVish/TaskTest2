@@ -2,9 +2,8 @@ package stepDefinitions.advPage;
 
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Когда;
-import cucumber.api.java.ru.Тогда;
-import pages.AdvCabinet.ReportsTabPage;
-import pages.AdvCabinet.ReportsPages.Reports;
+import pages.advCabinet.ReportsTabPage;
+import pages.advCabinet.ReportsPages.Reports;
 
 public class ReportsTabPageStepDefinitions {
 

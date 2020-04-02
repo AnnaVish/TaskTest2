@@ -2,8 +2,8 @@ package stepDefinitions.broker;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
-import pages.BrokerCabinet.BrokerCabinetPage;
-import pages.BrokerCabinet.BrokerSocialNetworksScoringPage;
+import pages.brokerCabinet.BrokerCabinetPage;
+import pages.brokerCabinet.BrokerSocialNetworksScoringPage;
 
 public class BrokerSocialNetworksScoringPageStepDefinitions extends Base {
 

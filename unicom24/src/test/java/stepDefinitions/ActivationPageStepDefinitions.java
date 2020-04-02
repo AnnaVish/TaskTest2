@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pages.Reg.ActivationPage;
+import pages.reg.ActivationPage;
 
 public class ActivationPageStepDefinitions {
 

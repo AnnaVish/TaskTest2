@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import base.Base;
 import cucumber.api.java.ru.Тогда;
-import pages.OldCabinetOfBroker.OldCabinetOfBrokerPage;
+import pages.oldCabinetOfBroker.OldCabinetOfBrokerPage;
 
 public class OldCabinetOfBrokerStepDefinitions extends Base {
 

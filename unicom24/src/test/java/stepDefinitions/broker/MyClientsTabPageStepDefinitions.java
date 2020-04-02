@@ -1,7 +1,7 @@
 package stepDefinitions.broker;
 
 import cucumber.api.java.ru.Тогда;
-import pages.BrokerCabinet.tabs.MyClientsTabPage;
+import pages.brokerCabinet.tabs.MyClientsTabPage;
 
 public class MyClientsTabPageStepDefinitions {
 

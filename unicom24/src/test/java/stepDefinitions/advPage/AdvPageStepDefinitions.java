@@ -5,8 +5,8 @@ import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pages.AdvCabinet.AdvPage;
-import pages.AdvCabinet.ModalPages.GiveMoney;
+import pages.advCabinet.AdvPage;
+import pages.advCabinet.ModalPages.GiveMoney;
 
 public class AdvPageStepDefinitions extends Base {
 

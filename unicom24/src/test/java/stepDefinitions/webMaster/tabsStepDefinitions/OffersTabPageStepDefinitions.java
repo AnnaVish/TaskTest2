@@ -3,7 +3,7 @@ package stepDefinitions.webMaster.tabsStepDefinitions;
 import cucumber.api.java.ru.Тогда;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.И;
-import pages.PartnerCabinetPage.Tabs.OffersTabPage;
+import pages.partnerCabinetPage.Tabs.OffersTabPage;
 import pages.WebMasterOfferFullPage;
 
 public class OffersTabPageStepDefinitions {

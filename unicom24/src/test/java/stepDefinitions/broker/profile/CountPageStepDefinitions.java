@@ -1,7 +1,7 @@
 package stepDefinitions.broker.profile;
 
 import cucumber.api.java.ru.Тогда;
-import pages.BrokerCabinet.profile.CountPage;
+import pages.brokerCabinet.profile.CountPage;
 
 public class CountPageStepDefinitions {
 

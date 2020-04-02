@@ -1,6 +1,6 @@
 package pages.verticals.microCredits;
 
-import TestContext.TestContext;
+import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -131,23 +131,13 @@ public class MicroCreditsPage extends Base {
     public void typeIncorrectCode() {
         openNewTab();
         switchToTheSecondTab();
-        driver.get(PagesUrls.smsServerLink2().get("smsServer1"));
-        TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("smsServer1");
-        waitForPageLoaded(PagesUrls.smsServerLink2().get("smsServer1"));
+        TestContext.smsServerValueUrl = PagesUrls.smsserverlink().get("smsServer1");
+        driver.get(TestContext.smsServerValueUrl);
+        waitForPageLoaded(TestContext.smsServerValueUrl);
         String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-        try {
-            WebElement element = driver.findElement(By.xpath(xPath));
-            waitForVisibility(element);
-            getSmsText(element);
-        } catch (Exception e) {
-            driver.get(PagesUrls.smsServerLink2().get("smsServer2"));
-            TestContext.smsServerValueUrl = PagesUrls.smsServerLink2().get("smsServer2");
-            waitForPageLoaded(PagesUrls.smsServerLink2().get("smsServer2"));
-            String xPath1 = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-            WebElement element1 = driver.findElement(By.xpath(xPath1));
-            getSmsText(element1);
-        }
-
+        WebElement element = driver.findElement(By.xpath(xPath));
+        waitForVisibility(element);
+        getSmsText(element);
     }
 
     private void getSmsText(WebElement element) {
@@ -202,10 +192,10 @@ public class MicroCreditsPage extends Base {
             smsCode = smsCode.substring(0, smsCode.length() - 2);
             TestContext.smsCode = smsCode;
         } catch (Exception e) {
-            if (TestContext.smsServerValueUrl.equals(PagesUrls.smsServerLink2().get("smsServer1"))) {
-                driver.get(PagesUrls.smsServerLink2().get("smsServer2"));
+            if (TestContext.smsServerValueUrl.equals(PagesUrls.smsserverlink().get("smsServer1"))) {
+                driver.get(PagesUrls.smsserverlink().get("smsServer2"));
             } else {
-                driver.get(PagesUrls.smsServerLink2().get("smsServer1"));
+                driver.get(PagesUrls.smsserverlink().get("smsServer1"));
             }
             String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
             element = driver.findElement(By.xpath(xPath));

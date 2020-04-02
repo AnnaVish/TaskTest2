@@ -1,13 +1,13 @@
 package pages.verticals.credits;
 
-import TestContext.TestContext;
+import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.Adminka.AdminkaRedirects;
-import pages.Adminka.admAuth.AdmAuth;
+import pages.adminka.AdminkaRedirects;
+import pages.adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
@@ -267,9 +267,9 @@ public class CreditsPage extends Base {
             for (int i = 0; i < 4; i++) {
                 if (TestContext.passwordFromSms == null) {
                     try {
-                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer1"));
+                        getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer1"));
                     } catch (Exception e) {
-                        getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+                        getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer2"));
                     }
                 } else break;
             }
@@ -288,7 +288,7 @@ public class CreditsPage extends Base {
         catch (Exception e) {
             openNewTab();
             switchToTheSecondTab();
-            getPasswordSMSFromServer(PagesUrls.smsServerLink2().get("smsServer2"));
+            getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer2"));
             driver.close();
             switchToTheFirstTab();
             clearField(podborCreditInputForSMSCode);

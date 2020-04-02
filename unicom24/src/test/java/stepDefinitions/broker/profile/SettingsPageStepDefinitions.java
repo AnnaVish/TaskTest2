@@ -1,7 +1,7 @@
 package stepDefinitions.broker.profile;
 
 import cucumber.api.java.ru.Тогда;
-import pages.BrokerCabinet.profile.SettingsPage;
+import pages.brokerCabinet.profile.SettingsPage;
 
 public class SettingsPageStepDefinitions {
 

@@ -1,8 +1,7 @@
 package pages.verticals.ipoteka;
 
-import TestContext.TestContext;
+import testContext.TestContext;
 import base.Base;
-import cucumber.api.java.bs.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

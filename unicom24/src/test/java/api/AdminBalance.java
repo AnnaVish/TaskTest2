@@ -3,7 +3,7 @@ package api;
 import org.jsoup.Connection;
 import org.jsoup.helper.HttpConnection;
 import org.jsoup.nodes.Document;
-import pages.Auth.AuthPage;
+import pages.auth.AuthPage;
 import pagesUrls.PagesUrls;
 
 import java.io.IOException;
