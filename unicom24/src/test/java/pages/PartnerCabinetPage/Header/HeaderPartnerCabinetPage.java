@@ -60,7 +60,7 @@ public class HeaderPartnerCabinetPage extends Base {
     }
 
     public void headerIsDisplayed() {
-        allElementsAreVisible(elements);
+        waitForAllAjaxElementIsVisible(elements);
         Assert.assertEquals(10, downHeader.size());
     }
 
