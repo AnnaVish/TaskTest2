@@ -12,7 +12,6 @@ import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
 import pages.mock.MailCatcher;
-import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +21,6 @@ public class AuthPage extends Base {
     WebDriverWait wait = new WebDriverWait(driver, 20);
     Header headerPage = new Header();
     Footer footerPage = new Footer();
-    MailCatcher mailCatcher = new MailCatcher();
 
     public static String login = "glushkova.es@unicom24.ru";
     public static String password = "usertest1";
@@ -81,8 +79,8 @@ public class AuthPage extends Base {
     @FindBy(xpath = "//div[contains(text(), 'Зарегистрироваться')]")
     private WebElement registerLink;
 
-    @FindBy(name = "nekot_teser")
-    private WebElement passwordFromSmsField;
+//    @FindBy(name = "nekot_teser")
+//    private WebElement passwordFromSmsField;
     /*
      * Форма восстановления пароля окончена
      */
@@ -168,63 +166,63 @@ public class AuthPage extends Base {
         return isElementVisible(element);
     }
 
-    public void typeCodeFromFirstServerOrSecondServer(String btn) {
-        openNewTab();
-        switchToTheSecondTab();
-        TestContext.smsServerValueUrl = PagesUrls.smsserverlink().get("smsServer");
-        driver.get(TestContext.smsServerValueUrl);
-        waitForPageLoaded(TestContext.smsServerValueUrl);
-        try {
-            getCodeFromFirstLink();
-            switchToTheFirstTab();
-            waitForVisibility(passwordFromSmsField);
-            typeIntoField(TestContext.smsCode, passwordFromSmsField);
-            TestContext.btn.click();
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
-        } catch (Exception e) {
-            try {
-                switchToTheSecondTab();
-                refreshPage();
-                getCodeFromFirstLink();
-                switchToTheFirstTab();
-                waitForVisibility(passwordFromSmsField);
-                typeIntoField(TestContext.smsCode, passwordFromSmsField);
-                TestContext.btn.click();
-                WebDriverWait wait = new WebDriverWait(driver, 20);
-                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
-            } catch (Exception ex) {
-                switchToTheSecondTab();
-//                getCodeFromOtherLink();
-                switchToTheFirstTab();
-                waitForVisibility(passwordFromSmsField);
-                typeIntoField(TestContext.smsCode, passwordFromSmsField);
-                TestContext.btn.click();
-                WebDriverWait wait = new WebDriverWait(driver, 20);
-                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
-            }
-        }
-    }
+//    public void typeCodeFromFirstServerOrSecondServer(String btn) {
+//        openNewTab();
+//        switchToTheSecondTab();
+//        TestContext.smsServerValueUrl = PagesUrls.smsServerLink().get("smsServer");
+//        driver.get(TestContext.smsServerValueUrl);
+//        waitForPageLoaded(TestContext.smsServerValueUrl);
+//        try {
+//            getCodeFromFirstLink();
+//            switchToTheFirstTab();
+//            waitForVisibility(passwordFromSmsField);
+//            typeIntoField(TestContext.smsCode, passwordFromSmsField);
+//            TestContext.btn.click();
+//            WebDriverWait wait = new WebDriverWait(driver, 20);
+//            wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+//        } catch (Exception e) {
+//            try {
+//                switchToTheSecondTab();
+//                refreshPage();
+//                getCodeFromFirstLink();
+//                switchToTheFirstTab();
+//                waitForVisibility(passwordFromSmsField);
+//                typeIntoField(TestContext.smsCode, passwordFromSmsField);
+//                TestContext.btn.click();
+//                WebDriverWait wait = new WebDriverWait(driver, 20);
+//                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+//            } catch (Exception ex) {
+//                switchToTheSecondTab();
+////                getCodeFromOtherLink();
+//                switchToTheFirstTab();
+//                waitForVisibility(passwordFromSmsField);
+//                typeIntoField(TestContext.smsCode, passwordFromSmsField);
+//                TestContext.btn.click();
+//                WebDriverWait wait = new WebDriverWait(driver, 20);
+//                wait.until(ExpectedConditions.urlToBe(PagesUrls.mainPage + "/"));
+//            }
+//        }
+//    }
 
-    private void getCodeFromFirstLink() {
-        WebElement element;
-        String xPath1 = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет:')]", UserData.getFormatNumberPhoneForChangePassword());
-        element = driver.findElement(By.xpath(xPath1));
-        waitForVisibility(element);
-        String smsCode = element.getText();
-        smsCode = smsCode.replaceAll("[^0-9]", "");
-        smsCode = smsCode.substring(0, smsCode.length() - 2);
-        TestContext.smsCode = smsCode;
-    }
+//    private void getCodeFromFirstLink() {
+//        WebElement element;
+//        String xPath1 = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет:')]", UserData.getFormatNumberPhoneForChangePassword());
+//        element = driver.findElement(By.xpath(xPath1));
+//        waitForVisibility(element);
+//        String smsCode = element.getText();
+//        smsCode = smsCode.replaceAll("[^0-9]", "");
+//        smsCode = smsCode.substring(0, smsCode.length() - 2);
+//        TestContext.smsCode = smsCode;
+//    }
 
 //    private void getCodeFromOtherLink() {
 //        WebElement element;
-//        if (TestContext.smsServerValueUrl.equals(PagesUrls.smsserverlink().get("smsServer1"))) {
-//            driver.get(PagesUrls.smsserverlink().get("smsServer2"));
-//            waitForPageLoaded(PagesUrls.smsserverlink().get("smsServer2"));
+//        if (TestContext.smsServerValueUrl.equals(PagesUrls.smsServerLink().get("smsServer1"))) {
+//            driver.get(PagesUrls.smsServerLink().get("smsServer2"));
+//            waitForPageLoaded(PagesUrls.smsServerLink().get("smsServer2"));
 //        } else {
-//            driver.get(PagesUrls.smsserverlink().get("smsServer1"));
-//            waitForPageLoaded(PagesUrls.smsserverlink().get("smsServer1"));
+//            driver.get(PagesUrls.smsServerLink().get("smsServer1"));
+//            waitForPageLoaded(PagesUrls.smsServerLink().get("smsServer1"));
 //        }
 //        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Пароль для входа в личный кабинет:')]", UserData.getFormatNumberPhoneForChangePassword());
 //        element = driver.findElement(By.xpath(xPath));
@@ -233,16 +231,6 @@ public class AuthPage extends Base {
 //        smsCode = smsCode.replaceAll("[^0-9]", "");
 //        smsCode = smsCode.substring(0, smsCode.length() - 2);
 //        TestContext.smsCode = smsCode;
-//    }
-
-//    public void changePasswordByEmail() {
-//        openNewTab();
-//        switchToTheSecondTab();
-//        TestContext.emailServerLink = MailCatcher.emailServerLink().get("emailServer");
-//        driver.get(TestContext.emailServerLink);
-//        waitForPageLoaded(TestContext.emailServerLink);
-//        waitForVisibility(By.xpath("//tbody/tr[1]"));
-//        mailCatcher.latestEmailByToAndSubjectClick();
 //    }
 
     public void enterNewPasswordAndSave() {

@@ -1,5 +1,6 @@
 package pages.verticals.microCredits;
 
+import pages.mock.SmsCatcher;
 import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
@@ -128,32 +129,6 @@ public class MicroCreditsPage extends Base {
         typeIntoField(UserData.incorrectPhoneNumber, common.personalOfferField);
     }
 
-    public void typeIncorrectCode() {
-        openNewTab();
-        switchToTheSecondTab();
-        TestContext.smsServerValueUrl = PagesUrls.smsserverlink().get("smsServer1");
-        driver.get(TestContext.smsServerValueUrl);
-        waitForPageLoaded(TestContext.smsServerValueUrl);
-        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-        WebElement element = driver.findElement(By.xpath(xPath));
-        waitForVisibility(element);
-        getSmsText(element);
-    }
-
-    private void getSmsText(WebElement element) {
-        String smsCode = element.getText();
-        TestContext.smsText = smsCode;
-        smsCode = smsCode.replaceAll("[^0-9]", "");
-        smsCode = smsCode.substring(0, smsCode.length() - 2);
-        TestContext.smsCode = smsCode;
-        int smsCodeChangeToIncorrect = Integer.parseInt(smsCode) + 1;
-        smsCode = Integer.toString(smsCodeChangeToIncorrect);
-        switchToTheFirstTab();
-        typeIntoField(smsCode, codeField);
-        codeField.click();
-        confirmBtn.click();
-    }
-
     public void askCodeAgain() {
         try {
             Thread.sleep(60000);
@@ -167,46 +142,6 @@ public class MicroCreditsPage extends Base {
         clearField(codeField);
         typeIntoField(TestContext.smsCode, codeField);
     }
-
-    public void typeCorrectCode() {
-        switchToTheSecondTab();
-        refreshPage();
-        tryGetNewCodeFromFirstServer();
-        switchToTheFirstTab();
-        clearField(codeField);
-        typeIntoField(TestContext.smsCode, codeField);
-        confirmBtn.click();
-    }
-
-    private void tryGetNewCodeFromFirstServer() {
-        WebElement element;
-        try {
-            String xPath2 = String.format("//tr[./td[contains(text(), '%s')]][2]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-            String xPath1 = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-            WebElement element2 = driver.findElement(By.xpath(xPath2));
-            waitForVisibility(element2);
-            element = driver.findElement(By.xpath(xPath1));
-            waitForVisibility(element);
-            String smsCode = element.getText();
-            smsCode = smsCode.replaceAll("[^0-9]", "");
-            smsCode = smsCode.substring(0, smsCode.length() - 2);
-            TestContext.smsCode = smsCode;
-        } catch (Exception e) {
-            if (TestContext.smsServerValueUrl.equals(PagesUrls.smsserverlink().get("smsServer1"))) {
-                driver.get(PagesUrls.smsserverlink().get("smsServer2"));
-            } else {
-                driver.get(PagesUrls.smsserverlink().get("smsServer1"));
-            }
-            String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код подтверждения')]", UserData.getFormatNumber());
-            element = driver.findElement(By.xpath(xPath));
-            waitForVisibility(element);
-            String smsCode = element.getText();
-            smsCode = smsCode.replaceAll("[^0-9]", "");
-            smsCode = smsCode.substring(0, smsCode.length() - 2);
-            TestContext.smsCode = smsCode;
-        }
-    }
-
 
     public void sendFormWithCorrectNumber() {
         typeIntoField(UserData.correctPhoneNumber, common.personalOfferField);

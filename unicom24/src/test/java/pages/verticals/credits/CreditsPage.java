@@ -1,5 +1,6 @@
 package pages.verticals.credits;
 
+import pages.mock.SmsCatcher;
 import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
@@ -7,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.adminka.AdminkaRedirects;
-import pages.adminka.admAuth.AdmAuth;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
@@ -24,7 +24,7 @@ public class CreditsPage extends Base {
     Footer footerPage = new Footer();
     CommonElementsForAllVerticals common = new CommonElementsForAllVerticals();
     AdminkaRedirects adminkaRedirects = new AdminkaRedirects();
-    AdmAuth admAuth = new AdmAuth();
+    SmsCatcher smsCatcher = new SmsCatcher();
     //CreditsPage creditsPage = new CreditsPage();
 
     @FindBy(xpath = "//div[@class='offers-list-new']")
@@ -261,56 +261,24 @@ public class CreditsPage extends Base {
     }
 
     public void InputSMSCodeForPodborCredit() {
-        try {
-            openNewTab();
-            switchToTheSecondTab();
-            for (int i = 0; i < 4; i++) {
-                if (TestContext.passwordFromSms == null) {
-                    try {
-                        getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer1"));
-                    } catch (Exception e) {
-                        getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer2"));
-                    }
-                } else break;
-            }
-            driver.close();
-            switchToTheFirstTab();
+        smsCatcher.getPasswordSMSFromServer(SmsCatcher.smsServerLink().get("smsServer"));
+//        for (int i = 0; i < 4; i++) {
+//            if (TestContext.passwordFromSms == null) {
+//                    getPasswordSMSFromServer(SmsCatcher.smsServerLink().get("smsServer"));
+//            } else break;
+//        }
+//        убрать этот блок примерно в мае, если не пригодится
+        driver.close();
+        switchToTheFirstTab();
+        clearField(podborCreditInputForSMSCode);
+        //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
+        // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
+        while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passwordFromSms)) {
             clearField(podborCreditInputForSMSCode);
-            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
-            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
-            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passwordFromSms)) {
-                clearField(podborCreditInputForSMSCode);
-                typeIntoField(TestContext.passwordFromSms, podborCreditInputForSMSCode);
-            }
-            podborCreditNextClick();
-            //waitForUrlContains(PagesUrls.baseUrl() + "/");
+            typeIntoField(TestContext.passwordFromSms, podborCreditInputForSMSCode);
         }
-        catch (Exception e) {
-            openNewTab();
-            switchToTheSecondTab();
-            getPasswordSMSFromServer(PagesUrls.smsserverlink().get("smsServer2"));
-            driver.close();
-            switchToTheFirstTab();
-            clearField(podborCreditInputForSMSCode);
-            //typeIntoField(TestContext.passwordFromSms, passwordField); иногда теряет 1 символ
-            // Повторение не ведомой хрени, заставляем селениум писать в поле ящик до тех пор пока не напишет правильно
-            while (!podborCreditInputForSMSCode.getAttribute("value").equals(TestContext.passwordFromSms)) {
-                clearField(podborCreditInputForSMSCode);
-                typeIntoField(TestContext.passwordFromSms, podborCreditInputForSMSCode);
-            }
-
-            podborCreditNextClick();
-            //waitForUrlContains(PagesUrls.baseUrl() + "/");
-        }
-    }
-
-    public void getPasswordSMSFromServer(String url) {
-        driver.get(url);
-        String xPath = String.format("//tr[./td[contains(text(), '%s')]]/td[contains(text(), 'Код')]", UserData.getFormatNumber());
-        TestContext.passwordFromSms = driver.findElement(By.xpath(xPath)).getText();
-        TestContext.passwordFromSms = TestContext.passwordFromSms.replaceAll("[^0-9]", "");
-        TestContext.passwordFromSms = TestContext.passwordFromSms.substring(0, TestContext.passwordFromSms.length() - 2);
-        TestContext.smsServerValueUrl = driver.getCurrentUrl();
+        podborCreditNextClick();
+        //waitForUrlContains(PagesUrls.baseUrl() + "/");
     }
 
     public void nonUserPodborCreditTypeTextStep2(){

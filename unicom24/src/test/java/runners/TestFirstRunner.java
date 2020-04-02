@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/tests",
         glue = {"stepDefinitions", "runners", "hooks"},
-        tags = {"@test11", "~@ignore"},
+        tags = {"@test", "~@ignore"},
+//        tags = {"@mock", "~@ignore"},
         strict = true,
         snippets = SnippetType.CAMELCASE,
         monochrome = true,
@@ -18,5 +19,4 @@ import org.junit.runner.RunWith;
         plugin = "ru.yandex.qatools.allure.cucumberjvm.AllureReporter"
 )
 public class TestFirstRunner extends Base {
-
 }

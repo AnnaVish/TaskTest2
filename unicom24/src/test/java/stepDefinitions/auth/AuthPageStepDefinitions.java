@@ -90,10 +90,10 @@ public class AuthPageStepDefinitions {
         authPage.seeBtnText(textButton);
     }
 
-    @Тогда("^пользователь вводит пароль из смс и нажимает на \"([^\"]*)\"$")
-    public void typePasswordAndClickBtn(String btn) {
-        authPage.typeCodeFromFirstServerOrSecondServer(btn);
-    }
+//    @Тогда("^пользователь вводит пароль из смс и нажимает на \"([^\"]*)\"$")
+//    public void typePasswordAndClickBtn(String btn) {
+//        authPage.typeCodeFromFirstServerOrSecondServer(btn);
+//    }
 
     @Тогда("^пользователь вводит новый пароль и нажимает Сохранить$")
     public void enterNewPasswordAndClickSave() {

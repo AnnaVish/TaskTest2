@@ -1,12 +1,8 @@
 package pagesUrls;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class PagesUrls {
 
-//    public static String base = System.getenv("TESTING_HOST");
-    public static String base = "develop-40.vuaro.ru";
+    public static String base = System.getenv("TESTING_HOST");
     public static String mainPage = baseUrl();
     public static String bankListPage = bankList();
 
@@ -105,15 +101,4 @@ public class PagesUrls {
     public static String financialHealthRatingPage() {return mainPage + "/services/rejting-finansovogo-zdorovya"; }
 
     public static String webMasterMicrocreditPage() {return mainPage + "/form-offers-small-webmaster/mikrozajmy?"; } //некая рекламная страница на которую можно попасть только по ссылке
-
-    public static Map<String, String> smsserverlink() {
-        Map<String, String> smsServer = new HashMap<String, String>();
-        if (base.equals("pre-prod.vuaro.ru")) {
-            smsServer.put("smsServer", "http://pre-prod-01.vuaro.ru:13003/channel/dev_channel/queue");
-            return smsServer;
-        } else {
-            smsServer.put("smsServer", "http://" + base + ":13003/channel/dev_channel/queue");
-            return smsServer;
-        }
-    }
 }

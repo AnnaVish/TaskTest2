@@ -27,16 +27,14 @@ public class MailCatcher extends Base {
         PageFactory.initElements(driver, this);
     }
 
-    public void latestEmailByToAndSubjectClick() {
-        String latestEmailByToAndSubject = String.format("//tr[1]//td[contains(text(),'%s')]/following-sibling::td[text()='Сброс пароля пользователя']", UserData.correctEmail);
-        WebElement targetElement = driver.findElement(By.xpath(latestEmailByToAndSubject));
-        targetElement.click();
-        sourceButton.click();
-        htmlButton.click();
-        driver.switchTo().frame(0);
-        waitForVisibility(resetPasswordButton);
-        resetPasswordButton.click();
-        driver.switchTo().defaultContent();
+    public void changePasswordByEmail() {
+        openNewTab();
+        switchToTheSecondTab();
+        TestContext.emailServerLink = MailCatcher.emailServerLink().get("emailServer");
+        driver.get(TestContext.emailServerLink);
+        waitForPageLoaded(TestContext.emailServerLink);
+        waitForVisibility(By.xpath("//tbody/tr[1]"));
+        latestEmailByToAndSubjectClick();
     }
 
     public static Map<String, String> emailServerLink() {
@@ -50,13 +48,15 @@ public class MailCatcher extends Base {
         }
     }
 
-    public void changePasswordByEmail() {
-        openNewTab();
-        switchToTheSecondTab();
-        TestContext.emailServerLink = MailCatcher.emailServerLink().get("emailServer");
-        driver.get(TestContext.emailServerLink);
-        waitForPageLoaded(TestContext.emailServerLink);
-        waitForVisibility(By.xpath("//tbody/tr[1]"));
-        latestEmailByToAndSubjectClick();
+    public void latestEmailByToAndSubjectClick() {
+        String latestEmailByToAndSubject = String.format("//tr[1]//td[contains(text(),'%s')]/following-sibling::td[text()='Сброс пароля пользователя']", UserData.correctEmail);
+        WebElement targetElement = driver.findElement(By.xpath(latestEmailByToAndSubject));
+        targetElement.click();
+        sourceButton.click();
+        htmlButton.click();
+        driver.switchTo().frame(0);
+        waitForVisibility(resetPasswordButton);
+        resetPasswordButton.click();
+        driver.switchTo().defaultContent();
     }
 }

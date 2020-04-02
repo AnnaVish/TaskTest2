@@ -1,5 +1,6 @@
 package pages.reg;
 
+import pages.mock.SmsCatcher;
 import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
@@ -76,15 +77,17 @@ public class RegistrationPage extends Base {
     public void typeIncorrectPassword() {
         openNewTab();
         switchToTheSecondTab();
-        for (int i = 0; i < 4; i++) {
-            if (TestContext.passwordFromSms == null) {
-                try {
-                    getPasswordFromServer(PagesUrls.smsserverlink().get("smsServer1"));
-                } catch (Exception e) {
-                    getPasswordFromServer(PagesUrls.smsserverlink().get("smsServer2"));
-                }
-            } else break;
-        }
+        getPasswordFromServer(SmsCatcher.smsServerLink().get("smsServer"));
+//        for (int i = 0; i < 4; i++) {
+//            if (TestContext.passwordFromSms == null) {
+//                try {
+//                    getPasswordFromServer(SmsCatcher.smsServerLink().get("smsServer1"));
+//                } catch (Exception e) {
+//                    getPasswordFromServer(SmsCatcher.smsServerLink().get("smsServer2"));
+//                }
+//            } else break;
+//        }
+//        удалить блок кода примерно в мае, если не понадобится
         driver.close();
         switchToTheFirstTab();
         int incorrectPasswordValue = Integer.parseInt(TestContext.passwordFromSms) + 1;
@@ -117,7 +120,7 @@ public class RegistrationPage extends Base {
         } catch (Exception e) {
             openNewTab();
             switchToTheSecondTab();
-            getPasswordFromServer(PagesUrls.smsserverlink().get(TestContext.smsServerValueUrl));
+            getPasswordFromServer(SmsCatcher.smsServerLink().get(TestContext.smsServerValueUrl));
             driver.close();
             switchToTheFirstTab();
             clearField(passwordField);

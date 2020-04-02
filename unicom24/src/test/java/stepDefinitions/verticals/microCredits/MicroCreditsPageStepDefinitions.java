@@ -23,7 +23,6 @@ public class MicroCreditsPageStepDefinitions {
         Assert.assertTrue(microCreditsPage.checkH2SeoElements());
     }
 
-
     @И("^отображается сообщение: Поле обязательно для заполнения$")
     public void userSeeErrorText() {
         microCreditsPage.seeErrorText();
@@ -44,11 +43,6 @@ public class MicroCreditsPageStepDefinitions {
         microCreditsPage.smsHasBeenSent();
     }
 
-    @Когда("^пользователь вводит некорректный код$")
-    public void userTypeIncorrectCode() {
-        microCreditsPage.typeIncorrectCode();
-    }
-
     @Когда("^пользователь запрашивает код повторно$")
     public void userAskCodeAgain() {
         microCreditsPage.askCodeAgain();
@@ -57,11 +51,6 @@ public class MicroCreditsPageStepDefinitions {
     @Когда("^пользователь вводит смс из первого сообщения$")
     public void userTypePreviousCode() {
         microCreditsPage.typePreviousCode();
-    }
-
-    @Когда("^пользователь вводит сообщение из второго смс$")
-    public void userTypeCorrectCode() {
-        microCreditsPage.typeCorrectCode();
     }
 
     @Тогда("^отображается форма для определения вероятности выдачи$")
