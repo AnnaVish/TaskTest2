@@ -30,7 +30,7 @@ public class PagesUrls {
     }
 
     public static String webMasterPage() {
-        return mainPage + "/partners/office";
+        return mainPage + "/partners/office/";
     }
 
     public static String brokerAuth() {
