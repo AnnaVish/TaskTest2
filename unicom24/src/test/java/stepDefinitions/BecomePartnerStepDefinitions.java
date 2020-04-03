@@ -23,4 +23,9 @@ public class BecomePartnerStepDefinitions extends Base {
     public void userClickEarnNow() {
         becomePartner.getMoneyNowClick();
     }
+
+    @Тогда("^пользователь нажимает Получать заявки$")
+    public void userClickGetApp() {
+        becomePartner.clickApplications();
+    }
 }
