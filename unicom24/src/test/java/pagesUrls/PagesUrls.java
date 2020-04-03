@@ -103,6 +103,8 @@ public class PagesUrls {
 
     public static String financialHealthRatingPage() {return mainPage + "/services/rejting-finansovogo-zdorovya"; }
 
+    public static String personalSelectionCreditPage() {return mainPage + "/form-offers-small-full/kredity"; }
+
     public static String webMasterMicrocreditPage() {return mainPage + "/form-offers-small-webmaster/mikrozajmy?"; } //некая рекламная страница на которую можно попасть только по ссылке
 
     public static String smsServerLink() {
