@@ -114,6 +114,23 @@ public class CommonElementsForAllVerticals extends Base {
     Элементы отвечающие за локацию пользователя конец
      */
 
+    /*
+    Элементы отвечающие за содержимое страницы списка оферов по персональному подбору начало
+     */
+
+    @FindBy(xpath = "//div[contains(text(), 'Лучшие предложения')]")
+    public WebElement bestOffersTitle;
+
+    @FindBy(xpath = "//div[@class='offers-element element__base']")
+    public List<WebElement> bestOffersList;
+
+    @FindBy(xpath = "//div[@class='offers-element element__best']")
+    public List<WebElement> bestOffersBestList;
+
+    /*
+    Элементы отвечающие за содержимое страницы списка оферов по персональному подбору конец
+     */
+
     public List<WebElement> getElementsForChangeCity() {
         return Arrays.asList(spanForSelectLocationCity, spanLocationCity);
     }
