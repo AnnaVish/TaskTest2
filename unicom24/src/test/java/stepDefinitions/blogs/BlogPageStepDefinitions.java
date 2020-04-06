@@ -1,9 +1,10 @@
-package stepDefinitions;
+package stepDefinitions.blogs;
 
 import base.Base;
 import cucumber.api.java.ru.Дано;
+import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pages.BlogPage;
+import pages.blogs.BlogPage;
 
 public class BlogPageStepDefinitions extends Base {
     private final BlogPage blogPage = new BlogPage();
@@ -16,5 +17,10 @@ public class BlogPageStepDefinitions extends Base {
     @Тогда("^отображается страница Блог$")
     public void blogPageIsDisplayed(){
         blogPage.pageIsDisplayed();
+    }
+
+    @Когда("^пользователь кликает по посту$")
+    public void blogPostClock(){
+        blogPage.blogPostClick();
     }
 }
