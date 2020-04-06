@@ -1,4 +1,4 @@
-package pages;
+package pages.blogs;
 
 import base.Base;
 import org.openqa.selenium.WebElement;
@@ -75,6 +75,10 @@ public class BlogPage extends Base {
         Assert.assertTrue(blogNewsDescription.size() == blogNewsImages.size());
         if (isElementVisible(blogSelectedTitle)){
         Assert.assertTrue(blogSelectedList.size()>=1);}
+    }
+
+    public void blogPostClick(){
+        blogArticles.get(0).click();
     }
 
 
