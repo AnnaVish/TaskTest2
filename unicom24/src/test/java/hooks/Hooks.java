@@ -35,20 +35,23 @@ public class Hooks extends Base {
 
 
     @Before
-    public static ChromeOptions setup() {
+    public void setup() {
         BaseProperties.createDownloadDirURL();
-        HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
         driver = WebDriverFactory.getDriver(Browsers.CHROME);
+        driver.manage().window().maximize();
         if (SystemUtils.IS_OS_LINUX) {
             BaseProperties.createDownloadDir();
-            chromePrefs.put("download.default_directory", BaseProperties.createDownloadDirURL());
             deleteAllFilesFolder(BaseProperties.createDownloadDirURL());
 
         } else {
             BaseProperties.createDownloadDir();
-            chromePrefs.put("download.default_directory", BaseProperties.createDownloadDirURL());
             deleteAllFilesFolder(BaseProperties.createDownloadDirURL());
         }
+    }
+
+    public static ChromeOptions chromeOptions() {
+        HashMap<String,Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.default_directory", BaseProperties.createDownloadDirURL());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -58,7 +61,6 @@ public class Hooks extends Base {
         //chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--no-sandbox");
-        driver.manage().window().maximize();
         return chromeOptions;
     }
 

@@ -14,7 +14,7 @@ public class WebDriverFactory {
         switch (browserType) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver(Hooks.setup());
+                driver = new ChromeDriver(Hooks.chromeOptions());
                 break;
             case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
