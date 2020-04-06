@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pages.commonElementsForAllPages.UserData;
-import pages.mock.MailCatcher;
 
 import java.util.Arrays;
 import java.util.List;
@@ -78,9 +77,7 @@ public class AuthPage extends Base {
 
     @FindBy(xpath = "//div[contains(text(), 'Зарегистрироваться')]")
     private WebElement registerLink;
-
-//    @FindBy(name = "nekot_teser")
-//    private WebElement passwordFromSmsField;
+    
     /*
      * Форма восстановления пароля окончена
      */
