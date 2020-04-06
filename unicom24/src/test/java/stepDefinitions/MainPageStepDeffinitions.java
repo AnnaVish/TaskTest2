@@ -7,6 +7,7 @@ import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pages.*;
 import pages.verticals.common.CommonMethodsForAllVerticals;
+import pagesUrls.PagesUrls;
 
 
 public class MainPageStepDeffinitions extends Base {
@@ -117,6 +118,7 @@ public class MainPageStepDeffinitions extends Base {
     @И("^пользователь нажимает на кнопку войти$")
     public void logIn() {
         mainPage.entranceInAccountBtnClick();
+        waitForUrlContains(PagesUrls.authPageUrl());
     }
 
     @Тогда("^в шапке сайта видно Ваш баланс и Ваш рейтинг$")

@@ -1,5 +1,6 @@
 package pages.auth;
 
+import pagesUrls.PagesUrls;
 import testContext.TestContext;
 import base.Base;
 import org.openqa.selenium.By;
@@ -93,6 +94,7 @@ public class AuthPage extends Base {
     }
 
     public void authPageIsDisplayed() {
+        waitForPageLoaded(PagesUrls.authPageUrl());
         allElementsAreVisible(headerPage.getMainHeader());
         allElementsAreVisible(elements);
         allElementsAreVisible(footerPage.getFooter());
