@@ -14,8 +14,11 @@ public class HeaderPartnerCabinetPage extends Base {
     /*
      *Верхний хэдэр
      */
+
+
+    /* Если после 19,04,2020 все еще закомментировано - удалить
     @FindBy(xpath = "//div[@class='ds-header-wrap']")
-    public WebElement headerContainer;
+    public WebElement headerContainer;*/
 
     @FindBy(xpath = "//div[@class='ds-header-info-logo']")
     public WebElement logo;
@@ -54,13 +57,13 @@ public class HeaderPartnerCabinetPage extends Base {
 
     public HeaderPartnerCabinetPage() {
         PageFactory.initElements(driver, this);
-        elements = Arrays.asList(headerContainer, logo, logoTitle, balance,
+        elements = Arrays.asList(logo, logoTitle, balance,
                 getMoney, patentialMoney, moneyOfAllTime, getMoneyForAllTime,
                 logOutBtn, bellBtn);
     }
 
     public void headerIsDisplayed() {
-        allElementsAreVisible(elements);
+        waitForAllAjaxElementIsVisible(elements);
         Assert.assertEquals(10, downHeader.size());
     }
 

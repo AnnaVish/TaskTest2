@@ -23,11 +23,11 @@ public class PagesUrls {
     }
 
     public static String webMasterAuth() {
-        return mainPage + "/partners/dashboard/login";
+        return mainPage + "/partners/office/auth";
     }
 
     public static String webMasterPage() {
-        return mainPage + "/partners/office";
+        return mainPage + "/partners/office/";
     }
 
     public static String brokerAuth() {

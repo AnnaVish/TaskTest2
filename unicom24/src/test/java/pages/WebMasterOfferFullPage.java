@@ -129,8 +129,11 @@ public class WebMasterOfferFullPage extends Base {
     }
 
     public void checkingLinkOnFullOfferPage(String targetNameLink) {
+        WebElement element = driver.findElement(By.xpath("//div[@class='fake inset']"));
+        String firstText = element.getText();
         String targetBTN = String.format(wayTypeBTNForClick + "//button[contains(text(), '%s')]", targetNameLink);
         driver.findElement(By.xpath(targetBTN)).click();
+        waitForTextChanged(firstText, By.xpath("//div[@class='fake inset']"));
         String wayTextUrl = wayForLink.getText();
         openNewTab();
         switchToTheSecondTab();

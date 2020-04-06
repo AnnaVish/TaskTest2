@@ -4,6 +4,7 @@ import base.Base;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Тогда;
 import pages.auth.AuthPageOfWebMaster;
+import pagesUrls.PagesUrls;
 
 public class AuthPageOfWebMasterStepDefinitions extends Base {
 
@@ -22,5 +23,6 @@ public class AuthPageOfWebMasterStepDefinitions extends Base {
     @Тогда("вебМастер авторизовывается")
     public void webMasterLogIn(){
         authPageOfWebMaster.logIn();
+        waitForUrlEquals(PagesUrls.webMasterPage());
     }
 }

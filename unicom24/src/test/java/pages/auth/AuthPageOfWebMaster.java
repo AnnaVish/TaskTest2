@@ -42,6 +42,7 @@ public class AuthPageOfWebMaster extends Base {
     }
 
     public void pageIsDisplayed(){
+        waitForPageLoaded(PagesUrls.webMasterAuth());
         allElementsAreVisible(elements);
     }
 
