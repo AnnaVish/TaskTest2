@@ -42,8 +42,6 @@ public class FullCreditHistoryIntermediatePage extends Base {
 
     public FullCreditHistoryIntermediatePage() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, headerPage);
-        PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(giveHistoryBTN, giveHistoryPrice, reportHistoryImg, giveHistoryTitle, giveHistoryText, reportText, reportAdditional, reportSample);
     }
 
