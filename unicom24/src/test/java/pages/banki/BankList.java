@@ -1,6 +1,7 @@
 package pages.banki;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,8 +38,20 @@ public class BankList extends Base {
     })
     private List<WebElement>bank;
 
+    @FindBy(xpath = "//a[@class='ui-list-bank-item']")
+    private List<WebElement> banks;
+
     @FindBy(css = ".ui-list-bank-item__content-name a")
     private WebElement nameOfBank;
+
+    @FindBy(xpath = "//div[@class='ui-list-sidebar-item-name']")
+    private List<WebElement> bankListFilters;
+
+    @FindBy(xpath = "//button[./span[contains(text(), 'Показать еще')]]")
+    private WebElement bankListMoreResults;
+
+    @FindBy(xpath = "//div[@class='ui-list-bank-item__content-bottom']//div")
+    private List<WebElement> bankContentForCheckFilter;
 
     public final List<WebElement>elements;
 
@@ -54,6 +67,7 @@ public class BankList extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(bank);
         waitForVisibility(nameOfBank);
+        allElementsAreVisible(bankListFilters);
         allElementsAreVisible(footerPage.getFooter());
     }
 
@@ -82,5 +96,28 @@ public class BankList extends Base {
     public void clickNameOfBank() {
         waitToBeClickable(nameOfBank);
         nameOfBank.click();
+    }
+
+    public void bankListFiltersClick(String nameFilter){
+        allElementsAreVisible(bankListFilters);
+        for (WebElement element : bankListFilters) {
+            if (element.getText().equals(nameFilter))
+                element.click();
+        }
+    }
+
+    public void bankListSelectedFilterChecking(String nameFilter){
+        waitForAllAjaxElementIsVisible(bank);
+        if (isElementVisible(bankListMoreResults)){
+        bankListMoreResults.click();
+        waitForAllAjaxElementIsVisible(bank);
+        waitForAllAjaxElementIsVisible(bankContentForCheckFilter);}
+        int countBanksWithFilterContent = 0;
+        for (WebElement element : bankContentForCheckFilter) {
+            if (element.getText().equals(nameFilter))
+                countBanksWithFilterContent++;
+        }
+        Assert.assertEquals(countBanksWithFilterContent, banks.size());
+
     }
 }
