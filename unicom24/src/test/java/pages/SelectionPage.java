@@ -85,6 +85,8 @@ public class SelectionPage extends Base {
     }
 
     public void selectionNextBTNClick(){
+        waitForVisibility(selectionNextBTN);
+        waitToBeClickable(selectionNextBTN);
         selectionNextBTN.click();
     }
 
