@@ -16,4 +16,5 @@ public class TestContext {
     public static Integer messageBlockToGiveMoney;
     public static Integer reportsTabIsVisible;
     public static Integer countOfStart = 0;
+    public static Integer NonMainTestUser = 0;
 }

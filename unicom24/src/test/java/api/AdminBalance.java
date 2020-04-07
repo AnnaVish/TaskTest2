@@ -5,13 +5,15 @@ import org.jsoup.helper.HttpConnection;
 import org.jsoup.nodes.Document;
 import pages.auth.AuthPage;
 import pagesUrls.PagesUrls;
+import testContext.TestContext;
 
 import java.io.IOException;
 
 public class AdminBalance {
 
     public static void runClass() throws IOException {
-        auth();
+        if (TestContext.NonMainTestUser == 0) {
+        auth(); }
     }
 
     public static void auth() throws IOException {

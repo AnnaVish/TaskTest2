@@ -137,6 +137,7 @@ public class AuthPage extends Base {
             e.printStackTrace();
         }
         sendBtn.click();
+        TestContext.NonMainTestUser = 1;
     }
 
     public void messageIsDisplayed(String errorMessage) {
