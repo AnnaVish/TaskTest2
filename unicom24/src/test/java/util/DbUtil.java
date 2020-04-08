@@ -20,13 +20,12 @@ public class DbUtil {
         return DriverManager.getConnection(url, user, password);
     }
 
-    // получение рандомного значения из таблицы основной БД
-    public static String getUserIdByPhone() {
-        System.out.println(url);
-        String phone_number = "9255331980";
-        String SQL = "SELECT user_id " +
-                "FROM public.accounts_profile " +
-                "WHERE phone_number = '" + phone_number + "'";
+    // получение текста последнего отзыва на офер
+    public static String getLastCommentText() {
+        String SQL = "SELECT text " +
+                "FROM public.microfinance_review " +
+                "ORDER BY id DESC " +
+                "LIMIT 1";
         String selectedField = "";
 
         try (Connection conn = connect();
@@ -35,12 +34,11 @@ public class DbUtil {
             ResultSet rs = stmt.executeQuery(SQL);
             while(rs.next()) {
                 //Retrieve by column name
-                selectedField = rs.getString("user_id");
+                selectedField = rs.getString("text");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println(selectedField);
         return selectedField;
     }
 }

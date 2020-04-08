@@ -102,7 +102,7 @@ public class FinancialHealthPage extends Base {
     }
 
     public void getMyRatingClick() {
-        getMyRating.click();
+        click(getMyRating);
     }
 
     public void pageIsDisplayedWithoutAuth() {
