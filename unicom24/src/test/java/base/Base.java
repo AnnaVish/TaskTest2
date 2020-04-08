@@ -116,6 +116,12 @@ public abstract class Base {
         };
     }
 
+    public void click(WebElement element) {
+        waitForVisibility(element);
+        waitToBeClickable(element);
+        element.click();
+    }
+
     public static void waitForVisibility(WebElement element) {
         waitForVisibility(element, ELEMENT_TIMEOUT_SECONDS);
     }

@@ -1,7 +1,5 @@
 package pages.commonElementsForAllPages;
 
-import java.util.Random;
-
 public class UserData {
 
     public static String incorrectPhoneNumber = "1111111111";
@@ -18,6 +16,7 @@ public class UserData {
     public static String passportNumber = "1454-564654";
     public static String birthDay = "12121990";
     public static String city = "Верхний Уфалей";
+    public static String commentText = "Текст для заполнения поля отзыва " + generateRandomInt();
 
     private static int generateRandomInt() {
         double randomPhone = (int) (Math.random() * ((999999999 - 900000000) + 1) + 900000000);

@@ -21,4 +21,29 @@ public class DetailBankPageStepDefinitions {
     public void feedBackAreDisplayed() {
         detailBankPage.checkCountOfFeedBack();
     }
+
+    @Дано("^пользователь кликает на кнопку Написать отзыв$")
+    public void userClickLeaveCommentButton() {
+        detailBankPage.leaveCommentButtonClick();
+    }
+
+    @Дано("^пользователь видит форму оставления коментария$")
+    public void commentFormIsDisplayed() {
+        detailBankPage.commentFormIsDisplayed();
+    }
+
+    @Дано("^пользователь заполняет форму оставления коментария$")
+    public void fillCommentForm() {
+        detailBankPage.fillCommentForm();
+    }
+
+    @Дано("^пользователь видет сообщение об успешной отправке коментария$")
+    public void commentSuccessfullySentMessageIsDisplayed() {
+        detailBankPage.commentSuccessfullySentMessageIsDisplayed();
+    }
+
+    @Дано("^проверка создания отзыва в базе данных$")
+    public void commentIsInDb() {
+        detailBankPage.checkCommentInDb();
+    }
 }
