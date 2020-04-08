@@ -40,6 +40,9 @@ public class Footer extends Base {
     @FindBy(xpath = "//a[./span[contains(text(), 'Стать агентом')]]")
     public WebElement becomeAgentLink;
 
+    @FindBy(css = ".app-footer-social-apps-item")
+    public List<WebElement> appsSocialLinks;
+
     /*
      *Футэр окончен
      */

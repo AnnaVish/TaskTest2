@@ -265,18 +265,48 @@ public class MainPage extends Base {
         }
     }
 
-    public void becomePartnerInFooterClick() {
+    public void userInFooterMediumLinkClick(String linkName){
         scrollTo(footerPage.becomePartnerLink);
         waitForVisibility(footerPage.becomePartnerLink);
-        footerPage.becomePartnerLink.click();
+        switch (linkName) {
+            case ("IOS"):
+                footerPage.appsSocialLinks.get(0).click();
+                break;
+            case ("Android"):
+                footerPage.appsSocialLinks.get(1).click();
+                break;
+            case ("FaceBook"):
+                footerPage.socialBtn.get(0).click();
+                break;
+            case ("VK"):
+                footerPage.socialBtn.get(1).click();
+                break;
+            case ("Instagram"):
+                footerPage.socialBtn.get(2).click();
+                break;
+            case ("Yandex Zen"):
+                footerPage.socialBtn.get(3).click();
+                break;
+            case ("Стать партнером"):
+                footerPage.becomePartnerLink.click();
+                break;
+            case ("Стать агентом"):
+                footerPage.becomeAgentLink.click();
+                break;
+        }
     }
 
-    public void becomeAgentInFooterClick() {
-        scrollTo(footerPage.becomeAgentLink);
-        waitToBeClickable(footerPage.becomeAgentLink);
-        footerPage.becomeAgentLink.click();
+    public void userInFooterMediumLinkPageCheck(String linkName){
+        Assert.assertTrue(chekingUrlLinks());
     }
 
+    public Boolean chekingUrlLinks(){
+        if (!driver.getCurrentUrl().contains(PagesUrls.mainPage)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void headerBecomeSmall() {
         //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается

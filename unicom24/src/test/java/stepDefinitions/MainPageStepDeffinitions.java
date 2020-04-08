@@ -130,16 +130,15 @@ public class MainPageStepDeffinitions extends Base {
      *методы футэра
      */
 
-    @Тогда("^пользователь кликает Стать партнером в футере$")
-    public void userClickBecomePartnerInFooter() {
-        mainPage.becomePartnerInFooterClick();
+    @Когда("^пользователь кликает \"([^\"]*)\" в средней части футера$")
+    public void userInFooterMediumLinksClick(String nameLink){
+    mainPage.userInFooterMediumLinkClick(nameLink);
         switchToTheSecondTab();
     }
 
-    @Тогда("^пользователь кликает Стать агентом в футере$")
-    public void userClickBecomeAgentInFooter() {
-        mainPage.becomeAgentInFooterClick();
-        switchToTheSecondTab();
+    @И("^пользователь проверяет страницу \"([^\"]*)\" из средней части футера$")
+    public void userInFooterMediumLinksCheck(String nameLink){
+        mainPage.userInFooterMediumLinkPageCheck(nameLink);
     }
 
     @Тогда("^пользователь кликает \"([^\"]*)\" в нижней части футера$")
