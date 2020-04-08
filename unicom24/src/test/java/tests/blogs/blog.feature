@@ -1,5 +1,6 @@
 # language: ru
 @firstTest
+@blog
 
 Функционал: Проверка страницы Блога
 
