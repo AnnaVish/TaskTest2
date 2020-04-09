@@ -10,19 +10,17 @@ public class CommonMethods extends Base {
         PageFactory.initElements(driver, this);
     }
 
-    public void logIn(WebElement loginField, WebElement passwordField, WebElement entranceLink) {
+    public void logIn(WebElement loginField, WebElement passwordField, WebElement entranceBtn) {
         /*
          *Здесь происходит неведомая хрень - селениум путает буквы при вооде, строго на этой странице на сайте
          * пришлось обходить это циклом, что пока значение в поле не будет правильным, пиши заново
          */
         while (!loginField.getAttribute("value").equals(AuthPage.login)) {
-            clearField(loginField);
             typeIntoField(AuthPage.login, loginField);
         }
         while (!passwordField.getAttribute("value").equals(AuthPage.password)) {
-            clearField(passwordField);
             typeIntoField(AuthPage.password, passwordField);
         }
-        entranceLink.click();
+        entranceBtn.click();
     }
 }

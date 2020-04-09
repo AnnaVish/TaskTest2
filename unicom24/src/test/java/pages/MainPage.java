@@ -155,7 +155,7 @@ public class MainPage extends Base {
         Assert.assertEquals(4, blocks.size());
         Assert.assertEquals(4, blogCards.size());
         Assert.assertTrue(seoLinks.size() >= 20);
-        Assert.assertEquals( 7, seoTitles.size());
+        Assert.assertEquals( 8, seoTitles.size());
     }
 
     public void mainPageUserIsAuthorized() {
