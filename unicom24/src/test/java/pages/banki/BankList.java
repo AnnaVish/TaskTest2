@@ -18,6 +18,7 @@ public class BankList extends Base {
 
     Header headerPage = new Header();
     Footer footerPage = new Footer();
+    String WebElementGetAtributHref = PagesUrls.mainPage;
 
     @FindBy(xpath = "//h1[contains(text(), 'Список банков России')]")
     private WebElement pageTitle;
@@ -44,7 +45,7 @@ public class BankList extends Base {
     @FindBy(css = ".ui-list-bank-item__content-name a")
     private WebElement nameOfBank;
 
-    @FindBy(xpath = "//div[@class='ui-list-sidebar-item-name']")
+    @FindBy(xpath = "//a[./div[@class='ui-list-sidebar-item-name']]")
     private List<WebElement> bankListFilters;
 
     @FindBy(xpath = "//button[./span[contains(text(), 'Показать еще')]]")
@@ -101,6 +102,8 @@ public class BankList extends Base {
         allElementsAreVisible(bankListFilters);
         for (WebElement element : bankListFilters) {
             if (element.getText().equals(nameFilter)) {
+                WebElementGetAtributHref = element.getAttribute("href");
+                scrollToTop();
                 element.click();
                 break;
             }
@@ -108,11 +111,12 @@ public class BankList extends Base {
     }
 
     public void bankListSelectedFilterChecking(String nameFilter){
+        waitForUrlContains(WebElementGetAtributHref);
+        waitForPageLoaded(WebElementGetAtributHref);
         waitForAllAjaxElementIsVisible(bank);
         if (isElementVisible(bankListMoreResults)){
         bankListMoreResults.click();
-        waitForAllAjaxElementIsVisible(bank);
-        waitForAllAjaxElementIsVisible(bankContentForCheckFilter);}
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='ui-list-bank-item__content-bottom']//div"), 5);}
         int countBanksWithFilterContent = 0;
         for (WebElement element : bankContentForCheckFilter) {
             if (element.getText().equals(nameFilter))
