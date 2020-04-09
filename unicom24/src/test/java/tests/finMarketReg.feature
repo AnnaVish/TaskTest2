@@ -1,4 +1,6 @@
 # language: ru
+@finMarketReg
+
 Функционал: Регистрация Финансовый маркет
 
   @test
