@@ -57,8 +57,6 @@ public class BankList extends Base {
 
     public BankList() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, headerPage);
-        PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(pageTitle, seacrchField, searchBtn);
     }
 
@@ -77,6 +75,7 @@ public class BankList extends Base {
 
     public void onAllBanksPage() {
         driver.get(PagesUrls.bankListPage);
+        waitForPageLoaded(PagesUrls.bankListPage);
     }
 
     public void fillSearchInput(String nameOfBank) {
@@ -101,8 +100,10 @@ public class BankList extends Base {
     public void bankListFiltersClick(String nameFilter){
         allElementsAreVisible(bankListFilters);
         for (WebElement element : bankListFilters) {
-            if (element.getText().equals(nameFilter))
+            if (element.getText().equals(nameFilter)) {
                 element.click();
+                break;
+            }
         }
     }
 
