@@ -1,5 +1,6 @@
 # language: ru
 @firstTest
+@popularCreditOrganisations
 
 Функционал: Проверка блока Популярные кредитные организации
 

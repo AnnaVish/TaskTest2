@@ -1,5 +1,6 @@
 # language: ru
 @firstTest
+@mainPageIsDisplayed
 
 Функционал: Проверка отображения всех элементов на главной
 
