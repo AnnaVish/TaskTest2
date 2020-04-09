@@ -75,9 +75,6 @@ public class PostbackTabPage extends Base {
     @FindBy(xpath = "//label[contains(text(), 'Повторная выдача')]")
     private WebElement secondExtradition;
 
-    @FindBy(xpath = "//label[contains(text(), 'Переход')]")
-    private WebElement transitionCheck;
-
     @FindBy(xpath = "//div[./div[contains(text(), 'Базовая ссылка')]]//input")
     private WebElement baseUrlInput;
 
@@ -134,7 +131,7 @@ public class PostbackTabPage extends Base {
         PageFactory.initElements(driver, this);
         elements = Arrays.asList(postBackTitle, createPostBackBtn, uiPostBackForm, nameOfPostbackInput,
                 typePostBtn, typeGetBtn, inProgressCheck, approvedCheck, deniedCheck, extraditionCheck, issueCheck,
-                approvalCheck, secondExtradition, transitionCheck, baseUrlInput, offerIdNameOfParametrInput,
+                approvalCheck, secondExtradition, baseUrlInput, offerIdNameOfParametrInput,
                 offerIdValueOfParametrInput, offerNameNameOfParametrInput, offerNameValueOfParametrInput,
                 clickIdNameOfParametrInput, clickIdValueOfParametrInput, mainTextArea, copyBtn);
     }
