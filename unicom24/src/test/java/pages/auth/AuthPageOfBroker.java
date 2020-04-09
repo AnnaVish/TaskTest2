@@ -4,12 +4,15 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.CommonMethods;
 import pagesUrls.PagesUrls;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AuthPageOfBroker extends Base {
+
+    CommonMethods commonMethods = new CommonMethods();
 
     @FindBy(css = "div.form")
     private WebElement form;
@@ -49,19 +52,7 @@ public class AuthPageOfBroker extends Base {
     public void brokerLogIn() {
         waitForVisibility(loginField);
         waitForVisibility(passwordField);
-        /*
-         *Здесь происходит неведомая хрень - селениум путает буквы при вооде, строго на этой странице на сайте
-         * пришлось обходить это циклом, что пока значение в поле не будет правильным, пиши заново
-         */
-        while (!loginField.getAttribute("value").equals(AuthPage.login)) {
-            clearField(loginField);
-            typeIntoField(AuthPage.login, loginField);
-        }
-        while (!passwordField.getAttribute("value").equals(AuthPage.password)) {
-            clearField(passwordField);
-            typeIntoField(AuthPage.password, passwordField);
-        }
-        entranceLink.click();
+        commonMethods.logIn(loginField, passwordField, entranceLink);
     }
 
 }

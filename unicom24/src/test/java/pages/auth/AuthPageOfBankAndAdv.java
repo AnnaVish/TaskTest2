@@ -4,11 +4,13 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.CommonMethods;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AuthPageOfBankAndAdv extends Base {
+    CommonMethods commonMethods = new CommonMethods();
 
     @FindBy(css = "div.auth-layout-form")
     private WebElement authForm;
@@ -40,9 +42,6 @@ public class AuthPageOfBankAndAdv extends Base {
     }
 
     public void advAuth(){
-        typeIntoField(AuthPage.login, loginField);
-        typeIntoField(AuthPage.password, passwordField);
-        entranceLink.click();
+        commonMethods.logIn(loginField, passwordField, entranceLink);
     }
-
 }
