@@ -1,5 +1,4 @@
 # language: ru
-@firstTest
 @catalog
 
 Функционал: Регистрация в кабинете вебмастера
