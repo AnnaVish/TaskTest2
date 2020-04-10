@@ -1,6 +1,7 @@
 package stepDefinitions.bankList;
 
 import cucumber.api.java.ru.И;
+import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import org.junit.Assert;
 import pages.banki.BankList;
@@ -38,6 +39,16 @@ public class AllBanksStepDefinitions {
     @Тогда("^пользователь кликает на название банка на странице все банки$")
     public void userClickNameOfBank() {
         bankList.clickNameOfBank();
+    }
+
+    @Когда("^пользователь выбирает фильтр \"([^\"]*)\" на странице Все банки$")
+    public void userBankListFilterSelect(String nameFilter){
+        bankList.bankListFiltersClick(nameFilter);
+    }
+
+    @Тогда("^пользователь видит результат по фильтру \"([^\"]*)\" и проверяет список нажав Показать еще$")
+    public void userBankListCheckingSelectedFilter(String nameFilter){
+        bankList.bankListSelectedFilterChecking(nameFilter);
     }
 
 }

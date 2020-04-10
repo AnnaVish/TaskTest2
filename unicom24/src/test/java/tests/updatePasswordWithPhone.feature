@@ -1,5 +1,5 @@
 # language: ru
-@updatePassword
+@updatePasswordWithPhone
 
 Функционал: Восстановление пароля Финансовый маркет по номеру телефона и почте
 

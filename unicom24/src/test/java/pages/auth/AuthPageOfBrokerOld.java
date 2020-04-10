@@ -4,11 +4,14 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.CommonMethods;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AuthPageOfBrokerOld extends Base {
+
+    CommonMethods commonMethods = new CommonMethods();
 
     @FindBy(css = ".account__logo")
     private WebElement logo;
@@ -50,8 +53,6 @@ public class AuthPageOfBrokerOld extends Base {
     }
 
     public void logIn(){
-        typeIntoField(AuthPage.login, loginField);
-        typeIntoField(AuthPage.password, passwordField);
-        entranceLink.click();
+        commonMethods.logIn(loginField, passwordField, entranceLink);
     }
 }

@@ -1,5 +1,6 @@
 package pages.auth;
 
+import pages.CommonMethods;
 import pagesUrls.PagesUrls;
 import testContext.TestContext;
 import base.Base;
@@ -21,6 +22,7 @@ public class AuthPage extends Base {
     WebDriverWait wait = new WebDriverWait(driver, 20);
     Header headerPage = new Header();
     Footer footerPage = new Footer();
+    CommonMethods commonMethods = new CommonMethods();
 
     public static String login = "glushkova.es@unicom24.ru";
     public static String password = "usertest1";
@@ -106,16 +108,8 @@ public class AuthPage extends Base {
         waitForVisibility(repeatNewPasswordField);
     }
 
-    public void loginFill() {
-        typeIntoField(login, mailOrTelField);
-    }
-
-    public void passwordFill() {
-        typeIntoField(password, passwordField);
-    }
-
-    public void entranceBtnClick() {
-        entranceBtn.click();
+    public void logIn() {
+        commonMethods.logIn(mailOrTelField, passwordField, entranceBtn);
     }
 
     public void forgetPasswordClick() {
@@ -136,7 +130,7 @@ public class AuthPage extends Base {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        sendBtn.click();
+        click(sendBtn);
         TestContext.NonMainTestUser = 1;
     }
 
@@ -174,7 +168,6 @@ public class AuthPage extends Base {
     }
 
     public void regClick() {
-        waitForVisibility(registrationTab);
-        registrationTab.click();
+        click(registrationTab);
     }
 }

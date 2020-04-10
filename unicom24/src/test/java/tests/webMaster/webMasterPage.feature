@@ -1,5 +1,6 @@
 # language: ru
 @smokeAdv
+@webMasterPage
 
 Функционал: СмоукТест Вебмастера и ЛК Вебмастера
 

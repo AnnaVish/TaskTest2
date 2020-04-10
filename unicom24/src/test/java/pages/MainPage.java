@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.commonElementsForAllPages.Footer;
 import pages.commonElementsForAllPages.Header;
 import pagesUrls.PagesUrls;
@@ -140,9 +138,10 @@ public class MainPage extends Base {
         driver.get(PagesUrls.mainPage);
     }
 
-    private Boolean countOfImageVertical() {
-        return driver.findElements(By.cssSelector(".ui-card-offers-wrap a")).size() == 6;
-    }
+//    закоменчено т.к. код был неиспользуемый
+//    private Boolean countOfImageVertical() {
+//        return driver.findElements(By.cssSelector(".ui-card-offers-wrap a")).size() == 6;
+//    }
 
     public void mainPageIsDisplayed() {
         allElementsAreVisible(headerPage.getMainHeaderOnMainPage());
@@ -155,8 +154,8 @@ public class MainPage extends Base {
         Assert.assertEquals(4, instructionsRounds.size());
         Assert.assertEquals(4, blocks.size());
         Assert.assertEquals(4, blogCards.size());
-        Assert.assertTrue(seoLinks.size() > 20);
-        Assert.assertEquals(8, seoTitles.size());
+        Assert.assertTrue(seoLinks.size() >= 20);
+        Assert.assertEquals( 8, seoTitles.size());
     }
 
     public void mainPageUserIsAuthorized() {
@@ -309,8 +308,6 @@ public class MainPage extends Base {
     }
 
     public void headerBecomeSmall() {
-        //waitForInvisibility(headerPage.privateCustomersLink); //- на период 10.01.2020 хедер теперь не так уменьшается
-        //waitForInvisibility(headerPage.forBusinessLink); //- на период 10.01.2020 хедер теперь не так уменьшается
         waitForInvisibility(headerPage.othersLink);
         waitForVisibility(headerPage.creditsHeaderLink);
         waitForVisibility(headerPage.creditCardsHeaderLink);

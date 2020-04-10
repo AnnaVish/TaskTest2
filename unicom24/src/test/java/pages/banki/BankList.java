@@ -1,6 +1,7 @@
 package pages.banki;
 
 import base.Base;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,7 @@ public class BankList extends Base {
 
     Header headerPage = new Header();
     Footer footerPage = new Footer();
+    String WebElementGetAtributHref = PagesUrls.mainPage;
 
     @FindBy(xpath = "//h1[contains(text(), 'Список банков России')]")
     private WebElement pageTitle;
@@ -37,15 +39,25 @@ public class BankList extends Base {
     })
     private List<WebElement>bank;
 
+    @FindBy(xpath = "//a[@class='ui-list-bank-item']")
+    private List<WebElement> banks;
+
     @FindBy(css = ".ui-list-bank-item__content-name a")
     private WebElement nameOfBank;
+
+    @FindBy(xpath = "//a[./div[@class='ui-list-sidebar-item-name']]")
+    private List<WebElement> bankListFilters;
+
+    @FindBy(xpath = "//button[./span[contains(text(), 'Показать еще')]]")
+    private WebElement bankListMoreResults;
+
+    @FindBy(xpath = "//div[@class='ui-list-bank-item__content-bottom']//div")
+    private List<WebElement> bankContentForCheckFilter;
 
     public final List<WebElement>elements;
 
     public BankList() {
         PageFactory.initElements(driver, this);
-        PageFactory.initElements(driver, headerPage);
-        PageFactory.initElements(driver, footerPage);
         elements = Arrays.asList(pageTitle, seacrchField, searchBtn);
     }
 
@@ -54,6 +66,7 @@ public class BankList extends Base {
         allElementsAreVisible(elements);
         allElementsAreVisible(bank);
         waitForVisibility(nameOfBank);
+        allElementsAreVisible(bankListFilters);
         allElementsAreVisible(footerPage.getFooter());
     }
 
@@ -63,6 +76,7 @@ public class BankList extends Base {
 
     public void onAllBanksPage() {
         driver.get(PagesUrls.bankListPage);
+        waitForPageLoaded(PagesUrls.bankListPage);
     }
 
     public void fillSearchInput(String nameOfBank) {
@@ -82,5 +96,33 @@ public class BankList extends Base {
     public void clickNameOfBank() {
         waitToBeClickable(nameOfBank);
         nameOfBank.click();
+    }
+
+    public void bankListFiltersClick(String nameFilter){
+        allElementsAreVisible(bankListFilters);
+        for (WebElement element : bankListFilters) {
+            if (element.getText().equals(nameFilter)) {
+                WebElementGetAtributHref = element.getAttribute("href");
+                scrollToTop();
+                element.click();
+                break;
+            }
+        }
+    }
+
+    public void bankListSelectedFilterChecking(String nameFilter){
+        waitForUrlContains(WebElementGetAtributHref);
+        waitForPageLoaded(WebElementGetAtributHref);
+        waitForAllAjaxElementIsVisible(bank);
+        if (isElementVisible(bankListMoreResults)){
+        bankListMoreResults.click();
+        waitForCountOfAjaxElementsMoreThan(By.xpath("//div[@class='ui-list-bank-item__content-bottom']//div"), 5);}
+        int countBanksWithFilterContent = 0;
+        for (WebElement element : bankContentForCheckFilter) {
+            if (element.getText().equals(nameFilter))
+                countBanksWithFilterContent++;
+        }
+        Assert.assertEquals(countBanksWithFilterContent, banks.size());
+
     }
 }

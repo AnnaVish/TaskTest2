@@ -4,12 +4,14 @@ import base.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.CommonMethods;
 import pages.auth.AuthPage;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AdmAuth extends Base {
+    CommonMethods commonMethods = new CommonMethods();
 
     @FindBy(name = "username")
     private WebElement loginField;
@@ -36,8 +38,6 @@ public class AdmAuth extends Base {
     }
 
     public void logIn(){
-        typeIntoField(AuthPage.login, loginField);
-        typeIntoField(AuthPage.password, passwordField);
-        entranceBtn.click();
+        commonMethods.logIn(loginField, passwordField, entranceBtn);
     }
 }

@@ -15,9 +15,7 @@ public class AuthPageStepDefinitions {
 
     @Тогда("^пользователь авторизовывается$")
     public void userLogIn(){
-        authPage.loginFill();
-        authPage.passwordFill();
-        authPage.entranceBtnClick();
+        authPage.logIn();
     }
 
     @Тогда("^пользователь нажимает: забыли пароль$")
